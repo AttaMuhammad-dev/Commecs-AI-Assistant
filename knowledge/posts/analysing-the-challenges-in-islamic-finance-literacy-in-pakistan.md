@@ -1,0 +1,12 @@
+| **AUTHOR:** |  Tooba Akram Khan | **BIB. #**  79 |
+| --- | --- | --- |
+| **TITLE:** | Analysing the challenges in Islamic Finance Literacy in Pakistan | Analysing the challenges in Islamic Finance Literacy in Pakistan |
+| **YEAR OF PUBLICATION:** | Spring 2023 | Spring 2023 |
+| **CATEGORY:** | MBA Thesis | MBA Thesis |
+| **ABSTRACT/SUMMARY:** | The research design employs a mixed-methods approach, combining qualitative and quantitative data collection and analysis. The study identifies key factors contributing to the low level of Islamic finance literacy, including cultural barriers, limited access to education and financial services, and a lack of awareness among policymakers and regulators. In conclusion, addressing the challenges of Islamic finance literacy in Pakistan is imperative for the continued growth and success of the industry. | The research design employs a mixed-methods approach, combining qualitative and quantitative data collection and analysis. The study identifies key factors contributing to the low level of Islamic finance literacy, including cultural barriers, limited access to education and financial services, and a lack of awareness among policymakers and regulators. In conclusion, addressing the challenges of Islamic finance literacy in Pakistan is imperative for the continued growth and success of the industry. |
+| **KEY WORD(S):** | Islamic finance, financial literacy, Pakistan, education, challenges, strategies | Islamic finance, financial literacy, Pakistan, education, challenges, strategies |
+| **METHODOLOGY:** | Mixed research | Mixed research |
+| **NO. OF PAGES:** | 37p. | 37p. |
+| **SUPERVISOR:** | Dr. Muhammad Farhan | Dr. Muhammad Farhan |
+| **INSTITUTE:** | Commecs Institute of Business and Emerging Sciences (CIBES) | Commecs Institute of Business and Emerging Sciences (CIBES) |
+| **BIBLIOGRAPHY:** | Khan, Tooba Akram. (Spring, 2023). _Analysing the challenges in Islamic Finance Literacy in Pakistan._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. | Khan, Tooba Akram. (Spring, 2023). _Analysing the challenges in Islamic Finance Literacy in Pakistan._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |

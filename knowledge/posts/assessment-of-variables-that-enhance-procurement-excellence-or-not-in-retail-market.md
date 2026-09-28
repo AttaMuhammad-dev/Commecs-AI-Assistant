@@ -1,0 +1,12 @@
+| **AUTHOR:** |  Muhammad Uzair Amin Bawany | **BIB. #**  17 |
+| --- | --- | --- |
+| **TITLE:** | Assessment of variables that enhance Procurement Excellence or not in Retail Market | Assessment of variables that enhance Procurement Excellence or not in Retail Market |
+| **YEAR OF PUBLICATION:** | Spring 2017 | Spring 2017 |
+| **CATEGORY:** | BBA Thesis | BBA Thesis |
+| **ABSTRACT/SUMMARY:** | The study will seek to look at how companies can better manage risks in their supply chains with the proper implementation and application of procurement best practices in order to achieve the organizational objectives that they have set for themselves. It will look into the possible causes of risks and how integration can solve the different aspects of a company’s performance so that it is sustainable and thrives in a global environment. Customer integration is significant and has a positive impact on schedule attainment, customer satisfaction and competitive performance. | The study will seek to look at how companies can better manage risks in their supply chains with the proper implementation and application of procurement best practices in order to achieve the organizational objectives that they have set for themselves. It will look into the possible causes of risks and how integration can solve the different aspects of a company’s performance so that it is sustainable and thrives in a global environment. Customer integration is significant and has a positive impact on schedule attainment, customer satisfaction and competitive performance. |
+| **KEY WORD(S):** | Supply Chain, Customer Integration | Supply Chain, Customer Integration |
+| **METHODOLOGY:** | Quantitative Research | Quantitative Research |
+| **NO. OF PAGES:** | 27p. | 27p. |
+| **SUPERVISOR:** | Mr. Kamran Rajput | Mr. Kamran Rajput |
+| **INSTITUTE:** | Commecs Institute of Business and Emerging Sciences (CIBES) | Commecs Institute of Business and Emerging Sciences (CIBES) |
+| **BIBLIOGRAPHY:** | Bawany, Muhammad Uzair Amin. (Spring, 2017). _Assessment of variables that enhance Procurement Excellence or not in Retail Market._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. | Bawany, Muhammad Uzair Amin. (Spring, 2017). _Assessment of variables that enhance Procurement Excellence or not in Retail Market._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |

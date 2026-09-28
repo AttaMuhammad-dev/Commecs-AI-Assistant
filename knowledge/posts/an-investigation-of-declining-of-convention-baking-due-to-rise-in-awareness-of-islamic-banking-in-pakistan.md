@@ -1,0 +1,12 @@
+| **AUTHOR:** |  Syed Awais | **BIB. #**  69 |
+| --- | --- | --- |
+| **TITLE:** | An investigation of declining of convention baking due to rise in awareness of Islamic banking in Pakistan | An investigation of declining of convention baking due to rise in awareness of Islamic banking in Pakistan |
+| **YEAR OF PUBLICATION:** | Spring 2022 | Spring 2022 |
+| **CATEGORY:** | MBA Thesis | MBA Thesis |
+| **ABSTRACT/SUMMARY:** | This study analyzes the awareness towards the Islamic banking system in Pakistan. The majority of Muslims are familiar with the essential concepts of Islamic finance. However, they are unaware of Islamic financial products such as Mudarabah, Murabaha, Ijara, and others. In a nutshell, the main goal of this study is to inform customer regarding knowledge of Islamic banking products in the country. The findings of the survey sugges that clients are unaware of certain Islamic goods such as Murabaha, Ijara, an Musharikah finance etc. | This study analyzes the awareness towards the Islamic banking system in Pakistan. The majority of Muslims are familiar with the essential concepts of Islamic finance. However, they are unaware of Islamic financial products such as Mudarabah, Murabaha, Ijara, and others. In a nutshell, the main goal of this study is to inform customer regarding knowledge of Islamic banking products in the country. The findings of the survey sugges that clients are unaware of certain Islamic goods such as Murabaha, Ijara, an Musharikah finance etc. |
+| **KEY WORD(S):** | Islamic Banking, Conventional Banking, Mudarabah, Islamic Finance, Awareness, Islamic Products. | Islamic Banking, Conventional Banking, Mudarabah, Islamic Finance, Awareness, Islamic Products. |
+| **METHODOLOGY:** | Explanatory Research | Explanatory Research |
+| **NO. OF PAGES:** | 91p. | 91p. |
+| **SUPERVISOR:** | Dr. Azam Ali | Dr. Azam Ali |
+| **INSTITUTE:** | Commecs Institute of Business and Emerging Sciences (CIBES) | Commecs Institute of Business and Emerging Sciences (CIBES) |
+| **BIBLIOGRAPHY:** |  Awais, Syed. (Spring, 2022). _An investigation of declining of convention baking due to rise in awareness of Islamic banking in Pakistan._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |  Awais, Syed. (Spring, 2022). _An investigation of declining of convention baking due to rise in awareness of Islamic banking in Pakistan._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |

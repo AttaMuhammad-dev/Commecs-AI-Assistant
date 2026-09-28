@@ -1,0 +1,12 @@
+| **AUTHOR:** |  Syed Usaid Baqi | **BIB. #** 80 |
+| --- | --- | --- |
+| **TITLE:** | Determinants of dividend payment decisions: evidence from automobile industry | Determinants of dividend payment decisions: evidence from automobile industry |
+| **YEAR OF PUBLICATION:** | Fall 2023 | Fall 2023 |
+| **CATEGORY:** | MBA Thesis | MBA Thesis |
+| **ABSTRACT/SUMMARY:** | The study major goal was to determine the most effective drivers of dividend policy and to assess the determinants of dividend policy and their relationships with other factors. The data utilized in the analysis is secondary data received from the Pakistan Stock Exchange and originates from the target sample from 2010 to 2020. To assess the various independent variables included in the investigation, this study employs STATA to do a regression analysis. Changing factor levels and dividend payout rates might be the major cause of this issue. It’s possible that external circumstances play a role in determining the company’s dividend policy. | The study major goal was to determine the most effective drivers of dividend policy and to assess the determinants of dividend policy and their relationships with other factors. The data utilized in the analysis is secondary data received from the Pakistan Stock Exchange and originates from the target sample from 2010 to 2020. To assess the various independent variables included in the investigation, this study employs STATA to do a regression analysis. Changing factor levels and dividend payout rates might be the major cause of this issue. It’s possible that external circumstances play a role in determining the company’s dividend policy. |
+| **KEY WORD(S):** | Dividends, cash flow, growth, debt to equity, return on assets, liquidity | Dividends, cash flow, growth, debt to equity, return on assets, liquidity |
+| **METHODOLOGY:** | Descriptive Research | Descriptive Research |
+| **NO. OF PAGES:** | 39p. | 39p. |
+| **SUPERVISOR:** | Dr. Muhammad Farhan | Dr. Muhammad Farhan |
+| **INSTITUTE:** | Commecs Institute of Business and Emerging Sciences (CIBES) | Commecs Institute of Business and Emerging Sciences (CIBES) |
+| **BIBLIOGRAPHY:** | Baqi, Syed Usaid. (Fall, 2023). _Determinants of dividend payment decisions: evidence from automobile industry._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. | Baqi, Syed Usaid. (Fall, 2023). _Determinants of dividend payment decisions: evidence from automobile industry._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |

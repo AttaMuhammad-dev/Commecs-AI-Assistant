@@ -1,0 +1,14 @@
+**Ilaaf Malik  
+Crescent Room**
+
+![](https://commecscollege.edu.pk/wp-content/uploads/2025/02/laboratory-rat-1024x636.webp)
+
+Animal testing is the practice carried out in laboratories, of using animals in experiments to test the safety and effectiveness of products like medicine, cosmetics, and chemicals. Over the years, this practice has sparked debate over whether it is righteous or not. Many people argue against it, while others believe it is necessary for scientific progress. But is animal testing really ethical?
+
+One reason people argue against animal testing is the harm it can cause to animals. Animals, like mice, rabbits, and monkeys, can suffer physical pain, stress, and even death during these experiments. They are often kept in small cages, away from their natural environment, which can be very cruel. Supporters of animal rights believe that it is wrong to treat animals as tools for human benefit, especially when they can experience pain and fear. Moreover, the treatments done on animals can’t sometimes work on humans hence resulting in failed experiment because animal models don’t precisely give back complications of human state. Animal testing is also prolonged if fail and also costly. Some Scientific researches show that animal based researches doesn’t forecast human outcomes. This is due to genetics of both species
+
+On the other hand, some people say that animal testing is important for science and medicine. In many cases, it has led to life-saving treatments, like vaccines and antibiotics, which have helped humans fight diseases. Animal testing is considered to be efficient as they have short life spam so researchers can monitor them throughout their lives. Scientists can also be aware of how disease work and how to mark the root cause. In this way it can be safely treated on humans. Without testing on animals, scientists might not be able to develop new medicines that could save lives. They argue that animal testing has been a crucial part of scientific research for many years.
+
+However, alternatives to animal testing are now being explored. Scientists are developing new methods, like computer models that can replace the need for animals in some experiments. In addition to this, scientists test on humans who willingly volunteer themselves. Testing is also carried out on cells that are made in labs to understand how the particular substance work on humans. These methods could help reduce the number of animals used and prevent suffering.
+
+In conclusion, animal testing raises important ethical questions. While it has contributed to medical advancements, it also brings about concerns about the treatment of animals. As science progresses, it is important to find better alternatives that can help humans without causing harm to animals.

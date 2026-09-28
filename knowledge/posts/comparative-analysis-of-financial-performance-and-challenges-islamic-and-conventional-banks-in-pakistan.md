@@ -1,0 +1,12 @@
+| **AUTHOR:** |  M. Hasan Saleem | **BIB. #**  75 |
+| --- | --- | --- |
+| **TITLE:** | Comparative Analysis of Financial Performance and Challenges: Islamic and Conventional Banks in Pakistan | Comparative Analysis of Financial Performance and Challenges: Islamic and Conventional Banks in Pakistan |
+| **YEAR OF PUBLICATION:** | Fall 2023 | Fall 2023 |
+| **CATEGORY:** | MBA Thesis | MBA Thesis |
+| **ABSTRACT/SUMMARY:** | This research investigates the performance disparities between Islamic and conventional banks, with a focus on customer deposits. A comprehensive sample, comprising full-fledged Islamic banks, Islamic branches of conventional banks, and conventional banks, is analyzed using secondary data sources spanning from 2005 to 2009. The findings support the hypothesis that Islamic banks were less impacted by the crisis, positioning them for a more favorable future outlook. | This research investigates the performance disparities between Islamic and conventional banks, with a focus on customer deposits. A comprehensive sample, comprising full-fledged Islamic banks, Islamic branches of conventional banks, and conventional banks, is analyzed using secondary data sources spanning from 2005 to 2009. The findings support the hypothesis that Islamic banks were less impacted by the crisis, positioning them for a more favorable future outlook. |
+| **KEY WORD(S):** | Islamic banks, Conventional banks, Financial Performance. | Islamic banks, Conventional banks, Financial Performance. |
+| **METHODOLOGY:** | Descriptive Research | Descriptive Research |
+| **NO. OF PAGES:** | 28p. | 28p. |
+| **SUPERVISOR:** | Dr. Muhammad Farhan | Dr. Muhammad Farhan |
+| **INSTITUTE:** | Commecs Institute of Business and Emerging Sciences (CIBES) | Commecs Institute of Business and Emerging Sciences (CIBES) |
+| **BIBLIOGRAPHY:** | Saleem, M. Hasan. (Fall, 2023). _Comparative Analysis of Financial Performance and Challenges: Islamic and Conventional Banks in Pakistan._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. | Saleem, M. Hasan. (Fall, 2023). _Comparative Analysis of Financial Performance and Challenges: Islamic and Conventional Banks in Pakistan._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |

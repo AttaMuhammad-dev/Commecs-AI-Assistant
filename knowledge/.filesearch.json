@@ -1,0 +1,602 @@
+{
+  "documents": {
+    "privacy-statement": {
+      "documentName": "Privacy Statement",
+      "contentHash": "190de59bb3341ff69a3710d822d17ddca2fae57f4eb5f4a9fa2dbd58c5a68c2f",
+      "modifiedGmt": "2026-09-07T08:05:27"
+    },
+    "internal-examination-policy-2026-2027": {
+      "documentName": "Internal Examination Policy 2026 – 2027",
+      "contentHash": "075d211dbc1e13bccf907b389c6c28bcacd98051c7dafd13665867ef770be3e2",
+      "modifiedGmt": "2026-08-28T03:25:52"
+    },
+    "student-portal": {
+      "documentName": "Student Portal",
+      "contentHash": "420365bddadf2e8b04c62f5cdf21d394683cf021acd5be4b62e133490363a126",
+      "modifiedGmt": "2026-07-06T09:06:54"
+    },
+    "home": {
+      "documentName": "Home",
+      "contentHash": "0cb8642199e899ca96d32b959797179f48e740b476026ba12e516c57938cdae4",
+      "modifiedGmt": "2026-09-04T06:46:22"
+    },
+    "instructions-for-admission": {
+      "documentName": "Instructions for Admission",
+      "contentHash": "9ffbc43ade27f1b49e7afd650566e03b562d5aeb734568c1ed86cb4840965a2a",
+      "modifiedGmt": "2026-07-07T03:36:33"
+    },
+    "merit-scholarships-holders": {
+      "documentName": "Merit Scholarships Holders",
+      "contentHash": "e0c859c619fcddda5581b3d77c901aee545e6d9732e91d20019235672e38385d",
+      "modifiedGmt": "2025-07-18T05:18:21"
+    },
+    "alumni-discount": {
+      "documentName": "Alumni Discount",
+      "contentHash": "3926cf4342c7cfae045f3f58c47246607daae3d70df79c5b8a5ddd92302f0f41",
+      "modifiedGmt": "2025-02-21T07:02:44"
+    },
+    "update-your-profile": {
+      "documentName": "Update Your Profile",
+      "contentHash": "9f8049b0880afa3885faedf661804a2d7a8940b7a84bc23ee4648b7a7ac90232",
+      "modifiedGmt": "2024-11-05T10:17:42"
+    },
+    "share-your-story": {
+      "documentName": "Share your Story",
+      "contentHash": "c4f921180d67fb5ad79f59ffbbddda394f947d434c778641f9c618ca252d579c",
+      "modifiedGmt": "2024-07-25T23:00:31"
+    },
+    "memoriam": {
+      "documentName": "Memoriam",
+      "contentHash": "45bf62688c7a7c44a7c27f9800fbef4c64cdc5fad0424a91c7fb269fa197c860",
+      "modifiedGmt": "2024-07-19T15:49:55"
+    },
+    "cibeans": {
+      "documentName": "Cibeans",
+      "contentHash": "6f9f0af7c69540dbbf0db591b69cb9def03d188142eed4d4fc9600b0eea7fa6b",
+      "modifiedGmt": "2025-03-01T22:39:09"
+    },
+    "alumni": {
+      "documentName": "Alumni",
+      "contentHash": "70ae7cb6f54be7537ffb67d24070d2df147ef84c30f09a0c3f7930dab883effe",
+      "modifiedGmt": "2026-08-19T09:33:20"
+    },
+    "results": {
+      "documentName": "Results",
+      "contentHash": "b27e8c94f6ec7088a341f70252b85550bea0770edc2cb4bf3e03f5574e7a02e8",
+      "modifiedGmt": "2026-08-19T16:18:31"
+    },
+    "fee-payment-policy": {
+      "documentName": "Fee Payment Policy",
+      "contentHash": "fc0c09a1c23dd3cc26690b26c29785ab249232efe2074adc99c2a702bc301a73",
+      "modifiedGmt": "2024-03-21T03:14:09"
+    },
+    "macro-plan": {
+      "documentName": "Macro Plan 2025 – 26",
+      "contentHash": "c0ba0288a2424e884f314d998b3f2c09ed1eb3ba157f4f02c65eabdb1e3550c7",
+      "modifiedGmt": "2026-09-01T05:32:06"
+    },
+    "admission-test-schedule": {
+      "documentName": "Admission Test Schedule",
+      "contentHash": "b8b59480869b4e51113244e05b1929d9bd3343f67bec4d53ac17e0e27e76ae46",
+      "modifiedGmt": "2023-07-26T14:30:34"
+    },
+    "conflict-of-interest-policy": {
+      "documentName": "Conflict of Interest Policy",
+      "contentHash": "9afc4573f27b7773e69d0671500a27960a59264b75964a699ace0dac8d05e5ba",
+      "modifiedGmt": "2023-01-10T21:44:08"
+    },
+    "students-code-of-conduct": {
+      "documentName": "Students Code of Conduct",
+      "contentHash": "85904eb5443d35dd7fbaf726857b7ec61625950cdcae7e5956500322752e33e8",
+      "modifiedGmt": "2023-01-10T21:29:16"
+    },
+    "social-media-policy": {
+      "documentName": "Social Media Policy",
+      "contentHash": "ef7d36f54ab435559c52d3df8e371d0dfb02f340997a1056259f3d138c9680c6",
+      "modifiedGmt": "2023-01-10T21:24:45"
+    },
+    "grievances-settlemnet-policy": {
+      "documentName": "Grievances Settlemnet Policy",
+      "contentHash": "b67f5456d023712d10fbb634824fa22347af0a3f6f101297f0c15a50c758bac9",
+      "modifiedGmt": "2026-01-21T09:01:41"
+    },
+    "discipline-policy": {
+      "documentName": "Discipline Policy",
+      "contentHash": "e3a0cc72a4e16e273b00088773a637f126509ac4600101a1c8d1b2c6366ae3e5",
+      "modifiedGmt": "2024-07-29T05:36:58"
+    },
+    "harassment-policy": {
+      "documentName": "Harassment Policy",
+      "contentHash": "ad6d92d141e55c29528e2d45d69dec7a42a2826356f6e816c7a5ea54a7d631e9",
+      "modifiedGmt": "2026-01-21T09:13:40"
+    },
+    "gallery-event": {
+      "documentName": "Gallery",
+      "contentHash": "460793d40f514c8201ef068c198f77c01e6906ee9d5370c042e900847cda447a",
+      "modifiedGmt": "2022-12-24T23:15:57"
+    },
+    "faqs": {
+      "documentName": "FAQs",
+      "contentHash": "8c437b1ab94ae457ee7d4b75beb9ce8bdeae5647c5d466a9886efc2a6601cb4f",
+      "modifiedGmt": "2023-04-03T10:01:21"
+    },
+    "contact-us": {
+      "documentName": "Contact Us",
+      "contentHash": "b628007f0e765f511b5566f3ce1b01442743f3320f984b3b85870d08eb0922ba",
+      "modifiedGmt": "2026-01-21T09:11:55"
+    },
+    "news-and-update": {
+      "documentName": "News",
+      "contentHash": "7c7fa1da8533965bd5eaa32ebc0b8f7f4147dfbcb8097100068a954369bb0687",
+      "modifiedGmt": "2026-08-06T06:16:56"
+    },
+    "commecs-perspetive": {
+      "documentName": "Commecs Perspetive",
+      "contentHash": "1660d6f53e0d8c1cd3a9765dd3cfe635260f6b6514ed43e0eefa81b1de0279fb",
+      "modifiedGmt": "2024-11-19T06:37:12"
+    },
+    "interview-result-important-instructions": {
+      "documentName": "Interview Result & Important Instructions",
+      "contentHash": "b5c4122664941a0afe3b312cd378ddd2b6c3b2148b332ba97faab30312a927e5",
+      "modifiedGmt": "2023-07-15T13:54:07"
+    },
+    "faculty": {
+      "documentName": "Faculty",
+      "contentHash": "16cdaa854b19d7e287b253061bbec097c690d19db34f9f3a41f155da7ee758e0",
+      "modifiedGmt": "2025-07-17T07:04:03"
+    },
+    "merit-positions": {
+      "documentName": "Merit Positions",
+      "contentHash": "7144f554552246f165203ba507a2723aeccc5705f7ac16d3ad07e25514b784ed",
+      "modifiedGmt": "2025-07-16T10:50:06"
+    },
+    "sibling-discount": {
+      "documentName": "Sibling Discount",
+      "contentHash": "1b13b8efe53b68194c4fa90480678104bee12ba23dde6f7907b79cc21489ff5e",
+      "modifiedGmt": "2024-07-29T05:30:37"
+    },
+    "scholarship-endowment-policies-session": {
+      "documentName": "Merit Scholarship & Need Based Scholarship Policies – Session 2025-26",
+      "contentHash": "85c5027698fba829e88a479fd007c6d533e7d51b7350eee454c5cef509b2c79e",
+      "modifiedGmt": "2026-05-25T03:46:21"
+    },
+    "register-for-admissions": {
+      "documentName": "Register for Admissions",
+      "contentHash": "807a081353881d4bce0609bd3f190cd33e2e030410235dac0504040264eba165",
+      "modifiedGmt": "2025-02-21T06:59:41"
+    },
+    "commecs-admission-test": {
+      "documentName": "Commecs Admission Test",
+      "contentHash": "87ef4aeba6b70efea112340886decd395d30d1fef5c2c10506f8d88c7be9d9a2",
+      "modifiedGmt": "2025-12-08T06:04:33"
+    },
+    "eligibility": {
+      "documentName": "Eligibility",
+      "contentHash": "0c6c0687b48d2078904281edec99da18b760c066ef896af15ce6d22342cf73ef",
+      "modifiedGmt": "2025-08-30T03:22:10"
+    },
+    "admission-criteria": {
+      "documentName": "Admission Criteria",
+      "contentHash": "090bac59c9ce07e11c72673a297988b13d0bdeb987eed47908f1b0837a61d2b6",
+      "modifiedGmt": "2022-12-21T17:06:19"
+    },
+    "downloads": {
+      "documentName": "Downloads",
+      "contentHash": "8b9d68c1d3008382321256feda52cecf0cd4f4a73aec83877d0ee6467971cb77",
+      "modifiedGmt": "2026-08-25T05:13:33"
+    },
+    "about": {
+      "documentName": "About",
+      "contentHash": "f28cb8e635089dbdbc9cdd671ba7ac7ea12cd2c181c64aeaa2fe5cc90aa26fe2",
+      "modifiedGmt": "2026-02-20T05:57:00"
+    },
+    "breaking-the-silence-making-space-for-mental-health": {
+      "documentName": "Breaking the silence: Making space for mental health",
+      "contentHash": "7961c805ef7d6332373e639ec2c637d3a30c3441b817c4f483992e474a7bace0",
+      "modifiedGmt": "2026-02-06T03:15:56"
+    },
+    "%d8%ae%d9%88%d8%af-%d8%a7%d8%ad%d8%aa%d8%b3%d8%a7%d8%a8%db%8c-%da%a9%db%8c-%d8%b1%d8%a7%db%81": {
+      "documentName": "خود احتسابی کی راہ",
+      "contentHash": "327b809102dca01f1de24d1414729aadeebd8e1bc9539017f457ff4367ae59a4",
+      "modifiedGmt": "2026-01-29T05:44:29"
+    },
+    "redefining-success-degrees-skills-or-something": {
+      "documentName": "Redefining Success: Degrees, Skills, or Something",
+      "contentHash": "9f8c193387bd481f42ed1303a2d0967fd300a3cbdd44273ebd5bf2cfabe31d57",
+      "modifiedGmt": "2026-01-28T07:14:15"
+    },
+    "gender-chains-or-compass": {
+      "documentName": "Gender: Chains or Compass?",
+      "contentHash": "37f3c69fbe53f3966fc895965dd53c95c9dccb10289027d98dea65ba36f366fd",
+      "modifiedGmt": "2025-11-22T05:01:16"
+    },
+    "gen-z-the-trendsetters-who-redefine-the-future": {
+      "documentName": "Gen Z: The Trendsetters Who Redefine the Future",
+      "contentHash": "2c966a61f5074e3a3e24aec7eebc17c447decca8a4e10fa23cf8ce44ff419924",
+      "modifiedGmt": "2025-10-28T08:17:17"
+    },
+    "your-smile-is-your-jewellery": {
+      "documentName": "Your Smile is Your Jewellery",
+      "contentHash": "aec864ebf401be5285e74ddb9a718fb50684cca769fe7f71b716a39dd903c5c3",
+      "modifiedGmt": "2025-10-28T07:51:15"
+    },
+    "those-who-truly-care": {
+      "documentName": "Those Who Truly Care",
+      "contentHash": "976229869eaebf2217897230aadd97e249f41fa83aaa103e17c455257a7a2033",
+      "modifiedGmt": "2025-10-28T07:47:47"
+    },
+    "the-inspiring-journey-of-dr-yusra-jamshed": {
+      "documentName": "The Inspiring Journey of Dr. Yusra Jamshed",
+      "contentHash": "a47ece2e3a01fdb8a8c27957c2cc7091aaacfb6fd39e86479620d2ddfe8b2909",
+      "modifiedGmt": "2025-10-01T05:33:17"
+    },
+    "%d9%86%d9%88%d8%ac%d9%88%d8%a7%d9%86-%d8%a7%d9%88%d8%b1-%d8%b3%d9%88%d8%b4%d9%84-%d9%85%db%8c%da%88%db%8c%d8%a7-%da%a9%d8%a7-%da%86%db%8c%d9%84%d9%86%d8%ac": {
+      "documentName": "نوجوان اور سوشل میڈیا کا چیلنج",
+      "contentHash": "b54e1a2869b40d3e2c268cb6b6b663c66d0d7de89fb1a8700c187b894db700bc",
+      "modifiedGmt": "2025-10-01T05:26:18"
+    },
+    "editorial-board-team": {
+      "documentName": "Editorial Board Team",
+      "contentHash": "10b5edf310b7d4aa4e2a3dadde498049c637b3099dab36dce1b5c9ab8d26abd9",
+      "modifiedGmt": "2025-10-01T05:08:29"
+    },
+    "dinning-attributes-and-customer-satisfaction": {
+      "documentName": "Dinning attributes and customer satisfaction",
+      "contentHash": "64aa105eb9ec6b8708dfbc39c235fc69de93c549060a74f84a5c786642fc40d4",
+      "modifiedGmt": "2025-09-27T03:12:50"
+    },
+    "determinants-of-dividend-payment-decisions-evidence-from-automobile-industry": {
+      "documentName": "Determinants of dividend payment decisions: evidence from automobile industry",
+      "contentHash": "22409f5af912278b0a48e3449c0d7202e4e2f2aac57209de9ab7245fda6367a5",
+      "modifiedGmt": "2025-09-27T03:11:59"
+    },
+    "determinants-of-debt-financing": {
+      "documentName": "Determinants of Debt Financing",
+      "contentHash": "c3b9bf81e8c3212472e54de60b74ad5930a4a1f1dace4418f79838eba945ff42",
+      "modifiedGmt": "2025-09-27T03:11:17"
+    },
+    "determinant-of-dividend-payout-of-oil-and-gas-exploration-sector": {
+      "documentName": "Determinant of dividend payout of Oil and gas exploration sector",
+      "contentHash": "90ffc2745822f5a83c40a2be04b9e1a331df950ea44f843d1a2333521557ceb0",
+      "modifiedGmt": "2025-09-27T03:10:52"
+    },
+    "consumer-behavior-towards-islamic-banking-in-pakistan": {
+      "documentName": "Consumer behavior towards Islamic banking in Pakistan",
+      "contentHash": "1058543e34cae7155ff75059242e8b53e944f45d35090005dd64b40111f83a97",
+      "modifiedGmt": "2025-09-27T03:09:42"
+    },
+    "comparison-of-subscriber-satisfaction-level-between-ufone-and-zong": {
+      "documentName": "Comparison of subscriber satisfaction level between Ufone and Zong",
+      "contentHash": "d9d2ea47cd692422ffbd9f51477113bf426ad71650d94e13d04d9fd014ac3f21",
+      "modifiedGmt": "2025-09-27T03:09:06"
+    },
+    "comparative-analysis-of-financial-performance-and-challenges-islamic-and-conventional-banks-in-pakistan": {
+      "documentName": "Comparative Analysis of Financial Performance and Challenges: Islamic and Conventional Banks in Pakistan",
+      "contentHash": "5b8c8beedd42464e67d24de3be563af7c901e6aaf3b69974e9da3e28e0edf039",
+      "modifiedGmt": "2025-09-27T03:08:27"
+    },
+    "challenges-in-practicing-green-supply-chain-management": {
+      "documentName": "Challenges in Practicing Green Supply Chain Management",
+      "contentHash": "422a8f903eebed06357f1f4d45abc8fdab732dea80bbe5f26ad3e724c0eadf2e",
+      "modifiedGmt": "2025-09-27T03:07:44"
+    },
+    "brand-loyalty-of-shoppers-in-selecting-a-super-store": {
+      "documentName": "Brand Loyalty of Shoppers In Selecting a Super Store",
+      "contentHash": "6eac47727cca67fd3fdc0100d9a87dec59eedec61e1ac1074baaad1fc27753f1",
+      "modifiedGmt": "2025-09-27T03:07:12"
+    },
+    "bank-related-industry-related-and-macroeconomic-factors-effecting-bank-profitability-a-case-of-pakistan": {
+      "documentName": "Bank Related, Industry Related and Macroeconomic Factors Effecting Bank Profitability: a case of pakistan",
+      "contentHash": "9433afdd640f4cdac3d65ce0cc2cc877558153f7e69a601f3141ce9a2ba6ae12",
+      "modifiedGmt": "2025-09-27T03:06:37"
+    },
+    "assessment-of-variables-that-enhance-procurement-excellence-or-not-in-retail-market": {
+      "documentName": "Assessment of variables that enhance Procurement Excellence or not in Retail Market",
+      "contentHash": "0d27cec1886d6cb1dddbcdcc76c318f64cb2473166413e3b485fa291cb6b3726",
+      "modifiedGmt": "2025-09-27T03:05:11"
+    },
+    "analysis-of-re-takaful-business-in-pakistan": {
+      "documentName": "Analysis of Re-Takaful Business in Pakistan",
+      "contentHash": "a55aab293706c87bf231f6d4129c59aa1d1fa5ad32074ce7eb41186b95d9c121",
+      "modifiedGmt": "2025-09-27T03:04:34"
+    },
+    "analysis-of-kse-30-with-kmi-30-index-in-terms-of-risk-and-return": {
+      "documentName": "Analysis of KSE-30 with KMI-30 Index In Terms Of Risk And Return",
+      "contentHash": "a7afb04651892244ef0555074480e77c051c3ad1d09443023d818e30ba9a5e2c",
+      "modifiedGmt": "2025-09-27T03:03:40"
+    },
+    "analysis-of-consociation-and-integration-on-the-supply-chain-process-of-construction-industry-in-pakistan": {
+      "documentName": "Analysis of consociation and integration on the supply chain process of construction industry in Pakistan",
+      "contentHash": "aa57e9d6588493527e839af1fd50dc7062f7e2976ece68699a598150a65e00c5",
+      "modifiedGmt": "2025-09-27T03:01:51"
+    },
+    "analysis-implementation-of-third-party-warehousing-in-pakistan": {
+      "documentName": "Analysis & Implementation of Third party warehousing in Pakistan",
+      "contentHash": "f748b641e304f0f1a274bab8a6144e68ad87fb621289123a0ec0ea6caed57ad2",
+      "modifiedGmt": "2025-09-27T03:00:58"
+    },
+    "an-investigation-of-declining-of-convention-baking-due-to-rise-in-awareness-of-islamic-banking-in-pakistan": {
+      "documentName": "An investigation of declining of convention baking due to rise in awareness of Islamic banking in Pakistan",
+      "contentHash": "4b4e7615c9b088cc98fcf3cc72fb69eb328b03dae911bcefbeb5665b7a755104",
+      "modifiedGmt": "2025-09-26T03:33:31"
+    },
+    "an-analysis-of-third-party-logistics-performance-and-service-provision-k-electric": {
+      "documentName": "An analysis of third-party logistics performance and service provision K-Electric",
+      "contentHash": "31859d9fd7ac8c71b22de21f22107384c1e83c614693e307a66fa10708d31020",
+      "modifiedGmt": "2025-09-26T04:23:30"
+    },
+    "a-feasibility-study-on-calf-fattening-in-district-hyderabad-sindh": {
+      "documentName": "A Feasibility study on Calf Fattening in District Hyderabad, Sindh",
+      "contentHash": "a7df8ed4d9d025431c502f101300189a43c3df96ea276308e821d56304247220",
+      "modifiedGmt": "2025-09-26T03:16:31"
+    },
+    "analysing-the-challenges-in-islamic-finance-literacy-in-pakistan": {
+      "documentName": "Analysing the challenges in Islamic Finance Literacy in Pakistan",
+      "contentHash": "be9a3233f0cd62ee7c1513a8f0931356558b4c8cb4fab414dae9bd0a250ccda3",
+      "modifiedGmt": "2025-09-26T03:15:21"
+    },
+    "importance-of-setting-boundaries": {
+      "documentName": "IMPORTANCE OF SETTING BOUNDARIES",
+      "contentHash": "bb4ed48d4ba8d3caa06606767d459e76463f022a278fe71f79da6f2223651692",
+      "modifiedGmt": "2025-09-25T06:31:41"
+    },
+    "analysing-effect-of-firm-structure-on-cash-holding-and-profitability-a-case-of-alternative-investment-market-of-uk": {
+      "documentName": "Analysing effect of firm structure on cash-holding and profitability: a case of alternative investment market of UK",
+      "contentHash": "839431ba630ec4b18903d00603dec850e75eae835c95c77edda98e26e83cef64",
+      "modifiedGmt": "2025-09-13T06:48:22"
+    },
+    "are-we-happier-than-our-forefathers": {
+      "documentName": "ARE WE HAPPIER THAN OUR FOREFATHERS?",
+      "contentHash": "3617f8286d8aff3bdf9b4bb6f223c878c9e2c54ef176bb0be2ed7a57cb1c5c45",
+      "modifiedGmt": "2025-04-29T04:22:03"
+    },
+    "iba%da%a9%d8%a7%d9%85%da%a9%d8%b3-%da%a9%d8%a7%d9%84%d8%ac-%d8%b3%db%92-%d9%85%db%8c%d8%b1%d8%a7-%d8%aa%d8%b9%d9%84%db%8c%d9%85%db%8c-%d8%b3%d9%81%d8%b1": {
+      "documentName": "IBA میرا تعلیمی سفر : کامکس کالج سے",
+      "contentHash": "43a4fb177ef9b0ff9419fc47d26bbb95e879327bdf5ac0e3821b47e6cf3e0f56",
+      "modifiedGmt": "2025-05-07T07:59:22"
+    },
+    "%d8%aa%d8%a8%d8%b5%d8%b1%db%81%d8%ac%d9%86%d8%aa-%da%a9%db%92-%d9%be%d8%aa%db%92": {
+      "documentName": "(تبصرہ)جنت کے پتے",
+      "contentHash": "923c0b5cf1968a587431fcfee96a43b5670ccab52193e45c27f4e6de7ac2883c",
+      "modifiedGmt": "2025-05-07T07:59:28"
+    },
+    "%d8%aa%d9%85%db%81%d8%a7%d8%b1%d8%a7-%d9%88%d9%82%d8%aa-%d8%b4%d8%b1%d9%88%d8%b9-%db%81%d9%88%d8%aa%d8%a7-%db%81%db%92-%db%94%db%94%db%94%d8%a7%d8%a8": {
+      "documentName": "!تمہارا  وقت شروع ہوتا ہے ۔۔۔اب",
+      "contentHash": "044f8d5cbe9ee895540b88a60da517d86b9164e17edd9b9a483e4e73b7ee348c",
+      "modifiedGmt": "2025-05-07T07:59:41"
+    },
+    "calligraphy-by-abdullah-khan": {
+      "documentName": "Calligraphy by Abdullah Khan",
+      "contentHash": "7f18bacd7484bf98216f2b4050217981cc3b6a7db6b1c54f11b7679373dcc779",
+      "modifiedGmt": "2025-04-29T04:22:21"
+    },
+    "%da%a9%d8%a7%d9%84%d8%ac-%da%a9%db%8c-%d8%a2%d8%ae%d8%b1%db%8c-%da%af%da%be%d9%86%d9%b9%db%8c": {
+      "documentName": "کالج کی آخری گھنٹی",
+      "contentHash": "311cc8f801dc860d3e256f725d4e076e6d9c950e99940703ee1b8fc0e5da1d45",
+      "modifiedGmt": "2025-05-07T08:00:04"
+    },
+    "%d8%af%d9%88%d8%b3%d8%aa%db%8c%d8%a7%da%ba-%da%a9%da%86%da%be-%d9%88%d9%82%d8%aa-%da%a9%db%92-%d9%84%db%8c%db%92%d8%8c%da%a9%da%86%da%be-%d8%b2%d9%86%d8%af%da%af%db%8c-%da%a9%db%92": {
+      "documentName": "دوستیاں:   کچھ وقت  کے لیے،کچھ زندگی کے  لیے",
+      "contentHash": "d011a4316c930b727c049e82d7e9e263e4eafc6d07c32af40b2d5e5caf1708eb",
+      "modifiedGmt": "2025-05-07T08:00:09"
+    },
+    "is-animal-testing-ethical": {
+      "documentName": "Is Animal Testing Ethical?",
+      "contentHash": "398741dc2ea7b4446057da01f7fd004b32e1d7c8ac4a636665bc4fbfbccdf7b2",
+      "modifiedGmt": "2025-04-29T04:22:29"
+    },
+    "words-that-stung": {
+      "documentName": "WORDS THAT STUNG",
+      "contentHash": "b8d3f5d7042543db537b03a882dcba52e0843dc670a5094301f16bc6a682b3b9",
+      "modifiedGmt": "2025-04-29T04:22:41"
+    },
+    "artificial-intelligence-ai-the-anti-intelligence-perspective": {
+      "documentName": "ARTIFICIAL INTELLIGENCE (AI) – The Anti-Intelligence Perspective",
+      "contentHash": "92810c19a4da45e1f3d2600aec36ba440dd919fcf1fcc6d039d330fe3b25e80b",
+      "modifiedGmt": "2025-04-29T04:22:47"
+    },
+    "%da%a9%db%81%d8%a7%d9%86%db%8c-%d8%a7%d9%88%d8%b1-%d9%be%da%be%d8%b1-%d9%88%d9%82%d8%aa-%d9%be%d9%84%d9%b9%d8%a7": {
+      "documentName": "کہانی (اور پھر وقت پلٹا)",
+      "contentHash": "ab01332f9f81c9a20c0ef226b9a163c178f7d0d6c0dcdf99f0fd7ea9acbd9e71",
+      "modifiedGmt": "2025-05-07T08:00:35"
+    },
+    "%d9%84%d9%88%da%af%d9%88%da%ba-%da%a9%db%92-%d8%b3%d8%a7%d8%aa%da%be-%d8%ae%d9%84%d8%a7%d8%a6%db%8c-%d9%85%d8%ae%d9%84%d9%88%d9%82-%d8%b1%d8%a7%d8%a8%d8%b7%db%92": {
+      "documentName": "لوگوں کے ساتھ خلائی مخلوق رابطے",
+      "contentHash": "3463ec6bd5b6cf69d42cbc3fde4e6ae18734167c4813776f2d96e9e303c444ec",
+      "modifiedGmt": "2025-05-07T08:00:55"
+    },
+    "%d8%b4%d9%85%d8%b3%db%8c-%d8%aa%d9%88%d8%a7%d9%86%d8%a7%d8%a6%db%8c-%d8%b3%db%92-%d8%a8%d8%ac%d9%84%db%8c-%da%a9%d8%a7-%d8%a8%d8%ad%d8%b1%d8%a7%d9%86-%d8%ad%d9%84-%da%a9%db%8c%d8%a7-%d8%ac%d8%a7": {
+      "documentName": "شمسی توانائی سے بجلی کا بحران حل کیا جا سکتا ہے",
+      "contentHash": "3c4cb34ad5e0d2f61268e0d3cbd4e415f873b53d5eb1a2fd6072b070eb798bc9",
+      "modifiedGmt": "2025-05-07T08:01:05"
+    },
+    "moral-and-ethical-duties-as-muslims-in-the-palestinian-conflict": {
+      "documentName": "Moral And Ethical Duties As Muslims In The Palestinian Conflict",
+      "contentHash": "831e2d35ec13587ac02d32b4c0e30f9296ccc8871d8871e6af41c94fc9a0a3bb",
+      "modifiedGmt": "2025-04-29T04:22:57"
+    },
+    "fulbright-scholarship-triumph-my-journey-from-determination-to-success": {
+      "documentName": "Fulbright Scholarship Triumph: My Journey from Determination to Success",
+      "contentHash": "90e8e89649d901c80f0eeeeb9992ebe453a8a1fcaaf0c506d531fbf0288b23d9",
+      "modifiedGmt": "2024-08-28T16:22:59"
+    },
+    "mr-justice-faisal-arab": {
+      "documentName": "Justice (Retired) Faisal Arab",
+      "contentHash": "ef78ae9e10851db98dac14c9f4b83b0de8adea0541668b48fb2369bc4ed5dfe9",
+      "modifiedGmt": "2024-08-05T05:13:18"
+    },
+    "inam-rahmani": {
+      "documentName": "Mr. Inam Rahmani",
+      "contentHash": "dc699885d93c6bfc958684b4be206871c97bed115cdede11753c8a4dd57aedf7",
+      "modifiedGmt": "2026-01-14T06:17:34"
+    },
+    "mr-m-usama-qureshi": {
+      "documentName": "Mr. M. Usama Qureshi",
+      "contentHash": "c1bb8f9bdc0317c08451fc9966f3be176bd69751fa7cdea54063f7a018ed7790",
+      "modifiedGmt": "2024-03-22T04:53:03"
+    },
+    "hena-sadiq": {
+      "documentName": "Ms. Hena Sadiq",
+      "contentHash": "5d99dd0f6ea9c6208f1eaa74d0fc4a221289cc5ea797830e30f197ae07302aec",
+      "modifiedGmt": "2024-03-22T04:52:59"
+    },
+    "khamoshi-ka-shor": {
+      "documentName": "خاموشی کا شور",
+      "contentHash": "fe5e8481112a50344ec2cb865de4d2d978d06f82b34f431822a251e9364d4643",
+      "modifiedGmt": "2025-05-07T08:01:18"
+    },
+    "alphafold": {
+      "documentName": "AlphaFold: One of the biggest contributions in Bio-Technology",
+      "contentHash": "b2c389ca4ad28953eebf7625e9ec2a8df8fd2698eae6d9fec5bc975885268ed6",
+      "modifiedGmt": "2025-04-29T04:23:16"
+    },
+    "decoding-the-minds-mysteries": {
+      "documentName": "Decoding the Mind’s Mysteries: AI-Powered Brain-Computer Interfaces",
+      "contentHash": "6d43584152cd82ff898f677f922d288322e4a6b8f1ce3bc07a75c83fac447e98",
+      "modifiedGmt": "2025-04-29T04:23:24"
+    },
+    "mr-ahmed-chinoy": {
+      "documentName": "Cdr (Retd) Tanveer Ahmad TI (M)",
+      "contentHash": "cba36884c4e8f50269a59715bf821d716addba5ec9f0ea9e624296463d7e5c11",
+      "modifiedGmt": "2024-07-29T05:48:41"
+    },
+    "dr-farah-iqbal": {
+      "documentName": "Dr. Farah Iqbal",
+      "contentHash": "5938d8e3cfcdd8e7aecaa661ff4b772bad0576ed5c5f72b7569bba8a6683ec1e",
+      "modifiedGmt": "2024-03-22T04:52:54"
+    },
+    "mr-mehmood-yacoob": {
+      "documentName": "Mr. Mehmood Yacoob",
+      "contentHash": "0261a284d14af534dfbc3ded789ab711acbf0a15dabc9c91e6665a1fa29d1239",
+      "modifiedGmt": "2024-03-22T04:52:49"
+    },
+    "mr-asif-ismail": {
+      "documentName": "Mr. Asif Ismail",
+      "contentHash": "37d013ae91d7b441e535f89001834c97c55e8dcf06579547abc7bb959d286a6d",
+      "modifiedGmt": "2024-03-22T04:52:44"
+    },
+    "mr-abdul-husain-basrai": {
+      "documentName": "Mr. Abdul Husain Basrai",
+      "contentHash": "1f6b1180e6f187ea8df5ae92cc7f28423072a53107abeee02b889ed7fbb0c981",
+      "modifiedGmt": "2024-03-25T08:24:15"
+    },
+    "mr-ahsan-m-saleem": {
+      "documentName": "Mr. Ahsan M. Saleem",
+      "contentHash": "1711dc7105ccff0fb5e99e16478cc26eb8a331c924c8c7aa31e35be5a27e8bb3",
+      "modifiedGmt": "2024-03-22T04:53:34"
+    },
+    "mr-khalid-saleem": {
+      "documentName": "Mr. Khalid Saleem",
+      "contentHash": "169f6f063e55e73132ff471686a75c3fb338be6a3ab7d0ee8de32f8cd7b861e8",
+      "modifiedGmt": "2026-01-14T06:41:23"
+    },
+    "%d9%81%d9%84%d8%b3%d8%b7%db%8c%d9%86-%da%a9%db%92-%d9%85%d9%88%d8%ac%d9%88%d8%af%db%81-%d8%ad%d8%a7%d9%84%d8%a7%d8%aa-%d8%a7%d9%88%d8%b1-%d8%a7%d8%b3-%d9%85%db%8c%da%ba-%d9%85%d8%b3%d9%84%d9%85%d8%a7": {
+      "documentName": "فلسطین کے موجودہ حالات اور اس میں مسلمانوں کا کردار",
+      "contentHash": "c8634eb4e8ce4ccc9885a9c801853de9fd64381a5fd4289fa6d61cfd3ece4567",
+      "modifiedGmt": "2025-05-07T08:00:45"
+    },
+    "pdf:6d6e0ea08686dcefbdf6ffa2eaabf6e5c759ec3d2b6583758d8cfdcae4df8cb8": {
+      "documentName": "Approved Fee Structure 2026-27",
+      "contentHash": "6d6e0ea08686dcefbdf6ffa2eaabf6e5c759ec3d2b6583758d8cfdcae4df8cb8",
+      "modifiedGmt": "2026-09-20T09:19:20.450Z"
+    },
+    "pdf:7c7787df3c0f609d98b09b132ad8e689c2d2599f8ca9919188172d0961fa5d37": {
+      "documentName": "Students' Handbook 2026-27",
+      "contentHash": "7c7787df3c0f609d98b09b132ad8e689c2d2599f8ca9919188172d0961fa5d37",
+      "modifiedGmt": "2026-09-20T09:19:21.255Z"
+    },
+    "pdf:af7cd70f6e2003640dd0bf98289bc133291e43f4200eda3bd81bb2219908900d": {
+      "documentName": "Commecs College Brochure 2026-27",
+      "contentHash": "af7cd70f6e2003640dd0bf98289bc133291e43f4200eda3bd81bb2219908900d",
+      "modifiedGmt": "2026-09-20T09:19:23.248Z"
+    },
+    "pdf:e2f2c4a5e450dc594a89fdbcd728fbd3e833b6706426369d4374dd35f82695bb": {
+      "documentName": "Scholarship and Endowment Policies 2026-27",
+      "contentHash": "e2f2c4a5e450dc594a89fdbcd728fbd3e833b6706426369d4374dd35f82695bb",
+      "modifiedGmt": "2026-09-20T09:19:24.029Z"
+    },
+    "pdf:4488549d01f3909abe58d3746af625a41b0f5a9524ba53bad9ddd3d2476703bd": {
+      "documentName": "Merit Based Scholarship Policy 2026-27",
+      "contentHash": "4488549d01f3909abe58d3746af625a41b0f5a9524ba53bad9ddd3d2476703bd",
+      "modifiedGmt": "2026-09-20T09:19:24.171Z"
+    },
+    "pdf:0b9f2ae6cd9e27f517f1f937d2351623f518369dfea49306a19ec54cdadf1cdb": {
+      "documentName": "Need Based Scholarship Policy 2026-27",
+      "contentHash": "0b9f2ae6cd9e27f517f1f937d2351623f518369dfea49306a19ec54cdadf1cdb",
+      "modifiedGmt": "2026-09-20T09:19:24.498Z"
+    },
+    "pdf:43809bd12beabee22fd8a017b4c7b116e4b3ce97602a8e7c126ef1a9384e809c": {
+      "documentName": "Mid Term Scholarship Policy 2026-27",
+      "contentHash": "43809bd12beabee22fd8a017b4c7b116e4b3ce97602a8e7c126ef1a9384e809c",
+      "modifiedGmt": "2026-09-20T09:19:24.653Z"
+    },
+    "pdf:117711bc2da82761c373193e848179a3587d2a7fc0e128f3def4558271f0c333": {
+      "documentName": "Option to Switch Scholarship 2026-27",
+      "contentHash": "117711bc2da82761c373193e848179a3587d2a7fc0e128f3def4558271f0c333",
+      "modifiedGmt": "2026-09-20T09:19:24.739Z"
+    },
+    "pdf:3b74dbe2b40c2bb46b0dc902d33abcdd6689d321fc7087bb09c2310c6e74cc4e": {
+      "documentName": "Uniform Information and Rate List",
+      "contentHash": "3b74dbe2b40c2bb46b0dc902d33abcdd6689d321fc7087bb09c2310c6e74cc4e",
+      "modifiedGmt": "2026-09-20T09:19:24.946Z"
+    },
+    "pdf:28bb7156b459ff42832994eb0b326428ac329617235082a8be4142e4c3ff09c0": {
+      "documentName": "Transport Information and Rate List",
+      "contentHash": "28bb7156b459ff42832994eb0b326428ac329617235082a8be4142e4c3ff09c0",
+      "modifiedGmt": "2026-09-20T09:19:25.376Z"
+    },
+    "pdf:0eef5972caa8877a348f4aa98894243c991fbe6b4cff53d3314f76236b0c323a": {
+      "documentName": "Revised Time Table Session 2026-2027",
+      "contentHash": "0eef5972caa8877a348f4aa98894243c991fbe6b4cff53d3314f76236b0c323a",
+      "modifiedGmt": "2026-09-20T09:19:25.620Z"
+    },
+    "pdf:e7096d4b6cdfa9729a13bd96033ae15af22b82859dbf16aa3798695882f5b404": {
+      "documentName": "Academic Planner 2025-26",
+      "contentHash": "e7096d4b6cdfa9729a13bd96033ae15af22b82859dbf16aa3798695882f5b404",
+      "modifiedGmt": "2026-09-20T09:19:26.120Z"
+    },
+    "pdf:b0e37849cd6838bf3df6ea0e99f10d516e109db5ae6700ceabcaf1ab57ec12f1": {
+      "documentName": "Sample Test Paper - Commerce",
+      "contentHash": "b0e37849cd6838bf3df6ea0e99f10d516e109db5ae6700ceabcaf1ab57ec12f1",
+      "modifiedGmt": "2026-09-20T09:19:26.633Z"
+    },
+    "pdf:3b5e316b42c4d071b9565e1fa7aecd7fe106b2906010e4c41ff4c94c2f4b8f0c": {
+      "documentName": "Sample Test Paper - Pre-Medical",
+      "contentHash": "3b5e316b42c4d071b9565e1fa7aecd7fe106b2906010e4c41ff4c94c2f4b8f0c",
+      "modifiedGmt": "2026-09-20T09:19:27.125Z"
+    },
+    "pdf:41bf49b27308d4d7432e5a55bb437140659b936b2c630953a0228a354ef20c9c": {
+      "documentName": "Sample Test Paper - Pre-Engineering",
+      "contentHash": "41bf49b27308d4d7432e5a55bb437140659b936b2c630953a0228a354ef20c9c",
+      "modifiedGmt": "2026-09-20T09:19:27.623Z"
+    },
+    "pdf:5411accd3303fcefcffdc0f2f94a2a113bd40cd7084e1e25c758e03b6f5abf9f": {
+      "documentName": "Sample Test Paper - Computer Science",
+      "contentHash": "5411accd3303fcefcffdc0f2f94a2a113bd40cd7084e1e25c758e03b6f5abf9f",
+      "modifiedGmt": "2026-09-20T09:19:28.118Z"
+    },
+    "pdf:89cfbbfaa07bda46debba635b3867ffb4fcebf6cacb5396824606be14cb2c298": {
+      "documentName": "Booklist XI Science 2025",
+      "contentHash": "89cfbbfaa07bda46debba635b3867ffb4fcebf6cacb5396824606be14cb2c298",
+      "modifiedGmt": "2026-09-20T09:19:28.233Z"
+    },
+    "pdf:6b1c27a1676050a527269593f4a4c0299ff2b5af96d91908cce2965e233bb43c": {
+      "documentName": "Booklist XII Science 2025",
+      "contentHash": "6b1c27a1676050a527269593f4a4c0299ff2b5af96d91908cce2965e233bb43c",
+      "modifiedGmt": "2026-09-20T09:19:28.357Z"
+    },
+    "pdf:9a89e84349d0eaff20abf6e9381cf387f11dfafd2fa0ff63cb5cfac3c51c74d0": {
+      "documentName": "Booklist XI Commerce 2025",
+      "contentHash": "9a89e84349d0eaff20abf6e9381cf387f11dfafd2fa0ff63cb5cfac3c51c74d0",
+      "modifiedGmt": "2026-09-20T09:19:28.477Z"
+    },
+    "pdf:331728f493c4af81a89b47d1c39f5c1c44da40e23d6c1a2bba62fa5a2b4e43d9": {
+      "documentName": "Booklist XII Commerce 2025",
+      "contentHash": "331728f493c4af81a89b47d1c39f5c1c44da40e23d6c1a2bba62fa5a2b4e43d9",
+      "modifiedGmt": "2026-09-20T09:19:28.604Z"
+    }
+  },
+  "storeName": "fileSearchStores/commecsknowledge-g1wimjy04ix5",
+  "embeddingModel": "models/gemini-embedding-2",
+  "lastRun": "2026-09-20T10:00:01.510Z"
+}

@@ -1,0 +1,1270 @@
+[
+  {
+    "id": "bank-programs",
+    "match": [
+      "Programs offered",
+      "What programs do you offer",
+      "Which courses do you provide",
+      "What streams or groups are there",
+      "What groups does Commecs have",
+      "What disciplines do you offer",
+      "Which disciplines are available",
+      "Which programs are available",
+      "What can I study at Commecs",
+      "Which programs does Commecs have",
+      "Which programs are offered at Commecs"
+    ],
+    "answer": "Commecs College runs an Intermediate programme (first and second year) affiliated with the Board of Intermediate Education Karachi (BIEK). The disciplines listed on the website are:\n\n*   **Commerce**\n*   **Pre-Engineering**\n*   **Pre-Medical**\n*   **Computer Science**\n\nThe About page also lists Humanities, but the admission, eligibility and fee pages only cover the four above, so please confirm with the admissions office if you are interested in Humanities.",
+    "sources": [
+      {
+        "title": "About Commecs College",
+        "url": "https://commecscollege.edu.pk/about/"
+      },
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "About page lists Humanities as a fifth bullet; nav, eligibility page and fee PDF list only 4. Delete the last sentence if you prefer."
+  },
+  {
+    "id": "bank-how-to-apply",
+    "match": [
+      "How to apply",
+      "How can I apply",
+      "How do I apply for admission",
+      "What is the admission process",
+      "Admission process",
+      "Admission procedure",
+      "How to take admission",
+      "How do I get admission",
+      "How to register for admission",
+      "How can I apply to Commecs",
+      "Apply",
+      "How to apply for admission",
+      "Steps to apply",
+      "How to get admission at Commecs"
+    ],
+    "answer": "To apply for first-year admission at Commecs College:\n\n1.  **Check eligibility:** at least 65% in SSC-I/O Level for the Science groups (Pre-Engineering, Pre-Medical, Computer Science) or 60% for Commerce.\n2.  **Register online** at https://admissions.commecscollege.edu.pk/sign-in. Write your name and your father's name exactly as on your SSC/O Level marks sheet, and upload the SSC-I/O Level marks sheet, B-Form and passport-size photographs.\n3.  **Pay the Rs. 1,000 registration fee** at least 2 days before the Commecs Admission Test (CAT).\n4.  **Take the computer-based CAT** and attend the **interview**.\n\nProvisional admission is given on merit, which is decided from your SSC-I result, the CAT and the interview. Recommendations or use of influence lead to disqualification, and any misstatement of information cancels admission. The next test date is currently listed as \"to be announced\" on the Instructions for Admission page.",
+    "sources": [
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      },
+      {
+        "title": "Admission Criteria",
+        "url": "https://commecscollege.edu.pk/admission-criteria/"
+      },
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-fee-structure",
+    "match": [
+      "What is the fee structure",
+      "Fee structure",
+      "How much is the fee",
+      "How much are the fees",
+      "How much is the fee at Commecs",
+      "What are the fees at Commecs",
+      "College fees",
+      "Fees",
+      "Fee",
+      "What is the fee",
+      "What are the fees",
+      "Tuition fee",
+      "First year fee",
+      "First year fees",
+      "What is the first year fee",
+      "Fee structure 2026-27",
+      "Commecs fee structure",
+      "What is the fee for admission",
+      "How much is the admission fee",
+      "Admission fee"
+    ],
+    "answer": "Here is the approved **2026-27 first-year** fee structure:\n\n| | Commerce | Pre-Medical / Pre-Engineering | Computer Science |\n|---|---|---|---|\n| Admission fee (one time) | Rs. 55,000 | Rs. 55,000 | Rs. 55,000 |\n| Annual charges | Rs. 19,650 | Rs. 19,650 | Rs. 20,150 |\n| Payable at admission | Rs. 74,650 | Rs. 74,650 | Rs. 75,150 |\n| Monthly tuition | Rs. 19,650 | Rs. 19,650 | Rs. 20,150 |\n| **Total, first year** | **Rs. 310,450** | **Rs. 310,450** | **Rs. 316,950** |\n\nSome months are billed together (December & May, February & June, April & July). BIEK charges (enrollment, examination fee etc.) are paid separately to the board through the college, and the sports kit is bought directly from the vendor. A Rs. 1,000 penalty applies if a fee is paid after its due date.\n\nThis structure covers Commerce, Pre-Medical, Pre-Engineering and Computer Science only; it does not list any other group. The Approved Fee Structure 2026-27 PDF on the Downloads page is the official document.",
+    "sources": [
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "Checked against the PDF text. Computer Science is Rs. 500/month and Rs. 6,500/year higher than the other groups."
+  },
+  {
+    "id": "bank-fee-commerce",
+    "match": [
+      "Fee for commerce",
+      "Commerce fee",
+      "Fees for intermediate commerce",
+      "How much is the fee for commerce",
+      "Commerce fee structure",
+      "What is the fee for commerce",
+      "Fees for commerce group",
+      "Commerce tuition fee",
+      "How much is commerce fee"
+    ],
+    "answer": "**Commerce, first year 2026-27:**\n\n*   Admission fee (one time): **Rs. 55,000**\n*   Annual charges: **Rs. 19,650**\n*   Payable at admission: **Rs. 74,650**\n*   Monthly tuition: **Rs. 19,650**\n*   Total for the first year: **Rs. 310,450**\n\nBIEK charges (enrollment, examination fee etc.) are paid separately to the board through the college, and the sports kit is bought directly from the vendor.",
+    "sources": [
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-fee-science-pm-pe",
+    "match": [
+      "Fee for Pre-Medical",
+      "Pre-Medical fee",
+      "Fees for intermediate Pre-Medical",
+      "How much is the fee for Pre-Medical",
+      "Pre-Medical fee structure",
+      "What is the fee for Pre-Medical",
+      "How much is Pre-Medical fee",
+      "Fee for Pre-Engineering",
+      "Pre-Engineering fee",
+      "Fees for intermediate Pre-Engineering",
+      "How much is the fee for Pre-Engineering",
+      "Pre-Engineering fee structure",
+      "What is the fee for Pre-Engineering",
+      "How much is Pre-Engineering fee",
+      "Fee for Pre-Medical and Pre-Engineering"
+    ],
+    "answer": "**Pre-Medical and Pre-Engineering, first year 2026-27** (both groups pay the same):\n\n*   Admission fee (one time): **Rs. 55,000**\n*   Annual charges: **Rs. 19,650**\n*   Payable at admission: **Rs. 74,650**\n*   Monthly tuition: **Rs. 19,650**\n*   Total for the first year: **Rs. 310,450**\n\nBIEK charges (enrollment, examination fee etc.) are paid separately to the board through the college, and the sports kit is bought directly from the vendor.",
+    "sources": [
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-fee-cs",
+    "match": [
+      "Fee for computer science",
+      "Computer science fee",
+      "Fees for intermediate computer science",
+      "How much is the fee for computer science",
+      "Computer science fee structure",
+      "What is the fee for computer science",
+      "CS fee",
+      "How much is computer science fee",
+      "Fees for Computer Science group"
+    ],
+    "answer": "**Computer Science, first year 2026-27:**\n\n*   Admission fee (one time): **Rs. 55,000**\n*   Annual charges: **Rs. 20,150**\n*   Payable at admission: **Rs. 75,150**\n*   Monthly tuition: **Rs. 20,150**\n*   Total for the first year: **Rs. 316,950**\n\nBIEK charges (enrollment, examination fee etc.) are paid separately to the board through the college, and the sports kit is bought directly from the vendor.",
+    "sources": [
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "Different from Commerce/Pre-Med/Pre-Eng (310,450). Do not copy the 'same as Pre-Medical' wording from the older bank-manual-3 entry."
+  },
+  {
+    "id": "bank-fee-second-year",
+    "match": [
+      "Second year fee",
+      "Fee for second year",
+      "What is the fee for second year",
+      "2nd year fee",
+      "Second year fee structure",
+      "How much is the second year fee",
+      "Fee for 2nd year",
+      "XII fee"
+    ],
+    "answer": "**Second year (XII) fee, 2026-27**, the same for Commerce and all Science groups (Pre-Medical, Pre-Engineering, Computer Science):\n\n*   Annual charges: **Rs. 18,500**\n*   Monthly tuition: **Rs. 18,500**\n*   Total for the year: **Rs. 240,500**\n\nBIEK charges are paid separately to the board through the college. Note that new admissions are only taken in first year.",
+    "sources": [
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-scholarships",
+    "match": [
+      "Fees & scholarships",
+      "Scholarships",
+      "What scholarships do you offer",
+      "What scholarships are available",
+      "Are scholarships available",
+      "Do you offer scholarships",
+      "Financial aid",
+      "Financial assistance",
+      "Tell me about scholarships",
+      "Do you have scholarships",
+      "How can I get a scholarship",
+      "Scholarship details",
+      "Fee and scholarship details"
+    ],
+    "answer": "Commecs offers three kinds of fee support. All of them apply to **tuition fee only**:\n\n*   **Merit-based scholarship:** 100% tuition waiver for the top 3% of each discipline/group. Minimum SSC/equivalent is 88% (Karachi and other matric boards) or 85% (Cambridge, Edexcel, Aga Khan, Federal boards), or an A grade in BIEK first year, plus a scholarship interview.\n*   **Need-based scholarship:** for families with total household income up to Rs. 275,000 per month. Students equal to 7% of the total strength get a 100% tuition freeship, and others are awarded according to their points. The Managing Committee decides.\n*   **Sibling discount:** 25% off tuition fee when a brother or sister also studies at Commecs in the same year.\n\nMerit scholarships are considered at the time of admission. For need-based scholarships, the application form and affidavit are on the Downloads page. Both scholarships continue only if results, attendance and discipline conditions are met.",
+    "sources": [
+      {
+        "title": "Merit and Need Based Scholarship Policies 2026-27",
+        "url": "https://commecscollege.edu.pk/scholarship-endowment-policies-session/"
+      },
+      {
+        "title": "Merit Based Scholarship Policy 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/05/Merit-Based-Scholarship-2026-to-2027-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Need Based Scholarship Policy 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/05/Need-Based-Scholarship-2026-to-2027-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Sibling Discount",
+        "url": "https://commecscollege.edu.pk/sibling-discount/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "Scholarship page itself not re-read in this pass; content is from the two 2026-27 policy PDFs and the sibling page."
+  },
+  {
+    "id": "bank-merit-scholarship",
+    "match": [
+      "Merit scholarship",
+      "Merit based scholarship",
+      "What is the merit scholarship",
+      "How to get a merit scholarship",
+      "Merit scholarship criteria",
+      "Merit scholarship eligibility",
+      "Who gets the merit scholarship",
+      "Merit scholarship details"
+    ],
+    "answer": "The **Merit Based Scholarship (2026-27)** is a 100% tuition-fee waiver for the top 3% of each discipline/group. To be considered you need:\n\n*   **88%** or more in SSC/equivalent from Karachi and other matric boards, **85%** or more from Cambridge, Edexcel, Aga Khan or Federal boards, or an **A grade** or above in BIEK first year, and\n*   a scholarship interview.\n\nTo keep it: minimum \"B++\" marks in term examinations and 90% attendance. Missing the criteria in the mid-term costs 25% of the scholarship, missing them again in the preliminary exam costs another 25%, and a disciplinary issue can cancel it fully. It covers tuition fee only.",
+    "sources": [
+      {
+        "title": "Merit Based Scholarship Policy 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/05/Merit-Based-Scholarship-2026-to-2027-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Merit and Need Based Scholarship Policies 2026-27",
+        "url": "https://commecscollege.edu.pk/scholarship-endowment-policies-session/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-need-scholarship",
+    "match": [
+      "Need based scholarship",
+      "Need scholarship",
+      "What is the need based scholarship",
+      "How to get a need based scholarship",
+      "Need based scholarship criteria",
+      "Need based scholarship eligibility",
+      "Financial need scholarship",
+      "Need based scholarship details",
+      "Endowment scholarship"
+    ],
+    "answer": "The **Need Based Scholarship (2026-27)** is for students facing financial hardship, awarded on a need-cum-merit basis with strict confidentiality.\n\n*   **First year:** total household income from all sources up to Rs. 275,000 per month.\n*   **Second year:** the same income limit, plus at least C++ in the first-year Prelim exam, 85% attendance and no discipline issue in first year.\n*   **100% freeship:** students equal to 7% of the total strength who top the points table get their full tuition fee waived (including deserving orphans, wards of single mothers and divorced mothers not supported by the father). Others are awarded according to their points.\n\nIt is tied to results, attendance and discipline: 25% is deducted at each of two stages (mid-term and preliminary) if you miss a \"B\" grade and 90% attendance. It covers tuition fee only, and the Managing Committee has the final say.",
+    "sources": [
+      {
+        "title": "Need Based Scholarship Policy 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/05/Need-Based-Scholarship-2026-to-2027-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Merit and Need Based Scholarship Policies 2026-27",
+        "url": "https://commecscollege.edu.pk/scholarship-endowment-policies-session/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-sibling-discount",
+    "match": [
+      "Sibling discount",
+      "Is there a sibling discount",
+      "Do you give sibling discount",
+      "Discount for siblings",
+      "Discount for brothers and sisters",
+      "Is there any discount",
+      "Discount",
+      "Brother sister discount",
+      "Is there a discount for siblings",
+      "Sibling fee discount"
+    ],
+    "answer": "Commecs gives a **25% discount on tuition fee** to students whose brother(s) or sister(s) are studying at Commecs College in the same academic year. If three or more siblings are studying in the same year, the 25% discount is given to two of them.",
+    "sources": [
+      {
+        "title": "Sibling Discount",
+        "url": "https://commecscollege.edu.pk/sibling-discount/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-eligibility",
+    "match": [
+      "Eligibility",
+      "Eligibility criteria",
+      "What is the eligibility criteria",
+      "What are the eligibility criteria",
+      "Am I eligible",
+      "Who can apply",
+      "What are the admission requirements",
+      "Requirements for admission",
+      "Admission requirements",
+      "Admission criteria",
+      "Admission eligibility",
+      "Who is eligible for admission",
+      "What are the requirements"
+    ],
+    "answer": "Published requirements for first-year admission:\n\n*   **Marks:** 65% or more in SSC/equivalent for Pre-Engineering, Pre-Medical and Computer Science; 60% or more for Commerce.\n*   **SSC General Group** students are not eligible for Pre-Engineering or Pre-Medical.\n*   Students who studied **Computer Studies instead of Biology** are not eligible for Pre-Medical.\n*   **O Level:** 8 subjects, including English, Urdu, Islamiat, Pakistan Studies and Mathematics. Pre-Engineering and Pre-Medical also need Biology or Computer Science in O Level.\n*   **Age:** not above 18 on 1 August of the year of application (see the age limit answer for exceptions).\n\nMeeting the minimum does not guarantee a seat, because admission is on merit (SSC-I result, CAT and interview). Any misstatement of information cancels admission.",
+    "sources": [
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      },
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      },
+      {
+        "title": "Admission Criteria",
+        "url": "https://commecscollege.edu.pk/admission-criteria/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-eligibility-commerce",
+    "match": [
+      "Minimum percentage for Commerce admission",
+      "What marks do I need for Commerce",
+      "Eligibility for Commerce",
+      "Commerce eligibility",
+      "Percentage required for Commerce",
+      "Minimum marks for Commerce",
+      "Commerce admission requirements",
+      "How many marks for Commerce",
+      "What percentage is needed for Commerce",
+      "Minimum percentage for Commerce",
+      "Percentage for Commerce",
+      "Marks for Commerce",
+      "Can I apply for Commerce",
+      "Requirements for Commerce",
+      "What marks do I need in SSC to apply for Commerce",
+      "What marks are required for Commerce"
+    ],
+    "answer": "For **Commerce** you need at least **60%** in SSC-I/O Level (or equivalent). O Level students need 8 subjects: English, Urdu, Islamiat, Pakistan Studies, Mathematics and three optional subjects.\n\nThe minimum doesn't guarantee a seat, because merit is decided from your SSC-I result, the Commecs Admission Test and the interview. The Instructions for Admission page also states direct admission for students with 85% or more.",
+    "sources": [
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      },
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-eligibility-science",
+    "match": [
+      "Minimum percentage for Pre-Medical admission",
+      "What marks do I need for Pre-Medical",
+      "Eligibility for Pre-Medical",
+      "Pre-Medical eligibility",
+      "Percentage required for Pre-Medical",
+      "Minimum marks for Pre-Medical",
+      "Pre-Medical admission requirements",
+      "How many marks for Pre-Medical",
+      "What percentage is needed for Pre-Medical",
+      "Minimum percentage for Pre-Medical",
+      "Percentage for Pre-Medical",
+      "Marks for Pre-Medical",
+      "Can I apply for Pre-Medical",
+      "Requirements for Pre-Medical",
+      "What marks do I need in SSC to apply for Pre-Medical",
+      "What marks are required for Pre-Medical",
+      "Minimum percentage for Pre-Engineering admission",
+      "What marks do I need for Pre-Engineering",
+      "Eligibility for Pre-Engineering",
+      "Pre-Engineering eligibility",
+      "Percentage required for Pre-Engineering",
+      "Minimum marks for Pre-Engineering",
+      "Pre-Engineering admission requirements",
+      "How many marks for Pre-Engineering",
+      "What percentage is needed for Pre-Engineering",
+      "Minimum percentage for Pre-Engineering",
+      "Percentage for Pre-Engineering",
+      "Marks for Pre-Engineering",
+      "Can I apply for Pre-Engineering",
+      "Requirements for Pre-Engineering",
+      "What marks do I need in SSC to apply for Pre-Engineering",
+      "What marks are required for Pre-Engineering",
+      "Minimum percentage for Computer Science admission",
+      "What marks do I need for Computer Science",
+      "Eligibility for Computer Science",
+      "Computer Science eligibility",
+      "Percentage required for Computer Science",
+      "Minimum marks for Computer Science",
+      "Computer Science admission requirements",
+      "How many marks for Computer Science",
+      "What percentage is needed for Computer Science",
+      "Minimum percentage for Computer Science",
+      "Percentage for Computer Science",
+      "Marks for Computer Science",
+      "Can I apply for Computer Science",
+      "Requirements for Computer Science",
+      "What marks do I need in SSC to apply for Computer Science",
+      "What marks are required for Computer Science"
+    ],
+    "answer": "For the **Science groups** (Pre-Engineering, Pre-Medical and Computer Science) you need at least **65%** in SSC-I/O Level (or equivalent).\n\nExtra conditions:\n\n*   SSC General Group students are not eligible for Pre-Engineering or Pre-Medical.\n*   Students who studied Computer Studies instead of Biology are not eligible for Pre-Medical.\n*   O Level students need 8 subjects: English, Urdu, Islamiat, Pakistan Studies, Mathematics, Physics, Chemistry, plus Biology (Pre-Medical) or Biology/Computer Science (Pre-Engineering and Computer Science).\n\nThe minimum doesn't guarantee a seat, because merit is decided from your SSC-I result, the Commecs Admission Test and the interview.",
+    "sources": [
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      },
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-age-limit",
+    "match": [
+      "Age limit",
+      "What is the age limit",
+      "What is the age limit for admission",
+      "Maximum age for admission",
+      "Age limit for admission",
+      "Age requirement",
+      "How old can I be to apply"
+    ],
+    "answer": "Applicants must not be above **18 years of age on 1 August** of the year of application. Those over 18 but under 19 can be admitted subject to the approval of the Chairman-CET. Huffaz-e-Quran get a relaxation of up to 1.5 years (the Hifz Sanad must be shown).\n\nThe Instructions for Admission 2026 page states the date of birth as not before 1 August 2008, or not before 1 February 2007 for Huffaz-e-Quran.",
+    "sources": [
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      },
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      },
+      {
+        "title": "FAQs",
+        "url": "https://commecscollege.edu.pk/faqs/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-documents",
+    "match": [
+      "What documents are needed for admission",
+      "Documents required for admission",
+      "Required documents",
+      "Documents needed",
+      "What documents do I need",
+      "Documents for admission",
+      "What documents are required",
+      "What do I need to upload"
+    ],
+    "answer": "When you register online you upload your **SSC-I/O Level marks sheet, B-Form and passport-size photographs**.\n\nThe Eligibility page also lists these documents: photocopy of the SSC-I/O Level marks sheet/transcript, photocopy of the Birth Certificate or B-Form, photocopy of the SSC-II Admit Card/Statement of Entry, two passport-size photographs, the Rs. 1,000 admission processing fee, and the Hifz Sanad (for Huffaz only). O Level students upload one Statement of Marks and list all subjects and grades in the registration form.",
+    "sources": [
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      },
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-registration-fee",
+    "match": [
+      "How much is the registration fee",
+      "Registration fee",
+      "What is the registration fee",
+      "How much is the registration fee for the admission test",
+      "Admission test fee",
+      "How much is the admission test fee",
+      "Admission processing fee",
+      "Test fee"
+    ],
+    "answer": "The **registration fee is Rs. 1,000**, to be paid at least 2 days before the Computer Based Admission Test. The Eligibility page lists the same amount as the \"Admission Processing Fee of Rs. 1,000\". This is separate from the admission fee that is paid once you are admitted.",
+    "sources": [
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      },
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-cat-test",
+    "match": [
+      "What is the Commecs Admission Test",
+      "Commecs Admission Test",
+      "What is the CAT",
+      "CAT test",
+      "Admission test",
+      "Tell me about the admission test",
+      "How is the admission test conducted",
+      "Is there an admission test"
+    ],
+    "answer": "The **Commecs Admission Test (CAT)** is a computer-based test and is one of the three parts of merit assessment, along with your previous scholastic achievement (SSC-I result) and the interview. You pay the Rs. 1,000 registration fee at least 2 days before it, and sample test papers for Commerce, Pre-Medical, Pre-Engineering and Computer Science are on the Downloads page. The next test date is currently listed as \"to be announced\".",
+    "sources": [
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      },
+      {
+        "title": "Admission Criteria",
+        "url": "https://commecscollege.edu.pk/admission-criteria/"
+      },
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-direct-admission",
+    "match": [
+      "Is there direct admission",
+      "Direct admission",
+      "Direct admission for high marks",
+      "Direct admission 85",
+      "Direct admission with 85 percent",
+      "Is there direct admission for students with high marks",
+      "Direct admission for 85",
+      "Is there direct admission for students with very high marks"
+    ],
+    "answer": "The Instructions for Admission page states **direct admission for students with 85% or more marks** in SSC/equivalent exams. It doesn't spell out the exact steps that follow, so please confirm with the admissions office (WhatsApp 0331-2775256).",
+    "sources": [
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "Wording is deliberately cautious: the page does not say whether the test/interview is waived."
+  },
+  {
+    "id": "bank-second-year",
+    "match": [
+      "Can I take admission in second year",
+      "Second year admission",
+      "Direct second year admission",
+      "Do you accept transfers",
+      "Transfer to Commecs",
+      "Admission in second year",
+      "Can I take admission directly in second year",
+      "Is second year admission possible",
+      "Can I transfer to Commecs",
+      "Can I get admission in 2nd year",
+      "2nd year admission",
+      "Direct 2nd year admission"
+    ],
+    "answer": "No. Admissions are offered in **first year only**. The college does not offer admission in second year and does not entertain transfer requests.",
+    "sources": [
+      {
+        "title": "FAQs",
+        "url": "https://commecscollege.edu.pk/faqs/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-admission-dates",
+    "match": [
+      "Admission deadline",
+      "What is the admission deadline",
+      "Last date to apply",
+      "What is the last date to apply",
+      "Last date of admission",
+      "When is the admission test",
+      "When is the test",
+      "CAT date",
+      "Admission test date",
+      "Is admission open",
+      "Are admissions open",
+      "Can I still apply",
+      "Can I still apply for admission",
+      "When does admission start",
+      "When do admissions begin",
+      "Admission schedule",
+      "Admission dates",
+      "Is admission still open",
+      "Is admission open now",
+      "Is admission open right now",
+      "Can I still apply this year",
+      "Can I still apply for admission this year",
+      "When is the last date",
+      "What is the deadline for admission"
+    ],
+    "answer": "The website doesn't publish a fixed admission deadline. The FAQs say admission normally begins in April and continues till July, and the new session starts on 1 August.\n\nThe Instructions for Admission 2026 page currently lists the next Computer Based Admission Test date as \"to be announced\", with a Rs. 1,000 registration fee payable at least 2 days before the test.\n\nFor current dates, please contact admissions on WhatsApp 0331-2775256.",
+    "sources": [
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      },
+      {
+        "title": "FAQs",
+        "url": "https://commecscollege.edu.pk/faqs/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "Time-sensitive. Re-open the Instructions for Admission page before the demo in case a test date has been posted."
+  },
+  {
+    "id": "bank-contact",
+    "match": [
+      "Contact the college",
+      "Contact",
+      "How can I contact the college",
+      "How to contact Commecs",
+      "Contact details",
+      "Contact information",
+      "What is the college phone number",
+      "Phone number",
+      "College phone number",
+      "Where is the college located",
+      "Where is the college",
+      "College address",
+      "Address",
+      "What is the address",
+      "Where is Commecs located",
+      "Admissions email",
+      "Email address",
+      "How can I contact admissions",
+      "Contact number",
+      "Location",
+      "What is the admissions email address",
+      "Where is Commecs"
+    ],
+    "answer": "**Address:** ST-9, Block-13, Gulistan-e-Jauhar, Scheme-36, Karachi.\n**Phone:** 92-21-34615357-9\n**Admissions WhatsApp / mobile:** 0331-2775256\n**Admissions Email:** admissions@commecscollege.edu.pk\n**Fee queries:** fee@commecscollege.edu.pk (as printed on the fee structure)\n\nThe Contact Us page also lists separate email addresses for Admissions and Examinations, the Dean's office, and each program coordinator.",
+    "sources": [
+      {
+        "title": "Contact Us",
+        "url": "https://commecscollege.edu.pk/contact-us/"
+      },
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      },
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "The admissions email is hidden behind Cloudflare on the Contact page. Copy it from your own browser and add it to this answer if you want it shown."
+  },
+  {
+    "id": "bank-transport",
+    "match": [
+      "Is there transport facility",
+      "Does the college provide transport",
+      "Transport",
+      "Transport facility",
+      "Is transport available",
+      "Is there a bus service",
+      "Bus service",
+      "Pick and drop",
+      "Does Commecs have transport",
+      "Transport rates",
+      "Is there a transport facility",
+      "Is transport available at Commecs"
+    ],
+    "answer": "Yes. The college arranges a contractor to facilitate students with transport. A Transport Rate List is listed on the Downloads page, and you can confirm routes and charges with the college office.",
+    "sources": [
+      {
+        "title": "FAQs",
+        "url": "https://commecscollege.edu.pk/faqs/"
+      },
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-board",
+    "match": [
+      "Which board is the college affiliated with",
+      "Which board",
+      "Board",
+      "Which board does Commecs follow",
+      "Is Commecs affiliated with BIEK",
+      "Affiliation",
+      "What is the college affiliation",
+      "Which board is Commecs affiliated with",
+      "Is the college affiliated with BIEK"
+    ],
+    "answer": "Commecs College's Intermediate programme is affiliated with the **Board of Intermediate Education Karachi (BIEK)**.",
+    "sources": [
+      {
+        "title": "About Commecs College",
+        "url": "https://commecscollege.edu.pk/about/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-coed",
+    "match": [
+      "Is it co-ed",
+      "Is Commecs co-educational",
+      "Is the college co-educational",
+      "Coed",
+      "Co-education",
+      "Boys or girls",
+      "Is it only for boys",
+      "Is it only for girls",
+      "Is Commecs for boys girls or both",
+      "Is Commecs a boys college or a girls college",
+      "Is it a co-ed college"
+    ],
+    "answer": "Commecs College is a **co-education** institution.",
+    "sources": [
+      {
+        "title": "FAQs",
+        "url": "https://commecscollege.edu.pk/faqs/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-principal",
+    "match": [
+      "Who is the principal",
+      "Principal name",
+      "Who is the head of the college",
+      "Who is the dean",
+      "Who is the principal of Commecs",
+      "Name of the principal",
+      "Who runs the college",
+      "Who is the head"
+    ],
+    "answer": "The website doesn't name a principal. The About page lists two Associate Deans: **Dr. Farhan Ahmed Siddiqui** (Curriculum) and **Engr. Dr. Yousuf Hemani** (Skills Development). It also lists the Managing Committee of the Commecs Educational Trust, and the Contact Us page has an email address for the Dean's office.",
+    "sources": [
+      {
+        "title": "About Commecs College",
+        "url": "https://commecscollege.edu.pk/about/"
+      },
+      {
+        "title": "Contact Us",
+        "url": "https://commecscollege.edu.pk/contact-us/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "Deliberately does not invent a principal. Re-check the About page before demoing."
+  },
+  {
+    "id": "bank-founded",
+    "match": [
+      "When was Commecs founded",
+      "When was the college founded",
+      "Who founded Commecs",
+      "Who founded the college",
+      "History of Commecs",
+      "When was Commecs established",
+      "Commecs history",
+      "When was the college established",
+      "Who established Commecs",
+      "College history",
+      "When was Commecs founded and by whom",
+      "Who founded Commecs and when",
+      "When was the college founded and by whom"
+    ],
+    "answer": "Commecs College was established in **1993** under the Commecs Educational Trust (CET), a not-for-profit organization founded in 1988 by COMMECS, the alumni association of the Government College of Commerce & Economics. It began as the Commecs Institute of Business Education (CIBE), and the science discipline was added in 2003.",
+    "sources": [
+      {
+        "title": "About Commecs College",
+        "url": "https://commecscollege.edu.pk/about/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-late-fee",
+    "match": [
+      "What happens if I pay the fee late",
+      "Late fee penalty",
+      "Late fee",
+      "Fee penalty",
+      "When is the fee due",
+      "Fee due date",
+      "Fee payment policy",
+      "What is the penalty for late fee payment",
+      "Is there a late fee",
+      "What happens if I pay the monthly fee late",
+      "Penalty for late fee",
+      "Fee payment rules",
+      "What if I pay the fee late"
+    ],
+    "answer": "Fee vouchers are issued by the 5th of each month and are due within 10 days. A **penalty of Rs. 1,000** applies if the fee isn't paid by the due date, and vouchers are valid until the last day of the month.\n\nIf the fee is unpaid for two consecutive months, the admission is cancelled. The student can be readmitted on the parents' written request (submitted within 7 days of cancellation and approved by management) after paying the outstanding fee plus a **Rs. 10,000 readmission fee**.",
+    "sources": [
+      {
+        "title": "Fee Payment Policy",
+        "url": "https://commecscollege.edu.pk/fee-payment-policy/"
+      },
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-hostel",
+    "match": [
+      "Is there a hostel",
+      "Hostel",
+      "Does Commecs have a hostel",
+      "Hostel facility",
+      "Is hostel available",
+      "Is there hostel facility"
+    ],
+    "answer": "The website doesn't mention a hostel, so I can't confirm that one is available. For boarding or hostel questions, please contact the college directly (WhatsApp 0331-2775256 or phone 92-21-34615357-9).",
+    "sources": [
+      {
+        "title": "FAQs",
+        "url": "https://commecscollege.edu.pk/faqs/"
+      },
+      {
+        "title": "Contact Us",
+        "url": "https://commecscollege.edu.pk/contact-us/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-uniform",
+    "match": [
+      "Is there a uniform",
+      "Uniform",
+      "What is the uniform",
+      "Uniform information",
+      "Does Commecs have a uniform",
+      "Uniform rate list",
+      "College uniform"
+    ],
+    "answer": "Uniform information for first and second year is available on the Downloads page, where a Uniform Rate List is also listed. Please check those documents for the details.",
+    "sources": [
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-facilities",
+    "match": [
+      "Sports facilities",
+      "What sports facilities are available",
+      "What facilities does the college have",
+      "Campus facilities",
+      "Is there a library",
+      "Library timings",
+      "What are the library timings",
+      "Do you have a library",
+      "Facilities"
+    ],
+    "answer": "From the FAQs:\n\n*   **Environment:** classrooms and facilities are air-conditioned, and campus monitoring through CCTV ensures security.\n*   **Sports:** in-campus facilities for Table Tennis, Volley Ball, Basketball, Tennis and Throw Ball, and college teams take part in inter-college tournaments.\n*   **Library:** open 8:00 AM to 2:45 PM, with the latest relevant books.\n*   **Internet:** available through the IT Lab and Library at no charge.\n*   **Counselling:** the college has a students' counselor and holds career counselling sessions.",
+    "sources": [
+      {
+        "title": "FAQs",
+        "url": "https://commecscollege.edu.pk/faqs/"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-compare-premed-cs",
+    "match": [
+      "Compare Pre-Medical and Computer Science fees and eligibility",
+      "Compare Pre-Medical and Computer Science",
+      "Pre-Medical vs Computer Science",
+      "Compare Pre-Medical and Computer Science fees"
+    ],
+    "answer": "Here is a comparison of **Pre-Medical** and **Computer Science** for first year 2026-27:\n\n| | Pre-Medical | Computer Science |\n|---|---|---|\n| Minimum SSC/equivalent marks | 65% | 65% |\n| Payable at admission | Rs. 74,650 | Rs. 75,150 |\n| Monthly tuition | Rs. 19,650 | Rs. 20,150 |\n| Total, first year | Rs. 310,450 | Rs. 316,950 |\n\n**Eligibility notes:** SSC General Group students are not eligible for Pre-Medical, and students who studied Computer Studies instead of Biology are not eligible for Pre-Medical. O Level students need Physics, Chemistry and Mathematics plus Biology for Pre-Medical, or Biology/Computer Science for Computer Science.\n\nComputer Science costs Rs. 6,500 more over the first year. BIEK charges are paid separately, and merit (SSC-I result, CAT and interview) decides admission.",
+    "sources": [
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      },
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      },
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "Replaces the older bank-manual-3 entry, which said both programs cost Rs. 310,450. Computer Science is Rs. 316,950 in the PDF."
+  },
+  {
+    "id": "bank-elig-fee-72-premed",
+    "match": [
+      "I got 72% in SSC. Can I apply to Pre-Medical, and what will the first-year fee be?",
+      "I got 72% in SSC Part I. Can I apply for Pre-Medical and what will the first year fee be",
+      "I got 72% can I apply for Pre-Medical and what is the first year fee"
+    ],
+    "answer": "**Eligibility:** yes, 72% is above the 65% minimum for Pre-Medical, as long as you meet the other conditions. SSC General Group students and students who studied Computer Studies instead of Biology are not eligible for Pre-Medical, and O Level students need Biology. Admission is still decided on merit (SSC-I result, CAT and interview).\n\n**First-year fee for Pre-Medical (2026-27):**\n\n*   Payable at admission: **Rs. 74,650** (admission fee Rs. 55,000 + annual charges Rs. 19,650)\n*   Monthly tuition: **Rs. 19,650**\n*   Total for the first year: **Rs. 310,450**\n\nBIEK charges are paid separately to the board through the college.",
+    "sources": [
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      },
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      }
+    ],
+    "language": "en",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-mere-62",
+    "match": [
+      "Mere 62% hain, kya main Commerce aur Pre-Engineering dono mein apply kar sakta hun?",
+      "Mere 62 percent hain kya main Commerce aur Pre-Engineering dono mein apply kar sakta hun",
+      "Mere 62% hain kya main Commerce aur Pre-Engineering mein apply kar sakta hun dono"
+    ],
+    "answer": "Commecs mein admission ke liye eligibility yeh hai:\n\n*   **Commerce:** kam az kam **60%** marks chahiye. Aapke 62% hain, isliye aap Commerce ke liye apply kar sakte hain.\n*   **Pre-Engineering:** kam az kam **65%** marks chahiye. 62% se aap Pre-Engineering ke liye apply nahi kar sakte.\n\nMukhtasar: 62% ke sath aap **sirf Commerce** mein apply kar sakte hain (Pre-Medical aur Computer Science ke liye bhi 65% chahiye). Yeh sirf minimum hai, admission merit par hota hai (SSC-I result, CAT aur interview).",
+    "sources": [
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      },
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      }
+    ],
+    "language": "roman-ur",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-transport-ur",
+    "match": [
+      "کیا کالج میں ٹرانسپورٹ کی سہولت ہے؟",
+      "کالج میں ٹرانسپورٹ کی سہولت ہے؟",
+      "کیا ٹرانسپورٹ کی سہولت ہے؟",
+      "ٹرانسپورٹ کی سہولت"
+    ],
+    "answer": "جی ہاں، کالج طلبہ کی سہولت کے لیے ایک ٹرانسپورٹ کنٹریکٹر کا انتظام کرتا ہے۔ ٹرانسپورٹ ریٹ لسٹ کالج کی ویب سائٹ کے ڈاؤن لوڈز صفحے پر موجود ہے۔ مزید تفصیل کے لیے کالج کے دفتر سے رابطہ کریں۔",
+    "sources": [
+      {
+        "title": "FAQs",
+        "url": "https://commecscollege.edu.pk/faqs/"
+      },
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "ur",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "Urdu script matches by exact text only (fuzzy is off for Urdu). Have an Urdu reader check the wording."
+  },
+  {
+    "id": "bank-fee-ur",
+    "match": [
+      "فیس کتنی ہے؟",
+      "فیس کتنی ہے",
+      "کالج کی فیس کتنی ہے؟",
+      "کالج کی فیس کتنی ہے"
+    ],
+    "answer": "سیشن 2026-27 کے پہلے سال کی فیس یہ ہے:\n\n*   **کامرس:** داخلے کے وقت 74,650 روپے (داخلہ فیس 55,000 + سالانہ چارجز 19,650)، ماہانہ ٹیوشن فیس 19,650 روپے، پہلے سال کی کل فیس 310,450 روپے۔\n*   **پری میڈیکل / پری انجینئرنگ:** کامرس کے برابر، یعنی داخلے کے وقت 74,650، ماہانہ 19,650 اور کل 310,450 روپے۔\n*   **کمپیوٹر سائنس:** داخلے کے وقت 75,150 روپے (داخلہ فیس 55,000 + سالانہ چارجز 20,150)، ماہانہ 20,150 روپے اور کل 316,950 روپے۔\n\nBIEK کے چارجز (اندراج اور امتحانی فیس وغیرہ) الگ سے ادا کیے جاتے ہیں۔ مقررہ تاریخ کے بعد فیس جمع کرانے پر 1,000 روپے جرمانہ ہوتا ہے۔ سرکاری دستاویز ویب سائٹ کے ڈاؤن لوڈز صفحے پر موجود ہے۔",
+    "sources": [
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "ur",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": "Urdu script, exact match only. Numbers match the PDF; have an Urdu reader check the wording."
+  },
+  {
+    "id": "bank-fee-roman",
+    "match": [
+      "fees kitni hai",
+      "fee kitni hai",
+      "college ki fees kitni hai",
+      "fees kitni hain",
+      "fee kitni hain",
+      "commecs ki fees kitni hai"
+    ],
+    "answer": "Session 2026-27 ke pehle saal ki fee:\n\n*   **Commerce:** admission ke waqt Rs. 74,650 (admission fee 55,000 + annual charges 19,650), mahana tuition Rs. 19,650, pehle saal ka total Rs. 310,450.\n*   **Pre-Medical / Pre-Engineering:** Commerce ke barabar, yaani admission ke waqt Rs. 74,650, mahana Rs. 19,650, total Rs. 310,450.\n*   **Computer Science:** admission ke waqt Rs. 75,150 (55,000 + annual charges 20,150), mahana Rs. 20,150, total Rs. 316,950.\n\nBIEK ke charges (enrollment, exam fee wagera) alag se ada karne hote hain. Fee late hone par Rs. 1,000 penalty lagti hai. Official document college ki website ke Downloads page par hai.",
+    "sources": [
+      {
+        "title": "Approved Fee Structure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
+        "type": "pdf"
+      },
+      {
+        "title": "Downloads",
+        "url": "https://commecscollege.edu.pk/downloads/"
+      }
+    ],
+    "language": "roman-ur",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-admission-roman",
+    "match": [
+      "Intermediate me admission ka kya process hai?",
+      "Intermediate mein admission ka process kya hai",
+      "Admission kaise lein",
+      "Admission ka tareeqa",
+      "Admission kaise hota hai",
+      "Admission kaise milega"
+    ],
+    "answer": "Intermediate mein admission ka process:\n\n1.  **Eligibility check karein:** Science groups (Pre-Engineering, Pre-Medical, Computer Science) ke liye SSC-I/O Level mein kam az kam 65%, Commerce ke liye 60%.\n2.  **Online registration karein** (https://admissions.commecscollege.edu.pk/sign-in) aur SSC-I/O Level marks sheet, B-Form aur passport size photographs upload karein.\n3.  **Rs. 1,000 registration fee** Admission Test (CAT) se kam az kam 2 din pehle jama karwayein.\n4.  **Computer based test** dein aur **interview** mein shamil hon.\n\nMerit SSC-I result, CAT aur interview se banta hai. Test ki agli date filhal \"to be announced\" hai.",
+    "sources": [
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      },
+      {
+        "title": "Admission Criteria",
+        "url": "https://commecscollege.edu.pk/admission-criteria/"
+      },
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      }
+    ],
+    "language": "roman-ur",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  },
+  {
+    "id": "bank-eligibility-roman",
+    "match": [
+      "Pre-medical mein admission ke liye kitne percent chahiye?",
+      "Pre-medical ke liye kitne percent chahiye",
+      "Pre-medical mein admission ke liye kitne marks chahiye",
+      "Pre-engineering mein admission ke liye kitne percent chahiye?",
+      "Pre-engineering ke liye kitne percent chahiye",
+      "Pre-engineering mein admission ke liye kitne marks chahiye",
+      "Computer Science mein admission ke liye kitne percent chahiye?",
+      "Computer Science ke liye kitne percent chahiye",
+      "Computer Science mein admission ke liye kitne marks chahiye",
+      "Commerce mein admission ke liye kitne percent chahiye?",
+      "Commerce ke liye kitne percent chahiye",
+      "Commerce mein admission ke liye kitne marks chahiye"
+    ],
+    "answer": "Admission ke liye SSC-I/O Level (ya equivalent) mein minimum marks:\n\n*   **Pre-Medical, Pre-Engineering aur Computer Science:** kam az kam **65%**\n*   **Commerce:** kam az kam **60%**\n\nMazeed shartein: SSC General Group wale students Pre-Engineering ya Pre-Medical ke liye eligible nahi hain, aur jinhon ne SSC mein Biology ki jagah Computer Studies parhi ho woh Pre-Medical ke liye eligible nahi. O Level walon ke liye Pre-Medical mein Biology zaroori hai. Minimum marks se seat pakki nahi hoti, admission merit (SSC-I result, CAT aur interview) par hota hai.",
+    "sources": [
+      {
+        "title": "Eligibility",
+        "url": "https://commecscollege.edu.pk/eligibility/"
+      },
+      {
+        "title": "Instructions for Admission 2026",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
+      }
+    ],
+    "language": "roman-ur",
+    "verified": true,
+    "verifiedAt": 1789916380590,
+    "verifiedBy": "atta",
+    "notes": ""
+  }
+]

@@ -1,0 +1,12 @@
+| **AUTHOR:** |  Syed Ayaz Ahmed Shah | **BIB. #** 43 |
+| --- | --- | --- |
+| **TITLE:** | Analysing effect of firm structure on cash-holding and profitability: a case of alternative investment market of UK | Analysing effect of firm structure on cash-holding and profitability: a case of alternative investment market of UK |
+| **YEAR OF PUBLICATION:** | Spring 2020 | Spring 2020 |
+| **CATEGORY:** | MBA Thesis | MBA Thesis |
+| **ABSTRACT/SUMMARY:** | The focus of this research was to find out the effect of firm structure over their cash holding and profitability. The methodology adopted for this study was quantitative whereas, secondary data was collected. The data was collected from 2008 to 2018 from Reuters. 10 companies were selected that belonged to AIM, UK. The findings of the study revealed that overall, the effect was not found to be significant as cash holdings has adverse effect on the profitability of the company. | The focus of this research was to find out the effect of firm structure over their cash holding and profitability. The methodology adopted for this study was quantitative whereas, secondary data was collected. The data was collected from 2008 to 2018 from Reuters. 10 companies were selected that belonged to AIM, UK. The findings of the study revealed that overall, the effect was not found to be significant as cash holdings has adverse effect on the profitability of the company. |
+| **KEY WORD(S):** | Cash-holding, Profitability, Alternative investment. | Cash-holding, Profitability, Alternative investment. |
+| **METHODOLOGY:** | Quantitative Research | Quantitative Research |
+| **NO. OF PAGES:** | 37p. | 37p. |
+| **SUPERVISOR:** | Mr. Muhammad Farhan | Mr. Muhammad Farhan |
+| **INSTITUTE:** | Commecs Institute of Business and Emerging Sciences (CIBES) | Commecs Institute of Business and Emerging Sciences (CIBES) |
+| **BIBLIOGRAPHY:** | Shah, Syed Ayaz Ahmed. (Spring, 2020). _Analysing effect of firm structure on cash-holding and profitability: a case of alternative investment market of UK._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. | Shah, Syed Ayaz Ahmed. (Spring, 2020). _Analysing effect of firm structure on cash-holding and profitability: a case of alternative investment market of UK._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |

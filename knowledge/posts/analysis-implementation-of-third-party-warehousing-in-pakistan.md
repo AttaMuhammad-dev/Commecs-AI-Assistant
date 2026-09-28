@@ -1,0 +1,12 @@
+| **AUTHOR:** |  Kamran Ghaziani | **BIB. #**  31 |
+| --- | --- | --- |
+| **TITLE:** | Analysis & Implementation of Third party warehousing in Pakistan | Analysis & Implementation of Third party warehousing in Pakistan |
+| **YEAR OF PUBLICATION:** | Spring 2017 | Spring 2017 |
+| **CATEGORY:** | BBA Thesis | BBA Thesis |
+| **ABSTRACT/SUMMARY:** | The purpose of this research is to identify the importance and effectiveness of low cost, public relation contacts, quality management, and investment in technology in order to outsource the warehouse function and to analyze the factors which affect the need of third party warehousing and the selection process of third party warehousing. The research focuses on how organization can improve their performance by outsourcing a function using different practices and variable in order to get the best customer value. | The purpose of this research is to identify the importance and effectiveness of low cost, public relation contacts, quality management, and investment in technology in order to outsource the warehouse function and to analyze the factors which affect the need of third party warehousing and the selection process of third party warehousing. The research focuses on how organization can improve their performance by outsourcing a function using different practices and variable in order to get the best customer value. |
+| **KEY WORD(S):** | Third party warehousing, Outsourcing, Best customer value. | Third party warehousing, Outsourcing, Best customer value. |
+| **METHODOLOGY:** | Quantitative Research | Quantitative Research |
+| **NO. OF PAGES:** | 28p. | 28p. |
+| **SUPERVISOR:** | Mr. Kamran Rajput | Mr. Kamran Rajput |
+| **INSTITUTE:** | Commecs Institute of Business and Emerging Sciences (CIBES) | Commecs Institute of Business and Emerging Sciences (CIBES) |
+| **BIBLIOGRAPHY:** | Ghaziani, Kamran. (Spring, 2017). _Analysis & Implementation of Third party warehousing in Pakistan._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. | Ghaziani, Kamran. (Spring, 2017). _Analysis & Implementation of Third party warehousing in Pakistan._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |

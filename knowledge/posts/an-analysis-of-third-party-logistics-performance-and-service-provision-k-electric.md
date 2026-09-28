@@ -1,0 +1,12 @@
+| **AUTHOR:** |  Muhammad Zain Ghaffar | **BIB. #**  27 |
+| --- | --- | --- |
+| **TITLE:** | An analysis of third-party logistics performance and service provision K-Electric | An analysis of third-party logistics performance and service provision K-Electric |
+| **YEAR OF PUBLICATION:** | Spring 2017 | Spring 2017 |
+| **CATEGORY:** | BBA Thesis | BBA Thesis |
+| **ABSTRACT/SUMMARY:** | The aim of the research described in this paper is to evaluate the relationship between the service capabilities and performance of K-Electric third-party logistics (3PL) providers. The results identify the most important services offered by 3PLs and the most important aspects of 3PL operational performance. The results also suggest that excellence in operations is more important than wide-ranging service provision. However, 3PL providers with service capabilities that correspond to the key priorities of customers will gain superior financial performance through a better operational performance. | The aim of the research described in this paper is to evaluate the relationship between the service capabilities and performance of K-Electric third-party logistics (3PL) providers. The results identify the most important services offered by 3PLs and the most important aspects of 3PL operational performance. The results also suggest that excellence in operations is more important than wide-ranging service provision. However, 3PL providers with service capabilities that correspond to the key priorities of customers will gain superior financial performance through a better operational performance. |
+| **KEY WORD(S):** | K-Electric, 3PLs, Service capabilities. | K-Electric, 3PLs, Service capabilities. |
+| **METHODOLOGY:** | Quantitative Research | Quantitative Research |
+| **NO. OF PAGES:** | 35p | 35p |
+| **SUPERVISOR:** | Mr. Kamran Rajput | Mr. Kamran Rajput |
+| **INSTITUTE:** | Commecs Institute of Business and Emerging Sciences (CIBES) | Commecs Institute of Business and Emerging Sciences (CIBES) |
+| **BIBLIOGRAPHY:** | Muhammad, Zain Ghaffar. (Spring, 2017). _An analysis of third-party logistics performance and service provision K-Electric_. \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. | Muhammad, Zain Ghaffar. (Spring, 2017). _An analysis of third-party logistics performance and service provision K-Electric_. \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |

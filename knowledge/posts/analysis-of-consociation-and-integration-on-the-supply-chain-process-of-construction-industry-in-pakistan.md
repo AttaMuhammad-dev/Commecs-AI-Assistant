@@ -1,0 +1,12 @@
+| **AUTHOR:** |  Syed Hamza Ali | **BIB. #**  74 |
+| --- | --- | --- |
+| **TITLE:** | Analysis of consociation and integration on the supply chain process of construction industry in Pakistan | Analysis of consociation and integration on the supply chain process of construction industry in Pakistan |
+| **YEAR OF PUBLICATION:** | Fall 2023 | Fall 2023 |
+| **CATEGORY:** | MBA Thesis | MBA Thesis |
+| **ABSTRACT/SUMMARY:** | This thesis investigates the impact of consociation and integration strategies on the supply chain processes within Pakistan’s construction industry. With a primary focus on strategic collaborations and coordination, the study explores theoretical frameworks, industry trends, and the evolving dynamics of construction supply chains. The findings contribute to a deeper understanding of how these strategic approaches influence the efficiency and effectiveness of the construction supply chain in the Pakistani context. | This thesis investigates the impact of consociation and integration strategies on the supply chain processes within Pakistan’s construction industry. With a primary focus on strategic collaborations and coordination, the study explores theoretical frameworks, industry trends, and the evolving dynamics of construction supply chains. The findings contribute to a deeper understanding of how these strategic approaches influence the efficiency and effectiveness of the construction supply chain in the Pakistani context. |
+| **KEY WORD(S):** | Supply chain process, Construction industry, | Supply chain process, Construction industry, |
+| **METHODOLOGY:** | Quantitative Research | Quantitative Research |
+| **NO. OF PAGES:** | 29p. | 29p. |
+| **SUPERVISOR:** | Dr. Muhammad Farhan | Dr. Muhammad Farhan |
+| **INSTITUTE:** | Commecs Institute of Business and Emerging Sciences (CIBES) | Commecs Institute of Business and Emerging Sciences (CIBES) |
+| **BIBLIOGRAPHY:** | Ali, Syed Hamza. (Fall, 2023). _Analysis of consociation and integration on the supply chain process of construction industry in Pakistan._  \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. | Ali, Syed Hamza. (Fall, 2023). _Analysis of consociation and integration on the supply chain process of construction industry in Pakistan._  \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |

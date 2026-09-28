@@ -1,0 +1,12 @@
+| **AUTHOR:** |  Muhammad Umar Rasheed | **BIB. #**  59 |
+| --- | --- | --- |
+| **TITLE:** | A Feasibility study on Calf Fattening in District Hyderabad, Sindh | A Feasibility study on Calf Fattening in District Hyderabad, Sindh |
+| **YEAR OF PUBLICATION:** | Spring 2020 | Spring 2020 |
+| **CATEGORY:** | MBA Thesis | MBA Thesis |
+| **ABSTRACT/SUMMARY:** | The research conducted to establish most effective organizational setup appropriate to the proposed project to determine the opportunities of the market and marketing strategies for the proposed project, the domestic market demand for meat animals, the fodder availability and other requirement in order to produce best quality mea animals at effective cost and to predict the financial needs of the proposed project and persuade investors to invest their money in the project and to identify the challenges anticipated by the project, remedial measures and economic benefits the firm expects to contribute. | The research conducted to establish most effective organizational setup appropriate to the proposed project to determine the opportunities of the market and marketing strategies for the proposed project, the domestic market demand for meat animals, the fodder availability and other requirement in order to produce best quality mea animals at effective cost and to predict the financial needs of the proposed project and persuade investors to invest their money in the project and to identify the challenges anticipated by the project, remedial measures and economic benefits the firm expects to contribute. |
+| **KEY WORD(S):** | Calf Fattening, Organizational setup. | Calf Fattening, Organizational setup. |
+| **METHODOLOGY:** | Mixed Research | Mixed Research |
+| **NO. OF PAGES:** | 82p. | 82p. |
+| **SUPERVISOR:** | Dr. Masood Anwar | Dr. Masood Anwar |
+| **INSTITUTE:** | Commecs Institute of Business and Emerging Sciences (CIBES) | Commecs Institute of Business and Emerging Sciences (CIBES) |
+| **BIBLIOGRAPHY:** | Rasheed, Muhammad Umar. (Spring, 2020). _A Feasibility study on Calf Fattening in District Hyderabad, Sindh._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. | Rasheed, Muhammad Umar. (Spring, 2020). _A Feasibility study on Calf Fattening in District Hyderabad, Sindh._ \[Master’s Thesis, Commecs Institute of Business and Emerging Sciences (CIBES)\]. |

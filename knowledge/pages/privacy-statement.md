@@ -1,0 +1,3 @@
+## Privacy Statement
+
+Commecs College is committed to maintaining the confidentiality and security of all documents submitted by students and their parents. All such documents are kept securely and are not shared with any unauthorized individual or third party. Once the documents have fulfilled their intended purpose and are no longer required, they are securely disposed of under the direct supervision of the College Management.
