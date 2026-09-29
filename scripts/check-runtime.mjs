@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import { generateChatStream } from '../dist-server/server/gemini.js';
+import { resetQuotaForTests } from '../dist-server/server/quota.js';
+import { providerDiagnostic } from '../dist-server/server/errors.js';
+const chunk=(text,finishReason='STOP')=>({candidates:[{content:{parts:[{text}]},finishReason}]});
+const run=(provider,signal=new AbortController().signal)=>generateChatStream('test',[],signal,'fast',()=>{},()=>{},undefined,provider);
+resetQuotaForTests();let calls=0;
+const recovered=await run(async()=>{calls++;if(calls===1)throw {status:503,message:'unavailable'};return (async function*(){yield chunk('Recovered');})();});
+assert.equal(recovered.text,'Recovered');assert.equal(calls,2);
+resetQuotaForTests();calls=0;
+const partial=await run(async()=>{calls++;return (async function*(){yield chunk('Partial',undefined);throw {status:503};})();});
+assert.equal(partial.finishReason,'INTERRUPTED');assert.equal(calls,1);
+resetQuotaForTests();const ac=new AbortController();ac.abort();await assert.rejects(run(async()=>{throw Error('must not run');},ac.signal),{code:'ABORTED'});
+const safe=JSON.stringify(providerDiagnostic({status:400,message:'key=private-value prompt=private-question thinking invalid'}));assert(!safe.includes('private-value'));assert(!safe.includes('private-question'));
+console.log('PASS: transient failover, no mixed partial answers, cancellation, safe diagnostics.');

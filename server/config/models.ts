@@ -43,4 +43,4 @@ export function clampThinking(modelId: string, wanted: ThinkingLevel): ThinkingL
 }
 
 export const getFastLadder = () => (process.env.MODEL_LADDER_FAST || 'gemini-3.1-flash-lite,gemini-3.5-flash-lite,gemini-3.6-flash').split(',').map(s => s.trim()).filter((id, i, ids) => id in MODEL_CATALOG && ids.indexOf(id) === i).slice(0, 3);
-export const getDeepLadder = () => (process.env.MODEL_LADDER_DEEP || 'gemini-3.8-flash,gemini-3.6-flash,gemini-3.1-flash-lite').split(',').map(s => s.trim()).filter((id, i, ids) => id in MODEL_CATALOG && ids.indexOf(id) === i).slice(0, 3);
+export const getDeepLadder = () => (process.env.MODEL_LADDER_DEEP || 'gemini-3.1-flash-lite,gemini-3.6-flash,gemini-3.8-flash').split(',').map(s => s.trim()).filter((id, i, ids) => id in MODEL_CATALOG && ids.indexOf(id) === i).slice(0, 3);

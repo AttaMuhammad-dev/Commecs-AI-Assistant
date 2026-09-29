@@ -1,3 +1,4 @@
+import { facultyVersion } from './faculty.js';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -20,7 +21,7 @@ export function getKbVersion(): number {
   return version;
 }
 export function generateKey(message: string, history: { role: string; text: string }[], lane = 'fast', preferences: Preferences = DEFAULT_PREFERENCES): string {
-  return createHash('sha256').update(JSON.stringify({ message: message.trim().toLowerCase(), history: history.map(({ role, text }) => ({ role, text })), lane, preferences, kb: getKbVersion(), store: process.env.FILE_SEARCH_STORE_NAME || '', prompt: PROMPT_VERSION })).digest('hex');
+  return createHash('sha256').update(JSON.stringify({ message: message.trim().toLowerCase(), history: history.map(({ role, text }) => ({ role, text })), lane, preferences, kb: getKbVersion(), store: process.env.FILE_SEARCH_STORE_NAME || '', prompt: PROMPT_VERSION, faculty: facultyVersion })).digest('hex');
 }
 export function getCachedResponse(message: string, history: { role: string; text: string }[], lane = 'fast', preferences: Preferences = DEFAULT_PREFERENCES) {
   const key = generateKey(message, history, lane, preferences);
@@ -37,3 +38,4 @@ export function setCachedResponse(message: string, history: { role: string; text
   cache.set(key, { text, sources, timestamp: Date.now() });
 }
 export function clearCache() { cache.clear(); }
+

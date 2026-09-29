@@ -1,0 +1,626 @@
+{
+  "source": "https://commecscollege.edu.pk/faculty/",
+  "sourceModified": "2025-07-17T07:04:03",
+  "retrievedAt": "2026-09-29T07:54:43.714Z",
+  "contentHash": "ced729d4422d211a2d5dcbd8bc13d56c49c453dd9e036fdf87e832114340ede5",
+  "records": [
+    {
+      "department": "Academic Management",
+      "name": "Muhammad Muzaffar",
+      "qualification": "M.A. (Urdu Lit.), M.A. (English Ling. & Lit.)",
+      "roles": [
+        "Associate Professor",
+        "Coordinator Student Affairs - Program"
+      ]
+    },
+    {
+      "department": "Academic Management",
+      "name": "Rohana Tariq",
+      "qualification": "M.A. (English Literature)",
+      "roles": [
+        "Assistant Professor",
+        "Coordinator Student Affairs - Discipline"
+      ]
+    },
+    {
+      "department": "Academic Management",
+      "name": "S. Naimatullah",
+      "qualification": "M.Sc. (Mathematics)",
+      "roles": [
+        "Assistant Professor",
+        "Academic Coordinator - Pre-Engineering"
+      ]
+    },
+    {
+      "department": "Academic Management",
+      "name": "Kamran Wadood",
+      "qualification": "M.Com. (Marketing), M.A. (Economics)",
+      "roles": [
+        "Associate Professor",
+        "Academic Coordinator - Commerce & Humanities"
+      ]
+    },
+    {
+      "department": "Academic Management",
+      "name": "Syeda Noorul Ain Zaman",
+      "qualification": "M.Sc. (Zoology)",
+      "roles": [
+        "Assistant Professor",
+        "Academic Coordinator - Pre-Medical"
+      ]
+    },
+    {
+      "department": "Academic Management",
+      "name": "Rehan Ahmed",
+      "qualification": "M.Sc. (Physics), MIBM, M.S. (Mathematics)",
+      "roles": [
+        "Associate Professor",
+        "Academic Coordinator - Computer Science"
+      ]
+    },
+    {
+      "department": "Accounting",
+      "name": "Danish Feroz",
+      "qualification": "MBA (Finance), MA (Economics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Accounting",
+      "name": "Zohaib Yar Khan",
+      "qualification": "M. Com., M. Phil. (Finance)",
+      "roles": [
+        "Assistant Professor"
+      ]
+    },
+    {
+      "department": "Accounting",
+      "name": "Asif Ahmed",
+      "qualification": "M. Com (Finance)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Business. Maths & Stats",
+      "name": "Rehan Ahmed",
+      "qualification": "M.Sc. (Physics), MIBM, M.S. (Mathematics)",
+      "roles": [
+        "Associate Professor",
+        "(H.O.D. - B. Maths & Statistics)"
+      ]
+    },
+    {
+      "department": "Business. Maths & Stats",
+      "name": "Khalid Sarwar Qureshi",
+      "qualification": "M.Sc (Statistics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Business. Maths & Stats",
+      "name": "Syed Mudabbir Hussain",
+      "qualification": "M.Sc (Statistics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Botany",
+      "name": "M Umer",
+      "qualification": "MSc (Botany)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Botany",
+      "name": "Shaheema Fatima",
+      "qualification": "MSc (Botany), B. Ed",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Chemistry",
+      "name": "Ayesha Bibi",
+      "qualification": "M.Sc. (Chemistry), M. Phil. (Organic Synthesis)",
+      "roles": [
+        "Lecturer",
+        "M. Phil. (Organic Synthesis)"
+      ]
+    },
+    {
+      "department": "Chemistry",
+      "name": "Fariha Shamim",
+      "qualification": "M. Phil (Chemistry)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Chemistry",
+      "name": "Rabeeb Khalil",
+      "qualification": "BS (Chemistry) & B.Ed",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Chemistry",
+      "name": "Uzma Aleem",
+      "qualification": "Masters (Chemistry)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Chemistry",
+      "name": "Sana Rashid",
+      "qualification": "M.Sc. (Chemistry), M.Phil (Industrial Chemistry)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Chemistry",
+      "name": "Arshan Ul Haq",
+      "qualification": "BS Hons (Chemistry)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "IT and Computer Sc.",
+      "name": "Aisha Shakir",
+      "qualification": "BCIT",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "IT and Computer Sc.",
+      "name": "Ayesha Ejaz",
+      "qualification": "BCS (Computer Science)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "IT and Computer Sc.",
+      "name": "Muhammad Jawwad",
+      "qualification": "M.S Software Engineering",
+      "roles": [
+        "Lecturer",
+        "HOD - Computer Science"
+      ]
+    },
+    {
+      "department": "IT and Computer Sc.",
+      "name": "Simrah Adil",
+      "qualification": "B.E (Bachelor In Engineering)",
+      "roles": [
+        "Junior Lecturer"
+      ]
+    },
+    {
+      "department": "IT and Computer Sc.",
+      "name": "Laiba Binte Musharraf",
+      "qualification": "BS (Software Engineering)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Physical Education",
+      "name": "Najmus Sahar",
+      "qualification": "M.Sc. (Health & Physical Edu.)",
+      "roles": [
+        "DPE Girls"
+      ]
+    },
+    {
+      "department": "Economics",
+      "name": "Kamran Wadood",
+      "qualification": "M.Com. (Marketing), M.A. (Economics)",
+      "roles": [
+        "Associate Professor",
+        "(H.O.D - Economics)"
+      ]
+    },
+    {
+      "department": "English",
+      "name": "Zainulabdeen",
+      "qualification": "M.A. (English Linguistics)",
+      "roles": [
+        "Associate Professor"
+      ]
+    },
+    {
+      "department": "English",
+      "name": "Anushka Naveed",
+      "qualification": "Masters (English Literature)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "English",
+      "name": "Rohana Tariq",
+      "qualification": "M.A. (English Literature)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "English",
+      "name": "Nasreen Akhtar",
+      "qualification": "MA (English), M.Ed",
+      "roles": [
+        "Assistant Professor"
+      ]
+    },
+    {
+      "department": "English",
+      "name": "Sana Hammad",
+      "qualification": "M.A. (English Linguistics), M.Sc. (Botany)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "English",
+      "name": "Samiya Ashraf",
+      "qualification": "Masters (English Literature)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "English",
+      "name": "Shafaq Afzal",
+      "qualification": "MA (English)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "English",
+      "name": "Nabita Fatima",
+      "qualification": "MA (English Literature)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "English",
+      "name": "Maheen Alam",
+      "qualification": "MA (English Linguistics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Islamiat",
+      "name": "S. M. Amir Hussain",
+      "qualification": "M.A. (Islamiat)",
+      "roles": [
+        "Assistant Professor",
+        "Acting (H.O.D)"
+      ]
+    },
+    {
+      "department": "Islamiat",
+      "name": "Tuaha Hasan",
+      "qualification": "M.A. (Islamic Studies & Arabic)",
+      "roles": [
+        "Assistant Professor"
+      ]
+    },
+    {
+      "department": "Islamiat",
+      "name": "Soofia Shaheen",
+      "qualification": "M.A. (Islamic Studies), B.Ed",
+      "roles": [
+        "Associate Professor"
+      ]
+    },
+    {
+      "department": "Mathematics",
+      "name": "M. Mohsin Khan",
+      "qualification": "M.Sc. (Mathematics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Mathematics",
+      "name": "M. Hashim",
+      "qualification": "MSc (Pure Maths)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Mathematics",
+      "name": "Aftab Ahmed",
+      "qualification": "M.Sc. (Mathematics)",
+      "roles": [
+        "Assistant Professor",
+        "(H.O.D - Mathematics)"
+      ]
+    },
+    {
+      "department": "Mathematics",
+      "name": "Ayaz Alvi",
+      "qualification": "M.Sc. (Mathematics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Mathematics",
+      "name": "Khalid Javed",
+      "qualification": "M.Sc. (Applied Mathematics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Mathematics",
+      "name": "M. Ahsan Khan",
+      "qualification": "BS (Mathematical Sciences)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Mathematics",
+      "name": "S. Naimatullah",
+      "qualification": "M.Sc. (Mathematics)",
+      "roles": [
+        "Assistant Professor",
+        "(H.O.D - Mathametics)"
+      ]
+    },
+    {
+      "department": "Mathematics",
+      "name": "M. Sayem Hanif",
+      "qualification": "MS (Applied Mathematics)",
+      "roles": [
+        "Assistant Professor"
+      ]
+    },
+    {
+      "department": "Pak. St. and Geography",
+      "name": "Durdana Ahmed",
+      "qualification": "M.A. (Geog.) MA. (G. Hist.), GIS",
+      "roles": [
+        "Associate Professor",
+        "(H.O.D. - Geography)"
+      ]
+    },
+    {
+      "department": "Pak. St. and Geography",
+      "name": "Naheed Haq",
+      "qualification": "M.A (I.R.), M.A. (Pak Studies)",
+      "roles": [
+        "Lecturer",
+        "(H.O.D - Pak. Studies)"
+      ]
+    },
+    {
+      "department": "Pak. St. and Geography",
+      "name": "Zahir Muhammad",
+      "qualification": "M. A. (Pakistan Studies)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Physics",
+      "name": "Ammar Bin Ahsan",
+      "qualification": "M.Sc. (Physics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Physics",
+      "name": "Hiba Kafeel",
+      "qualification": "B.S (Applied Physics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Physics",
+      "name": "Mohammad Suhail Aslam",
+      "qualification": "M.Sc (Applied Physics), MCS, M.Phil (IT), A.M.I.E",
+      "roles": [
+        "Assistant Professor",
+        "(H.O.D. - Physics)"
+      ]
+    },
+    {
+      "department": "Physics",
+      "name": "Armeen Ghalib",
+      "qualification": "MSc (Physics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Physics",
+      "name": "Mudassir Mehmood",
+      "qualification": "M.Sc. (Applied Physics)",
+      "roles": [
+        "Assistant Professor"
+      ]
+    },
+    {
+      "department": "Physics",
+      "name": "Zahid Mushtaq",
+      "qualification": "M. Phil (Physics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Physics",
+      "name": "M. Raees",
+      "qualification": "M.Sc. (Physics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Physics",
+      "name": "M Haris",
+      "qualification": "BS (Applied Physics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Physics",
+      "name": "Amna Bibi",
+      "qualification": "BS (Applied Physics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Physics",
+      "name": "Usman Qayyum",
+      "qualification": "MSc (Physics)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "POC/Banking",
+      "name": "Fouzia Kausar",
+      "qualification": "MS / M. Phil. (Finance)",
+      "roles": [
+        "Assistant Professor"
+      ]
+    },
+    {
+      "department": "POC/Banking",
+      "name": "Dr. Seema Khalid",
+      "qualification": "Ph.D. in HR",
+      "roles": [
+        "Associate Professor",
+        "HOD- POC & Banking"
+      ]
+    },
+    {
+      "department": "POC/Banking",
+      "name": "Soofia Danish",
+      "qualification": "M. Com (Marketing)",
+      "roles": [
+        "Assistant Professor"
+      ]
+    },
+    {
+      "department": "Psychology",
+      "name": "Bisma Rashid Malik",
+      "qualification": "MA (Clinical Psychology)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Sociology",
+      "name": "Yasir Ali",
+      "qualification": "Masters (Sociology)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Urdu",
+      "name": "Ahmed Raza",
+      "qualification": "M.Phil (Urdu)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Urdu",
+      "name": "Muhammad Muzaffar",
+      "qualification": "M.A. (Urdu Lit.), M.A. (English Ling. & Lit.)",
+      "roles": [
+        "Associate Professor"
+      ]
+    },
+    {
+      "department": "Urdu",
+      "name": "Naila Yaqoob Baig",
+      "qualification": "M.A. (Urdu), M.A. (Islamic History)",
+      "roles": [
+        "Assistant Professor"
+      ]
+    },
+    {
+      "department": "Urdu",
+      "name": "Sabahat Zehra",
+      "qualification": "M.A. (Urdu Literature)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Urdu",
+      "name": "Syed Qamar Abbas",
+      "qualification": "M. Phil (Urdu)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Urdu",
+      "name": "Dr. Uzma Naveed",
+      "qualification": "PhD (Urdu Literature)",
+      "roles": [
+        "Associate Professor"
+      ]
+    },
+    {
+      "department": "Urdu",
+      "name": "Kaniz Fatima",
+      "qualification": "MA (Urdu)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Zoology",
+      "name": "Faiza Lodhi",
+      "qualification": "MSc (Zoology)",
+      "roles": [
+        "Lecturer"
+      ]
+    },
+    {
+      "department": "Zoology",
+      "name": "Syeda Noorul Ain Zaman",
+      "qualification": "M. Sc. (Zoology)",
+      "roles": [
+        "Academic Coordinator - Pre-Medical",
+        "Assistant Professor"
+      ]
+    },
+    {
+      "department": "Zoology",
+      "name": "Urooj Hesham",
+      "qualification": "MSc. (Zoology), B.Ed",
+      "roles": [
+        "Lecturer"
+      ]
+    }
+  ]
+}

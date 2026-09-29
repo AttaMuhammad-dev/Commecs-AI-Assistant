@@ -1,0 +1,2 @@
+const port=process.argv[2]||'3001';
+const r=await fetch(`http://localhost:${port}/api/chat`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:'tell me about the faculty of commecs which teaches urdu subject?',history:[{role:'user',text:'Fees & scholarships'},{role:'model',text:'Commecs offers scholarships.'}],preferences:{language:'auto',responseStyle:'concise'}}),signal:AbortSignal.timeout(65000)});console.log(await r.text());

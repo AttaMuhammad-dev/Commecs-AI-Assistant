@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import { createHash } from 'node:crypto';
+import { parseFaculty } from './lib/faculty.mjs';
+const response=await fetch('https://commecscollege.edu.pk/wp-json/wp/v2/pages?slug=faculty&_fields=id,link,modified_gmt,content',{signal:AbortSignal.timeout(20000),redirect:'error'});
+if(!response.ok)throw Error(`Faculty refresh failed: HTTP ${response.status}. Existing directory preserved.`);
+const pages=await response.json();
+if(pages.length!==1 || pages[0].link!=='https://commecscollege.edu.pk/faculty/')throw Error('Unexpected faculty source.');
+const records=parseFaculty(pages[0].content.rendered);
+const output={source:pages[0].link,sourceModified:pages[0].modified_gmt,retrievedAt:new Date().toISOString(),contentHash:createHash('sha256').update(JSON.stringify(records)).digest('hex'),records};
+const target='server/data/faculty-directory.json';
+fs.writeFileSync(target+'.tmp',JSON.stringify(output,null,2)+'\n');fs.renameSync(target+'.tmp',target);
+console.log(`Refreshed ${records.length} faculty appointments across ${new Set(records.map(r=>r.department)).size} directory categories. Rebuild and restart to activate.`);

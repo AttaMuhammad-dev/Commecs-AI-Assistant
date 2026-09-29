@@ -1,8 +1,9 @@
 import { GoogleGenAI, ThinkingLevel as SDKThinkingLevel, type GenerateContentParameters, type GenerateContentResponse } from '@google/genai';
+import { facultyEvidence, facultySource } from './faculty.js';
 import { buildSystemPrompt } from './systemPrompt.js';
 import { getFastLadder, getDeepLadder, clampThinking, downgradedModels, type ThinkingLevel } from './config/models.js';
 import { isExhausted, markExhausted, coolDown } from './quota.js';
-import { ChatError, classifyProviderError } from './errors.js';
+import { ChatError, classifyProviderError, providerDiagnostic } from './errors.js';
 import { DEFAULT_PREFERENCES, safeSourceUrl, type Preferences, type Source, type FinishReason } from '../shared/chat.js';
 
 export type StreamProvider = (params: GenerateContentParameters) => Promise<AsyncIterable<GenerateContentResponse>>;
@@ -29,6 +30,7 @@ export async function generateChatStream(
   const storeName = 'fileSearchStores/' + (rawStore || 'test').replace(/^(corpora\/|fileSearchStores\/)/, '');
   const generate = provider || ((params: GenerateContentParameters) => new GoogleGenAI({ apiKey }).models.generateContentStream(params));
   const contents = [...history.map(h => ({ role: h.role === 'bot' ? 'model' : h.role, parts: [{ text: h.text }] })), { role: 'user', parts: [{ text: message }] }];
+  const directoryEvidence = facultyEvidence(message, history);
   const ladder = lane === 'deep' ? getDeepLadder() : getFastLadder();
   const started = Date.now();
   let attempts = 0;
@@ -36,7 +38,7 @@ export async function generateChatStream(
   // A single request has at most three provider calls and a 50-second total deadline.
   for (const model of ladder) {
     if (isExhausted(model)) continue;
-    let thinking = clampThinking(model, (lane === 'deep' ? process.env.DEEP_THINKING || 'MEDIUM' : process.env.FAST_THINKING || 'MINIMAL') as ThinkingLevel);
+    let thinking = clampThinking(model, (lane === 'deep' ? process.env.DEEP_THINKING || 'LOW' : process.env.FAST_THINKING || 'MINIMAL') as ThinkingLevel);
     for (let retry = 0; retry < 2; retry++) {
       if (signal.aborted) throw new ChatError('ABORTED', 'Request stopped.');
       if (attempts >= 3 || Date.now() - started >= 50000) throw new ChatError(lastCode, 'No model is available right now.');
@@ -46,7 +48,7 @@ export async function generateChatStream(
       signal.addEventListener('abort', forwardAbort, { once: true });
       const timer = setTimeout(() => ac.abort(), Math.min(20000, 50000 - (Date.now() - started)));
       let text = '';
-      const sourceMap = new Map<string, Source>();
+      const sourceMap = new Map<string, Source>(directoryEvidence ? [[facultySource.url, facultySource]] : []);
       let finishReason: FinishReason = 'INTERRUPTED';
       let iterator: AsyncIterator<GenerateContentResponse> | undefined;
       try {
@@ -55,7 +57,7 @@ export async function generateChatStream(
           throw { status: fake.startsWith('429') ? 429 : 503, message: fake === '429-daily' ? 'quota per day' : 'unavailable' };
         }
         const stream = await abortable(generate({ model, contents, config: {
-          systemInstruction: buildSystemPrompt(preferences),
+          systemInstruction: buildSystemPrompt(preferences) + directoryEvidence,
           tools: [{ fileSearch: { fileSearchStoreNames: [storeName] } }],
           thinkingConfig: { thinkingLevel: SDKThinkingLevel[thinking], includeThoughts: false },
           maxOutputTokens: lane === 'deep' || preferences.responseStyle === 'detailed' ? 4096 : 2048,
@@ -92,6 +94,7 @@ export async function generateChatStream(
           return { text, sources, finishReason: 'INTERRUPTED' as const, model, thinking, attempts };
         }
         const failure = classifyProviderError(ac.signal.aborted ? { message: 'LOCAL_TIMEOUT' } : error);
+        console.warn(JSON.stringify({ event: 'provider_failure', model, attempt: attempts, kind: failure.kind, ...providerDiagnostic(ac.signal.aborted ? { message: 'LOCAL_TIMEOUT' } : error) }));
         if (failure.kind === 'daily') { markExhausted(model, 'daily'); lastCode = 'QUOTA_EXCEEDED'; break; }
         if (failure.kind === 'minute') { coolDown(model, failure.retryMs); lastCode = 'QUOTA_EXCEEDED'; break; }
         if (failure.kind === 'unavailable') { coolDown(model, 3600000); lastCode = 'MODEL_UNAVAILABLE'; break; }
@@ -110,3 +113,7 @@ export async function generateChatStream(
   }
   throw new ChatError(lastCode, 'No model is available right now.');
 }
+
+
+
+

@@ -1,0 +1,3 @@
+import fs from 'node:fs';
+import {parseFaculty} from '../scripts/lib/faculty.mjs';
+const r=await fetch('https://commecscollege.edu.pk/faculty/',{signal:AbortSignal.timeout(20000),redirect:'error'});if(!r.ok)throw Error(`HTTP ${r.status}`);const records=parseFaculty(await r.text());const saved=JSON.parse(fs.readFileSync('server/data/faculty-directory.json','utf8')).records;const keys=rows=>rows.map(r=>r.department+'|'+r.name).sort();console.log(JSON.stringify({webpageRecords:records.length,savedRecords:saved.length,match:JSON.stringify(keys(records))===JSON.stringify(keys(saved)),physics:records.filter(r=>r.department==='Physics').map(r=>r.name)}));

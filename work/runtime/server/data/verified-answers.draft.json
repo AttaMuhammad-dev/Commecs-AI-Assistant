@@ -1,0 +1,94 @@
+[
+  {
+    "id": "bank-1789907476376-0",
+    "match": [
+      "Programs offered"
+    ],
+    "answer": "Commecs College offers the following academic programs, categorized under Commerce and Science:\n\n**Commerce**\n*   **Commerce Group:** This program is designed for students interested in careers in business, economics, banking, finance, chartered accountancy, and related fields.\n\n**Science**\n*   **Pre-Engineering:** This program provides a foundation for students pursuing higher studies in various engineering fields (e.g., Civil, Mechanical, Electrical, Software, etc.).\n*   **Pre-Medical:** This program prepares students for professional careers in various medical and healthcare fields.\n*   **Computer Science:** This program focuses on subjects such as Computer Science, Physics, and Mathematics, preparing students for careers in IT, software engineering, artificial intelligence, and cybersecurity.",
+    "sources": [
+      {
+        "title": "Commecs College Brochure 2026-27",
+        "url": "https://commecscollege.edu.pk/wp-content/uploads/2025/12/Commecs-College-Brochure-2026.pdf"
+      }
+    ],
+    "language": "en",
+    "verified": false,
+    "verifiedAt": 0,
+    "verifiedBy": "",
+    "notes": ""
+  },
+  {
+    "id": "bank-1789907490349-1",
+    "match": [
+      "How to apply"
+    ],
+    "answer": "To apply for admission to Commecs College, you should follow these key steps:\n\n*   **Read the Prospectus:** It is the responsibility of each applicant to carefully review the college's admission prospectus before applying. You are required to follow all instructions provided therein.\n*   **Register Online:** You can begin your application by registering on the official admissions portal.\n*   **Merit-Based Process:** Admission is strictly merit-based. The assessment process includes:\n    *   Previous Scholastic Achievement\n    *   Commecs Admission Test (CAT)\n    *   Interview\n\n**Important Notes:**\n*   **Honesty:** Any misstatement of information will lead to the automatic cancellation of your admission.\n*   **Fairness:** Admission is based purely on merit. Any attempt to use recommendations or influence to secure a seat will result in the immediate disqualification of the candidate.",
+    "sources": [
+      {
+        "title": "Admission Criteria",
+        "url": "https://commecscollege.edu.pk/admission-criteria/"
+      },
+      {
+        "title": "Register for Admissions",
+        "url": "https://commecscollege.edu.pk/register-for-admissions/"
+      }
+    ],
+    "language": "en",
+    "verified": false,
+    "verifiedAt": 0,
+    "verifiedBy": "",
+    "notes": ""
+  },
+  {
+    "id": "bank-1789907494353-2",
+    "match": [
+      "Fees & scholarships"
+    ],
+    "answer": "",
+    "sources": [],
+    "language": "en",
+    "verified": false,
+    "verifiedAt": 0,
+    "verifiedBy": "",
+    "notes": ""
+  },
+  {
+    "id": "bank-1789907498362-3",
+    "match": [
+      "Contact the college"
+    ],
+    "answer": "",
+    "sources": [],
+    "language": "en",
+    "verified": false,
+    "verifiedAt": 0,
+    "verifiedBy": "",
+    "notes": ""
+  },
+  {
+    "id": "bank-1789907502375-4",
+    "match": [
+      "What is the fee structure?"
+    ],
+    "answer": "",
+    "sources": [],
+    "language": "en",
+    "verified": false,
+    "verifiedAt": 0,
+    "verifiedBy": "",
+    "notes": ""
+  },
+  {
+    "id": "bank-1789907506384-5",
+    "match": [
+      "Fees for intermediate computer science"
+    ],
+    "answer": "",
+    "sources": [],
+    "language": "en",
+    "verified": false,
+    "verifiedAt": 0,
+    "verifiedBy": "",
+    "notes": ""
+  }
+]

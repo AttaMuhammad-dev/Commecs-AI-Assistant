@@ -1,4 +1,4 @@
-import guides from './data/local-guide.json';
+import guides from './data/local-guide.json' with { type: 'json' };
 import { normalizeForBank } from './bank.js';
 import type { Preferences } from '../shared/chat.js';
 
@@ -21,3 +21,4 @@ export function getLocalGuideAnswer(message: string, preferences: Preferences) {
     : `${intro}\n\n**${guide.title}**\n\n${guide.excerpt}\n\n[Read the full official page](${guide.url})`;
   return { answer, sources: [{title:guide.title,url:guide.url,modified:guide.modified,type:'page'}] };
 }
+

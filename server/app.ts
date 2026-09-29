@@ -1,3 +1,4 @@
+import { getSavedEvidence } from './savedEvidence.js';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { bodyLimit } from 'hono/body-limit';
@@ -12,6 +13,7 @@ import { getVerifiedAnswer } from './bank.js';
 import { distressReply } from './safety.js';
 import { acquireCapacity } from './capacity.js';
 import { getLocalGuideAnswer } from './localGuide.js';
+import { getFacultyAnswer } from './faculty.js';
 import { type ChatEvent, type Lane } from '../shared/chat.js';
 
 export const app = new Hono();
@@ -20,7 +22,7 @@ app.use('/api/*', cors({
   allowMethods: ['GET', 'POST', 'OPTIONS'], allowHeaders: ['Content-Type'], maxAge: 600,
 }));
 app.use('/api/chat', bodyLimit({ maxSize: 32768, onError: c => c.json({ code: 'BAD_REQUEST', message: 'Request too large.' }, 413) }));
-app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!(process.env.GEMINI_API_KEY?.trim() && process.env.FILE_SEARCH_STORE_NAME?.trim()), version: '2.1', knowledgeUpdatedAt: getKbVersion() || null }); });
+app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!(process.env.GEMINI_API_KEY?.trim() && process.env.FILE_SEARCH_STORE_NAME?.trim()), version: '2.1', build: 'presentation-stable-20260929', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null }); });
 
 app.post('/api/chat', async c => {
   if (!/^application\/json(?:;|$)/i.test(c.req.header('Content-Type') || '')) return c.json({ code: 'BAD_REQUEST', message: 'Requires application/json.' }, 400);
@@ -32,13 +34,16 @@ app.post('/api/chat', async c => {
   const { message, history, preferences } = body;
   const started = Date.now();
   const safety = distressReply(message);
-  const bank = !safety && history.length === 0 && preferences.language === 'auto' && preferences.responseStyle === 'concise' ? getVerifiedAnswer(message, getKbVersion()) : null;
-  const local = !safety && !bank ? getLocalGuideAnswer(message, preferences) : null;
+  const faculty = !safety ? getFacultyAnswer(message, history, preferences) : null;
+  const bank = !safety && !faculty && history.length === 0 && preferences.language === 'auto' && preferences.responseStyle === 'concise' ? getVerifiedAnswer(message, getKbVersion()) : null;
+  const local = faculty || (!safety && !bank ? getLocalGuideAnswer(message, preferences) : null);
   const route = routeQuestion(message, history);
   const lane: Lane = bank ? 'verified' : route.lane;
   const cached = !safety && !bank && !local && process.env.CACHE_ENABLED !== 'false' ? getCachedResponse(message, history, lane, preferences) : null;
+  const backup = !safety && !local && !bank ? getSavedEvidence(message, history, preferences) : null;
+  let locallyLimited = false;
   // Local answers do not spend provider quota and must remain available during a demo burst.
-  if (!safety && !bank && !local && !cached && !checkRateLimit(ip)) { c.header('Retry-After', '60'); return c.json({ code: 'RATE_LIMITED', message: 'Please wait before asking again.' }, 429); }
+  if (!safety && !bank && !local && !cached && !checkRateLimit(ip)) { if (backup) locallyLimited = true; else { c.header('Retry-After', '60'); return c.json({ code: 'RATE_LIMITED', message: 'Please wait before asking again.' }, 429); } }
   c.header('Cache-Control', 'no-store');
   c.header('X-Accel-Buffering', 'no');
   return streamSSE(c, async stream => {
@@ -48,6 +53,8 @@ app.post('/api/chat', async c => {
     c.req.raw.signal.addEventListener('abort', abort, { once: true });
     stream.onAbort(abort);
     const timeout = setTimeout(abort, 55000);
+    // If no first token arrives promptly, show source evidence rather than wait a full minute.
+    const evidenceTimeout = backup ? setTimeout(abort, 15000) : undefined;
     let ttftMs = 0;
     let hasOutput = false;
     let release: (() => void) | null = null;
@@ -62,10 +69,11 @@ app.post('/api/chat', async c => {
         await emit({ event: 'done', data: { finishReason: 'STOP' } });
         return;
       }
+      if (locallyLimited) throw Object.assign(new Error('Rate limited'), { code: 'RATE_LIMITED' });
       release = acquireCapacity();
       if (!release) throw Object.assign(new Error('Busy'), { code: 'BUSY' });
       const result = await generateChatStream(message, history, ac.signal, lane,
-        async text => { if (!hasOutput) ttftMs = Date.now() - started; hasOutput = true; await emit({ event: 'chunk', data: { text } }); },
+        async text => { clearTimeout(evidenceTimeout); if (!hasOutput) ttftMs = Date.now() - started; hasOutput = true; await emit({ event: 'chunk', data: { text } }); },
         async sources => { await emit({ event: 'sources', data: { sources } }); }, preferences);
       // Never cache partial, blocked or ungrounded answers.
       if (process.env.CACHE_ENABLED !== 'false' && result.finishReason === 'STOP' && result.text.trim().length > 20 && result.sources.length) {
@@ -77,6 +85,14 @@ app.post('/api/chat', async c => {
       if (stream.aborted) return;
       const code = (error as { code?: string })?.code || 'UPSTREAM_ERROR';
       if (hasOutput) { await emit({ event: 'done', data: { finishReason: 'INTERRUPTED' } }); return; }
+      if (backup && code !== 'BLOCKED' && !c.req.raw.signal.aborted) {
+        await emit({ event: 'meta', data: { mode: lane, cached: false, local: true, fallback: true } });
+        await emit({ event: 'chunk', data: { text: backup.answer } });
+        await emit({ event: 'sources', data: { sources: backup.sources } });
+        await emit({ event: 'done', data: { finishReason: 'STOP' } });
+        console.info(JSON.stringify({ event: 'saved_source_fallback', code, totalMs: Date.now() - started }));
+        return;
+      }
       const isUrdu = preferences.language === 'ur' || (preferences.language === 'auto' && /[\u0600-\u06FF]/.test(message));
       const text = isUrdu
         ? 'میں اس وقت کالج کی معلومات کی تصدیق نہیں کر پا رہا۔ دوبارہ کوشش کریں یا داخلہ دفتر سے رابطہ کریں۔'
@@ -90,6 +106,9 @@ app.post('/api/chat', async c => {
       await emit({ event: 'contact', data: contactInfo });
       await emit({ event: 'done', data: { finishReason: 'STOP' } });
       console.info(JSON.stringify({ lane, fallback: true, code, totalMs: Date.now() - started }));
-    } finally { release?.(); clearTimeout(timeout); c.req.raw.signal.removeEventListener('abort', abort); }
+    } finally { release?.(); clearTimeout(timeout); clearTimeout(evidenceTimeout); c.req.raw.signal.removeEventListener('abort', abort); }
   });
 });
+
+
+
