@@ -26,12 +26,20 @@ describe('chat API', () => {
   it('returns a contact card when providers fail and does not cache the fallback', async () => {
     generate.mockRejectedValue(Object.assign(new Error('quota'), {code:'QUOTA_EXCEEDED'}));
     for (let i = 0; i < 2; i++) {
-      const text = await (await request({message:'Please explain the published fee policy in detail.'})).text();
+      const text = await (await request({message:'Is there a robotics club in the college?'})).text();
       expect(text).toContain('"fallback":true');
       expect(text).toContain('event: contact');
       expect(text).not.toContain('event: sources');
     }
     expect(generate).toHaveBeenCalledTimes(2);
+  });
+  it('returns relevant saved evidence for non-bank questions under provider failures', async () => {
+    generate.mockRejectedValue(Object.assign(new Error('quota'), {code:'QUOTA_EXCEEDED'}));
+    const text = await (await request({message:'Please explain the published fee policy in detail.'})).text();
+    expect(text).toContain('"local":true,"fallback":true');
+    expect(text).toContain('fee-payment-policy');
+    expect(text).toContain('event: sources');
+    expect(text).toContain('"finishReason":"STOP"');
   });
   it('caches complete grounded replies but excludes partial replies', async () => {
     const sources = [{title:'Policy',url:'https://commecscollege.edu.pk/fee-payment-policy/'}];

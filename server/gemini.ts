@@ -1,6 +1,7 @@
 import { GoogleGenAI, ThinkingLevel as SDKThinkingLevel, type GenerateContentParameters, type GenerateContentResponse } from '@google/genai';
 import { facultyEvidence, facultySource } from './faculty.js';
 import { buildSystemPrompt } from './systemPrompt.js';
+import { knowledgeEvidence } from './knowledge.js';
 import { getFastLadder, getDeepLadder, clampThinking, downgradedModels, type ThinkingLevel } from './config/models.js';
 import { isExhausted, markExhausted, coolDown } from './quota.js';
 import { ChatError, classifyProviderError, providerDiagnostic } from './errors.js';
@@ -22,33 +23,43 @@ export async function generateChatStream(
   onChunk: (text: string) => Promise<void> | void,
   onSources: (sources: Source[]) => Promise<void> | void,
   preferences: Preferences = DEFAULT_PREFERENCES,
-  provider?: StreamProvider
+  provider?: StreamProvider,
+  options: { buffered?: boolean; requireSources?: boolean } = {}
 ) {
   const apiKey = process.env.GEMINI_API_KEY?.trim();
   const rawStore = process.env.FILE_SEARCH_STORE_NAME?.trim();
-  if ((!apiKey || !rawStore) && !provider) throw new ChatError('NOT_CONFIGURED', 'The assistant is not connected yet.');
+  if (!apiKey && !provider) throw new ChatError('NOT_CONFIGURED', 'The assistant is not connected yet.');
   const storeName = 'fileSearchStores/' + (rawStore || 'test').replace(/^(corpora\/|fileSearchStores\/)/, '');
-  const generate = provider || ((params: GenerateContentParameters) => new GoogleGenAI({ apiKey }).models.generateContentStream(params));
+  // The application owns retries. The SDK defaults to five attempts per call,
+  // which would hide 429s and multiply our three-call budget.
+  const generate = provider || ((params: GenerateContentParameters) => new GoogleGenAI({ apiKey,
+    httpOptions: { timeout: 10000, retryOptions: { attempts: 1 } },
+  }).models.generateContentStream(params));
   const contents = [...history.map(h => ({ role: h.role === 'bot' ? 'model' : h.role, parts: [{ text: h.text }] })), { role: 'user', parts: [{ text: message }] }];
   const directoryEvidence = facultyEvidence(message, history);
+  const localEvidence = knowledgeEvidence(message, history);
+  // Avoid an additional remote retrieval round-trip when college evidence is bundled.
+  // Set FILE_SEARCH_MODE=always only for diagnostics or after refreshing the store.
+  const useFileSearch = !!rawStore && (process.env.FILE_SEARCH_MODE === 'always' || (!localEvidence.sources.length && !directoryEvidence));
   const ladder = lane === 'deep' ? getDeepLadder() : getFastLadder();
   const started = Date.now();
   let attempts = 0;
   let lastCode = 'QUOTA_EXCEEDED';
-  // A single request has at most three provider calls and a 50-second total deadline.
+  // Leave enough time to send a saved-source answer before the hosting deadline.
   for (const model of ladder) {
     if (isExhausted(model)) continue;
     let thinking = clampThinking(model, (lane === 'deep' ? process.env.DEEP_THINKING || 'LOW' : process.env.FAST_THINKING || 'MINIMAL') as ThinkingLevel);
     for (let retry = 0; retry < 2; retry++) {
       if (signal.aborted) throw new ChatError('ABORTED', 'Request stopped.');
-      if (attempts >= 3 || Date.now() - started >= 50000) throw new ChatError(lastCode, 'No model is available right now.');
+      if (attempts >= 3 || Date.now() - started >= 30000) throw new ChatError(lastCode, 'No model is available right now.');
       attempts++;
       const ac = new AbortController();
       const forwardAbort = () => ac.abort();
       signal.addEventListener('abort', forwardAbort, { once: true });
-      const timer = setTimeout(() => ac.abort(), Math.min(20000, 50000 - (Date.now() - started)));
+      const timer = setTimeout(() => ac.abort(), Math.min(10000, 30000 - (Date.now() - started)));
       let text = '';
-      const sourceMap = new Map<string, Source>(directoryEvidence ? [[facultySource.url, facultySource]] : []);
+      const sourceMap = new Map<string, Source>(localEvidence.sources.map(s => [s.url, s]));
+      if (directoryEvidence) sourceMap.set(facultySource.url, facultySource);
       let finishReason: FinishReason = 'INTERRUPTED';
       let iterator: AsyncIterator<GenerateContentResponse> | undefined;
       try {
@@ -57,10 +68,10 @@ export async function generateChatStream(
           throw { status: fake.startsWith('429') ? 429 : 503, message: fake === '429-daily' ? 'quota per day' : 'unavailable' };
         }
         const stream = await abortable(generate({ model, contents, config: {
-          systemInstruction: buildSystemPrompt(preferences) + directoryEvidence,
-          tools: [{ fileSearch: { fileSearchStoreNames: [storeName] } }],
+          systemInstruction: buildSystemPrompt(preferences) + directoryEvidence + localEvidence.prompt,
+          ...(useFileSearch ? { tools: [{ fileSearch: { fileSearchStoreNames: [storeName] } }] } : {}),
           thinkingConfig: { thinkingLevel: SDKThinkingLevel[thinking], includeThoughts: false },
-          maxOutputTokens: lane === 'deep' || preferences.responseStyle === 'detailed' ? 4096 : 2048,
+          maxOutputTokens: lane === 'deep' || preferences.responseStyle === 'detailed' ? 3072 : 1536,
           abortSignal: ac.signal,
         } }), ac.signal);
         iterator = stream[Symbol.asyncIterator]();
@@ -80,19 +91,24 @@ export async function generateChatStream(
             if (url && safeSourceUrl(url)) sourceMap.set(url, { title: meta('title') || ctx.title || 'College source', url, modified: meta('modified'), type: meta('type') });
           }
           const part = candidate?.content?.parts?.filter(p => !p.thought).map(p => p.text || '').join('') || '';
-          if (part) { text += part; await onChunk(part); }
+          if (part) { text += part; if (!options.buffered) await onChunk(part); }
         }
         const sources = Array.from(sourceMap.values()).slice(0, 5);
-        if (sources.length) await onSources(sources);
         if (!text.trim()) throw new ChatError(finishReason === 'BLOCKED' ? 'BLOCKED' : 'UPSTREAM_ERROR', 'No answer was returned.');
+        if (options.buffered && finishReason !== 'STOP') throw new ChatError(finishReason === 'BLOCKED' ? 'BLOCKED' : 'INCOMPLETE', 'No complete answer was returned.');
+        if (options.requireSources && !sources.length) throw new ChatError('UNGROUNDED', 'No official evidence was returned.');
+        if (sources.length) await onSources(sources);
+        if (options.buffered) await onChunk(text);
         return { text, sources, finishReason, model, thinking, attempts };
       } catch (error) {
         if (signal.aborted) throw new ChatError('ABORTED', 'Request stopped.');
-        if (text) {
+        if (text && !options.buffered) {
           const sources = Array.from(sourceMap.values()).slice(0, 5);
           if (sources.length) await onSources(sources);
           return { text, sources, finishReason: 'INTERRUPTED' as const, model, thinking, attempts };
         }
+        if (error instanceof ChatError && error.code === 'BLOCKED') throw error;
+        if (error instanceof ChatError && ['INCOMPLETE', 'UNGROUNDED'].includes(error.code)) { lastCode = error.code; break; }
         const failure = classifyProviderError(ac.signal.aborted ? { message: 'LOCAL_TIMEOUT' } : error);
         console.warn(JSON.stringify({ event: 'provider_failure', model, attempt: attempts, kind: failure.kind, ...providerDiagnostic(ac.signal.aborted ? { message: 'LOCAL_TIMEOUT' } : error) }));
         if (failure.kind === 'daily') { markExhausted(model, 'daily'); lastCode = 'QUOTA_EXCEEDED'; break; }
