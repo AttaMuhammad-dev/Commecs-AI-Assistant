@@ -14,5 +14,5 @@ export function getSavedEvidence(message: string, history: { role: string; text:
   const evidence = retrieveEvidence(message, history).slice(0, 2);
   if (!evidence.length) return null;
   return { answer: intro + '\n\n' + evidence.map(e => `### ${e.source.title}\n${e.source.type === 'reviewed' ? 'Review date' : 'Source date'}: ${e.source.modified || 'not recorded'}. ${e.source.type === 'reviewed' ? 'Previously reviewed answer' : e.partial ? 'Selected extract' : 'Saved text'} in the source language:\n\n${e.text}\n\n[Read the official source](${e.source.url})`).join('\n\n---\n\n'),
-    sources: evidence.map(e => e.source) };
+    sources: [...new Map(evidence.map(e => [e.source.url, e.source])).values()] };
 }
