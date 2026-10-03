@@ -42,5 +42,11 @@ export function clampThinking(modelId: string, wanted: ThinkingLevel): ThinkingL
   return closest;
 }
 
-export const getFastLadder = () => (process.env.MODEL_LADDER_FAST || 'gemini-3.1-flash-lite,gemini-3.5-flash-lite,gemini-3.6-flash').split(',').map(s => s.trim()).filter((id, i, ids) => id in MODEL_CATALOG && ids.indexOf(id) === i).slice(0, 3);
-export const getDeepLadder = () => (process.env.MODEL_LADDER_DEEP || 'gemini-3.1-flash-lite,gemini-3.6-flash,gemini-3.8-flash').split(',').map(s => s.trim()).filter((id, i, ids) => id in MODEL_CATALOG && ids.indexOf(id) === i).slice(0, 3);
+const defaults = ['gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.6-flash'];
+function ladder(value?: string): string[] {
+  const configured = (value || '').split(',').map(s => s.trim()).filter(id => id in MODEL_CATALOG);
+  // Invalid environment overrides must not leave an empty ladder.
+  return [...new Set([...configured, ...defaults])].slice(0, 3);
+}
+export const getFastLadder = () => ladder(process.env.MODEL_LADDER_FAST);
+export const getDeepLadder = () => ladder(process.env.MODEL_LADDER_DEEP);

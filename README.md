@@ -1,5 +1,13 @@
 # Commecs College Assistant 2.1
 
+## October 3 stability update
+
+Vercel now receives responses through named GET/POST/OPTIONS Web handlers. This fixes the default-export warning and the 60-second timeout affecting health and chat. See [STABILITY-20261003.md](STABILITY-20261003.md) for deployment settings and validation.
+
+For questions outside the exact answer bank, the API retrieves relevant information from 25 bundled official pages and 39 previously reviewed answers. Reviewed information still expires after 30 days; source and review dates remain visible. The default primary model is Gemini 3.5 Flash-Lite, followed by 3.1 Flash-Lite and 3.6 Flash. Model access and quotas depend on the API project.
+
+The API buffers live answers until completion and evidence checks, then delivers the answer through SSE. Incomplete provider output is discarded before trying the next model. The SDK's automatic retries are disabled; the application makes at most three provider requests. Saved evidence is returned after 15 seconds if available; otherwise execution is bounded to 35 seconds, below Vercel's 60-second limit. Local answers and the guide require no provider quota. File Search is optional when bundled evidence is sufficient.
+
 A college information assistant with a React/TypeScript interface, Hono streaming API, and Gemini File Search retrieval. This is a working application, not the old Phase 1 mock.
 
 ## Run on your presentation laptop
@@ -46,7 +54,7 @@ Browser question + last four complete exchanges + preferences
   -> cache only complete answers with sources
 ```
 
-Simple factual questions use Flash-Lite first with minimal thinking. Comparisons, eligibility reasoning and calculations use a deeper Flash model with medium thinking. Failures before the first text can move to the next model; partial outputs are never mixed with a second model's answer. A thinking-level incompatibility can retry at LOW within the same three-call budget.
+Simple factual questions use Flash-Lite first with minimal thinking. Comparisons, eligibility reasoning and calculations default to LOW thinking to conserve latency and free-tier capacity. Both model ladders are configurable. Incomplete outputs can move to the next model because live text is buffered; partial outputs are never mixed with a second model's answer. A thinking-level incompatibility can retry at LOW within the same three-call budget.
 
 The model catalog is deliberately allowlisted. Configure ladders in `.env`; valid values are in `server/config/models.ts`. `npm run check:models` checks model visibility, not billing or remaining quota. Google lists free-tier access for the selected model families, but the project/account limits in AI Studio are authoritative. A billed API project can still incur charges; application routing cannot turn a paid key into a free key.
 
@@ -85,7 +93,7 @@ The current index is an existing snapshot, not a live web search. Some pages con
 
 Use Vite framework settings (`npm run build`, output `dist`) and Node.js 22+. The included `api/index.ts` handles `/api/*`; `vercel.json` includes the reviewed bank and knowledge state in the server bundle. Set `GEMINI_API_KEY`, `FILE_SEARCH_STORE_NAME`, the desired model ladders and `ALLOWED_ORIGINS` in Vercel's server environment. Do not enable `VITE_USE_MOCK` for real demonstrations. Keep API keys out of frontend variables and source control.
 
-The API allows 55 seconds overall; Vercel's function limit is 60 seconds. Deployment has not been performed for this release. In-memory cache, cooldowns, request limits and capacity are per process, not a distributed production control. Before a large public rollout, add a shared gateway rate limit and monitoring.
+The API allows 35 seconds overall; Vercel's function limit is 60 seconds. In-memory cache, cooldowns, request limits and capacity are per process, not a distributed production control. Before a large public rollout, add a shared gateway rate limit and monitoring.
 
 ## Trust and privacy
 

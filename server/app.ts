@@ -18,11 +18,11 @@ import { type ChatEvent, type Lane } from '../shared/chat.js';
 
 export const app = new Hono();
 app.use('/api/*', cors({
-  origin: (origin) => (process.env.ALLOWED_ORIGINS || 'https://commecs-chatbot.vercel.app,http://localhost:5173').split(',').map(s => s.trim()).includes(origin) ? origin : undefined,
+  origin: (origin) => (process.env.ALLOWED_ORIGINS || 'https://commecs-ai-assistant.vercel.app,https://commecs-chatbot.vercel.app,http://localhost:5173').split(',').map(s => s.trim()).includes(origin) ? origin : undefined,
   allowMethods: ['GET', 'POST', 'OPTIONS'], allowHeaders: ['Content-Type'], maxAge: 600,
 }));
 app.use('/api/chat', bodyLimit({ maxSize: 32768, onError: c => c.json({ code: 'BAD_REQUEST', message: 'Request too large.' }, 413) }));
-app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!(process.env.GEMINI_API_KEY?.trim() && process.env.FILE_SEARCH_STORE_NAME?.trim()), version: '2.1', build: 'presentation-stable-20260929', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null }); });
+app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!process.env.GEMINI_API_KEY?.trim(), version: '2.2', build: 'stable-20261003', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null }); });
 
 app.post('/api/chat', async c => {
   if (!/^application\/json(?:;|$)/i.test(c.req.header('Content-Type') || '')) return c.json({ code: 'BAD_REQUEST', message: 'Requires application/json.' }, 400);
@@ -52,7 +52,8 @@ app.post('/api/chat', async c => {
     const abort = () => ac.abort();
     c.req.raw.signal.addEventListener('abort', abort, { once: true });
     stream.onAbort(abort);
-    const timeout = setTimeout(abort, 55000);
+    const timeout = setTimeout(abort, 35000);
+    const heartbeat = setInterval(() => { void stream.write(': keep-alive\n\n').catch(abort); }, 5000);
     // If no first token arrives promptly, show source evidence rather than wait a full minute.
     const evidenceTimeout = backup ? setTimeout(abort, 15000) : undefined;
     let ttftMs = 0;
@@ -74,7 +75,7 @@ app.post('/api/chat', async c => {
       if (!release) throw Object.assign(new Error('Busy'), { code: 'BUSY' });
       const result = await generateChatStream(message, history, ac.signal, lane,
         async text => { clearTimeout(evidenceTimeout); if (!hasOutput) ttftMs = Date.now() - started; hasOutput = true; await emit({ event: 'chunk', data: { text } }); },
-        async sources => { await emit({ event: 'sources', data: { sources } }); }, preferences);
+        async sources => { await emit({ event: 'sources', data: { sources } }); }, preferences, undefined, { buffered: true, requireSources: true });
       // Never cache partial, blocked or ungrounded answers.
       if (process.env.CACHE_ENABLED !== 'false' && result.finishReason === 'STOP' && result.text.trim().length > 20 && result.sources.length) {
         setCachedResponse(message, history, result.text, result.sources, lane, preferences);
@@ -106,7 +107,7 @@ app.post('/api/chat', async c => {
       await emit({ event: 'contact', data: contactInfo });
       await emit({ event: 'done', data: { finishReason: 'STOP' } });
       console.info(JSON.stringify({ lane, fallback: true, code, totalMs: Date.now() - started }));
-    } finally { release?.(); clearTimeout(timeout); clearTimeout(evidenceTimeout); c.req.raw.signal.removeEventListener('abort', abort); }
+    } finally { release?.(); clearTimeout(timeout); clearInterval(heartbeat); clearTimeout(evidenceTimeout); c.req.raw.signal.removeEventListener('abort', abort); }
   });
 });
 
