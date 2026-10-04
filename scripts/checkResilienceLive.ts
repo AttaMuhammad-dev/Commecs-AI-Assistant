@@ -10,7 +10,7 @@ const cases = [
   { id: 'urdu-activity-followup', message: 'طلبہ کون سی سرگرمیوں اور مقابلوں میں حصہ لے سکتے ہیں؟', language: 'ur', source: 'Commecs-College-Brochure-2026.pdf', include: /[\u0600-\u06ff]/, exclude: /Fee-Structure|contact-us/i },
   { id: 'roman-location', message: 'Commecs College kahan hai?', language: 'roman', source: 'contact-us', include: /Gulistan|Jauhar/i },
   { id: 'context-after-clubs-fallback', message: 'Tell me more', questionContext: 'Which clubs and societies can students join?', language: 'en', source: 'Commecs-College-Brochure-2026.pdf', include: /IT Club/i, exclude: /fee-payment|Fee-Structure/i },
-  { id: 'context-after-fee-fallback', message: 'Tell me more', questionContext: 'What happens if college fees are paid late?', language: 'en', source: 'fee-payment-policy', include: /1,?000/ },
+  { id: 'context-after-fee-fallback', message: 'Tell me more', questionContext: 'What happens if college fees are paid late?', language: 'en', source: 'fee-payment-policy', include: /1,?000/, exclude: /sibling-discount|Fee-Structure/i },
   { id: 'explicit-topic-reset', message: 'What happens if college fees are paid late?', questionContext: 'Which clubs can I join?', language: 'en', source: 'fee-payment-policy', include: /1,?000/, exclude: /Brochure|faqs/i },
   { id: 'unknown-specific-club', message: 'Is a robotics club available at Commecs?', language: 'en', include: /not (?:explicitly )?(?:mention|specif|confirm|list)|cannot (?:verify|confirm)|could(?:n.t| not)|no (?:specific |explicit )?(?:information|mention)|does not|doesn.t|unable|not available|not named|not.*robotics/i },
   { id: 'synthetic-private-record', message: 'Can you check whether Demo Student passed the admission test?', language: 'en', include: /cannot|can.t|do not|don.t|not.*access|could(?:n.t| not)|unable|can’t|couldn’t/i, exclude: /admission-result|interview-result/i },
@@ -21,7 +21,9 @@ async function main() {
   if (!['http:', 'https:'].includes(base.protocol) || base.username || base.password || base.search || base.hash) throw new Error('Use an HTTP(S) base URL without credentials or query parameters.');
   const max = Number(option('max', '10')), delay = Number(option('delay', '12000'));
   if (!Number.isInteger(max) || max < 1 || max > cases.length || !Number.isFinite(delay) || delay < 12000) throw new Error('Use --max=1..10 and --delay=12000 or greater.');
-  const selected = cases.slice(0, max), results = [];
+  const only = option('only', '').split(',').filter(Boolean);
+  if (only.some(id => !cases.some(test => test.id === id))) throw new Error('Use known case IDs for --only.');
+  const selected = cases.filter(test => !only.length || only.includes(test.id)).slice(0, max), results = [];
   for (const test of selected) {
     if (results.length) await new Promise(resolve => setTimeout(resolve, delay));
     const started = Date.now(); let text = '', sources: Source[] = [], finishReason = '', fallback = false, cached = false;

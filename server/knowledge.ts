@@ -31,9 +31,11 @@ export function retrieveEvidence(message: string, history: { role: string; text:
   if (!query.length) return [];
   const deviceOnly = plan.topics.some(t => t.id === 'devices') && !plan.topics.some(t => !['devices', 'campusRules'].includes(t.id));
   const examDeviceQuestion = /\b(exam\w*|test|paper)\b|امتحان|پرچہ/i.test(plan.contextual);
+  const paymentConsequencesOnly = plan.topics.length === 1 && plan.topics[0].id === 'fees' && /\b(late|overdue|unpaid|penalt\w*|readmission|arrears)\b|جرمانہ|تاخیر|دیر سے|der se/i.test(plan.contextual);
   const ranked = prepared.filter(p => !p.d.verifiedAt || (p.d.verifiedAt <= Date.now() + 86400000 && Date.now() - p.d.verifiedAt <= 30 * 86400000))
     .filter(p => !deviceOnly || (p.body.has('phone') && /\bphones?\b[\s\S]{0,120}\b(prohibit\w*|confiscat\w*|permission|allowed)\b|\b(bringing|bring|carry)\b[^\n]{0,60}\b(phone|mobile)\b|ممنوع|اجازت/i.test(p.d.text)))
     .filter(p => !deviceOnly || examDeviceQuestion || !/internal-examination-policy/.test(p.d.url))
+    .filter(p => !paymentConsequencesOnly || (p.title.has('fee') && evidenceTokens(p.d.title).some(t => ['payment', 'penalty', 'readmission', 'overdue', 'unpaid', 'arrears'].includes(t))))
     .map(p => {
     const matched = query.filter(t => p.body.has(t) || p.title.has(t));
     const strong = matched.filter(t => p.title.has(t)).length;
@@ -80,8 +82,8 @@ export function missingListEvidence(plan: ReturnType<typeof planQuery>, evidence
   })));
 }
 
-export function knowledgeEvidence(message: string, history: { role: string; text: string }[]) {
-  const evidence = retrieveEvidence(message, history);
+export function knowledgeEvidence(message: string, history: { role: string; text: string }[], maxChars = 6500) {
+  const evidence = retrieveEvidence(message, history, maxChars);
   const plan = planQuery(message, history);
   const found = new Set(evidenceTokens(evidence.map(e => e.text).join(' ')));
   const missingTopics = plan.topics.filter(topic => !topic.terms.some(t => found.has(t))).map(t => t.id);

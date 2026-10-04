@@ -83,7 +83,7 @@ npm run test:resilience:live -- --base=http://localhost:3000 # 10 paced sampled 
 
 `test:live` succeeds only if a complete answer includes official source URLs. It logs status and sources, never credentials. Model listing can fail independently of generation.
 
-The resilience live check samples multilingual suggestions, contextual fallback follow-ups, topic switching, unknown details, private-record refusal and source relevance. It waits at least 12 seconds between cases and records live/cached/fallback modes separately in `eval/results/resilience-latest.json`. Use `--max=1..10` to limit calls or `--out=path/to/report.json` to choose the report path. Passing these sampled checks is not verification of every generated claim.
+The resilience live check samples multilingual suggestions, contextual fallback follow-ups, topic switching, unknown details, private-record refusal and source relevance. It waits at least 12 seconds between cases and records live/cached/fallback modes separately in `eval/results/resilience-latest.json`. Use `--max=1..10` to limit calls, `--only=context-after-fee-fallback,unknown-specific-club` for a focused recheck, or `--out=path/to/report.json` to choose the report path. Passing these sampled checks is not verification of every generated claim.
 
 CI also runs the answer-bank check, compiled runtime regressions and provider-failure presentation checks (including a stalled provider) after the main verification. These fault-injection checks spend no provider quota. Client regressions cover malformed saved data, oversized SSE frames, split Urdu/emoji bytes, duplicate submission, cancellation, stale events, contextual cache isolation and browser storage quota failures.
 
