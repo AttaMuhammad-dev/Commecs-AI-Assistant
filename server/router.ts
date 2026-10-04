@@ -12,5 +12,6 @@ export function routeQuestion(message: string, history: { role: string; text: st
   if (hasNumber && (eligibility.test(text) || calculation.test(text) || (text.length < 70 && eligibility.test(previous)))) return { lane: 'deep', reason: 'personal-criteria-or-calculation' };
   if (fees.test(text) && eligibility.test(text)) return { lane: 'deep', reason: 'fees-and-eligibility' };
   if (planQuery(message, history).reasoning) return { lane: 'deep', reason: 'explanation-or-guidance' };
+  if (planQuery(message, history).fresh) return { lane: 'deep', reason: 'fresh-source-lookup' };
   return { lane: 'fast', reason: 'lookup' };
 }
