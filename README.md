@@ -41,6 +41,8 @@ The existing index is retained. You do not need to ingest or reindex to run this
 - English, Urdu, Roman Urdu and automatic language selection; concise/detailed responses.
 - Streaming answers, real stop control, latest-answer retry, source cards and Markdown export.
 - Conversation switching, deletion and optional browser persistence. Saving is off by default.
+- Malformed saved entries are recovered individually with validated source/contact metadata, unique message IDs and bounded conversation sizes. Interrupted persisted replies reopen as stopped. Browser storage failures are reported without losing the open conversation. Connection/cancellation notices follow the selected reply language.
+- Short follow-up chains retain user-question context even after saved-source fallback or cancellation. This bounded context is separate from complete model exchanges: failed answers and loading text are never sent back as evidence. Explicit topic changes discard old question context, and cached follow-up answers are isolated by their topic.
 - Reviewed answers for exact matching common questions, a bounded response cache, and adaptive fast/deep model selection.
 - Provider deadlines, quota cooldowns, at most three provider calls per question and at most three simultaneous live requests per process.
 - Clear contact fallback when the provider is unavailable; incomplete replies are labeled and never cached.
@@ -76,9 +78,14 @@ npm run verify       # backend types, automated tests, production build
 npm run answers:check
 npm run check:models # read-only network call; no generation
 npm run test:live    # one bounded File Search lookup; consumes provider quota
+npm run test:resilience:live -- --base=http://localhost:3000 # 10 paced sampled cases; consumes provider quota
 ```
 
 `test:live` succeeds only if a complete answer includes official source URLs. It logs status and sources, never credentials. Model listing can fail independently of generation.
+
+The resilience live check samples multilingual suggestions, contextual fallback follow-ups, topic switching, unknown details, private-record refusal and source relevance. It waits at least 12 seconds between cases and records live/cached/fallback modes separately in `eval/results/resilience-latest.json`. Use `--max=1..10` to limit calls or `--out=path/to/report.json` to choose the report path. Passing these sampled checks is not verification of every generated claim.
+
+CI also runs the answer-bank check, compiled runtime regressions and provider-failure presentation checks (including a stalled provider) after the main verification. These fault-injection checks spend no provider quota. Client regressions cover malformed saved data, oversized SSE frames, split Urdu/emoji bytes, duplicate submission, cancellation, stale events, contextual cache isolation and browser storage quota failures.
 
 ## Knowledge maintenance
 

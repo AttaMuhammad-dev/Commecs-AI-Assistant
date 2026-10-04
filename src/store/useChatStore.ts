@@ -1,10 +1,11 @@
 import { create } from 'zustand';
 import type { ChatMessage, Conversation, Preferences, RequestProgress } from '../types/chat';
 import { preferencesKey, readPreferences } from '../lib/preferences';
+import { restoreConversations } from '../lib/savedChats';
 interface ChatState {
   messages: ChatMessage[]; conversations: Conversation[]; activeId: string;
   isOffline: boolean; theme: 'light' | 'dark'; preferences: Preferences;
-  remember: boolean; draft: string; sidebarOpen: boolean;
+  remember: boolean; storageError: boolean; draft: string; sidebarOpen: boolean;
   progress: RequestProgress | null;
   setProgress: (progress: RequestProgress) => void;
   clearProgress: (messageId: string) => void;
@@ -19,9 +20,7 @@ function readSaved(): Conversation[] {
   try {
     if (localStorage.getItem('commecs-remember') !== 'true') return [];
     const value: unknown = JSON.parse(localStorage.getItem(storageKey) || '[]');
-    if (!Array.isArray(value)) return [];
-    return value.filter((v): v is Conversation => !!v && typeof v.id === 'string' && typeof v.title === 'string' && Array.isArray(v.messages))
-      .slice(0, 15).map(v => ({ ...v, messages: v.messages.filter(m => typeof m.text === 'string' && ['user','bot'].includes(m.role)).slice(-80).map(m => ({ ...m, status: m.status === 'sending' || m.status === 'streaming' ? 'stopped' : m.status })) }));
+    return restoreConversations(value);
   } catch { return []; }
 }
 const saved = readSaved();
@@ -30,7 +29,7 @@ export const useChatStore = create<ChatState>((set) => ({
   messages: saved[0]?.messages || [], conversations: saved, activeId: saved[0]?.id || id(),
   isOffline: !navigator.onLine, theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
   preferences: readPreferences(), remember: saved.length > 0 || (() => { try { return localStorage.getItem('commecs-remember') === 'true'; } catch { return false; } })(),
-  draft: '', sidebarOpen: false, progress: null,
+  draft: '', sidebarOpen: false, progress: null, storageError: false,
   setProgress: progress => set(s => s.activeId === progress.conversationId && s.messages.some(m => m.id === progress.messageId && ['sending', 'streaming'].includes(m.status)) ? { progress } : {}),
   clearProgress: messageId => set(s => s.progress?.messageId === messageId ? { progress: null } : {}),
   setMessages: updater => set(s => {
@@ -53,8 +52,9 @@ export const useChatStore = create<ChatState>((set) => ({
   setDraft: draft => set({ draft }),
   setSidebarOpen: sidebarOpen => set({ sidebarOpen }),
   setRemember: remember => {
-    try { localStorage.setItem('commecs-remember', String(remember)); if (!remember) localStorage.removeItem(storageKey); } catch { /* unavailable storage */ }
-    set({ remember });
+    let storageError = false;
+    try { localStorage.setItem('commecs-remember', String(remember)); if (!remember) localStorage.removeItem(storageKey); } catch { storageError = true; }
+    set({ remember, storageError });
   },
   newChat: () => set({ messages: [], activeId: id(), draft: '', sidebarOpen: false, progress: null }),
   openChat: activeId => set(s => ({ activeId, messages: s.conversations.find(c => c.id === activeId)?.messages || [], draft: '', sidebarOpen: false, ...(activeId !== s.activeId ? { progress: null } : {}) })),
@@ -66,7 +66,7 @@ useChatStore.subscribe((state, previous) => {
   clearTimeout(saveTimer);
   if (!state.remember) return;
   saveTimer = setTimeout(() => {
-    try { localStorage.setItem(storageKey, JSON.stringify(state.conversations.map(c => ({ ...c, messages: c.messages.slice(-80) })))); }
-    catch { /* storage can be full or disabled; chat remains usable */ }
+    try { localStorage.setItem(storageKey, JSON.stringify(state.conversations.map(c => ({ ...c, messages: c.messages.slice(-80) })))); useChatStore.setState({ storageError: false }); }
+    catch { useChatStore.setState({ storageError: true }); }
   }, 300);
 });

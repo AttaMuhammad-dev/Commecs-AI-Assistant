@@ -17,6 +17,7 @@ import { getFacultyAnswer } from './faculty.js';
 import { sourceWithDates } from './knowledge.js';
 import { resolveLanguage, type ChatEvent, type Lane } from '../shared/chat.js';
 import { selectAnswerSources } from '../shared/answerSources.js';
+import { planQuery, withQuestionContext } from './queryPlan.js';
 
 export const app = new Hono();
 app.use('/api/*', cors({
@@ -34,16 +35,20 @@ app.post('/api/chat', async c => {
   try { body = sanitizeRequest(await c.req.json()); }
   catch (error) { return c.json({ code: 'BAD_REQUEST', message: error instanceof Error ? error.message : 'Invalid question.' }, 400); }
   const { message, history, preferences } = body;
+  const proposedHistory = withQuestionContext(history, body.questionContext);
+  const usesContext = planQuery(message, proposedHistory).contextual !== message;
+  const questionContext = usesContext ? body.questionContext : undefined;
+  const retrievalHistory = usesContext ? proposedHistory : history;
   const started = Date.now();
   const safety = distressReply(message);
-  const faculty = !safety ? getFacultyAnswer(message, history, preferences) : null;
-  const bankCandidate = !safety && !faculty && history.length === 0 && preferences.responseStyle === 'concise' ? getVerifiedAnswer(message, getKbVersion()) : null;
+  const faculty = !safety ? getFacultyAnswer(message, retrievalHistory, preferences) : null;
+  const bankCandidate = !safety && !faculty && retrievalHistory.length === 0 && preferences.responseStyle === 'concise' ? getVerifiedAnswer(message, getKbVersion()) : null;
   const bank = bankCandidate && (preferences.language === 'auto' || bankCandidate.language === preferences.language) ? bankCandidate : null;
   const local = faculty || (!safety && !bank ? getLocalGuideAnswer(message, preferences) : null);
-  const route = routeQuestion(message, history);
+  const route = routeQuestion(message, retrievalHistory);
   const lane: Lane = bank ? 'verified' : route.lane;
-  const cached = !safety && !bank && !local && process.env.CACHE_ENABLED !== 'false' ? getCachedResponse(message, history, lane, preferences) : null;
-  let backup = !safety && !local && !bank ? getSavedEvidence(message, history, preferences) : null;
+  const cached = !safety && !bank && !local && process.env.CACHE_ENABLED !== 'false' ? getCachedResponse(message, retrievalHistory, lane, preferences) : null;
+  let backup = !safety && !local && !bank ? getSavedEvidence(message, retrievalHistory, preferences) : null;
   let locallyLimited = false;
   // Local answers do not spend provider quota and must remain available during a demo burst.
   if (!safety && !bank && !local && !cached && !checkRateLimit(ip)) { if (backup) locallyLimited = true; else { c.header('Retry-After', '60'); return c.json({ code: 'RATE_LIMITED', message: 'Please wait before asking again.' }, 429); } }
@@ -53,6 +58,7 @@ app.post('/api/chat', async c => {
     const emit = (event: ChatEvent) => stream.writeSSE({ event: event.event, data: JSON.stringify(event.data) });
     const ac = new AbortController();
     const abort = () => ac.abort();
+    if (c.req.raw.signal.aborted) abort();
     c.req.raw.signal.addEventListener('abort', abort, { once: true });
     stream.onAbort(abort);
     const timeout = setTimeout(abort, 35000);
@@ -80,18 +86,18 @@ app.post('/api/chat', async c => {
       const result = await generateChatStream(message, history, ac.signal, lane,
         async text => { clearTimeout(evidenceTimeout); if (!hasOutput) ttftMs = Date.now() - started; hasOutput = true; await emit({ event: 'chunk', data: { text } }); },
         async sources => { await emit({ event: 'sources', data: { sources } }); }, preferences, undefined, {
-          buffered: true, requireSources: true,
+          buffered: true, requireSources: true, questionContext,
           onProgress: async progress => { if (!ac.signal.aborted && !stream.aborted) await emit({ event: 'progress', data: progress }); },
-          onEvidence: evidence => { backup = getSavedEvidence(message, history, preferences, evidence) || backup; },
+          onEvidence: evidence => { backup = getSavedEvidence(message, retrievalHistory, preferences, evidence) || backup; },
         });
       // Never cache partial, blocked or ungrounded answers.
       if (process.env.CACHE_ENABLED !== 'false' && result.finishReason === 'STOP' && result.text.trim().length > 20 && result.sources.length) {
-        setCachedResponse(message, history, result.text, result.sources, lane, preferences);
+        setCachedResponse(message, retrievalHistory, result.text, result.sources, lane, preferences);
       }
       await emit({ event: 'done', data: { finishReason: result.finishReason } });
       console.info(JSON.stringify({ lane, model: result.model, thinking: result.thinking, attempts: result.attempts, ttftMs, totalMs: Date.now() - started, sources: result.sources.length, finishReason: result.finishReason }));
     } catch (error) {
-      if (stream.aborted) return;
+      if (stream.aborted || c.req.raw.signal.aborted) return;
       const code = (error as { code?: string })?.code || 'UPSTREAM_ERROR';
       if (hasOutput) { await emit({ event: 'done', data: { finishReason: 'INTERRUPTED' } }); return; }
       if (backup && code !== 'BLOCKED' && !c.req.raw.signal.aborted) {
