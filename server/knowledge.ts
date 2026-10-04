@@ -80,8 +80,8 @@ export function missingListEvidence(plan: ReturnType<typeof planQuery>, evidence
   })));
 }
 
-export function knowledgeEvidence(message: string, history: { role: string; text: string }[]) {
-  const evidence = retrieveEvidence(message, history);
+export function knowledgeEvidence(message: string, history: { role: string; text: string }[], maxChars = 6500) {
+  const evidence = retrieveEvidence(message, history, maxChars);
   const plan = planQuery(message, history);
   const found = new Set(evidenceTokens(evidence.map(e => e.text).join(' ')));
   const missingTopics = plan.topics.filter(topic => !topic.terms.some(t => found.has(t))).map(t => t.id);
