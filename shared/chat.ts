@@ -2,7 +2,7 @@ export type Lane = 'fast' | 'deep' | 'verified';
 export type Language = 'auto' | 'en' | 'ur' | 'roman';
 export type ResponseStyle = 'concise' | 'detailed';
 export interface Preferences { language: Language; responseStyle: ResponseStyle }
-export interface Source { title: string; url: string; modified?: string; reviewedAt?: string; type?: string }
+export interface Source { title: string; url: string; modified?: string; reviewedAt?: string; type?: string; attributed?: true }
 export interface Contact { email: string; landline: string; whatsapp: string }
 export interface HistoryTurn { role: 'user' | 'model'; text: string }
 export type FinishReason = 'STOP' | 'MAX_TOKENS' | 'INTERRUPTED' | 'BLOCKED';

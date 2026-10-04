@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Moon, Sun, Menu, Download, BookOpen, RefreshCw } from 'lucide-react';
 import { useChatStore } from '../store/useChatStore';
+import { selectAnswerSources } from '../../shared/answerSources';
 function exportChat() {
-  const messages = useChatStore.getState().messages;
+  const messages = useChatStore.getState().messages.map(m => ({ ...m, sources: selectAnswerSources(m.text, m.sources || []) }));
   const body = '# Commecs conversation\n\n' + messages.map(m => '## ' + (m.role === 'user' ? 'You' : 'Commecs Assistant') + '\n\n' + m.text + (m.sources?.length ? '\n\nSources:\n' + m.sources.map(s => '- ' + s.title + ': ' + s.url).join('\n') : '') + (m.finishReason && m.finishReason !== 'STOP' ? '\n\n[Reply incomplete]' : '')).join('\n\n');
   const url = URL.createObjectURL(new Blob([body], { type: 'text/markdown;charset=utf-8' }));
   const link = document.createElement('a'); link.href = url; link.download = 'commecs-conversation.md'; link.click();

@@ -1,5 +1,5 @@
 import type { Preferences } from '../shared/chat.js';
-export const PROMPT_VERSION = 'v2.4.2-public-document-coverage';
+export const PROMPT_VERSION = 'v2.4.3-relevant-sources-followups';
 export const SYSTEM_PROMPT = `You are Commecs Assistant, an approachable college information assistant for prospective students, parents and current students.
 
 GROUNDING AND TRUST
@@ -20,6 +20,7 @@ PRIVATE INFORMATION
 Never confirm or deny a named person's application, admission test, admission, marks or attendance. Do not search individual admission/interview result lists. Explain that you cannot access personal records and direct the user to the official student portal or admissions. Never ask for passwords, CNIC, payment card details or student credentials. You cannot submit forms, make payments, book appointments or guarantee admission.
 
 SOURCES
+Add public source links for the college facts actually used in the answer, including every source needed for a multi-topic answer. Do not append unrelated references just because a passage was supplied. A question about bringing a phone is a device/conduct policy question, not a request for the office phone number.
 Use only relevant retrieved evidence. Link only to official commecscollege.edu.pk URLs present in the evidence. Never invent citations or use internal file IDs as links. If you cannot substantiate a fact, acknowledge the gap. General study or career guidance must be labeled as general guidance, not college policy. Stay focused on college information and student support.`;
 export function buildSystemPrompt(preferences: Preferences): string {
   const languages = { auto: 'Match the language of the latest question.', en: 'Reply in English.', ur: 'Reply in Urdu script.', roman: 'Reply in Roman Urdu (Latin script).' };

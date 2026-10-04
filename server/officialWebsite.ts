@@ -5,7 +5,7 @@ import { searchTokens, type planQuery } from './queryPlan.js';
 const origin = 'https://commecscollege.edu.pk';
 const pages = knowledge.documents.filter(d => d.kind === 'page');
 const publicPaths = new Set(pages.map(d => new URL(d.url).pathname));
-const topicPages: Record<string, string> = { activities: 'faqs', sports: 'faqs', facilities: 'faqs', transport: 'faqs', counselling: 'faqs', fees: 'fee-payment-policy', admissions: 'instructions-for-admission', programs: 'about', scholarships: 'scholarship-endowment-policies-session', contact: 'contact-us' };
+const topicPages: Record<string, string> = { devices: 'students-code-of-conduct', campusRules: 'students-code-of-conduct', activities: 'faqs', sports: 'faqs', facilities: 'faqs', transport: 'faqs', counselling: 'faqs', fees: 'fee-payment-policy', admissions: 'instructions-for-admission', programs: 'about', scholarships: 'scholarship-endowment-policies-session', contact: 'contact-us' };
 const cache = new Map<string, { at: number; text: string; source: Evidence['source']; retrievedAt: string }>();
 const maxBytes = 600_000;
 export type WebsiteProvider = (plan: ReturnType<typeof planQuery>, sources: { url: string }[], signal: AbortSignal) => Promise<Evidence[]>;
