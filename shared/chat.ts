@@ -14,7 +14,7 @@ export function resolveLanguage(message: string, language: Language): Exclude<La
   const words = message.toLowerCase().match(/\b(mujhe|aap|kitni|kitna|batao|chahiye|parhna|karna|kya|hai|hain|mein)\b/g) || [];
   return words.length >= 2 || /\b(mujhe|batao|chahiye|kitni|kitna)\b/i.test(message) ? 'roman' : 'en';
 }
-export const PROGRESS_PHASES = ['retrieving', 'website', 'preparing', 'retrying', 'checking', 'saved', 'cached', 'reviewed', 'fallback', 'service'] as const;
+export const PROGRESS_PHASES = ['retrieving', 'website', 'websiteSaved', 'preparing', 'retrying', 'checking', 'saved', 'cached', 'reviewed', 'fallback', 'service'] as const;
 export type ProgressPhase = typeof PROGRESS_PHASES[number];
 export interface ChatProgress { phase: ProgressPhase; reason?: 'timeout' }
 export type ChatEvent =

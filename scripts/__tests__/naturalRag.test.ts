@@ -68,22 +68,28 @@ describe('bounded official website lookup', () => {
     const second = await retrieveOfficialWebsite(planQuery('Library hours'), [{ url: faq }], new AbortController().signal, fetcher);
     expect(second[0].text).toContain('2:45 PM'); expect(second[0].text).not.toContain('confidence'); expect(fetcher).toHaveBeenCalledOnce();
   });
-  it('uses only generic topic terms for discovery and validates returned page links', async () => {
+  it('routes missing concepts to approved pages without sending a user question or name', async () => {
     const urls: string[] = [];
     const fetcher = vi.fn(async input => { const url = String(input); urls.push(url); return url.includes('/search?') ? new Response(JSON.stringify([{ url: 'https://evil.example/secret' }, { url: faq }]), { headers: { 'Content-Type': 'application/json' } }) : pageResponse('<p>The library has books for students.</p>'); }) as unknown as typeof fetch;
     await retrieveOfficialWebsite(planQuery('Ahmed wants current library books'), [], new AbortController().signal, fetcher);
-    expect(urls).toHaveLength(2); expect(urls[0]).toContain('search=facilities'); expect(urls.join(' ')).not.toContain('Ahmed'); expect(urls.every(url => url.startsWith('https://commecscollege.edu.pk/wp-json/'))).toBe(true);
+    expect(urls).toHaveLength(1); expect(urls[0]).toContain('slug=faqs'); expect(urls.join(' ')).not.toContain('Ahmed'); expect(urls.every(url => url.startsWith('https://commecscollege.edu.pk/wp-json/'))).toBe(true);
   });
   it('fails safely on oversized or invalid website responses', async () => {
     const result = await retrieveOfficialWebsite(planQuery('Latest clubs'), [{ url: faq }], new AbortController().signal, (async () => new Response('x'.repeat(600_001), { headers: { 'Content-Type': 'application/json' } })) as typeof fetch);
     expect(result).toEqual([]);
   });
-  it('stops a hanging lookup after five seconds and honors cancellation', async () => {
+  it('stops a hanging lookup after eight seconds and honors cancellation', async () => {
     vi.useFakeTimers();
     const fetcher = vi.fn((_url, opts) => new Promise<Response>((_resolve, reject) => opts?.signal?.addEventListener('abort', () => reject(new Error('stopped')), { once: true }))) as unknown as typeof fetch;
     const task = retrieveOfficialWebsite(planQuery('Latest clubs'), [{ url: faq }], new AbortController().signal, fetcher);
-    await vi.advanceTimersByTimeAsync(5000); expect(await task).toEqual([]);
+    await vi.advanceTimersByTimeAsync(8000); expect(await task).toEqual([]);
     const ac = new AbortController(); const canceled = retrieveOfficialWebsite(planQuery('Latest clubs'), [{ url: faq }], ac.signal, fetcher); ac.abort(); expect(await canceled).toEqual([]);
+  });
+  it('reads the approved public page when its REST endpoint is restricted', async () => {
+    const urls: string[] = [];
+    const fetcher = vi.fn(async input => { urls.push(String(input)); return String(input).includes('/wp-json/') ? new Response('Forbidden', { status: 403 }) : new Response('<header>Unrelated navigation</header><main><p>Library hours are 8 AM to 2:45 PM.</p></main>', { headers: { 'Content-Type': 'text/html' } }); }) as unknown as typeof fetch;
+    const evidence = await retrieveOfficialWebsite(planQuery('Current library hours'), [{ url: faq }], new AbortController().signal, fetcher);
+    expect(urls).toHaveLength(2); expect(urls[1]).toBe(faq); expect(evidence[0].source.type).toBe('live'); expect(evidence[0].source.modified).toBeUndefined(); expect(evidence[0].text).toContain('2:45 PM'); expect(evidence[0].text).not.toContain('Unrelated navigation');
   });
   it('emits the website phase before requesting the model and preserves refreshed fallback evidence', async () => {
     const events: string[] = []; let fallback: Evidence[] = [];
