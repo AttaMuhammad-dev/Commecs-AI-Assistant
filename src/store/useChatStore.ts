@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import type { ChatMessage, Conversation, Preferences, RequestProgress } from '../types/chat';
-import { DEFAULT_PREFERENCES } from '../../shared/chat';
+import { preferencesKey, readPreferences } from '../lib/preferences';
 interface ChatState {
   messages: ChatMessage[]; conversations: Conversation[]; activeId: string;
   isOffline: boolean; theme: 'light' | 'dark'; preferences: Preferences;
@@ -29,7 +29,7 @@ const id = () => crypto.randomUUID();
 export const useChatStore = create<ChatState>((set) => ({
   messages: saved[0]?.messages || [], conversations: saved, activeId: saved[0]?.id || id(),
   isOffline: !navigator.onLine, theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
-  preferences: DEFAULT_PREFERENCES, remember: saved.length > 0 || (() => { try { return localStorage.getItem('commecs-remember') === 'true'; } catch { return false; } })(),
+  preferences: readPreferences(), remember: saved.length > 0 || (() => { try { return localStorage.getItem('commecs-remember') === 'true'; } catch { return false; } })(),
   draft: '', sidebarOpen: false, progress: null,
   setProgress: progress => set(s => s.activeId === progress.conversationId && s.messages.some(m => m.id === progress.messageId && ['sending', 'streaming'].includes(m.status)) ? { progress } : {}),
   clearProgress: messageId => set(s => s.progress?.messageId === messageId ? { progress: null } : {}),
@@ -45,7 +45,11 @@ export const useChatStore = create<ChatState>((set) => ({
     return { theme };
   }),
   setOffline: isOffline => set({ isOffline }),
-  setPreferences: prefs => set(s => ({ preferences: { ...s.preferences, ...prefs } })),
+  setPreferences: prefs => set(s => {
+    const preferences = { ...s.preferences, ...prefs };
+    try { localStorage.setItem(preferencesKey, JSON.stringify(preferences)); } catch { /* preferences still work in memory */ }
+    return { preferences };
+  }),
   setDraft: draft => set({ draft }),
   setSidebarOpen: sidebarOpen => set({ sidebarOpen }),
   setRemember: remember => {

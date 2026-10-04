@@ -32,6 +32,7 @@ The existing index is retained. You do not need to ingest or reindex to run this
 
 ## Features
 
+- Source cards are visible below each completed answer; saved page dates and human review dates are labeled separately. Retrieval preserves all citations from reviewed answers and selects related FAQ/heading sections instead of packing unrelated content. Buffered replies with invented source URLs are rejected before release. Topic-aware follow-ups, automatic Roman Urdu detection, remembered language/length preferences and larger mobile controls improve the chat experience without adding model calls or changing free-tier limits.
 - Event-driven loading text in English, Urdu and Roman Urdu. The API reports bundled retrieval, actual model requests/retries, completion/source-link checks, and saved/reviewed/cached response selection. The browser reports sending before SSE arrives. After eight seconds it retains the current phase and shows elapsed waiting time. These events describe application work, never Gemini's private reasoning or verification of every claim. Progress is ephemeral and excluded from saved conversations and model history.
 - Responsive navy/brass interface, dark mode, Urdu rendering and keyboard navigation.
 - Guided question starters and a searchable college guide with 12 official resources.

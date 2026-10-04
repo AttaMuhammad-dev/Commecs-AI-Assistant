@@ -1,6 +1,7 @@
 import { streamBotResponse } from '../lib/chatService';
 import { useChatStore } from '../store/useChatStore';
 import type { ChatMessage } from '../types/chat';
+import { resolveLanguage } from '../../shared/chat';
 let active: { controller: AbortController; id: string; conversationId: string } | null = null;
 const errorText = (code: string) => code === 'RATE_LIMITED' ? 'Please wait a minute before asking again. You can still review earlier answers.' : code === 'BAD_REQUEST' ? 'Please keep your question under 600 characters.' : 'The reply was interrupted. Check your connection and try again.';
 export function stopResponse() {
@@ -32,7 +33,7 @@ async function sendMessage(value: string) {
     if (user.role === 'user' && bot.role === 'bot' && bot.status === 'complete' && !bot.fallback && (!bot.finishReason || bot.finishReason === 'STOP')) history.push(user, bot);
   }
   state.setMessages(messages => [...messages, { id: crypto.randomUUID(), role: 'user', text, status: 'complete', createdAt: Date.now() }, { id: botId, role: 'bot', text: '', status: 'sending', createdAt: Date.now() }]);
-  const initialProgress = { conversationId, messageId: botId, startedAt: Date.now(), language: state.preferences.language === 'auto' ? (/[\u0600-\u06FF]/.test(text) ? 'ur' as const : 'en' as const) : state.preferences.language, phase: 'sending' as const };
+  const initialProgress = { conversationId, messageId: botId, startedAt: Date.now(), language: resolveLanguage(text, state.preferences.language), phase: 'sending' as const };
   state.setProgress(initialProgress);
   const update = (fn: (m: ChatMessage) => ChatMessage) => {
     if (active?.id === botId && !controller.signal.aborted && useChatStore.getState().activeId === conversationId) useChatStore.getState().setMessages(messages => messages.map(m => m.id === botId ? fn(m) : m));
