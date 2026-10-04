@@ -46,7 +46,7 @@ export function retrieveEvidence(message: string, history: { role: string; text:
   const diverse = plan.topics.map(topic => originals.find(p => topic.terms.some(t => p.title.has(t)) && p.direct.length > 0) || originals.find(p => topic.terms.some(t => p.body.has(t)) && p.direct.length > 0)).filter((p): p is typeof originals[number] => !!p);
   // A richly tagged document can outrank a shorter FAQ. Keep complementary
   // originals that independently cover several terms of the same topic.
-  const complementary = originals.filter(p => plan.topics.some(topic => topic.terms.filter(t => p.body.has(t)).length >= 2));
+  const complementary = originals.filter(p => plan.topics.some(topic => topic.terms.filter(t => p.body.has(t)).length >= 2 && (topic.id !== 'activities' || p.body.has('club'))));
   const pages = [...new Set([...diverse, ...complementary, ...originals.filter(p => p.score >= ranked[0].score * 0.5 || (reviewedUrls.has(p.d.url) && p.matched.length >= 2))])].slice(0, 3);
   // Deduplicate parallel language variants so one topic cannot consume every slot.
   const summaries = [...new Map([...reviewed].reverse().map(p => [p.d.url, p])).values()].sort((a, b) => b.score - a.score).slice(0, 5 - pages.length);

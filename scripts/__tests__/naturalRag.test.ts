@@ -18,6 +18,7 @@ describe('natural question retrieval and reasoning', () => {
     const evidence = retrieveEvidence(question, feeHistory);
     expect(evidence.some(e => e.source.url === faq && /clubs and societies/.test(e.text))).toBe(true);
     expect(evidence.some(e => e.source.url.includes('fee-payment-policy'))).toBe(false);
+    expect(evidence.some(e => e.source.url.includes('conflict-of-interest-policy'))).toBe(false);
   });
   it('routes the screenshot question to a real reasoning request', () => expect(routeQuestion(clubs, feeHistory)).toEqual({ lane: 'deep', reason: 'explanation-or-guidance' }));
   it('keeps follow-up context but drops it for a new explicit topic', () => {
