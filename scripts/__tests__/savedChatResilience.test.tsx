@@ -41,6 +41,10 @@ describe('saved conversation recovery', () => {
     store.getState().setMessages(messages => [...messages]); await vi.advanceTimersByTimeAsync(300);
     expect(store.getState().storageError).toBe(false); expect(store.getState().messages).toHaveLength(2);
   });
+  it('shows a useful message when refreshing before any answer arrives', () => {
+    const saved = restoreConversations([{ id: 'pending', title: 'Question', messages: [{ ...valid, text: '', status: 'sending' }] }]);
+    expect(saved[0].messages[0]).toMatchObject({ text: 'This reply was interrupted. Please try again.', status: 'stopped', finishReason: 'INTERRUPTED' });
+  });
   it('handles storage denied when enabling or removing saved copies', async () => {
     const store = await restore([valid]);
     vi.mocked(localStorage.setItem).mockImplementation(() => { throw new Error('Denied'); });

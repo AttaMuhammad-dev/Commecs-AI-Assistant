@@ -16,7 +16,7 @@ function message(value: unknown, ids: Set<string>): ChatMessage | null {
   const status = interrupted ? 'stopped' : m.status as ChatMessage['status'];
   const details = contact(m.contact);
   // Restore only known fields. Progress and arbitrary old metadata never become history.
-  return { id, role: m.role as ChatMessage['role'], text: m.text, status, createdAt: timestamp(m.createdAt), sources: sanitizeSources(m.sources),
+  return { id, role: m.role as ChatMessage['role'], text: interrupted && m.role === 'bot' && !m.text.trim() ? 'This reply was interrupted. Please try again.' : m.text, status, createdAt: timestamp(m.createdAt), sources: sanitizeSources(m.sources),
     ...(interrupted ? { finishReason: 'INTERRUPTED' as const } : m.finishReason !== undefined ? { finishReason: m.finishReason as ChatMessage['finishReason'] } : {}),
     ...(['fast', 'thinking', 'verified'].includes(String(m.mode)) ? { mode: m.mode as ChatMessage['mode'] } : {}),
     ...(details ? { contact: details } : {}),
