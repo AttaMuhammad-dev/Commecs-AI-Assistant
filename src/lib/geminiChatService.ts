@@ -1,5 +1,5 @@
 import type { ChatMessage, BotChunk } from '../types/chat';
-import { DEFAULT_PREFERENCES, safeSourceUrl, type Preferences, type Source, type FinishReason } from '../../shared/chat';
+import { DEFAULT_PREFERENCES, PROGRESS_PHASES, safeSourceUrl, type Preferences, type Source, type FinishReason, type ProgressPhase } from '../../shared/chat';
 import { parseSSE } from './sseParser';
 export async function* streamGeminiResponse(userMessage: string, history: ChatMessage[], signal?: AbortSignal, preferences: Preferences = DEFAULT_PREFERENCES): AsyncGenerator<BotChunk> {
   const request = new AbortController();
@@ -18,6 +18,7 @@ export async function* streamGeminiResponse(userMessage: string, history: ChatMe
   for await (const { event, data } of parseSSE(res.body)) {
     if (signal?.aborted) throw new DOMException('Stopped', 'AbortError');
     if (event === 'error') throw new Error(typeof data.code === 'string' ? data.code : 'UPSTREAM_ERROR');
+    if (event === 'progress' && PROGRESS_PHASES.includes(data.phase as ProgressPhase)) yield { progress: { phase: data.phase as ProgressPhase, ...(data.reason === 'timeout' ? { reason: 'timeout' as const } : {}) } };
     if (event === 'chunk' && typeof data.text === 'string') yield { text: data.text };
     if (event === 'status' && ['fast','deep','verified'].includes(String(data.lane))) yield { mode: data.lane as 'fast' | 'deep' | 'verified' };
     if (event === 'meta') yield { cached: data.cached === true, local: data.local === true, fallback: data.fallback === true, verifiedAt: typeof data.verifiedAt === 'number' ? data.verifiedAt : undefined };

@@ -64,6 +64,7 @@ app.post('/api/chat', async c => {
       await emit({ event: 'meta', data: { mode: lane, cached: !!cached, local: !!local, verifiedAt: bank?.verifiedAt } });
       const instant = safety || bank?.answer || local?.answer || cached?.text;
       if (instant) {
+        await emit({ event: 'progress', data: { phase: bank ? 'reviewed' : local ? 'saved' : cached ? 'cached' : 'service' } });
         await emit({ event: 'chunk', data: { text: instant } });
         const sources = bank?.sources || local?.sources || cached?.sources || [];
         if (sources.length) await emit({ event: 'sources', data: { sources } });
@@ -75,7 +76,10 @@ app.post('/api/chat', async c => {
       if (!release) throw Object.assign(new Error('Busy'), { code: 'BUSY' });
       const result = await generateChatStream(message, history, ac.signal, lane,
         async text => { clearTimeout(evidenceTimeout); if (!hasOutput) ttftMs = Date.now() - started; hasOutput = true; await emit({ event: 'chunk', data: { text } }); },
-        async sources => { await emit({ event: 'sources', data: { sources } }); }, preferences, undefined, { buffered: true, requireSources: true });
+        async sources => { await emit({ event: 'sources', data: { sources } }); }, preferences, undefined, {
+          buffered: true, requireSources: true,
+          onProgress: async progress => { if (!ac.signal.aborted && !stream.aborted) await emit({ event: 'progress', data: progress }); },
+        });
       // Never cache partial, blocked or ungrounded answers.
       if (process.env.CACHE_ENABLED !== 'false' && result.finishReason === 'STOP' && result.text.trim().length > 20 && result.sources.length) {
         setCachedResponse(message, history, result.text, result.sources, lane, preferences);
@@ -87,6 +91,7 @@ app.post('/api/chat', async c => {
       const code = (error as { code?: string })?.code || 'UPSTREAM_ERROR';
       if (hasOutput) { await emit({ event: 'done', data: { finishReason: 'INTERRUPTED' } }); return; }
       if (backup && code !== 'BLOCKED' && !c.req.raw.signal.aborted) {
+        await emit({ event: 'progress', data: { phase: 'fallback' } });
         await emit({ event: 'meta', data: { mode: lane, cached: false, local: true, fallback: true } });
         await emit({ event: 'chunk', data: { text: backup.answer } });
         await emit({ event: 'sources', data: { sources: backup.sources } });
@@ -102,6 +107,7 @@ app.post('/api/chat', async c => {
         : code === 'BUSY' ? 'The assistant is helping several people right now. Try again shortly, or browse the college guide without waiting.'
         : code === 'BLOCKED' ? 'I couldn’t answer that question. Try asking about college programs, fees or admissions.'
         : 'I couldn’t complete that lookup. Please try again or contact admissions below.';
+      await emit({ event: 'progress', data: { phase: 'service' } });
       await emit({ event: 'meta', data: { mode: lane, cached: false, fallback: true } });
       await emit({ event: 'chunk', data: { text } });
       await emit({ event: 'contact', data: contactInfo });

@@ -1,10 +1,13 @@
 import { create } from 'zustand';
-import type { ChatMessage, Conversation, Preferences } from '../types/chat';
+import type { ChatMessage, Conversation, Preferences, RequestProgress } from '../types/chat';
 import { DEFAULT_PREFERENCES } from '../../shared/chat';
 interface ChatState {
   messages: ChatMessage[]; conversations: Conversation[]; activeId: string;
   isOffline: boolean; theme: 'light' | 'dark'; preferences: Preferences;
   remember: boolean; draft: string; sidebarOpen: boolean;
+  progress: RequestProgress | null;
+  setProgress: (progress: RequestProgress) => void;
+  clearProgress: (messageId: string) => void;
   setMessages: (updater: (prev: ChatMessage[]) => ChatMessage[]) => void;
   toggleTheme: () => void; setOffline: (value: boolean) => void;
   setPreferences: (prefs: Partial<Preferences>) => void; setDraft: (value: string) => void;
@@ -27,7 +30,9 @@ export const useChatStore = create<ChatState>((set) => ({
   messages: saved[0]?.messages || [], conversations: saved, activeId: saved[0]?.id || id(),
   isOffline: !navigator.onLine, theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
   preferences: DEFAULT_PREFERENCES, remember: saved.length > 0 || (() => { try { return localStorage.getItem('commecs-remember') === 'true'; } catch { return false; } })(),
-  draft: '', sidebarOpen: false,
+  draft: '', sidebarOpen: false, progress: null,
+  setProgress: progress => set(s => s.activeId === progress.conversationId && s.messages.some(m => m.id === progress.messageId && ['sending', 'streaming'].includes(m.status)) ? { progress } : {}),
+  clearProgress: messageId => set(s => s.progress?.messageId === messageId ? { progress: null } : {}),
   setMessages: updater => set(s => {
     const messages = updater(s.messages);
     const entry = { id: s.activeId, title: messages.find(m => m.role === 'user')?.text.slice(0, 52) || 'New conversation', messages, updatedAt: Date.now() };
@@ -47,12 +52,13 @@ export const useChatStore = create<ChatState>((set) => ({
     try { localStorage.setItem('commecs-remember', String(remember)); if (!remember) localStorage.removeItem(storageKey); } catch { /* unavailable storage */ }
     set({ remember });
   },
-  newChat: () => set({ messages: [], activeId: id(), draft: '', sidebarOpen: false }),
-  openChat: activeId => set(s => ({ activeId, messages: s.conversations.find(c => c.id === activeId)?.messages || [], draft: '', sidebarOpen: false })),
-  deleteChat: removedId => set(s => ({ conversations: s.conversations.filter(c => c.id !== removedId), ...(removedId === s.activeId ? { activeId: id(), messages: [], draft: '' } : {}) })),
+  newChat: () => set({ messages: [], activeId: id(), draft: '', sidebarOpen: false, progress: null }),
+  openChat: activeId => set(s => ({ activeId, messages: s.conversations.find(c => c.id === activeId)?.messages || [], draft: '', sidebarOpen: false, ...(activeId !== s.activeId ? { progress: null } : {}) })),
+  deleteChat: removedId => set(s => ({ conversations: s.conversations.filter(c => c.id !== removedId), ...(removedId === s.activeId ? { activeId: id(), messages: [], draft: '', progress: null } : {}) })),
 }));
 let saveTimer: ReturnType<typeof setTimeout>;
-useChatStore.subscribe(state => {
+useChatStore.subscribe((state, previous) => {
+  if (state.conversations === previous.conversations && state.remember === previous.remember) return;
   clearTimeout(saveTimer);
   if (!state.remember) return;
   saveTimer = setTimeout(() => {
