@@ -30,8 +30,10 @@ export function retrieveEvidence(message: string, history: { role: string; text:
   const query = plan.expanded;
   if (!query.length) return [];
   const deviceOnly = plan.topics.some(t => t.id === 'devices') && !plan.topics.some(t => !['devices', 'campusRules'].includes(t.id));
+  const examDeviceQuestion = /\b(exam\w*|test|paper)\b|امتحان|پرچہ/i.test(plan.contextual);
   const ranked = prepared.filter(p => !p.d.verifiedAt || (p.d.verifiedAt <= Date.now() + 86400000 && Date.now() - p.d.verifiedAt <= 30 * 86400000))
     .filter(p => !deviceOnly || (p.body.has('phone') && /\bphones?\b[\s\S]{0,120}\b(prohibit\w*|confiscat\w*|permission|allowed)\b|\b(bringing|bring|carry)\b[^\n]{0,60}\b(phone|mobile)\b|ممنوع|اجازت/i.test(p.d.text)))
+    .filter(p => !deviceOnly || examDeviceQuestion || !/internal-examination-policy/.test(p.d.url))
     .map(p => {
     const matched = query.filter(t => p.body.has(t) || p.title.has(t));
     const strong = matched.filter(t => p.title.has(t)).length;

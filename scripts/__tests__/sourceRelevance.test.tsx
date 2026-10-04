@@ -42,6 +42,15 @@ describe('source relevance for device policies', () => {
     expect(topics).toEqual(expect.arrayContaining(['devices', 'fees']));
     expect(retrieveEvidence('Are phones allowed on campus and what is the fee structure?').some(e => e.sources.some(s => /Fee-Structure/.test(s.url)))).toBe(true);
   });
+  it('does not introduce an examination-only rule into a general campus device question', () => {
+    const evidence = retrieveEvidence(phoneQuestion);
+    expect(evidence.some(e => /students-code-of-conduct/.test(e.source.url))).toBe(true);
+    expect(evidence.some(e => /internal-examination-policy/.test(e.source.url))).toBe(false);
+  });
+  it('retains the examination policy when the device question explicitly asks about exams', () => {
+    expect(retrieveEvidence('Can students bring mobile phones into examinations?').some(e => /internal-examination-policy/.test(e.source.url))).toBe(true);
+    expect(retrieveEvidence('کیا امتحان میں موبائل فون لے جا سکتے ہیں؟').some(e => /internal-examination-policy/.test(e.source.url))).toBe(true);
+  });
   it('narrows the old source dump to explicit references and preserves dates', () => {
     expect(selectAnswerSources(phoneAnswer, [contact, fee, conduct, conduct])).toEqual([conduct]);
     expect(selectAnswerSources(`[Rule](${conduct.url}#phones)`, [{ ...conduct, url: conduct.url.replace(/\/$/, '') }])).toHaveLength(1);
