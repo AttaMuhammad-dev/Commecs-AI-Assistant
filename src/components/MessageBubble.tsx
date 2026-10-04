@@ -7,6 +7,7 @@ import { useChatStore } from '../store/useChatStore';
 import TypingIndicator from './TypingIndicator';
 import { resolveLanguage, safeSourceUrl } from '../../shared/chat';
 import SourceCards from './SourceCards';
+import { selectAnswerSources } from '../../shared/answerSources';
 export default function MessageBubble({ message, retryMessage }: { message: ChatMessage; retryMessage?: (id: string) => void }) {
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
@@ -17,8 +18,9 @@ export default function MessageBubble({ message, retryMessage }: { message: Chat
   const waiting = !user && ['sending','streaming'].includes(message.status) && !message.text;
   const busy = ['sending','streaming'].includes(message.status);
   const incomplete = message.status === 'stopped' || message.status === 'error' || (message.finishReason && message.finishReason !== 'STOP');
+  const sources = selectAnswerSources(message.text, message.sources || []);
   async function copy() {
-    try { await navigator.clipboard.writeText(message.text + (message.sources?.length ? '\n\nSources:\n' + message.sources.map(s => s.title + ': ' + s.url).join('\n') : '')); setCopied(true); setCopyError(false); }
+    try { await navigator.clipboard.writeText(message.text + (sources.length ? '\n\nSources:\n' + sources.map(s => s.title + ': ' + s.url).join('\n') : '')); setCopied(true); setCopyError(false); }
     catch { setCopyError(true); }
   }
   const feedback = (value: 'up' | 'down') => setMessages(messages => messages.map(m => m.id === message.id ? { ...m, feedback: m.feedback === value ? undefined : value } : m));
@@ -32,8 +34,8 @@ export default function MessageBubble({ message, retryMessage }: { message: Chat
         table: ({ children }) => <div className="table-scroll"><table>{children}</table></div>,
       }}>{message.text}</ReactMarkdown>}
     </div>}
-    {!user && message.sources && !busy && <SourceCards sources={message.sources} language={resolveLanguage(message.text, languagePreference)} />}
-    {!user && !busy && !incomplete && !message.fallback && !message.sources?.length && <p className="incomplete-note">No college source was attached. Confirm college-specific details with admissions.</p>}
+    {!user && sources.length > 0 && !busy && <SourceCards sources={sources} language={resolveLanguage(message.text, languagePreference)} />}
+    {!user && !busy && !incomplete && !message.fallback && !sources.length && <p className="incomplete-note">No college source was attached. Confirm college-specific details with admissions.</p>}
     {message.contact && <div className="contact-card"><strong>Talk to admissions</strong><a href={'tel:+' + phone}><Phone size={15} />{message.contact.landline}</a><a href={'https://wa.me/' + whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={15} /> WhatsApp admissions</a><a href={'mailto:' + message.contact.email}><Mail size={15} />{message.contact.email}</a></div>}
     {!user && !busy && <div className="message-actions">
       <button onClick={() => void copy()} aria-label="Copy answer">{copied ? <Check size={14} /> : <Copy size={14} />}{copied ? 'Copied' : 'Copy'}</button>

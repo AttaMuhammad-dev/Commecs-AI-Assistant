@@ -16,6 +16,7 @@ import { getLocalGuideAnswer } from './localGuide.js';
 import { getFacultyAnswer } from './faculty.js';
 import { sourceWithDates } from './knowledge.js';
 import { resolveLanguage, type ChatEvent, type Lane } from '../shared/chat.js';
+import { selectAnswerSources } from '../shared/answerSources.js';
 
 export const app = new Hono();
 app.use('/api/*', cors({
@@ -68,7 +69,7 @@ app.post('/api/chat', async c => {
       if (instant) {
         await emit({ event: 'progress', data: { phase: bank ? 'reviewed' : local ? 'saved' : cached ? 'cached' : 'service' } });
         await emit({ event: 'chunk', data: { text: instant } });
-        const sources = bank ? bank.sources.map((source: import('../shared/chat.js').Source) => sourceWithDates(source, bank.verifiedAt)) : local?.sources || cached?.sources || [];
+        const sources = selectAnswerSources(instant, bank ? bank.sources.map((source: import('../shared/chat.js').Source) => sourceWithDates(source, bank.verifiedAt)) : local?.sources || cached?.sources || []);
         if (sources.length) await emit({ event: 'sources', data: { sources } });
         await emit({ event: 'done', data: { finishReason: 'STOP' } });
         return;
@@ -97,7 +98,7 @@ app.post('/api/chat', async c => {
         await emit({ event: 'progress', data: { phase: 'fallback' } });
         await emit({ event: 'meta', data: { mode: lane, cached: false, local: true, fallback: true } });
         await emit({ event: 'chunk', data: { text: backup.answer } });
-        await emit({ event: 'sources', data: { sources: backup.sources } });
+        await emit({ event: 'sources', data: { sources: selectAnswerSources(backup.answer, backup.sources) } });
         await emit({ event: 'done', data: { finishReason: 'STOP' } });
         console.info(JSON.stringify({ event: 'saved_source_fallback', code, totalMs: Date.now() - started }));
         return;

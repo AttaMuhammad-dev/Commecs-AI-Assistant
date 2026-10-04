@@ -5,6 +5,7 @@ import { knowledgeEvidence, missingListEvidence, type Evidence } from './knowled
 import { retrieveOfficialWebsite, type WebsiteProvider } from './officialWebsite.js';
 import { searchTokens } from './queryPlan.js';
 import { answerLinksSupported, normalizeAnswerReferences } from './responseEvidence.js';
+import { selectAnswerSources } from '../shared/answerSources.js';
 import { getFastLadder, getDeepLadder, clampThinking, downgradedModels, type ThinkingLevel } from './config/models.js';
 import { isExhausted, markExhausted, coolDown } from './quota.js';
 import { ChatError, classifyProviderError, providerDiagnostic } from './errors.js';
@@ -81,6 +82,7 @@ export async function generateChatStream(
       const timer = setTimeout(() => ac.abort(), Math.min(10000, 30000 - (Date.now() - started)));
       let text = '';
       const sourceMap = new Map<string, Source>(evidenceSources.map(s => [s.url, s]));
+      const supportedUrls = new Set<string>();
       if (directoryEvidence) sourceMap.set(facultySource.url, facultySource);
       let finishReason: FinishReason = 'INTERRUPTED';
       let iterator: AsyncIterator<GenerateContentResponse> | undefined;
@@ -107,24 +109,28 @@ export async function generateChatStream(
           if (candidate?.finishReason) {
             finishReason = candidate.finishReason === 'STOP' ? 'STOP' : candidate.finishReason === 'MAX_TOKENS' ? 'MAX_TOKENS' : 'BLOCKED';
           }
-          for (const grounding of candidate?.groundingMetadata?.groundingChunks || []) {
+          const groundings = candidate?.groundingMetadata?.groundingChunks || [];
+          const supportedIndices = new Set(candidate?.groundingMetadata?.groundingSupports?.flatMap(s => s.groundingChunkIndices || []) || []);
+          for (const [index, grounding] of groundings.entries()) {
             const ctx = grounding.retrievedContext;
             if (!ctx) continue;
             const meta = (key: string) => ctx.customMetadata?.find(m => m.key === key)?.stringValue;
             const url = meta('url') || ctx.uri;
             if (url && safeSourceUrl(url)) sourceMap.set(url, { title: meta('title') || ctx.title || 'College source', url, modified: meta('modified'), type: meta('type') });
+            if (url && safeSourceUrl(url) && supportedIndices.has(index)) supportedUrls.add(url);
           }
           const part = candidate?.content?.parts?.filter(p => !p.thought).map(p => p.text || '').join('') || '';
           if (part) { text += part; if (!options.buffered) await onChunk(part); }
         }
         await options.onProgress?.({ phase: 'checking' });
         if (ac.signal.aborted) throw new ChatError('ABORTED', 'Request stopped.');
-        const sources = Array.from(sourceMap.values()).slice(0, 5);
+        const candidates = Array.from(sourceMap.values());
         if (options.buffered) text = normalizeAnswerReferences(text);
+        const sources = selectAnswerSources(text, candidates, [...supportedUrls]).slice(0, 5).map(s => supportedUrls.has(s.url) ? { ...s, attributed: true as const } : s);
         if (!text.trim()) throw new ChatError(finishReason === 'BLOCKED' ? 'BLOCKED' : 'UPSTREAM_ERROR', 'No answer was returned.');
         if (options.buffered && finishReason !== 'STOP') throw new ChatError(finishReason === 'BLOCKED' ? 'BLOCKED' : 'INCOMPLETE', 'No complete answer was returned.');
         if (options.requireSources && !sources.length) throw new ChatError('UNGROUNDED', 'No official evidence was returned.');
-        if (options.buffered && !answerLinksSupported(text, sources, directoryEvidence + evidencePrompt)) throw new ChatError('UNGROUNDED', 'A source link was not supplied by the evidence.');
+        if (options.buffered && !answerLinksSupported(text, candidates, directoryEvidence + evidencePrompt)) throw new ChatError('UNGROUNDED', 'A source link was not supplied by the evidence.');
         if (sources.length) await onSources(sources);
         if (options.buffered) await onChunk(text);
         return { text, sources, finishReason, model, thinking, attempts };

@@ -6,6 +6,7 @@ import MessageBubble from './MessageBubble';
 import QuickReplyChips from './QuickReplyChips';
 import { getFollowUps } from '../lib/followUps';
 import { resolveLanguage } from '../../shared/chat';
+import { selectAnswerSources } from '../../shared/answerSources';
 export default function MessageList() {
   const messages = useChatStore(s => s.messages);
   const activeId = useChatStore(s => s.activeId);
@@ -17,7 +18,9 @@ export default function MessageList() {
   const busy = messages.some(m => ['sending','streaming'].includes(m.status));
   const choose = (text: string) => { setDraft(text); document.getElementById('question')?.focus(); };
   const question = messages.filter(m => m.role === 'user').at(-1)?.text || '';
-  const followUps = getFollowUps(question, messages.at(-1)?.sources, language);
+  const history = messages.filter(m => m.role === 'user').slice(0, -1).map(m => ({ role: 'user', text: m.text }));
+  const sources = selectAnswerSources(last?.text || '', last?.sources || []);
+  const followUps = getFollowUps(question, sources, language, history);
   return <div className="thread-wrap">
     <div ref={scrollRef} onScroll={handleScroll} className="thread-scroll" role="log" aria-label="Conversation" aria-live="polite" aria-busy={busy}>
       <div className="thread-content">
@@ -32,7 +35,7 @@ export default function MessageList() {
       </section> : <>
         <div className="conversation-heading">Your conversation with Commecs</div>
         {messages.map((msg, index) => <MessageBubble key={msg.id} message={msg} retryMessage={index === messages.length - 1 ? retryMessage : undefined} />)}
-        {!busy && messages.at(-1)?.status === 'complete' && !messages.at(-1)?.fallback && <div className="follow-ups"><span>{resolveLanguage(question, language) === 'ur' ? 'مزید جانیں' : resolveLanguage(question, language) === 'roman' ? 'Mazeed janein' : 'Keep exploring'}</span>{followUps.map(s => <button key={s.question} onClick={() => choose(s.question)}>{s.label}</button>)}</div>}
+        {!busy && last?.status === 'complete' && (!last.fallback || sources.length > 0) && followUps.length > 0 && <div className="follow-ups"><span>{resolveLanguage(question, language) === 'ur' ? 'مزید جانیں' : resolveLanguage(question, language) === 'roman' ? 'Mazeed janein' : 'Keep exploring'}</span>{followUps.map(s => <button key={s.question} onClick={() => choose(s.question)}>{s.label}</button>)}</div>}
       </>}
       </div>
     </div>
