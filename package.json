@@ -23,6 +23,7 @@
     "verify": "npm run typecheck:server && npm test && npm run build",
     "start": "node dist-server/server/start.js",
     "test:live": "tsx scripts/smoke.ts",
+    "test:resilience:live": "tsx scripts/checkResilienceLive.ts",
     "guide:build": "node scripts/buildLocalGuide.mjs && node scripts/buildLocalKnowledge.mjs",
     "knowledge:build": "node scripts/buildLocalKnowledge.mjs",
     "build:server": "tsc -p tsconfig.runtime.json",

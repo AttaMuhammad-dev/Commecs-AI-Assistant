@@ -1,1 +1,1 @@
-export { planQuery, searchTokens, isDeviceQuestion } from '../shared/queryPlan.js';
+export { planQuery, searchTokens, isDeviceQuestion, withQuestionContext } from '../shared/queryPlan.js';

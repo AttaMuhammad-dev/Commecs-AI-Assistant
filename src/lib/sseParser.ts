@@ -4,11 +4,18 @@ export async function* parseSSE(responseBody: ReadableStream<Uint8Array>) {
   let buffer = '';
   let event = 'message';
   let dataLines: string[] = [];
+  let frameSize = 0;
+  const maxFrameSize = 1000000;
+  function addData(line: string) {
+    frameSize += line.length + 1;
+    if (frameSize > maxFrameSize) throw new Error('INVALID_STREAM');
+    dataLines.push(line);
+  }
   function dispatch(): { event: string; data: Record<string, unknown> } | null {
     if (!dataLines.length) { event = 'message'; return null; }
     const raw = dataLines.join('\n');
     const name = event;
-    event = 'message'; dataLines = [];
+    event = 'message'; dataLines = []; frameSize = 0;
     if (raw === '[DONE]') return { event: 'done', data: { finishReason: 'STOP' } };
     let parsed: unknown;
     try { parsed = JSON.parse(raw); } catch { throw new Error('INVALID_STREAM'); }
@@ -24,12 +31,14 @@ export async function* parseSSE(responseBody: ReadableStream<Uint8Array>) {
       while ((newline = buffer.indexOf('\n')) >= 0) {
         const line = buffer.slice(0, newline).replace(/\r$/, '');
         buffer = buffer.slice(newline + 1);
+        if (line.length > maxFrameSize) throw new Error('INVALID_STREAM');
         if (!line) { const frame = dispatch(); if (frame) yield frame; }
         else if (line.startsWith('event:')) event = line.slice(6).trim();
-        else if (line.startsWith('data:')) dataLines.push(line.slice(5).replace(/^ /, ''));
+        else if (line.startsWith('data:')) addData(line.slice(5).replace(/^ /, ''));
       }
       if (done) {
-        if (buffer.startsWith('data:')) dataLines.push(buffer.slice(5).replace(/^ /, '').replace(/\r$/, ''));
+        if (buffer.length > maxFrameSize) throw new Error('INVALID_STREAM');
+        if (buffer.startsWith('data:')) addData(buffer.slice(5).replace(/^ /, '').replace(/\r$/, ''));
         const frame = dispatch(); if (frame) yield frame;
         break;
       }

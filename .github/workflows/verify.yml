@@ -22,4 +22,6 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - run: npm run knowledge:build
       - run: npm run verify
-      - run: npm run test:presentation
+      - run: npm run answers:check
+      - run: node scripts/check-runtime.mjs
+      - run: node scripts/check-presentation.mjs --slow

@@ -16,7 +16,8 @@ beforeEach(() => { chat.stopResponse(); store.setState({ messages: [], conversat
 afterEach(() => chat.stopResponse());
 function controlled() {
   let resolve: (chunk: BotChunk) => void = () => undefined;
-  service.mockImplementationOnce(async function* () { yield { progress: { phase: 'preparing' } }; yield await new Promise<BotChunk>(r => { resolve = r; }); yield { finishReason: 'STOP' }; });
+  const pending = new Promise<BotChunk>(r => { resolve = r; });
+  service.mockImplementationOnce(async function* () { yield { progress: { phase: 'preparing' } }; yield await pending; yield { finishReason: 'STOP' }; });
   return (chunk: BotChunk) => resolve(chunk);
 }
 describe('request-scoped progress', () => {
@@ -94,5 +95,44 @@ describe('request-scoped progress', () => {
     expect(store.getState().progress?.language).toBe('ur');
     finish({ text: 'Saved evidence', fallback: true, local: true }); await task;
     expect(store.getState().progress).toBeNull(); expect(store.getState().messages[1].fallback).toBe(true);
+  });
+  it('carries only user-question context after a fallback and resets it for a new topic', async () => {
+    service.mockImplementation(async function* () { yield { text: 'Saved extract that must never be model history.', fallback: true, local: true }; yield { finishReason: 'STOP' }; });
+    await chat.sendMessage('Which clubs and societies are available?');
+    await chat.sendMessage('Tell me more');
+    expect(service.mock.calls[1][1]).toEqual([]);
+    expect(service.mock.calls[1][4]).toBe('Which clubs and societies are available?');
+    await chat.sendMessage('How can those help me?');
+    expect(service.mock.calls[2][4]).toContain('clubs and societies');
+    expect(service.mock.calls[2][4]).not.toContain('Saved extract');
+    await chat.sendMessage('What are college fees?');
+    expect(service.mock.calls[3][4]).toBeUndefined();
+  });
+  it('retains a stopped question as context without including stopped answer text', async () => {
+    const finish = controlled(), task = chat.sendMessage('What are the late fee penalties?');
+    await vi.waitFor(() => expect(store.getState().progress?.phase).toBe('preparing'));
+    chat.stopResponse(); finish({ text: 'Delayed unsafe answer' }); await task;
+    service.mockImplementationOnce(async function* () { yield { text: 'Complete answer' }; yield { finishReason: 'STOP' }; });
+    await chat.sendMessage('Tell me more');
+    expect(service.mock.calls[1][1]).toEqual([]);
+    expect(service.mock.calls[1][4]).toBe('What are the late fee penalties?');
+  });
+  it('ignores double submissions while a request is active', async () => {
+    const finish = controlled(), task = chat.sendMessage('First question');
+    await chat.sendMessage('Accidental duplicate');
+    expect(service).toHaveBeenCalledTimes(1);
+    expect(store.getState().messages.map(m => m.text)).toEqual(['First question', '']);
+    finish({ text: 'Complete answer' }); await task;
+  });
+  it.each(['ur', 'roman'] as const)('localizes connection errors and cancellation in %s', async language => {
+    store.getState().setPreferences({ language });
+    service.mockImplementationOnce(async function* () { throw new Error('private-provider-details'); });
+    await chat.sendMessage('Question');
+    expect(store.getState().messages[1].text).toMatch(language === 'ur' ? /کنکشن/ : /connection/);
+    expect(store.getState().messages[1].text).not.toContain('private-provider-details');
+    const finish = controlled(), task = chat.sendMessage('Another question');
+    await vi.waitFor(() => expect(store.getState().progress?.phase).toBe('preparing'));
+    chat.stopResponse(); finish({ text: 'Delayed' }); await task;
+    expect(store.getState().messages.at(-1)?.text).toBe(language === 'ur' ? 'جواب روک دیا گیا۔' : 'Jawab rok diya gaya.');
   });
 });

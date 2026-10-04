@@ -37,7 +37,7 @@ export default function Sidebar({ onGuide }: { onGuide: () => void }) {
       </div>
       <div className="sidebar-bottom">
         <div className="privacy-control"><ShieldCheck size={18} /><label><input type="checkbox" checked={state.remember} onChange={e => state.setRemember(e.target.checked)} /> Save chats on this device</label></div>
-        <p className="privacy-note">{state.remember ? 'Saved in this browser. Turn off to erase saved copies.' : 'Chats stay in memory and clear when you reload.'}</p>
+        <p className="privacy-note" role={state.storageError ? 'status' : undefined}>{state.storageError ? state.remember ? 'Chats could not be saved on this device. Keep this page open to retain your current conversation.' : 'Saved copies could not be removed. Please try again when browser storage is available.' : state.remember ? 'Saved in this browser. Turn off to erase saved copies.' : 'Chats stay in memory and clear when you reload.'}</p>
         <a className="college-link" href="https://commecscollege.edu.pk/" target="_blank" rel="noreferrer">Visit college website <ExternalLink size={15} /></a>
         <div className="sidebar-signature"><span className="small-seal">C</span><span>Curiosity starts here.<br /><small>Commecs College, Karachi</small></span></div>
       </div>

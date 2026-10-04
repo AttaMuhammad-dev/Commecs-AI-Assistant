@@ -1,4 +1,4 @@
-import { safeSourceUrl, type Source } from './chat.js';
+import { safeSourceUrl, sanitizeSources, type Source } from './chat.js';
 
 export function canonicalSourceUrl(value: string) {
   try {
@@ -13,8 +13,8 @@ export function answerSourceUrls(answer: string): string[] {
 // Explicit references narrow the displayed cards. Provider supports can retain
 // an additional source attributed to a claim, even without an inline link.
 // With no references, callers must supply relevant evidence, never a search dump.
-export function selectAnswerSources(answer: string, sources: Source[], supported: string[] = []): Source[] {
-  const unique = [...new Map(sources.filter(s => !!s && typeof s.title === 'string' && typeof s.url === 'string' && safeSourceUrl(s.url)).map(s => [canonicalSourceUrl(s.url), s])).values()];
+export function selectAnswerSources(answer: string, sources: unknown, supported: string[] = []): Source[] {
+  const unique = [...new Map(sanitizeSources(sources).map(s => [canonicalSourceUrl(s.url), s])).values()];
   const referenced = new Set([...answerSourceUrls(answer), ...supported.filter(safeSourceUrl).map(canonicalSourceUrl), ...unique.filter(s => s.attributed).map(s => canonicalSourceUrl(s.url))]);
   return referenced.size ? unique.filter(s => referenced.has(canonicalSourceUrl(s.url))) : unique;
 }

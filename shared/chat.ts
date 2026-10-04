@@ -27,6 +27,16 @@ export type ChatEvent =
   | { event: 'done'; data: { finishReason: FinishReason } }
   | { event: 'error'; data: { code: string; message: string } };
 export function safeSourceUrl(value: string): boolean {
-  try { const url = new URL(value); return url.protocol === 'https:' && (url.hostname === 'commecscollege.edu.pk' || url.hostname.endsWith('.commecscollege.edu.pk')); }
+  try { const url = new URL(value); return url.protocol === 'https:' && !url.username && !url.password && !url.port && (url.hostname === 'commecscollege.edu.pk' || url.hostname.endsWith('.commecscollege.edu.pk')); }
   catch { return false; }
+}
+export function sanitizeSources(value: unknown): Source[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter(s => !!s && typeof s.title === 'string' && s.title.trim() && typeof s.url === 'string' && s.url.length <= 2048 && safeSourceUrl(s.url)).slice(0, 10).map(s => ({
+    title: s.title.slice(0, 300), url: s.url,
+    ...(typeof s.modified === 'string' ? { modified: s.modified.slice(0, 100) } : {}),
+    ...(typeof s.reviewedAt === 'string' ? { reviewedAt: s.reviewedAt.slice(0, 100) } : {}),
+    ...(typeof s.type === 'string' ? { type: s.type.slice(0, 40) } : {}),
+    ...(s.attributed === true ? { attributed: true as const } : {}),
+  }));
 }
