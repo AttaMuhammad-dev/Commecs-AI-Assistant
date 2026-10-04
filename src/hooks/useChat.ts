@@ -5,11 +5,18 @@ let active: { controller: AbortController; id: string; conversationId: string } 
 const errorText = (code: string) => code === 'RATE_LIMITED' ? 'Please wait a minute before asking again. You can still review earlier answers.' : code === 'BAD_REQUEST' ? 'Please keep your question under 600 characters.' : 'The reply was interrupted. Check your connection and try again.';
 export function stopResponse() {
   if (!active) return;
-  active.controller.abort();
-  const botId = active.id;
-  useChatStore.getState().setMessages(messages => messages.map(m => m.id === botId ? { ...m, status: 'stopped', finishReason: 'INTERRUPTED', text: m.text || 'Response stopped.' } : m));
+  const request = active;
   active = null;
+  request.controller.abort();
+  const stopped = (messages: ChatMessage[]) => messages.map(m => m.id === request.id ? { ...m, status: 'stopped' as const, finishReason: 'INTERRUPTED' as const, text: m.text || 'Response stopped.' } : m);
+  useChatStore.setState(s => ({
+    ...(s.activeId === request.conversationId ? { messages: stopped(s.messages) } : {}),
+    conversations: s.conversations.map(c => c.id === request.conversationId ? { ...c, messages: stopped(c.messages) } : c),
+    ...(s.progress?.messageId === request.id ? { progress: null } : {}),
+  }));
 }
+// Also cancel switches made outside the sidebar. An old stream cannot resume in a reopened chat.
+useChatStore.subscribe((state, previous) => { if (state.activeId !== previous.activeId && active) stopResponse(); });
 async function sendMessage(value: string) {
   const text = value.trim();
   const state = useChatStore.getState();
@@ -25,18 +32,23 @@ async function sendMessage(value: string) {
     if (user.role === 'user' && bot.role === 'bot' && bot.status === 'complete' && !bot.fallback && (!bot.finishReason || bot.finishReason === 'STOP')) history.push(user, bot);
   }
   state.setMessages(messages => [...messages, { id: crypto.randomUUID(), role: 'user', text, status: 'complete', createdAt: Date.now() }, { id: botId, role: 'bot', text: '', status: 'sending', createdAt: Date.now() }]);
+  const initialProgress = { conversationId, messageId: botId, startedAt: Date.now(), language: state.preferences.language === 'auto' ? (/[\u0600-\u06FF]/.test(text) ? 'ur' as const : 'en' as const) : state.preferences.language, phase: 'sending' as const };
+  state.setProgress(initialProgress);
   const update = (fn: (m: ChatMessage) => ChatMessage) => {
-    if (useChatStore.getState().activeId === conversationId) useChatStore.getState().setMessages(messages => messages.map(m => m.id === botId ? fn(m) : m));
+    if (active?.id === botId && !controller.signal.aborted && useChatStore.getState().activeId === conversationId) useChatStore.getState().setMessages(messages => messages.map(m => m.id === botId ? fn(m) : m));
   };
   try {
     for await (const chunk of streamBotResponse(text, history, controller.signal, state.preferences)) {
-      if (controller.signal.aborted) break;
-      update(m => ({ ...m, ...chunk, mode: chunk.mode === 'deep' ? 'thinking' : chunk.mode || m.mode, text: m.text + (chunk.text || ''), status: 'streaming' }));
+      if (controller.signal.aborted || active?.id !== botId) break;
+      const { progress, ...answer } = chunk;
+      if (progress) { useChatStore.getState().setProgress({ ...initialProgress, ...progress }); continue; }
+      if (answer.finishReason) useChatStore.getState().clearProgress(botId);
+      update(m => ({ ...m, ...answer, mode: answer.mode === 'deep' ? 'thinking' : answer.mode || m.mode, text: m.text + (answer.text || ''), status: 'streaming' }));
     }
     if (!controller.signal.aborted) update(m => ({ ...m, status: m.text.trim() ? 'complete' : 'error', text: m.text || 'No answer arrived. Please try again.' }));
   } catch (error) {
     if (!controller.signal.aborted) update(m => ({ ...m, status: 'error', finishReason: 'INTERRUPTED', text: m.text || errorText(error instanceof Error ? error.message : '') }));
-  } finally { if (active?.id === botId) active = null; }
+  } finally { useChatStore.getState().clearProgress(botId); if (active?.id === botId) active = null; }
 }
 function retryMessage(id: string) {
   if (active) return;

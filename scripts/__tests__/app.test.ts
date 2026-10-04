@@ -19,6 +19,7 @@ describe('chat API', () => {
     const response = await request({message:'Programs offered'});
     const text = await response.text();
     expect(text).toContain('"mode":"verified"');
+    expect(text).toContain('"phase":"reviewed"');
     expect(text).toContain('event: sources');
     expect(text).toContain('"finishReason":"STOP"');
     expect(generate).not.toHaveBeenCalled();
@@ -29,6 +30,7 @@ describe('chat API', () => {
       const text = await (await request({message:'Is there a robotics club in the college?'})).text();
       expect(text).toContain('"fallback":true');
       expect(text).toContain('event: contact');
+      expect(text).toContain('"phase":"service"');
       expect(text).not.toContain('event: sources');
     }
     expect(generate).toHaveBeenCalledTimes(2);
@@ -37,6 +39,7 @@ describe('chat API', () => {
     generate.mockRejectedValue(Object.assign(new Error('quota'), {code:'QUOTA_EXCEEDED'}));
     const text = await (await request({message:'Please explain the published fee policy in detail.'})).text();
     expect(text).toContain('"local":true,"fallback":true');
+    expect(text.indexOf('"phase":"fallback"')).toBeLessThan(text.indexOf('event: chunk'));
     expect(text).toContain('fee-payment-policy');
     expect(text).toContain('event: sources');
     expect(text).toContain('"finishReason":"STOP"');
@@ -49,12 +52,29 @@ describe('chat API', () => {
     });
     const body = {message:'Explain the fee payment policy please.'};
     await (await request(body)).text();
-    expect(await (await request(body)).text()).toContain('"cached":true');
+    const cached = await (await request(body)).text();
+    expect(cached).toContain('"cached":true');
+    expect(cached).toContain('"phase":"cached"');
     expect(generate).toHaveBeenCalledTimes(1);
     clearCache();
     generate.mockResolvedValue({text:'Partial but sourced reply that must not be cached',sources,finishReason:'INTERRUPTED',model:'test',thinking:'LOW',attempts:1});
     await (await request(body)).text(); await (await request(body)).text();
     expect(generate).toHaveBeenCalledTimes(3);
+  });
+  it('forwards typed generator progress independently of lane and answer events', async () => {
+    generate.mockImplementation(async (_m,_h,_s,_l,onChunk,onSources,_prefs,_provider,options) => {
+      await options?.onProgress?.({ phase: 'retrieving' });
+      await options?.onProgress?.({ phase: 'preparing' });
+      await options?.onProgress?.({ phase: 'checking' });
+      const sources = [{ title: 'Policy', url: 'https://commecscollege.edu.pk/fee-payment-policy/' }];
+      await onSources(sources); await onChunk('Complete answer.');
+      return { text: 'Complete answer.', sources, finishReason: 'STOP', model: 'test', thinking: 'LOW', attempts: 1 };
+    });
+    const text = await (await request({ message: 'Explain the fee policy in detail please.' })).text();
+    expect(text).toContain('event: status');
+    expect(text).toContain('event: progress\ndata: {"phase":"preparing"}');
+    expect(text.indexOf('"phase":"checking"')).toBeLessThan(text.indexOf('event: chunk'));
+    expect(text).toContain('event: done');
   });
   it('bounds concurrent calls and releases capacity exactly once', () => {
     const releases = [acquireCapacity(), acquireCapacity(), acquireCapacity()];

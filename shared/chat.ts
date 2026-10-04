@@ -8,7 +8,11 @@ export interface HistoryTurn { role: 'user' | 'model'; text: string }
 export type FinishReason = 'STOP' | 'MAX_TOKENS' | 'INTERRUPTED' | 'BLOCKED';
 export const MAX_MESSAGE_LENGTH = 600;
 export const DEFAULT_PREFERENCES: Preferences = { language: 'auto', responseStyle: 'concise' };
+export const PROGRESS_PHASES = ['retrieving', 'preparing', 'retrying', 'checking', 'saved', 'cached', 'reviewed', 'fallback', 'service'] as const;
+export type ProgressPhase = typeof PROGRESS_PHASES[number];
+export interface ChatProgress { phase: ProgressPhase; reason?: 'timeout' }
 export type ChatEvent =
+  | { event: 'progress'; data: ChatProgress }
   | { event: 'status'; data: { lane: Lane } }
   | { event: 'meta'; data: { mode: Lane; cached: boolean; local?: boolean; fallback?: boolean; verifiedAt?: number } }
   | { event: 'chunk'; data: { text: string } }

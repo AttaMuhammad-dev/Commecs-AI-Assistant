@@ -32,6 +32,7 @@ The existing index is retained. You do not need to ingest or reindex to run this
 
 ## Features
 
+- Event-driven loading text in English, Urdu and Roman Urdu. The API reports bundled retrieval, actual model requests/retries, completion/source-link checks, and saved/reviewed/cached response selection. The browser reports sending before SSE arrives. After eight seconds it retains the current phase and shows elapsed waiting time. These events describe application work, never Gemini's private reasoning or verification of every claim. Progress is ephemeral and excluded from saved conversations and model history.
 - Responsive navy/brass interface, dark mode, Urdu rendering and keyboard navigation.
 - Guided question starters and a searchable college guide with 12 official resources.
 - English, Urdu, Roman Urdu and automatic language selection; concise/detailed responses.

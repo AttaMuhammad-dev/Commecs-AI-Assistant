@@ -97,8 +97,11 @@ td,th{border:1px solid var(--line);padding:9px;text-align:start}th{background:va
 .contact-card a{display:flex;gap:8px;align-items:center;overflow-wrap:anywhere;text-decoration:none}
 .incomplete-note{color:var(--muted);font-size:11px;padding-left:35px;margin-top:10px}
 .typing{display:flex;align-items:center;gap:10px;padding:5px 0 5px 35px;font-size:12px;color:var(--muted)}
-.typing-dots{display:flex;gap:3px}.typing-dots i{width:4px;height:4px;border-radius:50%;background:var(--gold);animation:pulse 1.2s infinite}
-.typing-dots i:nth-child(2){animation-delay:.2s}.typing-dots i:nth-child(3){animation-delay:.4s}@keyframes pulse{50%{opacity:.25}}
+.typing-spinner{flex-shrink:0;color:var(--gold);animation:typing-spin 2s linear infinite}
+.typing-text{display:flex;flex-direction:column;gap:5px}.typing-text small{font-size:11px;opacity:.8}
+.typing[dir="rtl"]{line-height:2.2}
+@keyframes typing-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.typing-spinner{animation:none}}
 .follow-ups{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-left:35px;font-size:11px;color:var(--muted)}
 .follow-ups button{padding:7px 10px;border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:20px}
 .scroll-bottom{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);border:1px solid var(--line);display:flex;gap:6px;align-items:center;border-radius:30px;padding:8px 13px;background:var(--surface);font-size:11px;box-shadow:0 3px 12px #0001}

@@ -10,6 +10,7 @@ export default function MessageBubble({ message, retryMessage }: { message: Chat
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
   const setMessages = useChatStore(s => s.setMessages);
+  const progress = useChatStore(s => s.progress?.messageId === message.id && s.progress.conversationId === s.activeId ? s.progress : null);
   const user = message.role === 'user';
   const waiting = !user && ['sending','streaming'].includes(message.status) && !message.text;
   const busy = ['sending','streaming'].includes(message.status);
@@ -23,7 +24,7 @@ export default function MessageBubble({ message, retryMessage }: { message: Chat
   const phone = message.contact?.landline.split('-').slice(0, 2).join('').replace(/\D/g, '').replace(/^0/, '92');
   return <article className={'message ' + (user ? 'user-message' : 'assistant-message')}>
     {!user && <div className="message-label"><span className="assistant-avatar">C</span><strong>Commecs Assistant</strong><span className="answer-mode" title={message.verifiedAt ? "Reviewed " + new Date(message.verifiedAt).toLocaleDateString() : undefined}>{message.local ? 'Saved college information' : message.fallback ? 'Service update' : message.mode === 'verified' ? 'Reviewed answer' : message.cached ? 'Saved answer' : message.mode === 'thinking' ? 'Thoughtful answer' : 'College guide'}</span></div>}
-    {waiting ? <TypingIndicator mode={message.mode} /> : <div className={'message-text ' + (incomplete ? 'incomplete' : '')} dir="auto">
+    {waiting ? <TypingIndicator progress={progress} /> : <div className={'message-text ' + (incomplete ? 'incomplete' : '')} dir="auto">
       {user ? <p>{message.text}</p> : <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
         a: ({ href, children }) => href && safeSourceUrl(href) ? <a href={href} target="_blank" rel="noopener noreferrer">{children}</a> : <span>{children}</span>,
         table: ({ children }) => <div className="table-scroll"><table>{children}</table></div>,

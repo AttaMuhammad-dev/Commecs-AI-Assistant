@@ -5,7 +5,7 @@ import { knowledgeEvidence } from './knowledge.js';
 import { getFastLadder, getDeepLadder, clampThinking, downgradedModels, type ThinkingLevel } from './config/models.js';
 import { isExhausted, markExhausted, coolDown } from './quota.js';
 import { ChatError, classifyProviderError, providerDiagnostic } from './errors.js';
-import { DEFAULT_PREFERENCES, safeSourceUrl, type Preferences, type Source, type FinishReason } from '../shared/chat.js';
+import { DEFAULT_PREFERENCES, safeSourceUrl, type Preferences, type Source, type FinishReason, type ChatProgress } from '../shared/chat.js';
 
 export type StreamProvider = (params: GenerateContentParameters) => Promise<AsyncIterable<GenerateContentResponse>>;
 
@@ -24,7 +24,7 @@ export async function generateChatStream(
   onSources: (sources: Source[]) => Promise<void> | void,
   preferences: Preferences = DEFAULT_PREFERENCES,
   provider?: StreamProvider,
-  options: { buffered?: boolean; requireSources?: boolean } = {}
+  options: { buffered?: boolean; requireSources?: boolean; onProgress?: (progress: ChatProgress) => Promise<void> | void } = {}
 ) {
   const apiKey = process.env.GEMINI_API_KEY?.trim();
   const rawStore = process.env.FILE_SEARCH_STORE_NAME?.trim();
@@ -36,6 +36,8 @@ export async function generateChatStream(
     httpOptions: { timeout: 10000, retryOptions: { attempts: 1 } },
   }).models.generateContentStream(params));
   const contents = [...history.map(h => ({ role: h.role === 'bot' ? 'model' : h.role, parts: [{ text: h.text }] })), { role: 'user', parts: [{ text: message }] }];
+  await options.onProgress?.({ phase: 'retrieving' });
+  if (signal.aborted) throw new ChatError('ABORTED', 'Request stopped.');
   const directoryEvidence = facultyEvidence(message, history);
   const localEvidence = knowledgeEvidence(message, history);
   // Avoid an additional remote retrieval round-trip when college evidence is bundled.
@@ -45,6 +47,7 @@ export async function generateChatStream(
   const started = Date.now();
   let attempts = 0;
   let lastCode = 'QUOTA_EXCEEDED';
+  let timedOut = false;
   // Leave enough time to send a saved-source answer before the hosting deadline.
   for (const model of ladder) {
     if (isExhausted(model)) continue;
@@ -63,6 +66,8 @@ export async function generateChatStream(
       let finishReason: FinishReason = 'INTERRUPTED';
       let iterator: AsyncIterator<GenerateContentResponse> | undefined;
       try {
+        await options.onProgress?.(attempts === 1 ? { phase: 'preparing' } : { phase: 'retrying', ...(timedOut ? { reason: 'timeout' as const } : {}) });
+        if (ac.signal.aborted) throw new ChatError('ABORTED', 'Request stopped.');
         if (process.env.NODE_ENV !== 'production' && process.env.FAKE_UPSTREAM_ERROR) {
           const fake = process.env.FAKE_UPSTREAM_ERROR;
           throw { status: fake.startsWith('429') ? 429 : 503, message: fake === '429-daily' ? 'quota per day' : 'unavailable' };
@@ -93,6 +98,8 @@ export async function generateChatStream(
           const part = candidate?.content?.parts?.filter(p => !p.thought).map(p => p.text || '').join('') || '';
           if (part) { text += part; if (!options.buffered) await onChunk(part); }
         }
+        await options.onProgress?.({ phase: 'checking' });
+        if (ac.signal.aborted) throw new ChatError('ABORTED', 'Request stopped.');
         const sources = Array.from(sourceMap.values()).slice(0, 5);
         if (!text.trim()) throw new ChatError(finishReason === 'BLOCKED' ? 'BLOCKED' : 'UPSTREAM_ERROR', 'No answer was returned.');
         if (options.buffered && finishReason !== 'STOP') throw new ChatError(finishReason === 'BLOCKED' ? 'BLOCKED' : 'INCOMPLETE', 'No complete answer was returned.');
@@ -102,6 +109,7 @@ export async function generateChatStream(
         return { text, sources, finishReason, model, thinking, attempts };
       } catch (error) {
         if (signal.aborted) throw new ChatError('ABORTED', 'Request stopped.');
+        timedOut = ac.signal.aborted;
         if (text && !options.buffered) {
           const sources = Array.from(sourceMap.values()).slice(0, 5);
           if (sources.length) await onSources(sources);
