@@ -28,7 +28,7 @@ export function getCachedResponse(message: string, history: { role: string; text
   const key = generateKey(message, history, lane, preferences);
   const value = cache.get(key);
   if (!value) return null;
-  if (Date.now() - value.timestamp > TTL) { cache.delete(key); return null; }
+  if (Date.now() - value.timestamp > (value.sources.some(s => s.type === 'live') ? 300_000 : TTL)) { cache.delete(key); return null; }
   cache.delete(key); cache.set(key, value);
   return value;
 }

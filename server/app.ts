@@ -42,7 +42,7 @@ app.post('/api/chat', async c => {
   const route = routeQuestion(message, history);
   const lane: Lane = bank ? 'verified' : route.lane;
   const cached = !safety && !bank && !local && process.env.CACHE_ENABLED !== 'false' ? getCachedResponse(message, history, lane, preferences) : null;
-  const backup = !safety && !local && !bank ? getSavedEvidence(message, history, preferences) : null;
+  let backup = !safety && !local && !bank ? getSavedEvidence(message, history, preferences) : null;
   let locallyLimited = false;
   // Local answers do not spend provider quota and must remain available during a demo burst.
   if (!safety && !bank && !local && !cached && !checkRateLimit(ip)) { if (backup) locallyLimited = true; else { c.header('Retry-After', '60'); return c.json({ code: 'RATE_LIMITED', message: 'Please wait before asking again.' }, 429); } }
@@ -56,8 +56,8 @@ app.post('/api/chat', async c => {
     stream.onAbort(abort);
     const timeout = setTimeout(abort, 35000);
     const heartbeat = setInterval(() => { void stream.write(': keep-alive\n\n').catch(abort); }, 5000);
-    // If no first token arrives promptly, show source evidence rather than wait a full minute.
-    const evidenceTimeout = backup ? setTimeout(abort, 15000) : undefined;
+    // Reasoning requests may need all three bounded model attempts; ordinary lookups retain the shorter deadline.
+    const evidenceTimeout = backup ? setTimeout(abort, lane === 'deep' ? 30000 : 15000) : undefined;
     let ttftMs = 0;
     let hasOutput = false;
     let release: (() => void) | null = null;
@@ -81,6 +81,7 @@ app.post('/api/chat', async c => {
         async sources => { await emit({ event: 'sources', data: { sources } }); }, preferences, undefined, {
           buffered: true, requireSources: true,
           onProgress: async progress => { if (!ac.signal.aborted && !stream.aborted) await emit({ event: 'progress', data: progress }); },
+          onEvidence: evidence => { backup = getSavedEvidence(message, history, preferences, evidence) || backup; },
         });
       // Never cache partial, blocked or ungrounded answers.
       if (process.env.CACHE_ENABLED !== 'false' && result.finishReason === 'STOP' && result.text.trim().length > 20 && result.sources.length) {

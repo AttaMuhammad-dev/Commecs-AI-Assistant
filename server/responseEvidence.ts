@@ -1,4 +1,9 @@
 import { safeSourceUrl, type Source } from '../shared/chat.js';
+// File Search may produce citation placeholders without a public link mapping.
+// Public links stay intact; the UI shows the actual returned source cards.
+export function normalizeAnswerReferences(answer: string) {
+  return answer.replace(/\[(?:INDEX|SOURCE|\d+(?:\s*,\s*\d+)*)\](?!\s*\()/gi, '').replace(/[ \t]+([.,;:!?])/g, '$1');
+}
 function canonical(value: string) {
   try { const url = new URL(value); url.hash = ''; url.pathname = url.pathname.replace(/\/$/, '') || '/'; return url.href; } catch { return ''; }
 }
