@@ -6,7 +6,7 @@ Vercel now receives responses through named GET/POST/OPTIONS Web handlers. This 
 
 For questions outside the exact answer bank, the API retrieves relevant information from 25 bundled official pages and 39 previously reviewed answers. Reviewed information still expires after 30 days; source and review dates remain visible. The default primary model is Gemini 3.5 Flash-Lite, followed by 3.1 Flash-Lite and 3.6 Flash. Model access and quotas depend on the API project.
 
-The API buffers live answers until completion and evidence checks, then delivers the answer through SSE. Incomplete provider output is discarded before trying the next model. The SDK's automatic retries are disabled; the application makes at most three provider requests. Saved evidence is returned after 15 seconds if available; otherwise execution is bounded to 35 seconds, below Vercel's 60-second limit. Local answers and the guide require no provider quota. File Search is optional when bundled evidence is sufficient.
+The API buffers live answers until completion and evidence checks, then delivers the answer through SSE. Incomplete provider output is discarded before trying the next model. The SDK's automatic retries are disabled; the application makes at most three provider requests. Saved evidence is returned after 15 seconds for lookups or 30 seconds for reasoning requests if available; otherwise execution is bounded to 35 seconds, below Vercel's 60-second limit. Local answers and the guide require no provider quota. File Search is optional when bundled evidence is sufficient.
 
 A college information assistant with a React/TypeScript interface, Hono streaming API, and Gemini File Search retrieval. This is a working application, not the old Phase 1 mock.
 
@@ -32,6 +32,7 @@ The existing index is retained. You do not need to ingest or reindex to run this
 
 ## Features
 
+- Natural questions are planned into retrieval topics, with multilingual synonyms, explicit topic switching and coverage of multiple subjects. The model synthesizes supported facts and clearly labeled general guidance; an unlisted detail does not turn a whole answer into a contact referral. Explanation/advice questions use the reasoning lane. When information is missing or freshness is requested, the server can look up at most two approved official public pages within five seconds; live page/answer caches expire after five minutes. File Search can supplement partial evidence. Website lookup failures retain bundled evidence and model retries. Set `LIVE_WEBSITE_ENABLED=false` to disable website retrieval.
 - Source cards are visible below each completed answer; saved page dates and human review dates are labeled separately. Retrieval preserves all citations from reviewed answers and selects related FAQ/heading sections instead of packing unrelated content. Buffered replies with invented source URLs are rejected before release. Topic-aware follow-ups, automatic Roman Urdu detection, remembered language/length preferences and larger mobile controls improve the chat experience without adding model calls or changing free-tier limits.
 - Event-driven loading text in English, Urdu and Roman Urdu. The API reports bundled retrieval, actual model requests/retries, completion/source-link checks, and saved/reviewed/cached response selection. The browser reports sending before SSE arrives. After eight seconds it retains the current phase and shows elapsed waiting time. These events describe application work, never Gemini's private reasoning or verification of every claim. Progress is ephemeral and excluded from saved conversations and model history.
 - Responsive navy/brass interface, dark mode, Urdu rendering and keyboard navigation.
@@ -50,13 +51,15 @@ Browser question + last four complete exchanges + preferences
   -> validate input / request limit / distress response
   -> fresh exact reviewed answer, if appropriate
   -> context + language + source-version cache
-  -> fast or deep model ladder
-  -> Gemini File Search against the existing college index
-  -> streaming text + official sources + completion status
+  -> query topics + context-aware bundled passage retrieval
+  -> bounded official website lookup when information is missing or freshness is requested
+  -> fast or deep model ladder, with File Search when evidence coverage is partial
+  -> buffered answer synthesis + source/completion checks
+  -> answer + official source cards + completion status
   -> cache only complete answers with sources
 ```
 
-Simple factual questions use Flash-Lite first with minimal thinking. Comparisons, eligibility reasoning and calculations default to LOW thinking to conserve latency and free-tier capacity. Both model ladders are configurable. Incomplete outputs can move to the next model because live text is buffered; partial outputs are never mixed with a second model's answer. A thinking-level incompatibility can retry at LOW within the same three-call budget.
+Simple factual questions use Flash-Lite first with minimal thinking. Comparisons, eligibility reasoning, explanations, guidance and calculations default to LOW thinking to conserve latency and free-tier capacity. Both model ladders are configurable. Incomplete outputs can move to the next model because live text is buffered; partial outputs are never mixed with a second model's answer. A thinking-level incompatibility can retry at LOW within the same three-call budget.
 
 The model catalog is deliberately allowlisted. Configure ladders in `.env`; valid values are in `server/config/models.ts`. `npm run check:models` checks model visibility, not billing or remaining quota. Google lists free-tier access for the selected model families, but the project/account limits in AI Studio are authoritative. A billed API project can still incur charges; application routing cannot turn a paid key into a free key.
 

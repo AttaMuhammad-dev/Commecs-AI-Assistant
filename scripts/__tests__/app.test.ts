@@ -50,6 +50,15 @@ describe('chat API', () => {
     expect(text).toContain('event: sources');
     expect(text).toContain('"finishReason":"STOP"');
   });
+  it('uses newly retrieved website evidence when the provider subsequently fails', async () => {
+    generate.mockImplementation(async (_m, _h, _s, _l, _onChunk, _onSources, _prefs, _provider, options) => {
+      const source = { title: 'FAQs', url: 'https://commecscollege.edu.pk/faqs/', type: 'live' };
+      options?.onEvidence?.([{ source, sources: [source], text: 'Library hours: 8 AM to 2:45 PM.', partial: true, kind: 'page', reviewedAt: undefined, retrievedAt: new Date().toISOString() }]);
+      throw Object.assign(new Error('Unavailable'), { code: 'UPSTREAM_ERROR' });
+    });
+    const text = await (await request({ message: 'Check the current library hours' })).text();
+    expect(text).toContain('8 AM to 2:45 PM'); expect(text).toContain('"type":"live"'); expect(text).toContain('"fallback":true');
+  });
   it('caches complete grounded replies but excludes partial replies', async () => {
     const sources = [{title:'Policy',url:'https://commecscollege.edu.pk/fee-payment-policy/'}];
     generate.mockImplementation(async (_m,_h,_s,_l,onChunk,onSources) => {

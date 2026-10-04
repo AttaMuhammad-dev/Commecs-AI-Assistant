@@ -3,6 +3,7 @@ type Language = RequestProgress['language'];
 const labels: Record<Language, Record<RequestProgress['phase'] | 'retryTimeout', string>> = {
   en: {
     sending: 'Sending your question…', retrieving: 'Finding relevant college information…',
+    website: 'Looking up relevant pages on the official college website…',
     preparing: 'Preparing your answer…', retrying: 'The attempt was unsuccessful. Trying again…',
     retryTimeout: 'The previous attempt took too long. Trying again…',
     checking: 'Checking answer completion and available source links…',
@@ -11,6 +12,7 @@ const labels: Record<Language, Record<RequestProgress['phase'] | 'retryTimeout',
   },
   ur: {
     sending: 'آپ کا سوال بھیجا جا رہا ہے…', retrieving: 'کالج کی متعلقہ معلومات تلاش کی جا رہی ہیں…',
+    website: 'کالج کی سرکاری ویب سائٹ پر متعلقہ صفحات دیکھے جا رہے ہیں…',
     preparing: 'آپ کا جواب تیار کیا جا رہا ہے…', retrying: 'کوشش کامیاب نہیں ہوئی۔ دوبارہ کوشش کی جا رہی ہے…',
     retryTimeout: 'پچھلی کوشش میں زیادہ وقت لگا۔ دوبارہ کوشش کی جا رہی ہے…',
     checking: 'جواب کی تکمیل اور دستیاب ماخذ کے لنکس دیکھے جا رہے ہیں…',
@@ -19,6 +21,7 @@ const labels: Record<Language, Record<RequestProgress['phase'] | 'retryTimeout',
   },
   roman: {
     sending: 'Aap ka sawal bheja ja raha hai…', retrieving: 'College ki mutaliqa maloomat talash ki ja rahi hain…',
+    website: 'College ki official website par mutaliqa pages dekhe ja rahe hain…',
     preparing: 'Aap ka jawab tayyar kiya ja raha hai…', retrying: 'Koshish kamyab nahi hui. Dobara koshish ki ja rahi hai…',
     retryTimeout: 'Pichli koshish mein zyada waqt laga. Dobara koshish ki ja rahi hai…',
     checking: 'Jawab ki takmeel aur dastiyab source links dekhe ja rahe hain…',
