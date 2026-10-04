@@ -14,7 +14,8 @@ import { distressReply } from './safety.js';
 import { acquireCapacity } from './capacity.js';
 import { getLocalGuideAnswer } from './localGuide.js';
 import { getFacultyAnswer } from './faculty.js';
-import { type ChatEvent, type Lane } from '../shared/chat.js';
+import { sourceWithDates } from './knowledge.js';
+import { resolveLanguage, type ChatEvent, type Lane } from '../shared/chat.js';
 
 export const app = new Hono();
 app.use('/api/*', cors({
@@ -35,7 +36,8 @@ app.post('/api/chat', async c => {
   const started = Date.now();
   const safety = distressReply(message);
   const faculty = !safety ? getFacultyAnswer(message, history, preferences) : null;
-  const bank = !safety && !faculty && history.length === 0 && preferences.language === 'auto' && preferences.responseStyle === 'concise' ? getVerifiedAnswer(message, getKbVersion()) : null;
+  const bankCandidate = !safety && !faculty && history.length === 0 && preferences.responseStyle === 'concise' ? getVerifiedAnswer(message, getKbVersion()) : null;
+  const bank = bankCandidate && (preferences.language === 'auto' || bankCandidate.language === preferences.language) ? bankCandidate : null;
   const local = faculty || (!safety && !bank ? getLocalGuideAnswer(message, preferences) : null);
   const route = routeQuestion(message, history);
   const lane: Lane = bank ? 'verified' : route.lane;
@@ -66,7 +68,7 @@ app.post('/api/chat', async c => {
       if (instant) {
         await emit({ event: 'progress', data: { phase: bank ? 'reviewed' : local ? 'saved' : cached ? 'cached' : 'service' } });
         await emit({ event: 'chunk', data: { text: instant } });
-        const sources = bank?.sources || local?.sources || cached?.sources || [];
+        const sources = bank ? bank.sources.map((source: import('../shared/chat.js').Source) => sourceWithDates(source, bank.verifiedAt)) : local?.sources || cached?.sources || [];
         if (sources.length) await emit({ event: 'sources', data: { sources } });
         await emit({ event: 'done', data: { finishReason: 'STOP' } });
         return;
@@ -99,9 +101,11 @@ app.post('/api/chat', async c => {
         console.info(JSON.stringify({ event: 'saved_source_fallback', code, totalMs: Date.now() - started }));
         return;
       }
-      const isUrdu = preferences.language === 'ur' || (preferences.language === 'auto' && /[\u0600-\u06FF]/.test(message));
+      const responseLanguage = resolveLanguage(message, preferences.language);
+      const isUrdu = responseLanguage === 'ur';
       const text = isUrdu
         ? 'میں اس وقت کالج کی معلومات کی تصدیق نہیں کر پا رہا۔ دوبارہ کوشش کریں یا داخلہ دفتر سے رابطہ کریں۔'
+        : responseLanguage === 'roman' ? 'Main is waqt yeh maloomat check nahi kar pa raha. Dobara koshish karein ya neeche diye gaye admission office se rabta karein.'
         : code === 'NOT_CONFIGURED' ? 'The assistant is not connected to college information yet. You can still contact admissions below.'
         : code === 'QUOTA_EXCEEDED' ? 'The assistant has reached a usage limit for now. Please try again later or contact admissions below.'
         : code === 'BUSY' ? 'The assistant is helping several people right now. Try again shortly, or browse the college guide without waiting.'

@@ -5,7 +5,7 @@ const prompts = [
   { title: 'Find your program', subtitle: 'Explore subjects and possibilities', question: 'Programs offered', icon: BookOpen },
   { title: 'Plan your admission', subtitle: 'The process, from start to finish', question: 'How to apply', icon: ClipboardList },
   { title: 'Understand the costs', subtitle: 'Fees, scholarships and support', question: 'Fees & scholarships', icon: Wallet },
-  { title: 'Get to know Commecs', subtitle: 'Campus life and college contacts', question: 'Contact the college', icon: Compass },
+  { title: 'Get to know Commecs', subtitle: 'Campus life, clubs and facilities', question: 'What facilities and student activities does Commecs offer?', icon: Compass },
 ];
 export default function QuickReplyChips() {
   const { sendMessage } = useChat();

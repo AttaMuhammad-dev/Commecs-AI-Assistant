@@ -4,14 +4,20 @@ import { useAutoScroll } from '../hooks/useAutoScroll';
 import { useChat } from '../hooks/useChat';
 import MessageBubble from './MessageBubble';
 import QuickReplyChips from './QuickReplyChips';
+import { getFollowUps } from '../lib/followUps';
+import { resolveLanguage } from '../../shared/chat';
 export default function MessageList() {
   const messages = useChatStore(s => s.messages);
   const activeId = useChatStore(s => s.activeId);
   const setDraft = useChatStore(s => s.setDraft);
+  const language = useChatStore(s => s.preferences.language);
   const { retryMessage } = useChat();
-  const { scrollRef, handleScroll, isScrolledUp, scrollToBottom } = useAutoScroll(messages.length, messages.at(-1)?.text.length || 0, activeId);
+  const last = messages.at(-1);
+  const { scrollRef, handleScroll, isScrolledUp, scrollToBottom } = useAutoScroll(messages.length, last?.text.length || 0, activeId, `${last?.status}:${last?.sources?.length || 0}`);
   const busy = messages.some(m => ['sending','streaming'].includes(m.status));
   const choose = (text: string) => { setDraft(text); document.getElementById('question')?.focus(); };
+  const question = messages.filter(m => m.role === 'user').at(-1)?.text || '';
+  const followUps = getFollowUps(question, messages.at(-1)?.sources, language);
   return <div className="thread-wrap">
     <div ref={scrollRef} onScroll={handleScroll} className="thread-scroll" role="log" aria-label="Conversation" aria-live="polite" aria-busy={busy}>
       <div className="thread-content">
@@ -26,7 +32,7 @@ export default function MessageList() {
       </section> : <>
         <div className="conversation-heading">Your conversation with Commecs</div>
         {messages.map((msg, index) => <MessageBubble key={msg.id} message={msg} retryMessage={index === messages.length - 1 ? retryMessage : undefined} />)}
-        {!busy && messages.at(-1)?.status === 'complete' && !messages.at(-1)?.fallback && <div className="follow-ups"><span>Keep exploring</span><button onClick={() => choose('What documents do I need for admission?')}>Admission documents</button><button onClick={() => choose('What scholarships are available?')}>Scholarships</button></div>}
+        {!busy && messages.at(-1)?.status === 'complete' && !messages.at(-1)?.fallback && <div className="follow-ups"><span>{resolveLanguage(question, language) === 'ur' ? 'مزید جانیں' : resolveLanguage(question, language) === 'roman' ? 'Mazeed janein' : 'Keep exploring'}</span>{followUps.map(s => <button key={s.question} onClick={() => choose(s.question)}>{s.label}</button>)}</div>}
       </>}
       </div>
     </div>

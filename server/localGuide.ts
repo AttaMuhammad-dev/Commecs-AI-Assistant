@@ -1,6 +1,6 @@
 import guides from './data/local-guide.json' with { type: 'json' };
 import { normalizeForBank } from './bank.js';
-import type { Preferences } from '../shared/chat.js';
+import { resolveLanguage, type Preferences } from '../shared/chat.js';
 
 const portalAliases = new Set([
   'student portal', 'portal', 'student portal link', 'where is the student portal',
@@ -12,8 +12,9 @@ export function getLocalGuideAnswer(message: string, preferences: Preferences) {
   const normalized = normalizeForBank(message);
   const guide = guides.find(g => normalizeForBank(g.question) === normalized || (g.title === 'Student Portal' && portalAliases.has(normalized)));
   if (!guide) return null;
-  const urdu = preferences.language === 'ur' || (preferences.language === 'auto' && /[\u0600-\u06ff]/.test(message));
-  const roman = preferences.language === 'roman';
+  const language = resolveLanguage(message, preferences.language);
+  const urdu = language === 'ur';
+  const roman = language === 'roman';
   const intro = urdu ? 'کالج کے محفوظ صفحے سے اقتباس (اصل زبان میں)۔ تازہ معلومات کے لیے اصل صفحہ کھولیں۔' : roman ? 'College ke saved page se iqtibas (asal zaban mein). Latest maloomat ke liye official page kholen.' : 'From the saved college page. Open the official source to confirm the latest information.';
   const portal = guide.title === 'Student Portal';
   const answer = portal

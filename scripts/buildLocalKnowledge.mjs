@@ -24,7 +24,8 @@ const bank = JSON.parse(readFileSync('server/data/verified-answers.json', 'utf8'
 for (const entry of bank) {
   if (!entry.verified || !entry.sources?.length || !Number.isFinite(entry.verifiedAt)) continue;
   documents.push({ id: entry.id, title: entry.match[0], url: entry.sources[0].url,
-    modified: new Date(entry.verifiedAt).toISOString(), keywords: entry.match.join(' '),
+    modified: manifest.find(p => p.url === entry.sources[0].url)?.modifiedGmt || '', keywords: entry.match.join(' '),
+    sources: entry.sources.map(s => ({ ...s, modified: manifest.find(p => p.url === s.url)?.modifiedGmt, reviewedAt: new Date(entry.verifiedAt).toISOString() })),
     text: entry.answer, verifiedAt: entry.verifiedAt, kind: 'reviewed' });
 }
 const version = createHash('sha256').update(JSON.stringify(documents)).digest('hex');

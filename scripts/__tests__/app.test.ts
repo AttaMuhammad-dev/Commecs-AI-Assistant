@@ -24,10 +24,16 @@ describe('chat API', () => {
     expect(text).toContain('"finishReason":"STOP"');
     expect(generate).not.toHaveBeenCalled();
   });
+  it('uses a reviewed answer for an explicit matching language without spending provider quota', async () => {
+    const text = await (await request({ message: 'Programs offered', preferences: { language: 'en', responseStyle: 'concise' } })).text();
+    expect(text).toContain('"mode":"verified"');
+    expect(text).toContain('"reviewedAt":');
+    expect(generate).not.toHaveBeenCalled();
+  });
   it('returns a contact card when providers fail and does not cache the fallback', async () => {
     generate.mockRejectedValue(Object.assign(new Error('quota'), {code:'QUOTA_EXCEEDED'}));
     for (let i = 0; i < 2; i++) {
-      const text = await (await request({message:'Is there a robotics club in the college?'})).text();
+      const text = await (await request({message:'Explain quantum gravity wormholes'})).text();
       expect(text).toContain('"fallback":true');
       expect(text).toContain('event: contact');
       expect(text).toContain('"phase":"service"');

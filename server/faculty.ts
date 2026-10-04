@@ -1,5 +1,5 @@
 import directory from './data/faculty-directory.json' with { type: 'json' };
-import type { Preferences, Source } from '../shared/chat.js';
+import { resolveLanguage, type Preferences, type Source } from '../shared/chat.js';
 type Turn = {role:string;text:string};
 const norm=(s:string)=>s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 const contains=(s:string,phrase:string)=>` ${norm(s)} `.includes(` ${norm(phrase)} `);
@@ -51,8 +51,9 @@ export function getFacultyAnswer(message:string, history:Turn[], preferences:Pre
   if(!evidenceOnly&&/\b(compare|why|best|better|recommend|experience|research|publications|schedule|when|how)\b/i.test(message))return null;
   // Unknown names must be handled as an evidence gap, not answered with an unrelated full roster.
   if(!selected.named&&!selected.groups.length&&!/\b(all|faculty|teachers|staff|lecturers|professors|phd|hod)\b|اساتذہ|فیکلٹی/i.test(message))return null;
-  const urdu=preferences.language==='ur'||preferences.language==='auto'&&/[\u0600-\u06ff]/.test(message);
-  const roman=preferences.language==='roman';
+  const language=resolveLanguage(message,preferences.language);
+  const urdu=language==='ur';
+  const roman=language==='roman';
   const date=directory.retrievedAt.slice(0,10);
   const label=selected.groups.join(', ')||'Faculty';
   const intro=urdu?`محفوظ سرکاری فیکلٹی ڈائریکٹری (${date}) میں ${label} کے مطابق ${selected.records.length} اندراجات ہیں۔ نام اور عہدے اصل زبان میں دیے گئے ہیں۔`

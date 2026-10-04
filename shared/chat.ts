@@ -2,12 +2,18 @@ export type Lane = 'fast' | 'deep' | 'verified';
 export type Language = 'auto' | 'en' | 'ur' | 'roman';
 export type ResponseStyle = 'concise' | 'detailed';
 export interface Preferences { language: Language; responseStyle: ResponseStyle }
-export interface Source { title: string; url: string; modified?: string; type?: string }
+export interface Source { title: string; url: string; modified?: string; reviewedAt?: string; type?: string }
 export interface Contact { email: string; landline: string; whatsapp: string }
 export interface HistoryTurn { role: 'user' | 'model'; text: string }
 export type FinishReason = 'STOP' | 'MAX_TOKENS' | 'INTERRUPTED' | 'BLOCKED';
 export const MAX_MESSAGE_LENGTH = 600;
 export const DEFAULT_PREFERENCES: Preferences = { language: 'auto', responseStyle: 'concise' };
+export function resolveLanguage(message: string, language: Language): Exclude<Language, 'auto'> {
+  if (language !== 'auto') return language;
+  if (/[\u0600-\u06ff]/.test(message)) return 'ur';
+  const words = message.toLowerCase().match(/\b(mujhe|aap|kitni|kitna|batao|chahiye|parhna|karna|kya|hai|hain|mein)\b/g) || [];
+  return words.length >= 2 || /\b(mujhe|batao|chahiye|kitni|kitna)\b/i.test(message) ? 'roman' : 'en';
+}
 export const PROGRESS_PHASES = ['retrieving', 'preparing', 'retrying', 'checking', 'saved', 'cached', 'reviewed', 'fallback', 'service'] as const;
 export type ProgressPhase = typeof PROGRESS_PHASES[number];
 export interface ChatProgress { phase: ProgressPhase; reason?: 'timeout' }

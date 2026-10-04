@@ -2,10 +2,11 @@ import { GoogleGenAI, ThinkingLevel as SDKThinkingLevel, type GenerateContentPar
 import { facultyEvidence, facultySource } from './faculty.js';
 import { buildSystemPrompt } from './systemPrompt.js';
 import { knowledgeEvidence } from './knowledge.js';
+import { answerLinksSupported } from './responseEvidence.js';
 import { getFastLadder, getDeepLadder, clampThinking, downgradedModels, type ThinkingLevel } from './config/models.js';
 import { isExhausted, markExhausted, coolDown } from './quota.js';
 import { ChatError, classifyProviderError, providerDiagnostic } from './errors.js';
-import { DEFAULT_PREFERENCES, safeSourceUrl, type Preferences, type Source, type FinishReason, type ChatProgress } from '../shared/chat.js';
+import { DEFAULT_PREFERENCES, resolveLanguage, safeSourceUrl, type Preferences, type Source, type FinishReason, type ChatProgress } from '../shared/chat.js';
 
 export type StreamProvider = (params: GenerateContentParameters) => Promise<AsyncIterable<GenerateContentResponse>>;
 
@@ -73,7 +74,7 @@ export async function generateChatStream(
           throw { status: fake.startsWith('429') ? 429 : 503, message: fake === '429-daily' ? 'quota per day' : 'unavailable' };
         }
         const stream = await abortable(generate({ model, contents, config: {
-          systemInstruction: buildSystemPrompt(preferences) + directoryEvidence + localEvidence.prompt,
+          systemInstruction: buildSystemPrompt({ ...preferences, language: resolveLanguage(message, preferences.language) }) + directoryEvidence + localEvidence.prompt,
           ...(useFileSearch ? { tools: [{ fileSearch: { fileSearchStoreNames: [storeName] } }] } : {}),
           thinkingConfig: { thinkingLevel: SDKThinkingLevel[thinking], includeThoughts: false },
           maxOutputTokens: lane === 'deep' || preferences.responseStyle === 'detailed' ? 3072 : 1536,
@@ -104,6 +105,7 @@ export async function generateChatStream(
         if (!text.trim()) throw new ChatError(finishReason === 'BLOCKED' ? 'BLOCKED' : 'UPSTREAM_ERROR', 'No answer was returned.');
         if (options.buffered && finishReason !== 'STOP') throw new ChatError(finishReason === 'BLOCKED' ? 'BLOCKED' : 'INCOMPLETE', 'No complete answer was returned.');
         if (options.requireSources && !sources.length) throw new ChatError('UNGROUNDED', 'No official evidence was returned.');
+        if (options.buffered && !answerLinksSupported(text, sources, directoryEvidence + localEvidence.prompt)) throw new ChatError('UNGROUNDED', 'A source link was not supplied by the evidence.');
         if (sources.length) await onSources(sources);
         if (options.buffered) await onChunk(text);
         return { text, sources, finishReason, model, thinking, attempts };

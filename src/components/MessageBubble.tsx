@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Copy, Check, RefreshCcw, ExternalLink, ThumbsUp, ThumbsDown, Mail, Phone, MessageCircle, BookOpen } from 'lucide-react';
+import { Copy, Check, RefreshCcw, ThumbsUp, ThumbsDown, Mail, Phone, MessageCircle } from 'lucide-react';
 import type { ChatMessage } from '../types/chat';
 import { useChatStore } from '../store/useChatStore';
 import TypingIndicator from './TypingIndicator';
-import { safeSourceUrl } from '../../shared/chat';
+import { resolveLanguage, safeSourceUrl } from '../../shared/chat';
+import SourceCards from './SourceCards';
 export default function MessageBubble({ message, retryMessage }: { message: ChatMessage; retryMessage?: (id: string) => void }) {
   const [copied, setCopied] = useState(false);
   const [copyError, setCopyError] = useState(false);
   const setMessages = useChatStore(s => s.setMessages);
   const progress = useChatStore(s => s.progress?.messageId === message.id && s.progress.conversationId === s.activeId ? s.progress : null);
+  const languagePreference = useChatStore(s => s.preferences.language);
   const user = message.role === 'user';
   const waiting = !user && ['sending','streaming'].includes(message.status) && !message.text;
   const busy = ['sending','streaming'].includes(message.status);
@@ -30,7 +32,7 @@ export default function MessageBubble({ message, retryMessage }: { message: Chat
         table: ({ children }) => <div className="table-scroll"><table>{children}</table></div>,
       }}>{message.text}</ReactMarkdown>}
     </div>}
-    {!user && message.sources && message.sources.length > 0 && <details className="sources"><summary><BookOpen size={14} /> {message.sources.length} college source{message.sources.length > 1 ? 's' : ''}</summary><div className="source-list">{message.sources.filter(s => safeSourceUrl(s.url)).map(s => <a key={s.url} href={s.url} target="_blank" rel="noreferrer"><span>{s.title}{s.type === 'pdf' ? ' · PDF' : ''}<small>{s.modified && !Number.isNaN(Date.parse(s.modified)) ? (s.type === 'reviewed' ? 'Reviewed ' : 'Source updated ') + new Date(s.modified).toLocaleDateString() : 'commecscollege.edu.pk'}</small></span><ExternalLink size={14} /></a>)}</div></details>}
+    {!user && message.sources && !busy && <SourceCards sources={message.sources} language={resolveLanguage(message.text, languagePreference)} />}
     {!user && !busy && !incomplete && !message.fallback && !message.sources?.length && <p className="incomplete-note">No college source was attached. Confirm college-specific details with admissions.</p>}
     {message.contact && <div className="contact-card"><strong>Talk to admissions</strong><a href={'tel:+' + phone}><Phone size={15} />{message.contact.landline}</a><a href={'https://wa.me/' + whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={15} /> WhatsApp admissions</a><a href={'mailto:' + message.contact.email}><Mail size={15} />{message.contact.email}</a></div>}
     {!user && !busy && <div className="message-actions">
