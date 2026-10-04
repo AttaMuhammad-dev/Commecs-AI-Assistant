@@ -1,7 +1,7 @@
 import { GoogleGenAI, ThinkingLevel as SDKThinkingLevel, type GenerateContentParameters, type GenerateContentResponse } from '@google/genai';
 import { facultyEvidence, facultySource } from './faculty.js';
 import { buildSystemPrompt } from './systemPrompt.js';
-import { knowledgeEvidence, type Evidence } from './knowledge.js';
+import { knowledgeEvidence, missingListEvidence, type Evidence } from './knowledge.js';
 import { retrieveOfficialWebsite, type WebsiteProvider } from './officialWebsite.js';
 import { searchTokens } from './queryPlan.js';
 import { answerLinksSupported, normalizeAnswerReferences } from './responseEvidence.js';
@@ -58,7 +58,9 @@ export async function generateChatStream(
   const evidenceSources = [...new Map(combinedEvidence.flatMap(e => e.sources).map(s => [s.url, s])).values()];
   // A related source is not necessarily sufficient coverage of the question.
   const covered = new Set(searchTokens(combinedEvidence.map(e => e.text).join(' ')));
-  const remainingGap = localEvidence.needsSearch && (!combinedEvidence.length || localEvidence.plan.topics.some(topic => !topic.terms.some(t => covered.has(t))) || localEvidence.missingTerms.some(t => !covered.has(t)));
+  const missingLists = missingListEvidence(localEvidence.plan, combinedEvidence);
+  const remainingGap = localEvidence.needsSearch && (!combinedEvidence.length || localEvidence.plan.topics.some(topic => !topic.terms.some(t => covered.has(t))) || missingLists.length > 0 || localEvidence.missingTerms.some(t => !covered.has(t)));
+  if (missingLists.length) evidencePrompt += '\nREQUESTED LIST DETAILS MISSING for: ' + missingLists.join(', ') + '. Use File Search if available to look for named entries. A general statement that opportunities exist does not answer which ones. If retrieval supplies no names, give the known opportunities and identify only the missing names; never invent a list.\n';
   const useFileSearch = !!rawStore && (process.env.FILE_SEARCH_MODE === 'always' || (remainingGap && !directoryEvidence));
   const ladder = lane === 'deep' ? getDeepLadder() : getFastLadder();
   const started = Date.now();

@@ -81,7 +81,9 @@ npm run test:live    # one bounded File Search lookup; consumes provider quota
 
 ## Knowledge maintenance
 
-The current index is an existing snapshot, not a live web search. Some pages contain older academic sessions. Check the cited session/date before relying on fees, scholarships or deadlines.
+The File Search index is an existing snapshot. The assistant also uses bundled public passages and bounded live lookups of approved website pages. Some sources contain older academic sessions. Check the cited session/date before relying on fees, scholarships or deadlines.
+
+Public document passages are kept in `knowledge/documents/`, with source URL, selected PDF pages, extraction timestamp and original-file SHA-256 in its manifest. The Admission Prospectus 2026 campus/student-life extract includes named clubs, facilities and co-curricular activities from PDF pages 9–26; it excludes later financial/admission sections and personal result lists. Its publication year does not confirm present-day club membership. To reproduce it, download the official PDF outside the repository, use Python with `pypdf` to run `scripts/extractPublicProspectus.py path/to/pdf`, visually check the selected pages, then run `npm run knowledge:build`. Extraction dates are never labeled as human review dates. Questions requesting a list retain complementary public sources and can trigger further retrieval when the passages only say that opportunities exist. This coverage signal does not prove that a list is exhaustive.
 
 - `npm run ingest:dry`: inspect WordPress ingestion without writing files.
 - `npm run ingest`: update the local manifest and cleaned pages. This does not update the remote store.

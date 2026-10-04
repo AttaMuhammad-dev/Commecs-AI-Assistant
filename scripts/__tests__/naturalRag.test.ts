@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { planQuery } from '../../server/queryPlan';
-import { knowledgeEvidence, retrieveEvidence, type Evidence } from '../../server/knowledge';
+import { knowledgeEvidence, missingListEvidence, retrieveEvidence, type Evidence } from '../../server/knowledge';
+import * as knowledgeModule from '../../server/knowledge';
 import { generateChatStream } from '../../server/gemini';
 import { routeQuestion } from '../../server/router';
 import { isPublicCollegePage, retrieveOfficialWebsite, resetWebsiteCacheForTests, websiteText } from '../../server/officialWebsite';
@@ -34,6 +35,25 @@ describe('natural question retrieval and reasoning', () => {
   it('does not spend a remote retrieval call merely for generic guidance words', () => {
     expect(knowledgeEvidence('I am shy. How can activities at college help me develop confidence beyond classroom studies?', []).needsSearch).toBe(false);
   });
+  it.each([clubs, 'Which clubs can I join?', 'commecs mein kaun se clubs available hain?', 'کالج میں کون سے کلب دستیاب ہیں؟'])('includes the actual named prospectus list for %s', question => {
+    const evidence = retrieveEvidence(question, feeHistory);
+    const brochure = evidence.find(e => e.source.type === 'pdf');
+    expect(brochure?.text).toContain('IT Club');
+    expect(brochure?.text).toContain('Commecs Choir Club');
+    expect(brochure?.text).toContain('Horticulture');
+    expect(brochure?.text).toContain('Photography & Videography');
+    expect(brochure?.text).not.toContain('readmission fee');
+    expect(brochure?.reviewedAt).toBeUndefined();
+    expect(brochure?.source.modified).toBeUndefined();
+    expect(brochure?.document?.publicationYear).toBe(2026);
+    expect(brochure?.document?.note).toContain('not confirmation');
+  });
+  it('does not mistake a general statement for a requested named list', () => {
+    const plan = planQuery(clubs);
+    expect(missingListEvidence(plan, [{ text: 'There are clubs and societies. Students may choose one.' }])).toContain('activities');
+    expect(missingListEvidence(plan, retrieveEvidence(clubs))).toEqual([]);
+    expect(missingListEvidence(planQuery('How can societies help my confidence?'), [{ text: 'Clubs develop confidence.' }])).toEqual([]);
+  });
   it('removes unmapped provider placeholders while preserving actual public links', () => {
     expect(normalizeAnswerReferences('Hours are 8 AM [INDEX]. See [FAQs](' + faq + ') and [1] or [1, 2].')).toBe('Hours are 8 AM. See [FAQs](' + faq + ') and  or.');
   });
@@ -53,6 +73,22 @@ describe('natural question retrieval and reasoning', () => {
       return (async function* () { yield { candidates: [{ finishReason: 'STOP', content: { parts: [{ text: 'Clubs exist; the exact robotics club is not specified.' }] } }] }; })();
     }, { buffered: true, requireSources: true });
     expect(tools).toEqual([{ fileSearch: { fileSearchStoreNames: ['fileSearchStores/example'] } }]);
+  });
+  it('keeps File Search enabled when a fresh page still supplies no requested names', async () => {
+    vi.stubEnv('FILE_SEARCH_STORE_NAME', 'fileSearchStores/example');
+    const current = knowledgeEvidence(clubs, []);
+    const source = { title: 'FAQs', url: faq, type: 'page' };
+    const general: Evidence = { source, sources: [source], text: 'Clubs and societies provide activities for personal development.', partial: true, kind: 'page', reviewedAt: undefined };
+    const spy = vi.spyOn(knowledgeModule, 'knowledgeEvidence').mockReturnValue({ ...current, evidence: [general], sources: [source], prompt: general.text, needsSearch: true, missingLists: ['activities'] });
+    let tools: unknown, instruction = '';
+    try {
+      await generateChatStream(clubs, [], new AbortController().signal, 'deep', () => undefined, () => undefined, undefined, async params => {
+        tools = params.config?.tools; instruction = String(params.config?.systemInstruction);
+        return (async function* () { yield { candidates: [{ finishReason: 'STOP', content: { parts: [{ text: 'Clubs exist, but this page does not provide their names.' }] } }] }; })();
+      }, { buffered: true, requireSources: true, websiteProvider: async () => [general] });
+      expect(tools).toEqual([{ fileSearch: { fileSearchStoreNames: ['fileSearchStores/example'] } }]);
+      expect(instruction).toContain('REQUESTED LIST DETAILS MISSING');
+    } finally { spy.mockRestore(); }
   });
 });
 const pageResponse = (text: string) => new Response(JSON.stringify([{ link: faq, title: { rendered: 'FAQs' }, content: { rendered: text }, modified_gmt: '2026-10-01T12:00:00' }]), { headers: { 'Content-Type': 'application/json' } });

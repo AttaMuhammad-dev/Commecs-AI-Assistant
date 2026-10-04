@@ -20,6 +20,13 @@ const documents = manifest.filter(p => p.status === 'included' && p.type === 'pa
   return { id: p.slug, title: p.title, url: p.url, modified: p.modifiedGmt,
     keywords: resource?.keywords || '', text, verifiedAt: 0, kind: 'page' };
 });
+const publicDocuments = JSON.parse(readFileSync('knowledge/documents/manifest.json', 'utf8'));
+for (const document of publicDocuments) {
+  if (!/^https:\/\/commecscollege\.edu\.pk\/wp-content\/uploads\/[^?#]+\.pdf$/.test(document.url) || !/^[a-z0-9-]+\.md$/.test(document.file)) throw new Error('Invalid public document manifest');
+  documents.push({ id: document.id, title: document.title, url: document.url, modified: '', keywords: document.keywords,
+    text: readFileSync('knowledge/documents/' + document.file, 'utf8').replace(/\r\n/g, '\n').trim(), verifiedAt: 0, kind: 'document',
+    publicationYear: document.publicationYear, extractedAt: document.extractedAt, sha256: document.sha256, pages: document.pages });
+}
 const bank = JSON.parse(readFileSync('server/data/verified-answers.json', 'utf8'));
 for (const entry of bank) {
   if (!entry.verified || !entry.sources?.length || !Number.isFinite(entry.verifiedAt)) continue;
@@ -30,4 +37,4 @@ for (const entry of bank) {
 }
 const version = createHash('sha256').update(JSON.stringify(documents)).digest('hex');
 writeFileSync('server/data/local-knowledge.json', JSON.stringify({ version, documents }, null, 2) + '\n');
-console.log(`Built ${documents.length} public pages and reviewed answers; no remote indexing or API cost.`);
+console.log(`Built ${documents.length} public pages, document extracts and reviewed answers; no remote indexing or API cost.`);

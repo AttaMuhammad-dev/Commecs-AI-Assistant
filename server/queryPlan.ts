@@ -29,6 +29,7 @@ export function planQuery(message: string, history: Turn[] = []) {
   const topics = concepts.filter(c => c.match.test(contextual));
   const tokens = searchTokens(contextual);
   const expanded = [...new Set([...tokens, ...topics.flatMap(c => c.terms)])];
+  const listTopics = topics.filter(t => ['activities', 'sports', 'facilities', 'programs'].includes(t.id) && /\b(which|what|list|names?|available|offered|options?|kaun|kon|kons[ae]|kauns[ae])\b|کون|نام|فہرست|دستیاب/i.test(message)).map(t => t.id);
   return { contextual, tokens, expanded, topics, specific: /\b(does|is there|do (?:you|they|commecs)|specific|exact|named|deadline|hours|timings|when|where)\b|کب|اوقات|خاص/i.test(message) || /\b\w+\s+(?:club|lab|society)\b/i.test(message), fresh: /\b(latest|today|current|currently|now|new|upcoming|this year|this session|check (?:the )?(?:official )?website)\b|تازہ|ابھی|آج/i.test(message),
-    reasoning: /\b(why|how.*(?:benefit|help|improve)|beneficial|recommend|suggest|compare|better|choose|plan|advic\w*|should i|what if|faid\w*|fayd\w*|madad|behtar)\b|کیوں|فائد|مشور|بہتر/i.test(message) };
+    listTopics, reasoning: /\b(why|how.*(?:benefit|help|improve)|beneficial|recommend|suggest|compare|better|choose|plan|advic\w*|should i|what if|faid\w*|fayd\w*|madad|behtar)\b|کیوں|فائد|مشور|بہتر/i.test(message) };
 }
