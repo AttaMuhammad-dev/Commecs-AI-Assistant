@@ -54,6 +54,10 @@ describe('natural question retrieval and reasoning', () => {
     expect(missingListEvidence(plan, retrieveEvidence(clubs))).toEqual([]);
     expect(missingListEvidence(planQuery('How can societies help my confidence?'), [{ text: 'Clubs develop confidence.' }])).toEqual([]);
   });
+  it.each(['What is Gazebo?', 'Tell me about the Commecs Gazebo blog'])('finds a named item inside a document without an exact bank/topic match: %s', question => {
+    const evidence = retrieveEvidence(question);
+    expect(evidence.some(e => e.source.type === 'pdf' && e.text.includes('Gazebo') && e.text.includes('literary ambitions'))).toBe(true);
+  });
   it('removes unmapped provider placeholders while preserving actual public links', () => {
     expect(normalizeAnswerReferences('Hours are 8 AM [INDEX]. See [FAQs](' + faq + ') and [1] or [1, 2].')).toBe('Hours are 8 AM. See [FAQs](' + faq + ') and  or.');
   });

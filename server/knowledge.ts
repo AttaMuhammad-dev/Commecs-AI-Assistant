@@ -35,7 +35,7 @@ export function retrieveEvidence(message: string, history: { role: string; text:
     const direct = matched.filter(t => plan.tokens.includes(t));
     const score = matched.reduce((s, t) => s + Math.log(1 + prepared.length / (frequency.get(t) || 1)) * (p.title.has(t) ? 3 : 1) * (plan.tokens.includes(t) ? 1 : 0.5), 0);
     return { ...p, score, strong, matched, direct };
-  }).filter(p => p.direct.length >= 3 || (p.direct.length / Math.max(1, plan.tokens.length) >= 0.75 && p.strong > 0) || (plan.topics.length > 0 && p.matched.length >= 2) || plan.topics.some(topic => topic.terms.some(t => p.body.has(t) && plan.tokens.includes(t) && (frequency.get(t) || 0) < prepared.length / 2)))
+  }).filter(p => p.direct.length >= 3 || (p.direct.length / Math.max(1, plan.tokens.length) >= 0.75 && (p.strong > 0 || p.direct.some(t => (frequency.get(t) || 0) < prepared.length / 4))) || (plan.topics.length > 0 && p.matched.length >= 2) || plan.topics.some(topic => topic.terms.some(t => p.body.has(t) && plan.tokens.includes(t) && (frequency.get(t) || 0) < prepared.length / 2)))
     .sort((a, b) => b.score - a.score);
   if (!ranked.length) return [];
   // Reviewed wording must not crowd out a relevant original page with additional conditions.
