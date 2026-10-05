@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 // Only public college information, never applicant/interview/result lists or blogs.
@@ -35,6 +35,9 @@ for (const entry of bank) {
     sources: entry.sources.map(s => ({ ...s, modified: manifest.find(p => p.url === s.url)?.modifiedGmt, reviewedAt: new Date(entry.verifiedAt).toISOString() })),
     text: entry.answer, verifiedAt: entry.verifiedAt, kind: 'reviewed' });
 }
-const version = createHash('sha256').update(JSON.stringify(documents)).digest('hex');
-writeFileSync('server/data/local-knowledge.json', JSON.stringify({ version, documents }, null, 2) + '\n');
+const fingerprint = text => createHash('sha256').update(text.replace(/\r\n/g, '\n').replace(/!\[[^\]]*\]\([^)]*\)/g, '').replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[#*_`|\\]/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase()).digest('hex');
+const audit = existsSync('knowledge/audit-status.json') ? JSON.parse(readFileSync('knowledge/audit-status.json', 'utf8')) : {};
+const snapshotAudit = { checkedAt: typeof audit.checkedAt === 'string' && Number.isFinite(Date.parse(audit.checkedAt)) ? audit.checkedAt : '', sources: (Array.isArray(audit.sources) ? audit.sources : []).filter(s => documents.some(d => d.kind === 'page' && d.url === s.url) && ['changed','unchanged','unavailable'].includes(s.status)).map(s => ({ url: s.url, status: s.status, snapshotMatches: documents.some(d => d.kind === 'page' && d.url === s.url && fingerprint(d.text) === s.snapshotHash) })) };
+const version = createHash('sha256').update(JSON.stringify({ documents, snapshotAudit })).digest('hex');
+writeFileSync('server/data/local-knowledge.json', JSON.stringify({ version, documents, snapshotAudit }, null, 2) + '\n');
 console.log(`Built ${documents.length} public pages, document extracts and reviewed answers; no remote indexing or API cost.`);

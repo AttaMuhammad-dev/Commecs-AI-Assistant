@@ -1,5 +1,6 @@
 import { readFileSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { isKnownChanged } from './sourceFreshness.js';
 
 const BANK_PATH = resolve(process.cwd(), 'server/data/verified-answers.json');
 
@@ -130,6 +131,7 @@ export function getVerifiedAnswer(message: string, kbVersion: number) {
   }
 
   if (!best) return null;
+  if (best.p.entry.sources?.some((source: { url: string }) => isKnownChanged(source.url))) return null;
   if (!Number.isFinite(best.p.entry.verifiedAt) || best.p.entry.verifiedAt > Date.now() + 86400000 || best.p.entry.verifiedAt < kbVersion || Date.now() - best.p.entry.verifiedAt > 30 * 86400000) {
     console.log(`[Bank] STALE id=${best.p.entry.id}`);
     return null;

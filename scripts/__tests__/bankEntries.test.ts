@@ -26,6 +26,9 @@ function resolveEntry(msg: string): string | null {
 const byId = (id: string) => bank.find(e => e.id === id);
 
 describe('verified bank entries', () => {
+  it('links late-payment consequences to the policy that supports them, without a tuition table', () => {
+    expect(byId('bank-late-fee').sources.map((s: { url: string }) => s.url)).toEqual(['https://commecscollege.edu.pk/fee-payment-policy/']);
+  });
   it('every entry has an answer, a real source URL, and a sane verifiedAt', () => {
     for (const e of bank) {
       expect(e.answer.trim().length, `${e.id} answer`).toBeGreaterThan(20);

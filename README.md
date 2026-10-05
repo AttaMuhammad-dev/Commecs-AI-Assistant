@@ -1,5 +1,9 @@
 # Commecs College Assistant 2.1
 
+## October 5 quality and operations update
+
+See [QUALITY-AND-OPERATIONS.md](QUALITY-AND-OPERATIONS.md) for the evidence-linked evaluation suite, public-source change review, private operational diagnostics and optional shared traffic control. Live currency/percentage claims are checked against readable evidence before release, and mixed recommendations use separate college-information/general-guidance sections. These safeguards do not replace human review or prove every statement accurate. Shared traffic control requires server-side Redis credentials; otherwise limits remain per process.
+
 ## October 3 stability update
 
 Vercel now receives responses through named GET/POST/OPTIONS Web handlers. This fixes the default-export warning and the 60-second timeout affecting health and chat. See [STABILITY-20261003.md](STABILITY-20261003.md) for deployment settings and validation.

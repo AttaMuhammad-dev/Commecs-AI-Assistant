@@ -2,7 +2,7 @@ export type Lane = 'fast' | 'deep' | 'verified';
 export type Language = 'auto' | 'en' | 'ur' | 'roman';
 export type ResponseStyle = 'concise' | 'detailed';
 export interface Preferences { language: Language; responseStyle: ResponseStyle }
-export interface Source { title: string; url: string; modified?: string; reviewedAt?: string; type?: string; attributed?: true }
+export interface Source { title: string; url: string; modified?: string; reviewedAt?: string; checkedAt?: string; type?: string; attributed?: true }
 export interface Contact { email: string; landline: string; whatsapp: string }
 export interface HistoryTurn { role: 'user' | 'model'; text: string }
 export type FinishReason = 'STOP' | 'MAX_TOKENS' | 'INTERRUPTED' | 'BLOCKED';
@@ -36,6 +36,7 @@ export function sanitizeSources(value: unknown): Source[] {
     title: s.title.slice(0, 300), url: s.url,
     ...(typeof s.modified === 'string' ? { modified: s.modified.slice(0, 100) } : {}),
     ...(typeof s.reviewedAt === 'string' ? { reviewedAt: s.reviewedAt.slice(0, 100) } : {}),
+    ...(typeof s.checkedAt === 'string' && Number.isFinite(Date.parse(s.checkedAt)) ? { checkedAt: s.checkedAt.slice(0, 100) } : {}),
     ...(typeof s.type === 'string' ? { type: s.type.slice(0, 40) } : {}),
     ...(s.attributed === true ? { attributed: true as const } : {}),
   }));

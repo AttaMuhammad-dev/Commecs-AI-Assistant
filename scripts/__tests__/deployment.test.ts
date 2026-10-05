@@ -8,7 +8,7 @@ describe('Vercel Web handler contract', () => {
     expect(typeof handler.OPTIONS).toBe('function');
     const response = await handler.GET(new Request('https://commecs-ai-assistant.vercel.app/api/health'));
     expect(response.status).toBe(200);
-    expect(await response.json()).toMatchObject({ ok: true, build: 'stable-20261003' });
+    expect(await response.json()).toMatchObject({ ok: true, build: 'quality-20261005' });
   });
   it('returns the SSE response body through the POST handler', async () => {
     const response = await handler.POST(new Request('https://commecs-ai-assistant.vercel.app/api/chat', {

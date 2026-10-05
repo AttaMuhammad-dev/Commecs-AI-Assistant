@@ -18,6 +18,10 @@ import { sourceWithDates } from './knowledge.js';
 import { resolveLanguage, type ChatEvent, type Lane } from '../shared/chat.js';
 import { selectAnswerSources } from '../shared/answerSources.js';
 import { planQuery, withQuestionContext } from './queryPlan.js';
+import { randomUUID } from 'node:crypto';
+import { acquireSharedTraffic, trafficMode } from './sharedTraffic.js';
+import { authorizedOperations, operationsSnapshot, recordOutcome, safeOutcomeCode, type Outcome } from './operations.js';
+import { sourceAuditSummary, withSourceCheck } from './sourceFreshness.js';
 
 export const app = new Hono();
 app.use('/api/*', cors({
@@ -25,7 +29,8 @@ app.use('/api/*', cors({
   allowMethods: ['GET', 'POST', 'OPTIONS'], allowHeaders: ['Content-Type'], maxAge: 600,
 }));
 app.use('/api/chat', bodyLimit({ maxSize: 32768, onError: c => c.json({ code: 'BAD_REQUEST', message: 'Request too large.' }, 413) }));
-app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!process.env.GEMINI_API_KEY?.trim(), version: '2.2', build: 'stable-20261003', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null }); });
+app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!process.env.GEMINI_API_KEY?.trim(), version: '2.6', build: 'quality-20261005', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null, trafficControl: trafficMode(), sourceAudit: sourceAuditSummary() }); });
+app.get('/api/metrics', c => { c.header('Cache-Control', 'no-store'); return authorizedOperations(c.req.header('Authorization')) ? c.json({ ...operationsSnapshot(), trafficControl: trafficMode(), sourceAudit: sourceAuditSummary() }) : c.json({ message: 'Not found' }, 404); });
 
 app.post('/api/chat', async c => {
   if (!/^application\/json(?:;|$)/i.test(c.req.header('Content-Type') || '')) return c.json({ code: 'BAD_REQUEST', message: 'Requires application/json.' }, 400);
@@ -40,6 +45,7 @@ app.post('/api/chat', async c => {
   const questionContext = usesContext ? body.questionContext : undefined;
   const retrievalHistory = usesContext ? proposedHistory : history;
   const started = Date.now();
+  const requestId = randomUUID(); c.header('X-Request-Id', requestId);
   const safety = distressReply(message);
   const faculty = !safety ? getFacultyAnswer(message, retrievalHistory, preferences) : null;
   const bankCandidate = !safety && !faculty && retrievalHistory.length === 0 && preferences.responseStyle === 'concise' ? getVerifiedAnswer(message, getKbVersion()) : null;
@@ -55,7 +61,7 @@ app.post('/api/chat', async c => {
   c.header('Cache-Control', 'no-store');
   c.header('X-Accel-Buffering', 'no');
   return streamSSE(c, async stream => {
-    const emit = (event: ChatEvent) => stream.writeSSE({ event: event.event, data: JSON.stringify(event.data) });
+    const emit = (event: ChatEvent) => stream.writeSSE({ event: event.event, data: JSON.stringify(event.event === 'sources' ? { sources: event.data.sources.map(source => withSourceCheck(source)) } : event.data) });
     const ac = new AbortController();
     const abort = () => ac.abort();
     if (c.req.raw.signal.aborted) abort();
@@ -68,11 +74,14 @@ app.post('/api/chat', async c => {
     let ttftMs = 0;
     let hasOutput = false;
     let release: (() => void) | null = null;
+    let releaseShared: (() => Promise<void>) | undefined;
+    let outcome: Outcome = 'error', outcomeCode: string | undefined;
     try {
       await emit({ event: 'status', data: { lane } });
       await emit({ event: 'meta', data: { mode: lane, cached: !!cached, local: !!local, verifiedAt: bank?.verifiedAt } });
       const instant = safety || bank?.answer || local?.answer || cached?.text;
       if (instant) {
+        outcome = bank ? 'reviewed' : local ? 'local' : cached ? 'cached' : 'local';
         await emit({ event: 'progress', data: { phase: bank ? 'reviewed' : local ? 'saved' : cached ? 'cached' : 'service' } });
         await emit({ event: 'chunk', data: { text: instant } });
         const sources = selectAnswerSources(instant, bank ? bank.sources.map((source: import('../shared/chat.js').Source) => sourceWithDates(source, bank.verifiedAt)) : local?.sources || cached?.sources || []);
@@ -83,6 +92,9 @@ app.post('/api/chat', async c => {
       if (locallyLimited) throw Object.assign(new Error('Rate limited'), { code: 'RATE_LIMITED' });
       release = acquireCapacity();
       if (!release) throw Object.assign(new Error('Busy'), { code: 'BUSY' });
+      const gate = await acquireSharedTraffic(ip, ac.signal);
+      if (!gate.allowed) throw Object.assign(new Error('Live traffic unavailable'), { code: gate.code });
+      releaseShared = gate.release;
       const result = await generateChatStream(message, history, ac.signal, lane,
         async text => { clearTimeout(evidenceTimeout); if (!hasOutput) ttftMs = Date.now() - started; hasOutput = true; await emit({ event: 'chunk', data: { text } }); },
         async sources => { await emit({ event: 'sources', data: { sources } }); }, preferences, undefined, {
@@ -95,12 +107,15 @@ app.post('/api/chat', async c => {
         setCachedResponse(message, retrievalHistory, result.text, result.sources, lane, preferences);
       }
       await emit({ event: 'done', data: { finishReason: result.finishReason } });
+      outcome = result.finishReason === 'STOP' ? 'live' : 'error';
       console.info(JSON.stringify({ lane, model: result.model, thinking: result.thinking, attempts: result.attempts, ttftMs, totalMs: Date.now() - started, sources: result.sources.length, finishReason: result.finishReason }));
     } catch (error) {
-      if (stream.aborted || c.req.raw.signal.aborted) return;
-      const code = (error as { code?: string })?.code || 'UPSTREAM_ERROR';
+      if (stream.aborted || c.req.raw.signal.aborted) { outcome = 'cancelled'; return; }
+      const code = safeOutcomeCode((error as { code?: unknown })?.code);
+      outcomeCode = code;
       if (hasOutput) { await emit({ event: 'done', data: { finishReason: 'INTERRUPTED' } }); return; }
       if (backup && code !== 'BLOCKED' && !c.req.raw.signal.aborted) {
+        outcome = 'saved';
         await emit({ event: 'progress', data: { phase: 'fallback' } });
         await emit({ event: 'meta', data: { mode: lane, cached: false, local: true, fallback: true } });
         await emit({ event: 'chunk', data: { text: backup.answer } });
@@ -110,6 +125,7 @@ app.post('/api/chat', async c => {
         return;
       }
       const responseLanguage = resolveLanguage(message, preferences.language);
+      outcome = 'service';
       const isUrdu = responseLanguage === 'ur';
       const text = isUrdu
         ? 'میں اس وقت کالج کی معلومات کی تصدیق نہیں کر پا رہا۔ دوبارہ کوشش کریں یا داخلہ دفتر سے رابطہ کریں۔'
@@ -125,7 +141,7 @@ app.post('/api/chat', async c => {
       await emit({ event: 'contact', data: contactInfo });
       await emit({ event: 'done', data: { finishReason: 'STOP' } });
       console.info(JSON.stringify({ lane, fallback: true, code, totalMs: Date.now() - started }));
-    } finally { release?.(); clearTimeout(timeout); clearInterval(heartbeat); clearTimeout(evidenceTimeout); c.req.raw.signal.removeEventListener('abort', abort); }
+    } finally { release?.(); clearTimeout(timeout); clearInterval(heartbeat); clearTimeout(evidenceTimeout); c.req.raw.signal.removeEventListener('abort', abort); recordOutcome(requestId, outcome, Date.now() - started, outcomeCode); await releaseShared?.(); }
   });
 });
 

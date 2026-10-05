@@ -30,7 +30,7 @@ try {
   globalThis.fetch=()=>new Promise(()=>{});const stalledAt=Date.now();
   try {const stalled=await ask('Explain the late fee payment penalties again', [{role:'user',text:'Payment policy'},{role:'model',text:'Which part?'}]);assert(stalled.includes('saved official-source extracts'));assert(Date.now()-stalledAt<18000);console.log('PASS: stalled provider returned saved evidence within 18 seconds.');}finally{globalThis.fetch=originalFetch;}
  }
- const health=await (await app.request('/api/health')).json();assert.equal(health.build,'stable-20261003');
+ const health=await (await app.request('/api/health')).json();assert.equal(health.build,'quality-20261005');
  console.log(`PASS: 30 repeated Urdu follow-ups in ${elapsed}ms; 503/429 source fallback; faculty comparison backup; unsupported/private requests; build identity.`);
 } finally {console.warn=warn;console.info=info;}
 
