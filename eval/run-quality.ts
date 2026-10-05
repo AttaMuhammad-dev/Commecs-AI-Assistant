@@ -19,8 +19,9 @@ async function main() {
     const started = Date.now(); let text = '', finishReason = '', fallback = false, mode = '', sources: Source[] = [];
     let error: string | undefined;
     try {
-      const response = await fetch(new URL('/api/chat', base), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: test.question, questionContext: test.questionContext, history: [], preferences: { language: test.language, responseStyle: 'detailed' } }), signal: AbortSignal.timeout(45000) });
+      const response = await fetch(new URL('/api/chat', base), { method: 'POST', redirect: 'error', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: test.question, questionContext: test.questionContext, history: [], preferences: { language: test.language, responseStyle: 'detailed' } }), signal: AbortSignal.timeout(45000) });
       if (!response.ok || !response.body) throw new Error('HTTP ' + response.status);
+      if (!response.headers.get('content-type')?.includes('text/event-stream')) throw new Error('Expected an SSE response; check deployment protection and the base URL.');
       for await (const { event, data } of parseSSE(response.body)) {
         if (event === 'chunk' && typeof data.text === 'string') text += data.text;
         if (event === 'sources') sources = sanitizeSources(data.sources);
