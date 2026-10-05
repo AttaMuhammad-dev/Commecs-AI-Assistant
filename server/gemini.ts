@@ -6,6 +6,7 @@ import { retrieveOfficialWebsite, type WebsiteProvider } from './officialWebsite
 import { searchTokens, withQuestionContext } from './queryPlan.js';
 import { answerLinksSupported, normalizeAnswerReferences } from './responseEvidence.js';
 import { selectAnswerSources } from '../shared/answerSources.js';
+import { unsupportedNumericClaims } from './answerQuality.js';
 import { getFastLadder, getDeepLadder, clampThinking, downgradedModels, type ThinkingLevel } from './config/models.js';
 import { isExhausted, markExhausted, coolDown } from './quota.js';
 import { ChatError, classifyProviderError, providerDiagnostic } from './errors.js';
@@ -85,6 +86,7 @@ export async function generateChatStream(
       let text = '';
       const sourceMap = new Map<string, Source>(evidenceSources.map(s => [s.url, s]));
       const supportedUrls = new Set<string>();
+      const retrievedTexts: string[] = [];
       if (directoryEvidence) sourceMap.set(facultySource.url, facultySource);
       let finishReason: FinishReason = 'INTERRUPTED';
       let iterator: AsyncIterator<GenerateContentResponse> | undefined;
@@ -120,6 +122,7 @@ export async function generateChatStream(
             const url = meta('url') || ctx.uri;
             if (url && safeSourceUrl(url)) sourceMap.set(url, { title: meta('title') || ctx.title || 'College source', url, modified: meta('modified'), type: meta('type') });
             if (url && safeSourceUrl(url) && supportedIndices.has(index)) supportedUrls.add(url);
+            if (url && safeSourceUrl(url) && typeof ctx.text === 'string' && retrievedTexts.length < 30) retrievedTexts.push(ctx.text.slice(0, 30000));
           }
           const part = candidate?.content?.parts?.filter(p => !p.thought).map(p => p.text || '').join('') || '';
           if (part) { text += part; if (!options.buffered) await onChunk(part); }
@@ -133,6 +136,7 @@ export async function generateChatStream(
         if (options.buffered && finishReason !== 'STOP') throw new ChatError(finishReason === 'BLOCKED' ? 'BLOCKED' : 'INCOMPLETE', 'No complete answer was returned.');
         if (options.requireSources && !sources.length) throw new ChatError('UNGROUNDED', 'No official evidence was returned.');
         if (options.buffered && !answerLinksSupported(text, candidates, directoryEvidence + evidencePrompt)) throw new ChatError('UNGROUNDED', 'A source link was not supplied by the evidence.');
+        if (options.buffered && unsupportedNumericClaims(text, directoryEvidence + combinedEvidence.map(e => e.text).join('\n') + retrievedTexts.join('\n'), [message, options.questionContext || '', ...history.filter(h => h.role === 'user').map(h => h.text)].join(' ')).length) throw new ChatError('UNGROUNDED', 'A numeric claim was not supported by the available evidence.');
         if (sources.length) await onSources(sources);
         if (options.buffered) await onChunk(text);
         return { text, sources, finishReason, model, thinking, attempts };

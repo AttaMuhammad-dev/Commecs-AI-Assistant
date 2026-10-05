@@ -1,6 +1,7 @@
 import guides from './data/local-guide.json' with { type: 'json' };
 import { normalizeForBank } from './bank.js';
 import { resolveLanguage, type Preferences } from '../shared/chat.js';
+import { isKnownChanged } from './sourceFreshness.js';
 
 const portalAliases = new Set([
   'student portal', 'portal', 'student portal link', 'where is the student portal',
@@ -11,7 +12,7 @@ const portalAliases = new Set([
 export function getLocalGuideAnswer(message: string, preferences: Preferences) {
   const normalized = normalizeForBank(message);
   const guide = guides.find(g => normalizeForBank(g.question) === normalized || (g.title === 'Student Portal' && portalAliases.has(normalized)));
-  if (!guide) return null;
+  if (!guide || isKnownChanged(guide.url)) return null;
   const language = resolveLanguage(message, preferences.language);
   const urdu = language === 'ur';
   const roman = language === 'roman';

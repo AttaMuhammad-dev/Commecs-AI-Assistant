@@ -1,5 +1,5 @@
 {
-  "version": "2479f21c805bb546a9e4d01362b3149fde4d0a6bea8eda89140b95b2ca75493b",
+  "version": "15c71b3b791dee528cb46a2b41ca1c068c704a38c318edd2ecd0cbc0d11d28c0",
   "documents": [
     {
       "id": "internal-examination-policy-2026-2027",
@@ -950,12 +950,6 @@
           "url": "https://commecscollege.edu.pk/fee-payment-policy/",
           "modified": "2024-03-21T03:14:09",
           "reviewedAt": "2026-09-20T14:59:40.590Z"
-        },
-        {
-          "title": "Approved Fee Structure 2026-27",
-          "url": "https://commecscollege.edu.pk/wp-content/uploads/2026/07/Approved-Fee-Structure-2026-27-1-1.pdf",
-          "type": "pdf",
-          "reviewedAt": "2026-09-20T14:59:40.590Z"
         }
       ],
       "text": "Fee vouchers are issued by the 5th of each month and are due within 10 days. A **penalty of Rs. 1,000** applies if the fee isn't paid by the due date, and vouchers are valid until the last day of the month.\n\nIf the fee is unpaid for two consecutive months, the admission is cancelled. The student can be readmitted on the parents' written request (submitted within 7 days of cancellation and approved by management) after paying the outstanding fee plus a **Rs. 10,000 readmission fee**.",
@@ -1226,5 +1220,135 @@
       "verifiedAt": 1789916380590,
       "kind": "reviewed"
     }
-  ]
+  ],
+  "snapshotAudit": {
+    "checkedAt": "2026-10-05T14:34:31.746Z",
+    "sources": [
+      {
+        "url": "https://commecscollege.edu.pk/internal-examination-policy-2026-2027/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/student-portal/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/merit-scholarships-holders/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/alumni-discount/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/fee-payment-policy/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/macro-plan/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/admission-test-schedule/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/conflict-of-interest-policy/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/students-code-of-conduct/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/social-media-policy/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/grievances-settlemnet-policy/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/discipline-policy/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/harassment-policy/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/faqs/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/contact-us/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/merit-positions/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/sibling-discount/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/scholarship-endowment-policies-session/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/register-for-admissions/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/commecs-admission-test/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/eligibility/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/admission-criteria/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/downloads/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      },
+      {
+        "url": "https://commecscollege.edu.pk/about/",
+        "status": "unchanged",
+        "snapshotMatches": true
+      }
+    ]
+  }
 }

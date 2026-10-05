@@ -1,10 +1,11 @@
 import knowledge from './data/local-knowledge.json' with { type: 'json' };
 import { safeSourceUrl, type Source } from '../shared/chat.js';
 import { planQuery, searchTokens } from './queryPlan.js';
+import { isKnownChanged } from './sourceFreshness.js';
 
 export const localKnowledgeVersion = knowledge.version;
 export const evidenceTokens = searchTokens;
-const prepared = knowledge.documents.filter(d => safeSourceUrl(d.url)).map(d => ({ d,
+const prepared = knowledge.documents.filter(d => safeSourceUrl(d.url) && !isKnownChanged(d.url) && !d.sources?.some(s => isKnownChanged(s.url))).map(d => ({ d,
   title: new Set(evidenceTokens(d.title + ' ' + d.id + ' ' + d.keywords)),
   body: new Set(evidenceTokens(d.text)),
 }));

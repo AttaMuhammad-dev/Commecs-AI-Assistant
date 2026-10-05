@@ -1,0 +1,284 @@
+{
+  "checkedAt": "2026-10-05T14:34:31.746Z",
+  "sources": [
+    {
+      "url": "https://commecscollege.edu.pk/internal-examination-policy-2026-2027/",
+      "snapshotHash": "5924de1aa748c55a82658884cb8da0c13c1f01b97a4bc35fe12e73b0c9f1f3ef",
+      "status": "unchanged",
+      "snapshotModified": "2026-08-28T03:25:52",
+      "affectedAnswers": [],
+      "remoteModified": "2026-08-28T03:25:52"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/student-portal/",
+      "snapshotHash": "7d302935980f735ce94919bedc787a43fe70e82dae9bfc77b857c49afb185642",
+      "status": "unchanged",
+      "snapshotModified": "2026-07-06T09:06:54",
+      "affectedAnswers": [],
+      "remoteModified": "2026-07-06T09:06:54"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/instructions-for-admission/",
+      "snapshotHash": "00644088e6e49e5c9175ca3e60ae4e0ac5e52c614b07902211ec15f858a41686",
+      "status": "unchanged",
+      "snapshotModified": "2026-07-07T03:36:33",
+      "affectedAnswers": [
+        "bank-how-to-apply",
+        "bank-eligibility",
+        "bank-eligibility-commerce",
+        "bank-eligibility-science",
+        "bank-age-limit",
+        "bank-documents",
+        "bank-registration-fee",
+        "bank-cat-test",
+        "bank-direct-admission",
+        "bank-admission-dates",
+        "bank-contact",
+        "bank-compare-premed-cs",
+        "bank-mere-62",
+        "bank-admission-roman",
+        "bank-eligibility-roman"
+      ],
+      "remoteModified": "2026-07-07T03:36:33"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/merit-scholarships-holders/",
+      "snapshotHash": "8d6a45a65e4fd06efff5442a1781bbf9d919835a903d48332b9278d5f0edc594",
+      "status": "unchanged",
+      "snapshotModified": "2025-07-18T05:18:21",
+      "affectedAnswers": [],
+      "remoteModified": "2025-07-18T05:18:21"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/alumni-discount/",
+      "snapshotHash": "ba2440f195fe4aac731edb50dcf724100e32a44e08298629ad2740ed9aedcdb1",
+      "status": "unchanged",
+      "snapshotModified": "2025-02-21T07:02:44",
+      "affectedAnswers": [],
+      "remoteModified": "2025-02-21T07:02:44"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/fee-payment-policy/",
+      "snapshotHash": "8398e9b323734bf7464feb80638a1528459b1a5f498dbf7bfb8694d665d1ce29",
+      "status": "unchanged",
+      "snapshotModified": "2024-03-21T03:14:09",
+      "affectedAnswers": [
+        "bank-late-fee"
+      ],
+      "remoteModified": "2024-03-21T03:14:09"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/macro-plan/",
+      "snapshotHash": "5dd1587a68a2bec837567f643789b203267758d3a718cc2ada314c04249e433e",
+      "status": "unchanged",
+      "snapshotModified": "2026-09-01T05:32:06",
+      "affectedAnswers": [],
+      "remoteModified": "2026-09-01T05:32:06"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/admission-test-schedule/",
+      "snapshotHash": "350d67fdfefc5190876696af5ffc4fe25272742bcff80e6354cd68f569a8510f",
+      "status": "unchanged",
+      "snapshotModified": "2023-07-26T14:30:34",
+      "affectedAnswers": [],
+      "remoteModified": "2023-07-26T14:30:34"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/conflict-of-interest-policy/",
+      "snapshotHash": "d54de97d493616869b5710b4464d0bc65d4e548adec5ce4854f2d9624052f164",
+      "status": "unchanged",
+      "snapshotModified": "2023-01-10T21:44:08",
+      "affectedAnswers": [],
+      "remoteModified": "2023-01-10T21:44:08"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/students-code-of-conduct/",
+      "snapshotHash": "bed55ed1f6000d3f002b79e2b8c69a6887eda4db6445d45adbd8ac8e800fd92d",
+      "status": "unchanged",
+      "snapshotModified": "2023-01-10T21:29:16",
+      "affectedAnswers": [],
+      "remoteModified": "2023-01-10T21:29:16"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/social-media-policy/",
+      "snapshotHash": "3a6513c81feb95ffd97e1ff5c3092ed8ca75f242f2a9a0806cd6fdb191cd9d26",
+      "status": "unchanged",
+      "snapshotModified": "2023-01-10T21:24:45",
+      "affectedAnswers": [],
+      "remoteModified": "2023-01-10T21:24:45"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/grievances-settlemnet-policy/",
+      "snapshotHash": "ba1106daeec97b7705181cb5e68713c72afa9ad2962b4b0668712bc7360cd155",
+      "status": "unchanged",
+      "snapshotModified": "2026-01-21T09:01:41",
+      "affectedAnswers": [],
+      "remoteModified": "2026-01-21T09:01:41"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/discipline-policy/",
+      "snapshotHash": "4541c605c56248a4c78f1553a588f88c8bbf32e36a9a6395ccd47d9583f21976",
+      "status": "unchanged",
+      "snapshotModified": "2024-07-29T05:36:58",
+      "affectedAnswers": [],
+      "remoteModified": "2024-07-29T05:36:58"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/harassment-policy/",
+      "snapshotHash": "050109fe1c83fdb0167f054e670b645450b98c04b2b8a68d4a1acbe1bc1534fd",
+      "status": "unchanged",
+      "snapshotModified": "2026-01-21T09:13:40",
+      "affectedAnswers": [],
+      "remoteModified": "2026-01-21T09:13:40"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/faqs/",
+      "snapshotHash": "91c9a2c426c5232a3078b517e2e65b2090dbb71833ad72345ce3c2399e6878fd",
+      "status": "unchanged",
+      "snapshotModified": "2023-04-03T10:01:21",
+      "affectedAnswers": [
+        "bank-age-limit",
+        "bank-second-year",
+        "bank-admission-dates",
+        "bank-transport",
+        "bank-coed",
+        "bank-hostel",
+        "bank-facilities",
+        "bank-transport-ur"
+      ],
+      "remoteModified": "2023-04-03T10:01:21"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/contact-us/",
+      "snapshotHash": "972acddf41d1c7e526eead4ae196bb7d93b4d358615270e701d3da57c5e3976a",
+      "status": "unchanged",
+      "snapshotModified": "2026-01-21T09:11:55",
+      "affectedAnswers": [
+        "bank-contact",
+        "bank-principal",
+        "bank-hostel"
+      ],
+      "remoteModified": "2026-01-21T09:11:55"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/merit-positions/",
+      "snapshotHash": "6778953fac1f90338da35154da5338aff5bd9cb653adb2290b086879eaf80ec2",
+      "status": "unchanged",
+      "snapshotModified": "2025-07-16T10:50:06",
+      "affectedAnswers": [],
+      "remoteModified": "2025-07-16T10:50:06"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/sibling-discount/",
+      "snapshotHash": "84a71b1d19098d5a4f78285e14faeadd57e62cce84244bc2e3d4d3af8800432d",
+      "status": "unchanged",
+      "snapshotModified": "2024-07-29T05:30:37",
+      "affectedAnswers": [
+        "bank-scholarships",
+        "bank-sibling-discount"
+      ],
+      "remoteModified": "2024-07-29T05:30:37"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/scholarship-endowment-policies-session/",
+      "snapshotHash": "47bc567d74add4bf1bd9673da7575b2cdde6f8e3db3ff01c8e027dc0616fa0ba",
+      "status": "unchanged",
+      "snapshotModified": "2026-05-25T03:46:21",
+      "affectedAnswers": [
+        "bank-scholarships",
+        "bank-merit-scholarship",
+        "bank-need-scholarship"
+      ],
+      "remoteModified": "2026-05-25T03:46:21"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/register-for-admissions/",
+      "snapshotHash": "00b2b7c0cfbcf11391d276d17397ab2b9a4e783fdf57134f19ecee09cf62f361",
+      "status": "unchanged",
+      "snapshotModified": "2025-02-21T06:59:41",
+      "affectedAnswers": [],
+      "remoteModified": "2025-02-21T06:59:41"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/commecs-admission-test/",
+      "snapshotHash": "02487a81ae7a50e479eb9bf05ed89246b3ae1c6400ed5719cf531182bbc7dffb",
+      "status": "unchanged",
+      "snapshotModified": "2025-12-08T06:04:33",
+      "affectedAnswers": [],
+      "remoteModified": "2025-12-08T06:04:33"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/eligibility/",
+      "snapshotHash": "e99e6fc86366d5865231806042d4fb5e26c718ed2c313666a11f5f3c1452211c",
+      "status": "unchanged",
+      "snapshotModified": "2025-08-30T03:22:10",
+      "affectedAnswers": [
+        "bank-programs",
+        "bank-how-to-apply",
+        "bank-eligibility",
+        "bank-eligibility-commerce",
+        "bank-eligibility-science",
+        "bank-age-limit",
+        "bank-documents",
+        "bank-registration-fee",
+        "bank-compare-premed-cs",
+        "bank-elig-fee-72-premed",
+        "bank-mere-62",
+        "bank-admission-roman",
+        "bank-eligibility-roman"
+      ],
+      "remoteModified": "2025-08-30T03:22:10"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/admission-criteria/",
+      "snapshotHash": "8788dcb6688dd0cc225f1282dfe6cb41890bd7c173b77e3023517c0983b239c9",
+      "status": "unchanged",
+      "snapshotModified": "2022-12-21T17:06:19",
+      "affectedAnswers": [
+        "bank-how-to-apply",
+        "bank-eligibility",
+        "bank-cat-test",
+        "bank-admission-roman"
+      ],
+      "remoteModified": "2022-12-21T17:06:19"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/downloads/",
+      "snapshotHash": "f8fdcace5aeaba27e512d8821e735d2b50ba094c27fff8f96918aea306ec472a",
+      "status": "unchanged",
+      "snapshotModified": "2026-08-25T05:13:33",
+      "affectedAnswers": [
+        "bank-fee-structure",
+        "bank-fee-commerce",
+        "bank-fee-science-pm-pe",
+        "bank-fee-cs",
+        "bank-fee-second-year",
+        "bank-cat-test",
+        "bank-transport",
+        "bank-uniform",
+        "bank-transport-ur",
+        "bank-fee-ur",
+        "bank-fee-roman"
+      ],
+      "remoteModified": "2026-08-25T05:13:33"
+    },
+    {
+      "url": "https://commecscollege.edu.pk/about/",
+      "snapshotHash": "dcfbfe7a4fd71271423cf337714cca73af3fc74fcf42e970bb3aac83ab8bc31a",
+      "status": "unchanged",
+      "snapshotModified": "2026-02-20T05:57:00",
+      "affectedAnswers": [
+        "bank-programs",
+        "bank-board",
+        "bank-principal",
+        "bank-founded"
+      ],
+      "remoteModified": "2026-02-20T05:57:00"
+    }
+  ],
+  "totalPublicPages": 25,
+  "auditedPages": 25,
+  "expiredAnswers": [],
+  "humanReviewRequired": true,
+  "note": "A changed page needs review. An unavailable check is unknown. Neither checkedAt nor modified time is a human review or proof that every policy is current. Corpus, remote index and answer review dates are unchanged."
+}
