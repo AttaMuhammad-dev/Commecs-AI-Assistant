@@ -82,7 +82,8 @@ button,a,select{transition:background .15s,color .15s,border-color .15s}:focus-v
 .message-text a{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:3px}
 .message-text blockquote{border-inline-start:3px solid var(--gold);padding-inline-start:15px;color:var(--muted)}
 .message-text pre{background:var(--soft);overflow:auto;padding:14px;border-radius:8px}
-.table-scroll{overflow:auto}table{border-collapse:collapse;width:100%;font-size:12px;margin:12px 0}
+.table-scroll{overflow:auto;max-width:100%}.table-scroll table{min-width:520px;overflow-wrap:normal;word-break:normal}.table-scroll:focus-visible{outline:2px solid var(--gold);outline-offset:2px}.table-scroll-hint{display:none}table{border-collapse:collapse;width:100%;font-size:12px;margin:12px 0}
+@media(max-width:600px){.table-scroll-hint{display:block;color:var(--muted);font-size:10px;margin:4px 0 10px}}
 td,th{border:1px solid var(--line);padding:9px;text-align:start}th{background:var(--soft);font-weight:600}
 .sources{margin:14px 0 0 35px;font-size:11px;color:var(--muted)}
 .sources-heading{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:500}.source-count{background:var(--soft);padding:0 6px;border-radius:5px}

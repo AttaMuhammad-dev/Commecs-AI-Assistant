@@ -19,6 +19,8 @@ export default function MessageBubble({ message, retryMessage }: { message: Chat
   const busy = ['sending','streaming'].includes(message.status);
   const incomplete = message.status === 'stopped' || message.status === 'error' || (message.finishReason && message.finishReason !== 'STOP');
   const sources = selectAnswerSources(message.text, message.sources || []);
+  const replyLanguage=resolveLanguage(message.text,languagePreference);
+  const tableHint=replyLanguage==='ur'?'مکمل جدول دیکھنے کے لیے دائیں یا بائیں اسکرول کریں۔':replyLanguage==='roman'?'Poora table dekhne ke liye side mein scroll karein.':'Scroll sideways to view the full table.';
   async function copy() {
     try { await navigator.clipboard.writeText(message.text + (sources.length ? '\n\nSources:\n' + sources.map(s => s.title + ': ' + s.url).join('\n') : '')); setCopied(true); setCopyError(false); }
     catch { setCopyError(true); }
@@ -31,7 +33,7 @@ export default function MessageBubble({ message, retryMessage }: { message: Chat
     {waiting ? <TypingIndicator progress={progress} /> : <div className={'message-text ' + (incomplete ? 'incomplete' : '')} dir="auto">
       {user ? <p>{message.text}</p> : <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
         a: ({ href, children }) => href && safeSourceUrl(href) ? <a href={href} target="_blank" rel="noopener noreferrer">{children}</a> : <span>{children}</span>,
-        table: ({ children }) => <div className="table-scroll"><table>{children}</table></div>,
+        table: ({ children }) => <><div className="table-scroll" role="region" aria-label={tableHint} tabIndex={0}><table>{children}</table></div><small className="table-scroll-hint" aria-hidden="true">{tableHint}</small></>,
       }}>{message.text}</ReactMarkdown>}
     </div>}
     {!user && sources.length > 0 && !busy && <SourceCards sources={sources} language={resolveLanguage(message.text, languagePreference)} />}
