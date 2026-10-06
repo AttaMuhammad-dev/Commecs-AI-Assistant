@@ -25,6 +25,7 @@ import { acquireSharedTraffic, trafficMode } from './sharedTraffic.js';
 import { authorizedOperations, operationsSnapshot, recordOutcome, safeOutcomeCode, type Outcome } from './operations.js';
 import { sourceAuditSummary, withSourceCheck } from './sourceFreshness.js';
 import { boundaryResponse } from './boundaries.js';
+import { publicSourceHealth } from './publicRead.js';
 
 export const app = new Hono();
 app.use('/api/*', cors({
@@ -32,7 +33,7 @@ app.use('/api/*', cors({
   allowMethods: ['GET', 'POST', 'OPTIONS'], allowHeaders: ['Content-Type'], maxAge: 600,
 }));
 app.use('/api/chat', bodyLimit({ maxSize: 32768, onError: c => c.json({ code: 'BAD_REQUEST', message: 'Request too large.' }, 413) }));
-app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!process.env.GEMINI_API_KEY?.trim(), version: '2.7.0', build: 'current-sources-20261006', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null, trafficControl: trafficMode(), sourceAudit: sourceAuditSummary() }); });
+app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!process.env.GEMINI_API_KEY?.trim(), version: '2.7.1', build: 'public-source-runtime-20261006', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null, trafficControl: trafficMode(), sourceAudit: sourceAuditSummary(), publicSources: publicSourceHealth() }); });
 app.get('/api/metrics', c => { c.header('Cache-Control', 'no-store'); return authorizedOperations(c.req.header('Authorization')) ? c.json({ ...operationsSnapshot(), trafficControl: trafficMode(), sourceAudit: sourceAuditSummary() }) : c.json({ message: 'Not found' }, 404); });
 
 app.post('/api/chat', async c => {
