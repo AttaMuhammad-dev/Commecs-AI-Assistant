@@ -96,11 +96,16 @@ describe('natural question retrieval and reasoning', () => {
     } finally { spy.mockRestore(); }
   });
 });
-const pageResponse = (text: string) => new Response(JSON.stringify([{ link: faq, title: { rendered: 'FAQs' }, content: { rendered: text }, modified_gmt: '2026-10-01T12:00:00' }]), { headers: { 'Content-Type': 'application/json' } });
+const pageResponse = (text: string) => new Response('<main><h1>FAQs</h1>'+text+'</main>', { headers: { 'Content-Type': 'text/html' } });
 describe('bounded official website lookup', () => {
   it.each(['https://evil.example/faqs/', 'https://commecscollege.edu.pk/admission-result/', 'https://commecscollege.edu.pk/interview-result-important-instructions/', 'http://commecscollege.edu.pk/faqs/', 'https://user:pass@commecscollege.edu.pk/faqs/'])('does not fetch unapproved or private paths: %s', url => expect(isPublicCollegePage(url)).toBe(false));
   it('cleans scripts/forms while retaining meaningful public text', () => {
     expect(websiteText('<script>secret()</script><form>private field</form><p>Students may join clubs.</p>')).toBe('Students may join clubs.');
+  });
+  it('reads an Elementor body without main and strips global navigation',async()=>{
+    const fetcher=vi.fn(async()=>new Response('<div class="elementor-location-header">Navigation secret</div><div><p>Clubs develop confidence.</p></div><footer>Unrelated footer</footer>',{headers:{'Content-Type':'text/html'}})) as unknown as typeof fetch;
+    const result=await retrieveOfficialWebsite(planQuery('Latest clubs'),[{url:faq}],new AbortController().signal,fetcher);
+    expect(result[0].text).toContain('confidence');expect(result[0].text).not.toContain('Navigation');expect(result[0].text).not.toContain('Unrelated footer');
   });
   it('refreshes approved pages, records actual retrieval and ranks each cached page for its current question', async () => {
     const fetcher = vi.fn(async () => pageResponse('<h2>Clubs</h2><p>Clubs and societies develop confidence.</p><h2>Library</h2><p>Library hours 8 AM to 2:45 PM.</p>' + '<h2>Unrelated</h2><p>Other content.</p>'.repeat(100))) as unknown as typeof fetch;
@@ -113,7 +118,7 @@ describe('bounded official website lookup', () => {
     const urls: string[] = [];
     const fetcher = vi.fn(async input => { const url = String(input); urls.push(url); return url.includes('/search?') ? new Response(JSON.stringify([{ url: 'https://evil.example/secret' }, { url: faq }]), { headers: { 'Content-Type': 'application/json' } }) : pageResponse('<p>The library has books for students.</p>'); }) as unknown as typeof fetch;
     await retrieveOfficialWebsite(planQuery('Ahmed wants current library books'), [], new AbortController().signal, fetcher);
-    expect(urls).toHaveLength(1); expect(urls[0]).toContain('slug=faqs'); expect(urls.join(' ')).not.toContain('Ahmed'); expect(urls.every(url => url.startsWith('https://commecscollege.edu.pk/wp-json/'))).toBe(true);
+    expect(urls).toEqual([faq]); expect(urls.join(' ')).not.toContain('Ahmed');
   });
   it('fails safely on oversized or invalid website responses', async () => {
     const result = await retrieveOfficialWebsite(planQuery('Latest clubs'), [{ url: faq }], new AbortController().signal, (async () => new Response('x'.repeat(600_001), { headers: { 'Content-Type': 'application/json' } })) as typeof fetch);
@@ -126,11 +131,11 @@ describe('bounded official website lookup', () => {
     await vi.advanceTimersByTimeAsync(8000); expect(await task).toEqual([]);
     const ac = new AbortController(); const canceled = retrieveOfficialWebsite(planQuery('Latest clubs'), [{ url: faq }], ac.signal, fetcher); ac.abort(); expect(await canceled).toEqual([]);
   });
-  it('reads the approved public page when its REST endpoint is restricted', async () => {
+  it('reads the rendered public page without substituting potentially stale REST content', async () => {
     const urls: string[] = [];
     const fetcher = vi.fn(async input => { urls.push(String(input)); return String(input).includes('/wp-json/') ? new Response('Forbidden', { status: 403 }) : new Response('<header>Unrelated navigation</header><main><p>Library hours are 8 AM to 2:45 PM.</p></main>', { headers: { 'Content-Type': 'text/html' } }); }) as unknown as typeof fetch;
     const evidence = await retrieveOfficialWebsite(planQuery('Current library hours'), [{ url: faq }], new AbortController().signal, fetcher);
-    expect(urls).toHaveLength(2); expect(urls[1]).toBe(faq); expect(evidence[0].source.type).toBe('live'); expect(evidence[0].source.modified).toBeUndefined(); expect(evidence[0].text).toContain('2:45 PM'); expect(evidence[0].text).not.toContain('Unrelated navigation');
+    expect(urls).toEqual([faq]); expect(evidence[0].source.type).toBe('live'); expect(evidence[0].source.modified).toBeUndefined(); expect(evidence[0].text).toContain('2:45 PM'); expect(evidence[0].text).not.toContain('Unrelated navigation');
   });
   it('emits the website phase before requesting the model and preserves refreshed fallback evidence', async () => {
     const events: string[] = []; let fallback: Evidence[] = [];

@@ -18,9 +18,13 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - run: npm run knowledge:build
       - run: npm run knowledge:check
+      - run: npm run knowledge:current
+        if: always()
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: knowledge-freshness-review
-          path: eval/results/knowledge-freshness.json
+          path: |
+            eval/results/knowledge-freshness.json
+            eval/results/current-sources.json
           if-no-files-found: warn

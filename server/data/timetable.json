@@ -1,0 +1,3625 @@
+{
+  "notice": "https://commecscollege.edu.pk/news/time-table-updated/",
+  "published": "2026-08-24",
+  "source": "https://commecscollege.edu.pk/wp-content/uploads/2026/08/Revised-TT-Session-2026-2027-1.pdf",
+  "session": "2026-2027",
+  "extractedAt": "2026-10-06",
+  "sha256": "ac701af1faa04cc1993a5d950270eabb02cb303adb7adcc0bcfdf337f5d0e4cb",
+  "rows": [
+    {
+      "day": "Monday",
+      "group": "XI PM",
+      "section": "CR-I",
+      "location": "",
+      "periods": [
+        "CR-I\nSA(ENG)",
+        "CR-I\nSS(ISL)",
+        "CR-I\nMR(PHY)",
+        "BREAK",
+        "AT\nSDP(Marketing)",
+        "AT\nSDP(Marketing)",
+        "AT\nRK(CHE)",
+        "MR/RK(LABS)",
+        "UDL\nSZ(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI PM",
+      "section": "CR-II",
+      "location": "",
+      "periods": [
+        "VOH\nMR(PHY)",
+        "VOH\nSDP(Marketing)",
+        "VOH\nSDP(Marketing)",
+        "BREAK",
+        "CR-IV\nSHF(BOT)",
+        "MR/AQ(LABS)",
+        "CR-II\nSA(ENG)",
+        "CR-II\nSS(ISL)",
+        "CR-II\nAQ(CHE)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI PM",
+      "section": "CR-III",
+      "location": "",
+      "periods": [
+        "IT\nNA(ENG)",
+        "IT\nSDP(Marketing)",
+        "IT\nSDP(Marketing)",
+        "BREAK",
+        "AG/AQ(LABS)",
+        "CR-III\nFL(ZOO)",
+        "CR-III\nAG/AB(PHY)",
+        "CR-III\nSHF(BOT)",
+        "FL(BIO LAB )"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII PM",
+      "section": "MCB",
+      "location": "",
+      "periods": [
+        "MD(PHY)",
+        "RT(ENG)",
+        "BREAK",
+        "FS/MD(CHE/PHY)",
+        "SDP(Lifestyle)",
+        "SDP(Lifestyle)",
+        "MU(BOT)",
+        "SPORTS",
+        "CR-III\nFS(CHE)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII PM",
+      "section": "MN",
+      "location": "",
+      "periods": [
+        "UN(URDU)",
+        "AG/AQ(LABS)",
+        "BREAK",
+        "UA(CHE)",
+        "SDP(Clinical)",
+        "SDP(Clinical)",
+        "NZ(ZOO)",
+        "SM(PHY)",
+        "SHF(BOT)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII PM",
+      "section": "PM-I",
+      "location": "",
+      "periods": [
+        "MU(BIO LAB )",
+        "CR-III\nMD(PHY)",
+        "BREAK",
+        "CR-II\nNY(URDU)",
+        "CR-II\nAK(ENG)",
+        "CR-II\nFS(CHE)",
+        "FS/MD(LABS)",
+        "IT\nSDP(Lifestyle)",
+        "IT\nSDP(Lifestyle)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII PM",
+      "section": "BUK",
+      "location": "",
+      "periods": [
+        "FS/AG(LABS)",
+        "SPORTS",
+        "BREAK",
+        "JAM\nNH(PST)",
+        "JAM\nMU(BOT)",
+        "JAM\nSM(PHY)",
+        "JAM\nSR(CHE)",
+        "JAM\nSDP(Clinical)",
+        "JAM\nSDP(Clinical)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI PE",
+      "section": "BB",
+      "location": "",
+      "periods": [
+        "RK(CHE)",
+        "AC(MATH)",
+        "AC(MATH)",
+        "BREAK",
+        "SA(ENG)",
+        "AH(ISL)",
+        "HR(PHY)",
+        "AT\nSDP(PYTHON)",
+        "AT\nSDP(PYTHON)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI PE",
+      "section": "UDL",
+      "location": "",
+      "periods": [
+        "HR(PHY)",
+        "HR(PHY)",
+        "SA(ENG)",
+        "BREAK",
+        "UA(CHE)",
+        "SZ(URDU)",
+        "HM(MATH)",
+        "HM(MATH)",
+        "UA/HR(LABS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII PE",
+      "section": "QA",
+      "location": "",
+      "periods": [
+        "MM(URDU)",
+        "HK/AI(PHY/CS)",
+        "BREAK",
+        "HM(MATH)",
+        "HM(MATH)",
+        "YA(PST)",
+        "AK(ENG)",
+        "HK(PHY)",
+        "AI(CHE)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII PE",
+      "section": "DIW",
+      "location": "",
+      "periods": [
+        "JAM\nRT(ENG)",
+        "JAM\nSN(MATH)",
+        "BREAK",
+        "HK(PHY)",
+        "HK(PHY)",
+        "AI(CHE)",
+        "HK/AI(PHY/CHE)",
+        "SPORTS",
+        "NY(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI CS",
+      "section": "CRES",
+      "location": "",
+      "periods": [
+        "RA(MATH)",
+        "RA(MATH)",
+        "LM(CS)",
+        "BREAK",
+        "ZQ(PHY)",
+        "ZQ(PHY)",
+        "LM(CS)",
+        "ZQ/LM(PHY/CS)",
+        "QR(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI CS",
+      "section": "CR-V",
+      "location": "SAPP",
+      "periods": [
+        "ZQ/SL(PHY/CS)",
+        "AD(URDU)",
+        "ZQ(PHY)",
+        "BREAK",
+        "MA(ENG)",
+        "KJ(MATH)",
+        "KJ(MATH)",
+        "AH(ISL)",
+        "SL(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI CS",
+      "section": "CR-IV",
+      "location": "",
+      "periods": [
+        "KJ(MATH)",
+        "KJ(MATH)",
+        "MA(ENG)",
+        "AH(ISL)",
+        "BREAK",
+        "CR-IV\nASR/MH(CS/PHY)",
+        "QR(URDU)",
+        "ASR(CS)",
+        "MH(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI CS",
+      "section": "TOYOTA",
+      "location": "",
+      "periods": [
+        "ASR(CS)",
+        "MK(MATH)",
+        "MK(MATH)",
+        "NA(ENG)",
+        "BREAK",
+        "KS(STATS)",
+        "KS(STATS)",
+        "HD(URDU)",
+        "ASR(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI CS",
+      "section": "AA",
+      "location": "",
+      "periods": [
+        "KS(STATS)",
+        "KS(STATS)",
+        "HD(URDU)",
+        "SL(CS)",
+        "BREAK",
+        "NA(ENG)",
+        "AL(MATH)",
+        "AL(MATH)",
+        "MT(ISL)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII CS",
+      "section": "AT",
+      "location": "",
+      "periods": [
+        "CR-III\nUQ(PHY)",
+        "SPORTS",
+        "BREAK",
+        "CR-I\nJD(CS)",
+        "CR-I\nSN(MATH)",
+        "CR-I\nSN(MATH)",
+        "CR-I\nUQ(PHY)",
+        "CR-I\nJD(CS)",
+        "CR-I\nUN(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII CS",
+      "section": "JAM",
+      "location": "",
+      "periods": [
+        "CR-II\nAA(PHY)",
+        "CR-II\nJD(CS)",
+        "BREAK",
+        "VOH\nAD(URDU)",
+        "VOH\nAA/JD(CS/PHY)",
+        "VOH\nAA(PHY)",
+        "VOH\nZM(PST)",
+        "VOH\nMS(MATH)",
+        "VOH\nMS(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII CS",
+      "section": "KAISER",
+      "location": "",
+      "periods": [
+        "MS(MATH)",
+        "MS(MATH)",
+        "BREAK",
+        "IT/KAISER\nAE/UQ(CS/PHY)",
+        "MM(URDU)",
+        "NH(PST)",
+        "NF(ENG)",
+        "UQ(PHY)",
+        "AE(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII CS",
+      "section": "CS-II",
+      "location": "BUK",
+      "periods": [
+        "LM(CS)",
+        "AL(MATH)",
+        "AL(MATH)",
+        "ZM(PST)",
+        "BREAK",
+        "KF(URDU)",
+        "SY(ENG)",
+        "AA(PHY)",
+        "LM(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII CS",
+      "section": "CS-III",
+      "location": "",
+      "periods": [
+        "AT\nNF(ENG)",
+        "AT\nKF(URDU)",
+        "AT\nAE/MH(LABS)",
+        "AT\nAA/AG(PHY)",
+        "BREAK",
+        "IT\nAE(CS)",
+        "SPORTS",
+        "MCB\nMK(MATH)",
+        "MCB\nMK(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI COM",
+      "section": "GAT",
+      "location": "",
+      "periods": [
+        "SK(POC)",
+        "KW(ECO)",
+        "MT(ISL)",
+        "ZK(ACC)",
+        "BREAK",
+        "SMH(BM)",
+        "SK(POC)",
+        "AD(URDU)",
+        "MA(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI COM",
+      "section": "SAPP",
+      "location": "CR-V",
+      "periods": [
+        "ZK(ACC)",
+        "ZK(ACC)",
+        "QR(URDU)",
+        "SK(POC)",
+        "BREAK",
+        "SPORTS",
+        "MA(ENG)",
+        "DF(ECO)",
+        "SMH(BM)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XI COM",
+      "section": "OHK",
+      "location": "",
+      "periods": [
+        "DIW\nKW(ECO)",
+        "DIW\nDF(ACC)",
+        "DIW\nDF(ACC)",
+        "BREAK",
+        "CR-V\nSDP(Marketing)",
+        "CR-V\nSDP(NF ENG)",
+        "SPORTS",
+        "BB\nFK(POC)",
+        "BB\nNA(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII COM",
+      "section": "BAS",
+      "location": "",
+      "periods": [
+        "FK(BANK)",
+        "DA(CG)",
+        "BREAK",
+        "AS(ACC)",
+        "AS(ACC)",
+        "QR(URDU)",
+        "SMH(STAT)",
+        "ZA(ENG)",
+        "FK(BANK)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Monday",
+      "group": "XII COM",
+      "section": "COM-I",
+      "location": "OHK",
+      "periods": [
+        "SD(BNK)",
+        "AS(ACC)",
+        "SD(BNK)",
+        "YA(PST)",
+        "BREAK",
+        "ZA(ENG)",
+        "AS(ACC)",
+        "KF(URDU)",
+        "DA(CG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 1
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI PM",
+      "section": "CR-I",
+      "location": "",
+      "periods": [
+        "UH(BIO LAB )",
+        "SA(ENG)",
+        "SS(ISL)",
+        "MR(PHY)",
+        "BREAK",
+        "MU(BOT)",
+        "RK(CHE)",
+        "SPORTS",
+        "AUDI\nMR/RK(PHY/CHE)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI PM",
+      "section": "CR-II",
+      "location": "",
+      "periods": [
+        "FL(ZOO)",
+        "HD(URDU)",
+        "BREAK",
+        "SHF(BOT)",
+        "AQ(CHE)",
+        "MR(PHY)",
+        "MR/AQ(LABS)",
+        "SA(ENG)",
+        "SPORTS"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI PM",
+      "section": "CR-III",
+      "location": "",
+      "periods": [
+        "CR-I\nAQ(CHE)",
+        "SHF(BIO LAB )",
+        "CR-II\nNA(ENG)",
+        "CR-III\nAG/AB(PHY)",
+        "BREAK",
+        "CR-III\nHD(URDU)",
+        "SPORTS",
+        "AG/AQ(LABS)",
+        "CR-II\nAG/AB(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII PM",
+      "section": "MCB",
+      "location": "",
+      "periods": [
+        "MCB\nNZ(ZOO)",
+        "MCB\nFS(CHE)",
+        "FS/MD(LABS)",
+        "BREAK",
+        "CR-I\nZM(PST)",
+        "NZ(BIO LAB )",
+        "MN\nRT(ENG)",
+        "MCB\nMD(PHY)",
+        "MCB\nMD(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII PM",
+      "section": "MN",
+      "location": "",
+      "periods": [
+        "SM(PHY)",
+        "SM/UA(CHE/PHY)",
+        "SM(PHY)",
+        "BREAK",
+        "UA(CHE)",
+        "SHF(BOT)",
+        "NZ(BIO LAB )",
+        "SY(ENG)",
+        "UN(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII PM",
+      "section": "PM-I",
+      "location": "",
+      "periods": [
+        "CR-III\nMD(PHY)",
+        "CR-III\nMU(BOT)",
+        "CR-III\nAK(ENG)",
+        "BREAK",
+        "CR-IV\nFS/MD(CHE/PHY)",
+        "CR-IV\nNY(URDU)",
+        "CR-IV\nZM(PST)",
+        "CR-IV\nFS(CHE)",
+        "CR-IV\nUH(ZOO)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII PM",
+      "section": "BUK",
+      "location": "",
+      "periods": [
+        "SR(CHE)",
+        "KF(URDU)",
+        "UH(ZOO)",
+        "BREAK",
+        "NH(PST)",
+        "FS/AG(LABS)",
+        "AK(ENG)",
+        "MU(BOT)",
+        "SM(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI PE",
+      "section": "BB",
+      "location": "",
+      "periods": [
+        "RK/HR(CHE/PHY)",
+        "RK(CHE)",
+        "HR(PHY)",
+        "HR(PHY)",
+        "BREAK",
+        "RK(CHE)",
+        "AC(MATH)",
+        "AC(MATH)",
+        "SZ(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI PE",
+      "section": "UDL",
+      "location": "",
+      "periods": [
+        "VOH\nHM(MATH)",
+        "VOH\nSDP(PYTHON)",
+        "VOH\nSDP(PYTHON)",
+        "VOH\nSZ(URDU)",
+        "BREAK",
+        "JAM\nSA(ENG)",
+        "SPORTS",
+        "JAM\nHR(PHY)",
+        "JAM\nUA(CHE)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII PE",
+      "section": "QA",
+      "location": "",
+      "periods": [
+        "IT\nHK(PHY)",
+        "IT\nSDP(VIBE)",
+        "IT\nSDP(VIBE)",
+        "HK/UA(LABS)",
+        "BREAK",
+        "HM(MATH)",
+        "HM(MATH)",
+        "AI(CHE)",
+        "HK(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII PE",
+      "section": "DIW",
+      "location": "",
+      "periods": [
+        "NY(URDU)",
+        "SDP(Lifestyle)",
+        "SDP(Power BI)",
+        "BREAK",
+        "AI(CHE)",
+        "HK(PHY)",
+        "HK(PHY)",
+        "SN(MATH)",
+        "SN(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI CS",
+      "section": "CRES",
+      "location": "",
+      "periods": [
+        "RA(MATH)",
+        "LM(CS)",
+        "ZQ(PHY)",
+        "ZA(ENG)",
+        "BREAK",
+        "AH(ISL)",
+        "QR(URDU)",
+        "ZQ/LM(PHY/CS)",
+        "RA(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI CS",
+      "section": "CR-V",
+      "location": "TOYOTA",
+      "periods": [
+        "AUDI\nZQ(PHY)",
+        "SPORTS",
+        "BREAK",
+        "AH(ISL)",
+        "MA(ENG)",
+        "SL(CS)",
+        "KJ(MATH)",
+        "KJ(MATH)",
+        "ZQ/SL(LABS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI CS",
+      "section": "CR-IV",
+      "location": "",
+      "periods": [
+        "QA\nMH(PHY)",
+        "QA\nMH(PHY)",
+        "BREAK",
+        "IT\nKJ(MATH)",
+        "IT\nSDP(PYTHON)",
+        "IT\nSDP(PYTHON)",
+        "C R - III\nASR/MH(CS/PHY)",
+        "C R - III\nAH(ISL)",
+        "CR-III\nASR(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI CS",
+      "section": "TOYOTA",
+      "location": "",
+      "periods": [
+        "AT\nASR(CS)",
+        "AT\nKS(STAT)",
+        "BREAK",
+        "BUK\nKS(STATS)",
+        "VOH\nSDP(Marketing)",
+        "VOH\nSDP(SY ENG)",
+        "VOH\nSS(ISL)",
+        "KAISER\nHD(URDU)",
+        "KAISER\nMK(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI CS",
+      "section": "AA",
+      "location": "",
+      "periods": [
+        "AL(MATH)",
+        "AL(MATH)",
+        "BREAK",
+        "SL(CS)",
+        "SDP(SY ENG)",
+        "SDP(Marketing)",
+        "SL(CS)",
+        "KS(STATS)",
+        "NA(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII CS",
+      "section": "AT",
+      "location": "",
+      "periods": [
+        "TOYOTA\nUQ/JD(CS/PHY)",
+        "T O YOTA\nSN(MATH)",
+        "TOYOTA\nSN(MATH)",
+        "BREAK",
+        "UDL\nJD(CS)",
+        "UDL\nSF(ENG)",
+        "IT\nUQ(PHY)",
+        "IT\nSDP(Lifestyle)",
+        "IT\nSDP(Power BI)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII CS",
+      "section": "JAM",
+      "location": "",
+      "periods": [
+        "MS(MATH)",
+        "MS(MATH)",
+        "JD(CS)",
+        "BREAK",
+        "AT\nSF(ENG)",
+        "AT\nAA/JD(CS/PHY)",
+        "AT\nAA(PHY)",
+        "AT\nSDP(VIBE)",
+        "AT\nSDP(VIBE)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII CS",
+      "section": "KAISER",
+      "location": "",
+      "periods": [
+        "MM(URDU)",
+        "NF(ENG)",
+        "AT/KAISER\nAE/UQ(CS/PHY)",
+        "BREAK",
+        "UQ(PHY)",
+        "MS(MATH)",
+        "MS(MATH)",
+        "VOH\nSDP(Power BI)",
+        "VOH\nSDP(Lifestyle)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII CS",
+      "section": "CS-II",
+      "location": "",
+      "periods": [
+        "UDL\nLM/AA(CS/PHY)",
+        "UDL\nAA(PHY)",
+        "BREAK",
+        "JAM\nSY(ENG)",
+        "JAM\nKF(URDU)",
+        "SPORTS",
+        "UDL\nLM(CS)",
+        "UDL\nAL(MATH)",
+        "U DL\nAL(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII CS",
+      "section": "CS-III",
+      "location": "",
+      "periods": [
+        "CR-IV\nMK(MATH)",
+        "CR-IV\nMK(MATH)",
+        "BREAK",
+        "MCB\nAE/AA(CS/PHY)",
+        "MCB\nAA/AG(PHY)",
+        "MCB\nAE(CS)",
+        "MCB\nNF(ENG)",
+        "CR-I\nKF(URDU)",
+        "CR-I\nAE(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI COM",
+      "section": "GAT",
+      "location": "",
+      "periods": [
+        "ZK(ACC)",
+        "ZK(ACC)",
+        "KW(ECO)",
+        "SMH(BM)",
+        "BREAK",
+        "SK(POC)",
+        "MT(ISL)",
+        "MA(ENG)",
+        "AD(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI COM",
+      "section": "SAPP",
+      "location": "",
+      "periods": [
+        "SK(POC)",
+        "MA(ENG)",
+        "BREAK",
+        "DF(ECO)",
+        "QR(URDU)",
+        "SMH(BM)",
+        "ZK(ACC)",
+        "ZK(ACC)",
+        "SK(POC)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XI COM",
+      "section": "OHK",
+      "location": "CR-V",
+      "periods": [
+        "KW(ECO)",
+        "FK(POC)",
+        "FK(POC)",
+        "BREAK",
+        "AS(BM)",
+        "AD(URDU)",
+        "NA(ENG)",
+        "DF(ACC)",
+        "DF(ACC)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII COM",
+      "section": "BAS",
+      "location": "",
+      "periods": [
+        "NT(STAT)",
+        "AS(ACC)",
+        "BREAK",
+        "AS(ACC)",
+        "ZA(ENG)",
+        "YA(PST)",
+        "FK(BANK)",
+        "DA(CG)",
+        "QR(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Tuesday",
+      "group": "XII COM",
+      "section": "COM-I",
+      "location": "OHK",
+      "periods": [
+        "ZA(ENG)",
+        "SD(BNK)",
+        "SMH(STAT)",
+        "YA(PST)",
+        "BREAK",
+        "DA(CG)",
+        "AS(ACC)",
+        "AS(ACC)",
+        "SD(BNK)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 2
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI PM",
+      "section": "CR-I",
+      "location": "",
+      "periods": [
+        "MR/RK(PHY/CHE)",
+        "SDP(SY ENG)",
+        "SDP(SY ENG)",
+        "BREAK",
+        "SZ(URDU)",
+        "MU(BOT)",
+        "MR(PHY)",
+        "RK(CHE)",
+        "UH(ZOO)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI PM",
+      "section": "CR-II",
+      "location": "",
+      "periods": [
+        "FL(BIO LAB )",
+        "SDP(NF ENG)",
+        "SDP(NF ENG)",
+        "BREAK",
+        "MR/AQ(PHY/CHE",
+        "SA(ENG)",
+        "SS(ISL)",
+        "MR(PHY)",
+        "AQ(CHE)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI PM",
+      "section": "CR-III",
+      "location": "",
+      "periods": [
+        "AQ(CHE)",
+        "SDP(AK ENG)",
+        "SDP(AK ENG)",
+        "BREAK",
+        "SS(ISL)",
+        "AG/AQ(PHY/CHE)",
+        "FL(ZOO)",
+        "HD(URDU)",
+        "AG/AB(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII PM",
+      "section": "MCB",
+      "location": "",
+      "periods": [
+        "FS(CHE)",
+        "NY(URDU)",
+        "BREAK",
+        "FS/MD(CHE/PHY)",
+        "SDP(Clinical)",
+        "SDP(Clinical)",
+        "MD(PHY)",
+        "MU(BOT)",
+        "NZ(ZOO)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII PM",
+      "section": "MN",
+      "location": "",
+      "periods": [
+        "BB\nSM(PHY)",
+        "BB\nSM/UA(PHY/CHE)",
+        "BREAK",
+        "CR-I\nUA(CHE)",
+        "MN\nSDP(Lifestyle)",
+        "MN\nSDP(Lifestyle)",
+        "SHF(BIO LAB )",
+        "MN\nSY(ENG)",
+        "MN\nSHF(BOT)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII PM",
+      "section": "PM-I",
+      "location": "AA",
+      "periods": [
+        "AK(ENG)",
+        "FS(CHE)",
+        "BREAK",
+        "UH(ZOO)",
+        "NY(URDU)",
+        "MD(PHY)",
+        "SPORTS",
+        "SDP(Clinical)",
+        "SDP(Clinical)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII PM",
+      "section": "BUK",
+      "location": "",
+      "periods": [
+        "SR(CHE)",
+        "UH(ZOO)",
+        "BREAK",
+        "SM(PHY)",
+        "AK(ENG)",
+        "FL(BIO LAB )",
+        "FS/SM(PHY/CHE)",
+        "SDP(Lifestyle)",
+        "SDP(Lifestyle)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI PE",
+      "section": "BB",
+      "location": "",
+      "periods": [
+        "CR-II\nSA(ENG)",
+        "RK/HR(LABS)",
+        "HR(PHY)",
+        "BREAK",
+        "AC(MATH)",
+        "AC(MATH)",
+        "RK(CHE)",
+        "SDP(Marketing)",
+        "SDP(NF ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI PE",
+      "section": "UDL",
+      "location": "",
+      "periods": [
+        "HM(MATH)",
+        "HM(MATH)",
+        "SA(ENG)",
+        "BREAK",
+        "HR(PHY)",
+        "UA(CHE)",
+        "MN\nAH(ISL)",
+        "UA/HR(LABS)",
+        "QA\nSZ(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII PE",
+      "section": "QA",
+      "location": "",
+      "periods": [
+        "YA(PST)",
+        "AI(CHE)",
+        "BREAK",
+        "HK(PHY)",
+        "HK/UA(LABS)",
+        "HM(MATH)",
+        "HM(MATH)",
+        "AK(ENG)",
+        "SPORTS"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII PE",
+      "section": "DIW",
+      "location": "",
+      "periods": [
+        "HK(PHY)",
+        "HK(PHY)",
+        "BREAK",
+        "RT(ENG)",
+        "SN(MATH)",
+        "SN(MATH)",
+        "NY(URDU)",
+        "AI(CHE)",
+        "HK/UA(LABS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI CS",
+      "section": "CRES",
+      "location": "",
+      "periods": [
+        "AUDI\nMH/LM(LABS)",
+        "SPORTS",
+        "KASIER\nRA(MATH)",
+        "BREAK",
+        "AT\nSDP(PYTHON)",
+        "AT\nSDP(PYTHON)",
+        "UDL\nZQ(PHY)",
+        "UDL\nZA(ENG)",
+        "UDL\nAH(ISL)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI CS",
+      "section": "CR-V",
+      "location": "TOYOTA",
+      "periods": [
+        "ZQ(PHY)",
+        "KJ(MATH)",
+        "SL(CS)",
+        "BREAK",
+        "SDP(SF ENG)",
+        "SDP(Marketing)",
+        "AD(URDU)",
+        "ZQ/SL(PHY/CS)",
+        "ZQ(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI CS",
+      "section": "CR-IV",
+      "location": "",
+      "periods": [
+        "ASR(CS)",
+        "MA(ENG)",
+        "AT\nASR/MH(LABS)",
+        "MH(PHY)",
+        "BREAK",
+        "QR(URDU)",
+        "KJ(MATH)",
+        "KJ(MATH)",
+        "MH(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI CS",
+      "section": "TOYOTA",
+      "location": "",
+      "periods": [
+        "VOH\nNA(ENG)",
+        "VOH\nSDP(PYTHON)",
+        "VOH\nSDP(PYTHON)",
+        "VOH\nASR(CS)",
+        "BREAK",
+        "BUK\nKS(STATS)",
+        "JAM\nASR(CS)",
+        "JAM\nMK(MATH)",
+        "JAM\nMK(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI CS",
+      "section": "AA",
+      "location": "",
+      "periods": [
+        "IT\nAL(MATH)",
+        "IT\nSDP(PYTHON)",
+        "IT\nSDP(PYTHON)",
+        "IT\nSL(CS)",
+        "BREAK",
+        "SPORTS",
+        "GAT\nHD(URDU)",
+        "GAT\nKS(STATS)",
+        "GAT\nSL(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII CS",
+      "section": "AT",
+      "location": "KAISER",
+      "periods": [
+        "SN(MATH)",
+        "SF(ENG)",
+        "BREAK",
+        "UN(URDU)",
+        "UQ(PHY)",
+        "JD(CS)",
+        "SF(ENG)",
+        "NH(PST)",
+        "UQ/JD(PHY/CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII CS",
+      "section": "JAM",
+      "location": "",
+      "periods": [
+        "MS(MATH)",
+        "JD(CS)",
+        "BREAK",
+        "AA(PHY)",
+        "AD(URDU)",
+        "ZM(PST)",
+        "AT\nMH/JD(LABS)",
+        "SPORTS",
+        "DIW\nSF(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII CS",
+      "section": "KAISER",
+      "location": "",
+      "periods": [
+        "OHK\nUQ(PHY)",
+        "OHK\nNH(PST)",
+        "BREAK",
+        "CR-V\nAE(CS)",
+        "CR-V\nMS(MATH)",
+        "CR-V\nNF(ENG)",
+        "VOH\nMM(URDU)",
+        "VOH\nUQ(PHY)",
+        "VOH\nAE(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII CS",
+      "section": "CS-II",
+      "location": "",
+      "periods": [
+        "MN\nKF(URDU)",
+        "MN\nLM(CS)",
+        "MN\nAA(PHY)",
+        "MN\nAL(MATH)",
+        "BREAK",
+        "IT\nAA(PHY)",
+        "IT\nAL(MATH)",
+        "IT\nSDP(VIBE)",
+        "IT\nSDP(VIBE)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII CS",
+      "section": "CS-III",
+      "location": "CRES",
+      "periods": [
+        "AA/AG(PHY)",
+        "ZM(PST)",
+        "MK(MATH)",
+        "KF(URDU)",
+        "BREAK",
+        "AE/MH/(LABS)",
+        "AE(CS)",
+        "NF(ENG)",
+        "AA(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI COM",
+      "section": "GAT",
+      "location": "",
+      "periods": [
+        "SK(POC)",
+        "ZK(ACC)",
+        "KW(ECO)",
+        "MA(ENG)",
+        "BREAK",
+        "SMH(BM)",
+        "SPORTS",
+        "AT\nDF(SDP EXCEL)",
+        "AT\nDF(SDP EXCEL)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI COM",
+      "section": "SAPP",
+      "location": "",
+      "periods": [
+        "ZK(ACC)",
+        "SK(POC)",
+        "SMH(BM)",
+        "BREAK",
+        "MT(ISL)",
+        "SK(POC)",
+        "MA(ENG)",
+        "SDP(SF ENG)",
+        "SDP(Marketing)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XI COM",
+      "section": "OHK",
+      "location": "CR-V",
+      "periods": [
+        "KW(ECO)",
+        "AS(BM)",
+        "DF(ACC)",
+        "BREAK",
+        "VOH\nDF(SDP EXCEL)",
+        "VOH\nDF(SDP EXCEL)",
+        "MT(ISL)",
+        "NA(ENG)",
+        "FK(POC)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII COM",
+      "section": "BAS",
+      "location": "",
+      "periods": [
+        "FK(BANK)",
+        "ZA(ENG)",
+        "BREAK",
+        "SDP\nKS(FINANCE)",
+        "SDP\nKS(FINANCE)",
+        "DA(CG)",
+        "FK(BANK)",
+        "AS(ACC)",
+        "QR(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Wednesday",
+      "group": "XII COM",
+      "section": "COM-I",
+      "location": "OHK",
+      "periods": [
+        "AT\nSDP KS(FINANCE)",
+        "AT\nSDP KS(FINANCE)",
+        "SD(BNK)",
+        "DA(CG)",
+        "BREAK",
+        "ZA(ENG)",
+        "KF(URDU)",
+        "SMH(STAT)",
+        "AS(ACC)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 3
+    },
+    {
+      "day": "Thursday",
+      "group": "XI PM",
+      "section": "CR-I",
+      "location": "",
+      "periods": [
+        "SHF(BIO LAB )",
+        "MCB\nMU(BOT)",
+        "BREAK",
+        "UH(ZOO)",
+        "RK(CHE)",
+        "MR(PHY)",
+        "SZ(URDU)",
+        "MR/RK(LABS)",
+        "SA(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI PM",
+      "section": "CR-II",
+      "location": "",
+      "periods": [
+        "MR(PHY)",
+        "HD(URDU)",
+        "BREAK",
+        "MR(PHY)",
+        "SHF(BOT)",
+        "FL(ZOO)",
+        "SA(ENG)",
+        "MCB\nAQ(CHE)",
+        "SHF(BIO LAB )"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI PM",
+      "section": "CR-III",
+      "location": "",
+      "periods": [
+        "AQ(CHE)",
+        "AQ(CHE)",
+        "BREAK",
+        "NA(ENG)",
+        "AG/AQ(PHY/CHE)",
+        "AG/AB(PHY)",
+        "SHF(BOT)",
+        "SS(ISL)",
+        "HD(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII PM",
+      "section": "MCB",
+      "location": "",
+      "periods": [
+        "RT(ENG)",
+        "FS/MD(LABS)",
+        "NZ(ZOO)",
+        "NY(URDU)",
+        "BREAK",
+        "FS(CHE)",
+        "MD(PHY)",
+        "MU(BIO LAB )",
+        "MU(BOT)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII PM",
+      "section": "MN",
+      "location": "",
+      "periods": [
+        "UA(CHE)",
+        "NZ(ZOO)",
+        "NH(PST)",
+        "SY(ENG)",
+        "BREAK",
+        "UN(URDU)",
+        "SPORTS",
+        "CR-II\nSM(PHY)",
+        "AG/AQ(LABS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII PM",
+      "section": "PM-I",
+      "location": "CR-V",
+      "periods": [
+        "FS/MD(LABS)",
+        "UH(ZOO)",
+        "AK(ENG)",
+        "MD(PHY)",
+        "BREAK",
+        "MU(BOT)",
+        "ZM(PST)",
+        "FS(CHE)",
+        "MD(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII PM",
+      "section": "BUK",
+      "location": "",
+      "periods": [
+        "SM(PHY)",
+        "SM(PHY)",
+        "MU(BOT)",
+        "FS/SM(CHE/PHY)",
+        "BREAK",
+        "KF(URDU)",
+        "UH(ZOO)",
+        "SR(CHE)",
+        "AK(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI PE",
+      "section": "BB",
+      "location": "",
+      "periods": [
+        "AH(ISL)",
+        "RK(CHE)",
+        "BREAK",
+        "SA(ENG)",
+        "SZ(URDU)",
+        "AC(MATH)",
+        "RK/HR(LABS)",
+        "SPORTS",
+        "TOYOTA\nHR(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI PE",
+      "section": "UDL",
+      "location": "",
+      "periods": [
+        "SDP(SF ENG)",
+        "SDP(Marketing)",
+        "BREAK",
+        "UA/HR(CHE/PHY)",
+        "HR(PHY)",
+        "UA(CHE)",
+        "AH(ISL)",
+        "HM(MATH)",
+        "HM(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII PE",
+      "section": "QA",
+      "location": "",
+      "periods": [
+        "SDP(Lifestyle)",
+        "SDP(Power BI)",
+        "HM(MATH)",
+        "AI(CHE)",
+        "BREAK",
+        "AK(ENG)",
+        "MM(URDU)",
+        "HK(PHY)",
+        "HK(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII PE",
+      "section": "DIW",
+      "location": "",
+      "periods": [
+        "VOH\nSDP(VIBE)",
+        "VOH\nSDP(VIBE)",
+        "HK/AI(PHY/CHE)",
+        "YA(PST)",
+        "BREAK",
+        "SN(MATH)",
+        "SN(MATH)",
+        "AI(CHE)",
+        "RT(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI CS",
+      "section": "CRES",
+      "location": "",
+      "periods": [
+        "ZQ(PHY)",
+        "ZA(ENG)",
+        "BREAK",
+        "SDP(Marketing)",
+        "SDP(SY ENG)",
+        "LM(CS)",
+        "RA(MATH)",
+        "RA(MATH)",
+        "ZQ/LM(PHY/CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI CS",
+      "section": "CR-V",
+      "location": "",
+      "periods": [
+        "AA\nMA(ENG)",
+        "AA\nZQ(PHY)",
+        "BREAK",
+        "IT\nSDP(PYTHON)",
+        "IT\nSDP(PYTHON)",
+        "IT\nZQ(PHY)",
+        "BB\nSL(CS)",
+        "BB\nZQ/SL(PHY/CS)",
+        "BB\nKJ(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI CS",
+      "section": "CR-IV",
+      "location": "",
+      "periods": [
+        "ASR(CS)",
+        "MH(PHY)",
+        "SDP(Marketing)",
+        "SDP(SF ENG)",
+        "BREAK",
+        "SPORTS",
+        "KJ(MATH)",
+        "MA(ENG)",
+        "ASR(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI CS",
+      "section": "TOYOTA",
+      "location": "",
+      "periods": [
+        "MK(MATH)",
+        "NA(ENG)",
+        "ASR(CS)",
+        "BREAK",
+        "KS(STATS)",
+        "KS(STATS)",
+        "ASR(CS)",
+        "SPORTS",
+        "CR-II\nMK(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI CS",
+      "section": "AA",
+      "location": "",
+      "periods": [
+        "KAISER\nSL(CS)",
+        "KAISER\nKS(STAT)",
+        "KAISER\nMT(ISL)",
+        "BREAK",
+        "CR-IV\nAL(MATH)",
+        "CR-IV\nAL(MATH)",
+        "MN\nHD(URDU)",
+        "MN\nNA(ENG)",
+        "MN\nKS(STATS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII CS",
+      "section": "AT",
+      "location": "",
+      "periods": [
+        "DIW\nSN(MATH)",
+        "DIW\nSN(MATH)",
+        "BREAK",
+        "KAISER\nUQ/JD (PHY/CS)",
+        "KAISER\nNH(PST)",
+        "AT\nMH/JD(LABS)",
+        "GAT\nSDP(VIBE)",
+        "GAT\nSDP(VIBE)",
+        "GAT\nUQ(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII CS",
+      "section": "JAM",
+      "location": "",
+      "periods": [
+        "JD(CS)",
+        "AA(PHY)",
+        "MS(MATH)",
+        "MS(MATH)",
+        "BREAK",
+        "SF(ENG)",
+        "SDP(Power BI)",
+        "SDP(Lifestyle)",
+        "AA(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII CS",
+      "section": "KAISER",
+      "location": "",
+      "periods": [
+        "CR-V\nMS(MATH)",
+        "SPORTS",
+        "AA\nUQ(PHY)",
+        "AA\nAE(CS)",
+        "BREAK",
+        "KAISER\nAE(CS)",
+        "KAISER\nSDP(VIBE)",
+        "K A ISER\nSDP(VIBE)",
+        "K A ISER\nMS(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII CS",
+      "section": "CS-II",
+      "location": "",
+      "periods": [
+        "IT\nLM(CS)",
+        "IT\nSDP(Power BI)",
+        "IT\nSDP(Lifestyle)",
+        "BREAK",
+        "AT\nLM/MH(LABS)",
+        "VOH\nAA(PHY)",
+        "SAPP\nSY(ENG)",
+        "SAPP\nZM(PST)",
+        "SAPP\nAL(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII CS",
+      "section": "CS-III",
+      "location": "",
+      "periods": [
+        "CR-I\nAA/AG(PHY)",
+        "CR-I\nSDP(Lifestyle)",
+        "VOH\nSDP(Power BI)",
+        "BREAK",
+        "AA\nMK(MATH)",
+        "AA\nMK(MATH)",
+        "AA\nNF(ENG)",
+        "AA\nAE/AA(CS/PHY)",
+        "AA\nAE(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI COM",
+      "section": "GAT",
+      "location": "",
+      "periods": [
+        "KW(ECO)",
+        "ZK(ACC)",
+        "SK(POC)",
+        "BREAK",
+        "AD(URDU)",
+        "MA(ENG)",
+        "IT\nSDP(Marketing)",
+        "IT\nSDP(SY ENG)",
+        "IT\nSK(POC)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI COM",
+      "section": "SAPP",
+      "location": "",
+      "periods": [
+        "ZK(ACC)",
+        "SK(POC)",
+        "SMH(BM)",
+        "BREAK",
+        "DF(ECO)",
+        "MT(ISL)",
+        "VOH\nDF(SDP EXCEL)",
+        "VOH\nDF(SDP EXCEL)",
+        "VOH\nQR(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XI COM",
+      "section": "OHK",
+      "location": "",
+      "periods": [
+        "FK(POC)",
+        "DF(ACC)",
+        "KW(ECO)",
+        "BREAK",
+        "AS(BM)",
+        "NA(ENG)",
+        "AS(BM)",
+        "AD(URDU)",
+        "FK(POC)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII COM",
+      "section": "BAS",
+      "location": "",
+      "periods": [
+        "DA(CG)",
+        "SMH(STAT)",
+        "BREAK",
+        "VOH\nSDP(E-COMM)",
+        "VOH\nSDP(E-COMM)",
+        "ZA(ENG)",
+        "FK(BANK)",
+        "AS(ACC)",
+        "YA(PST)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Thursday",
+      "group": "XII COM",
+      "section": "COM-I",
+      "location": "",
+      "periods": [
+        "AT\nSDP(E-COMM)",
+        "AT\nSDP(E-COMM)",
+        "AT\nAS(ACC)",
+        "BREAK",
+        "JAM\nDA(CG)",
+        "SPORTS",
+        "AT\nSMH(STAT)",
+        "AT\nSD(BNK)",
+        "AT\nKF(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20",
+        "12:20-01:00",
+        "01:00-01:40",
+        "01:40-02:20"
+      ],
+      "page": 4
+    },
+    {
+      "day": "Friday",
+      "group": "XI PM",
+      "section": "CR-I",
+      "location": "",
+      "periods": [
+        "MR(PHY)",
+        "MR(PHY)",
+        "BREAK",
+        "UH(ZOO)",
+        "RK(CHE)",
+        "SA(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI PM",
+      "section": "CR-II",
+      "location": "",
+      "periods": [
+        "HD(URDU)",
+        "BREAK",
+        "CR-I\nFL(ZOO)",
+        "MR(PHY)",
+        "AQ(CHE)",
+        "MR/AQ(PHY/CHE)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI PM",
+      "section": "CR-III",
+      "location": "",
+      "periods": [
+        "AG/AB(PHY)",
+        "AQ(CHE)",
+        "BREAK",
+        "SHF(BOT)",
+        "FL(ZOO)",
+        "NA(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII PM",
+      "section": "MCB",
+      "location": "",
+      "periods": [
+        "MD(PHY)",
+        "RT(ENG)",
+        "BREAK",
+        "FS(CHE)",
+        "ZM(PST)",
+        "NY(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII PM",
+      "section": "MN",
+      "location": "",
+      "periods": [
+        "UA(CHE)",
+        "SM(PHY)",
+        "NH(PST)",
+        "BREAK",
+        "NZ(ZOO)",
+        "SY(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII PM",
+      "section": "PM-I",
+      "location": "",
+      "periods": [
+        "FL(BIO LAB )",
+        "CR-II\nFS(CHE)",
+        "CR-II\nMU(BOT)",
+        "BREAK",
+        "BUK\nMD(PHY)",
+        "BUK\nFS/MD(CHE/PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII PM",
+      "section": "BUK",
+      "location": "",
+      "periods": [
+        "SR(CHE)",
+        "AK(ENG)",
+        "KF(URDU)",
+        "BREAK",
+        "JAM\nSM(PHY)",
+        "MU(BIO LAB )"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI PE",
+      "section": "BB",
+      "location": "",
+      "periods": [
+        "SZ(URDU)",
+        "AC(MATH)",
+        "RK/HR(CHE/PHY)",
+        "SA(ENG)",
+        "BREAK",
+        "HR(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI PE",
+      "section": "UDL",
+      "location": "",
+      "periods": [
+        "HR(PHY)",
+        "UA(CHE)",
+        "SA(ENG)",
+        "UA/HR(CHE/PHY)",
+        "BREAK",
+        "HM(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII PE",
+      "section": "QA",
+      "location": "",
+      "periods": [
+        "HK/AI(PHY/CHE)",
+        "AI(CHE)",
+        "BREAK",
+        "HM(MATH)",
+        "MM(URDU)",
+        "AK(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII PE",
+      "section": "DIW",
+      "location": "",
+      "periods": [
+        "RT(ENG)",
+        "SN(MATH)",
+        "YA(PST)",
+        "BREAK",
+        "AI(CHE)",
+        "HK/UA(LABS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI CS",
+      "section": "CRES",
+      "location": "",
+      "periods": [
+        "ZQ(PHY)",
+        "ZA(ENG)",
+        "BREAK",
+        "QR(URDU)",
+        "LM(CS)",
+        "RA(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI CS",
+      "section": "CR-V",
+      "location": "GAT",
+      "periods": [
+        "AD(URDU)",
+        "KJ(MATH)",
+        "KJ(MATH)",
+        "BREAK",
+        "MA(ENG)",
+        "SL(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI CS",
+      "section": "CR-IV",
+      "location": "",
+      "periods": [
+        "QR(URDU)",
+        "MA(ENG)",
+        "ASR/MH(LABS)",
+        "BREAK",
+        "KJ(MATH)",
+        "KJ(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI CS",
+      "section": "TOYOTA",
+      "location": "",
+      "periods": [
+        "KS(STATS)",
+        "NA(ENG)",
+        "MK(MATH)",
+        "BREAK",
+        "SS(ISL)",
+        "HD(URDU)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI CS",
+      "section": "AA",
+      "location": "",
+      "periods": [
+        "SL(CS)",
+        "SL(CS)",
+        "BREAK",
+        "NA(ENG)",
+        "AL(MATH)",
+        "KS(STATS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII CS",
+      "section": "AT",
+      "location": "JAM",
+      "periods": [
+        "UN(URDU)",
+        "UQ(PHY)",
+        "SN(MATH)",
+        "SF(ENG)",
+        "BREAK",
+        "JD(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII CS",
+      "section": "JAM",
+      "location": "IT-LAB",
+      "periods": [
+        "IT\nMH/JD(LABS)",
+        "IT\nSF(ENG)",
+        "IT\nAD(URDU)",
+        "IT\nJD(CS)",
+        "BREAK",
+        "IT\nMS(MATH)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII CS",
+      "section": "KAISER",
+      "location": "",
+      "periods": [
+        "KAISER\nAE/UQ(CS/PHY)",
+        "KAISER\nNF(ENG)",
+        "BREAK",
+        "AT\nMS(MATH)",
+        "AT\nAE/MH(LABS)",
+        "AT\nUQ(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII CS",
+      "section": "CS-II",
+      "location": "VOH",
+      "periods": [
+        "AA(PHY)",
+        "LM/MH(LABS)",
+        "AL(MATH)",
+        "BREAK",
+        "SY(ENG)",
+        "LM(CS)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII CS",
+      "section": "CS-III",
+      "location": "",
+      "periods": [
+        "AT\nSDP(VIBE)",
+        "AT\nSDP(VIBE)",
+        "KAISER\nZM(PST)",
+        "KAISER\nMK(MATH)",
+        "BREAK",
+        "KAISER\nAA/AG(PHY)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI COM",
+      "section": "GAT",
+      "location": "CR-V",
+      "periods": [
+        "ZK(ACC)",
+        "ZK(ACC)",
+        "KW(ECO)",
+        "BREAK",
+        "SK(POC)",
+        "SMH(BM)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI COM",
+      "section": "SAPP",
+      "location": "",
+      "periods": [
+        "DF(ECO)",
+        "SK(POC)",
+        "BREAK",
+        "GAT\nMA(ENG)",
+        "DF(ECO)",
+        "ZK(ACC)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XI COM",
+      "section": "OHK",
+      "location": "",
+      "periods": [
+        "FK(POC)",
+        "KW(ECO)",
+        "MT(ISL)",
+        "BREAK",
+        "AD(URDU)",
+        "DF(ACC)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII COM",
+      "section": "BAS",
+      "location": "",
+      "periods": [
+        "AUDI\nSMH(STAT)",
+        "SPORTS",
+        "SAPP\nFK(BANK)",
+        "SAPP\nAS(ACC)",
+        "BREAK",
+        "DIW\nDA(CG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    },
+    {
+      "day": "Friday",
+      "group": "XII COM",
+      "section": "COM-I",
+      "location": "BAS",
+      "periods": [
+        "DA(CG)",
+        "AS(ACC)",
+        "SD(BNK)",
+        "SMH(STAT)",
+        "BREAK",
+        "ZA(ENG)"
+      ],
+      "times": [
+        "8:15-09:00",
+        "09:00-9:40",
+        "09:40-10:20",
+        "10:20-11:00",
+        "11:00-11:40",
+        "11:40-12:20"
+      ],
+      "page": 5
+    }
+  ],
+  "note": "Five-page public class timetable. Row groups matched against the original layout; codes retained without guessing teacher names. No independent college review."
+}

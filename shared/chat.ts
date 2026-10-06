@@ -20,7 +20,7 @@ export interface ChatProgress { phase: ProgressPhase; reason?: 'timeout' }
 export type ChatEvent =
   | { event: 'progress'; data: ChatProgress }
   | { event: 'status'; data: { lane: Lane } }
-  | { event: 'meta'; data: { mode: Lane; cached: boolean; local?: boolean; fallback?: boolean; verifiedAt?: number } }
+  | { event: 'meta'; data: { mode: Lane; cached: boolean; local?: boolean; fallback?: boolean; verifiedAt?: number; notice?: 'privacy' | 'security' } }
   | { event: 'chunk'; data: { text: string } }
   | { event: 'sources'; data: { sources: Source[] } }
   | { event: 'contact'; data: Contact }

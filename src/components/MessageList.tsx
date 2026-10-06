@@ -35,7 +35,7 @@ export default function MessageList() {
       </section> : <>
         <div className="conversation-heading">Your conversation with Commecs</div>
         {messages.map((msg, index) => <MessageBubble key={msg.id} message={msg} retryMessage={index === messages.length - 1 ? retryMessage : undefined} />)}
-        {!busy && last?.status === 'complete' && (!last.fallback || sources.length > 0) && followUps.length > 0 && <div className="follow-ups"><span>{resolveLanguage(question, language) === 'ur' ? 'مزید جانیں' : resolveLanguage(question, language) === 'roman' ? 'Mazeed janein' : 'Keep exploring'}</span>{followUps.map(s => <button key={s.question} onClick={() => choose(s.question)}>{s.label}</button>)}</div>}
+        {!busy && last?.status === 'complete' && !last.notice && (!last.fallback || sources.length > 0) && followUps.length > 0 && <div className="follow-ups"><span>{resolveLanguage(question, language) === 'ur' ? 'مزید جانیں' : resolveLanguage(question, language) === 'roman' ? 'Mazeed janein' : 'Keep exploring'}</span>{followUps.map(s => <button key={s.question} onClick={() => choose(s.question)}>{s.label}</button>)}</div>}
       </>}
       </div>
     </div>

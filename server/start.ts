@@ -11,5 +11,5 @@ app.get('*', serveStatic({ path: './dist/index.html' }));
 const port = Number(process.env.PORT || 3000);
 serve({ fetch: app.fetch, port, hostname: '127.0.0.1' });
 console.log(`Commecs Assistant: http://localhost:${port}`);
-console.log('Build: quality-20261005 | Local evidence + saved-source fallback enabled');
+console.log('Build: current-sources-20261006 | Local evidence + saved-source fallback enabled');
 

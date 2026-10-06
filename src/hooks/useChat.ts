@@ -38,7 +38,7 @@ async function sendMessage(value: string) {
   const history: ChatMessage[] = [];
   for (let i = 0; i + 1 < state.messages.length; i++) {
     const user = state.messages[i], bot = state.messages[i + 1];
-    if (user.role === 'user' && user.status === 'complete' && bot.role === 'bot' && bot.status === 'complete' && !bot.fallback && (!bot.finishReason || bot.finishReason === 'STOP')) history.push(user, bot);
+    if (user.role === 'user' && user.status === 'complete' && bot.role === 'bot' && bot.status === 'complete' && !bot.fallback && !bot.notice && (!bot.finishReason || bot.finishReason === 'STOP')) history.push(user, bot);
   }
   // A fallback/stopped reply is never model history. User questions can still
   // resolve "tell me more" without sending the failed answer back as evidence.

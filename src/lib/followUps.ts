@@ -2,6 +2,7 @@ import { resolveLanguage, type Language, type Source } from '../../shared/chat';
 import { planQuery } from '../../shared/queryPlan';
 type Suggestion = { label: string; question: string };
 const suggestions = {
+  timetable: [ ['Class timetable', 'Show the latest class timetable and available sections.'], ['Academic planner', 'Where can I find the academic planner and macro plans?'] ],
   devices: [ ['Contacting parents', 'How can students contact their parents if phones are not allowed on campus?'], ['Campus rules', 'What other rules should students follow on campus?'] ],
   campusRules: [ ['Attendance rules', 'What are the attendance and punctuality rules?'], ['Dress code', 'What is the student dress code?'] ],
   activities: [ ['Joining a club', 'How can students join clubs and societies at Commecs?'], ['Club activities', 'What activities and competitions can students take part in?'] ],
@@ -17,6 +18,8 @@ const suggestions = {
   faculty: [ ['Computer Science faculty', 'Who are the Computer Science teachers?'], ['Physics faculty', 'Who are the Physics teachers?'] ],
 } as const;
 const translations: Record<string, [string, string, string, string]> = {
+  'Class timetable': ['کلاس ٹائم ٹیبل', 'تازہ کلاس ٹائم ٹیبل اور دستیاب سیکشن دکھائیں۔', 'Class time table', 'Latest class timetable aur available sections batao.'],
+  'Academic planner': ['تعلیمی منصوبہ', 'تعلیمی منصوبہ اور میکرو پلان کہاں ملیں گے؟', 'Academic planner', 'Academic planner aur macro plans kahan milenge?'],
   'Contacting parents': ['والدین سے رابطہ', 'اگر کیمپس میں فون کی اجازت نہیں تو طلبہ والدین سے کیسے رابطہ کریں؟', 'Parents se rabta', 'Agar campus mein phones allowed nahi to students parents se kaise rabta karein?'],
   'Campus rules': ['کیمپس کے اصول', 'طلبہ کو کیمپس میں اور کون سے اصول اپنانے چاہئیں؟', 'Campus ke rules', 'Students ko campus mein aur kon se rules follow karne chahiye?'],
   'Attendance rules': ['حاضری کے اصول', 'حاضری اور وقت کی پابندی کے کیا اصول ہیں؟', 'Hazri ke rules', 'Hazri aur waqt ki pabandi ke kya rules hain?'],
@@ -49,6 +52,7 @@ const translations: Record<string, [string, string, string, string]> = {
 export function getFollowUps(question: string, sources: Source[] = [], preference: Language = 'auto', history: { role: string; text: string }[] = []): Suggestion[] {
   type Key = keyof typeof suggestions;
   let keys: Key[] = /faculty|teachers?|اساتذہ|استاد/i.test(question) ? ['faculty'] : planQuery(question, history).topics.map(t => t.id).filter(id => id in suggestions);
+  if(keys.includes('timetable'))keys=['timetable'];
   // Only a single specific source can resolve an otherwise unknown topic.
   // Broad documents or mixed search results must not invent relevance.
   if (!keys.length && sources.length === 1 && /^(tell me more|more|what about that|aur batao|مزید بتائیں)[?.؟!\s]*$/i.test(question.trim())) {

@@ -22,3 +22,12 @@ export function unsupportedNumericClaims(answer: string, evidence: string, quest
   }
   return [...claims].filter(n => !supported.has(n) && !values(question).has(n) && !calculations.has(n));
 }
+
+// Narrow completeness check for an inherited late-payment question. The amount
+// comes from an original supplied policy, not a hardcoded answer-bank value.
+export function missingLatePenalty(answer: string, contextualQuestion: string, originalPolicies: string[]) {
+  if (!(/\b(fees?|payment)\b|فیس/i.test(contextualQuestion) && /\b(late|overdue)\b|دیر|تاخیر|der se/i.test(contextualQuestion))) return false;
+  const penalties = new Set(originalPolicies.flatMap(text => [...normalize(text).matchAll(/penalty of\s*(?:Rs\.?|PKR)\s*(\d+(?:\.\d+)?)/gi)].map(m => Number(m[1]))));
+  // Conflicting/unknown source amounts require reasoning, not this narrow guard.
+  return penalties.size === 1 && ![...penalties].some(n => values(answer).has(n));
+}

@@ -1,6 +1,7 @@
-import { knowledgeEvidence, type Evidence } from './knowledge.js';
+import { knowledgeEvidence, selectEvidenceText, type Evidence } from './knowledge.js';
 import { searchTokens } from './queryPlan.js';
 import { getFacultyAnswer } from './faculty.js';
+import {getProgramAnswer} from './programs.js';
 import { resolveLanguage, type Preferences } from '../shared/chat.js';
 
 export function getSavedEvidence(message: string, history: { role: string; text: string }[], preferences: Preferences, supplied?: Evidence[]) {
@@ -15,8 +16,13 @@ export function getSavedEvidence(message: string, history: { role: string; text:
     : language === 'roman' ? 'Live AI abhi available nahi. Yeh saved official sources ke excerpts hain. Source ki date dekhein; yeh sawal ke sirf kuch hisson ka jawab de sakte hain.'
     : 'Live AI is temporarily unavailable. This fallback uses saved official-source extracts and reviewed college information. Check the source date; they may cover only part of your question.';
   if (faculty) return { ...faculty, answer: intro + '\n\n' + faculty.answer };
+  const programs=getProgramAnswer(message,preferences);
+  if(programs)return {...programs,answer:intro+'\n\n'+programs.answer};
   const coverage = knowledgeEvidence(message, history, preferences.responseStyle === 'concise' ? 2200 : 4500);
-  const candidates = supplied?.length ? supplied : coverage.evidence;
+  const candidates = (supplied?.length ? supplied : coverage.evidence).map(e => {
+    const excerpt = selectEvidenceText(e.text, coverage.plan.tokens, preferences.responseStyle === 'concise' ? 1600 : 2400);
+    return { ...e, text: excerpt.text, partial: e.partial || excerpt.partial };
+  }).filter(e => e.text.trim());
   const distinct = new Map<string, typeof candidates[number]>();
   for (const candidate of candidates) {
     const existing = distinct.get(candidate.source.url);

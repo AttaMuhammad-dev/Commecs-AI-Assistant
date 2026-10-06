@@ -13,7 +13,9 @@ import { getVerifiedAnswer } from './bank.js';
 import { distressReply } from './safety.js';
 import { acquireCapacity } from './capacity.js';
 import { getLocalGuideAnswer } from './localGuide.js';
-import { getFacultyAnswer } from './faculty.js';
+import { getFacultyAnswer, refreshPublicFaculty } from './faculty.js';
+import { getTimetableAnswer, checkTimetable } from './timetable.js';
+import { getProgramAnswer } from './programs.js';
 import { sourceWithDates } from './knowledge.js';
 import { resolveLanguage, type ChatEvent, type Lane } from '../shared/chat.js';
 import { selectAnswerSources } from '../shared/answerSources.js';
@@ -22,6 +24,7 @@ import { randomUUID } from 'node:crypto';
 import { acquireSharedTraffic, trafficMode } from './sharedTraffic.js';
 import { authorizedOperations, operationsSnapshot, recordOutcome, safeOutcomeCode, type Outcome } from './operations.js';
 import { sourceAuditSummary, withSourceCheck } from './sourceFreshness.js';
+import { boundaryResponse } from './boundaries.js';
 
 export const app = new Hono();
 app.use('/api/*', cors({
@@ -29,7 +32,7 @@ app.use('/api/*', cors({
   allowMethods: ['GET', 'POST', 'OPTIONS'], allowHeaders: ['Content-Type'], maxAge: 600,
 }));
 app.use('/api/chat', bodyLimit({ maxSize: 32768, onError: c => c.json({ code: 'BAD_REQUEST', message: 'Request too large.' }, 413) }));
-app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!process.env.GEMINI_API_KEY?.trim(), version: '2.6', build: 'quality-20261005', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null, trafficControl: trafficMode(), sourceAudit: sourceAuditSummary() }); });
+app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!process.env.GEMINI_API_KEY?.trim(), version: '2.7.0', build: 'current-sources-20261006', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null, trafficControl: trafficMode(), sourceAudit: sourceAuditSummary() }); });
 app.get('/api/metrics', c => { c.header('Cache-Control', 'no-store'); return authorizedOperations(c.req.header('Authorization')) ? c.json({ ...operationsSnapshot(), trafficControl: trafficMode(), sourceAudit: sourceAuditSummary() }) : c.json({ message: 'Not found' }, 404); });
 
 app.post('/api/chat', async c => {
@@ -47,17 +50,19 @@ app.post('/api/chat', async c => {
   const started = Date.now();
   const requestId = randomUUID(); c.header('X-Request-Id', requestId);
   const safety = distressReply(message);
-  const faculty = !safety ? getFacultyAnswer(message, retrievalHistory, preferences) : null;
-  const bankCandidate = !safety && !faculty && retrievalHistory.length === 0 && preferences.responseStyle === 'concise' ? getVerifiedAnswer(message, getKbVersion()) : null;
+  const notice = !safety ? boundaryResponse(message, preferences) : null;
+  const timetable = !safety && !notice ? getTimetableAnswer(message, retrievalHistory, preferences) : null;
+  const faculty = !safety && !notice && !timetable ? getFacultyAnswer(message, retrievalHistory, preferences) : null;
+  const bankCandidate = !safety && !notice && !faculty && !timetable && retrievalHistory.length === 0 && preferences.responseStyle === 'concise' ? getVerifiedAnswer(message, getKbVersion()) : null;
   const bank = bankCandidate && (preferences.language === 'auto' || bankCandidate.language === preferences.language) ? bankCandidate : null;
-  const local = faculty || (!safety && !bank ? getLocalGuideAnswer(message, preferences) : null);
+  let local = timetable || faculty || (!safety && !notice && !bank ? getProgramAnswer(message, preferences) || getLocalGuideAnswer(message, preferences) : null);
   const route = routeQuestion(message, retrievalHistory);
   const lane: Lane = bank ? 'verified' : route.lane;
-  const cached = !safety && !bank && !local && process.env.CACHE_ENABLED !== 'false' ? getCachedResponse(message, retrievalHistory, lane, preferences) : null;
-  let backup = !safety && !local && !bank ? getSavedEvidence(message, retrievalHistory, preferences) : null;
+  const cached = !safety && !notice && !bank && !local && process.env.CACHE_ENABLED !== 'false' ? getCachedResponse(message, retrievalHistory, lane, preferences) : null;
+  let backup = !safety && !notice && !local && !bank ? getSavedEvidence(message, retrievalHistory, preferences) : null;
   let locallyLimited = false;
   // Local answers do not spend provider quota and must remain available during a demo burst.
-  if (!safety && !bank && !local && !cached && !checkRateLimit(ip)) { if (backup) locallyLimited = true; else { c.header('Retry-After', '60'); return c.json({ code: 'RATE_LIMITED', message: 'Please wait before asking again.' }, 429); } }
+  if (!safety && !notice && !bank && !local && !cached && !checkRateLimit(ip)) { if (backup) locallyLimited = true; else { c.header('Retry-After', '60'); return c.json({ code: 'RATE_LIMITED', message: 'Please wait before asking again.' }, 429); } }
   c.header('Cache-Control', 'no-store');
   c.header('X-Accel-Buffering', 'no');
   return streamSSE(c, async stream => {
@@ -78,10 +83,16 @@ app.post('/api/chat', async c => {
     let outcome: Outcome = 'error', outcomeCode: string | undefined;
     try {
       await emit({ event: 'status', data: { lane } });
-      await emit({ event: 'meta', data: { mode: lane, cached: !!cached, local: !!local, verifiedAt: bank?.verifiedAt } });
-      const instant = safety || bank?.answer || local?.answer || cached?.text;
+      if ((faculty || timetable) && process.env.NODE_ENV !== 'test' && process.env.LIVE_WEBSITE_ENABLED !== 'false') {
+        await emit({ event: 'progress', data: { phase: 'website' } });
+        if(timetable) local=getTimetableAnswer(message,retrievalHistory,preferences,await checkTimetable(ac.signal));
+        else { const refreshed=await refreshPublicFaculty(ac.signal);if(!refreshed) await emit({event:'progress',data:{phase:'websiteSaved'}});local=getFacultyAnswer(message,retrievalHistory,preferences); }
+        if(ac.signal.aborted||stream.aborted) {outcome='cancelled';return;}
+      }
+      await emit({ event: 'meta', data: { mode: lane, cached: !!cached, local: !!local, verifiedAt: bank?.verifiedAt, ...(notice ? { notice: notice.notice } : {}) } });
+      const instant = safety || notice?.text || bank?.answer || local?.answer || cached?.text;
       if (instant) {
-        outcome = bank ? 'reviewed' : local ? 'local' : cached ? 'cached' : 'local';
+        outcome = notice ? 'guarded' : bank ? 'reviewed' : local ? 'local' : cached ? 'cached' : 'local';
         await emit({ event: 'progress', data: { phase: bank ? 'reviewed' : local ? 'saved' : cached ? 'cached' : 'service' } });
         await emit({ event: 'chunk', data: { text: instant } });
         const sources = selectAnswerSources(instant, bank ? bank.sources.map((source: import('../shared/chat.js').Source) => sourceWithDates(source, bank.verifiedAt)) : local?.sources || cached?.sources || []);

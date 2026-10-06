@@ -19,6 +19,8 @@ export default function MessageBubble({ message, retryMessage }: { message: Chat
   const busy = ['sending','streaming'].includes(message.status);
   const incomplete = message.status === 'stopped' || message.status === 'error' || (message.finishReason && message.finishReason !== 'STOP');
   const sources = selectAnswerSources(message.text, message.sources || []);
+  const replyLanguage=resolveLanguage(message.text,languagePreference);
+  const tableHint=replyLanguage==='ur'?'مکمل جدول دیکھنے کے لیے دائیں یا بائیں اسکرول کریں۔':replyLanguage==='roman'?'Poora table dekhne ke liye side mein scroll karein.':'Scroll sideways to view the full table.';
   async function copy() {
     try { await navigator.clipboard.writeText(message.text + (sources.length ? '\n\nSources:\n' + sources.map(s => s.title + ': ' + s.url).join('\n') : '')); setCopied(true); setCopyError(false); }
     catch { setCopyError(true); }
@@ -27,15 +29,15 @@ export default function MessageBubble({ message, retryMessage }: { message: Chat
   const whatsapp = message.contact?.whatsapp.replace(/\D/g, '').replace(/^0/, '92');
   const phone = message.contact?.landline.split('-').slice(0, 2).join('').replace(/\D/g, '').replace(/^0/, '92');
   return <article className={'message ' + (user ? 'user-message' : 'assistant-message')}>
-    {!user && <div className="message-label"><span className="assistant-avatar">C</span><strong>Commecs Assistant</strong><span className="answer-mode" title={message.verifiedAt ? "Reviewed " + new Date(message.verifiedAt).toLocaleDateString() : undefined}>{message.local ? 'Saved college information' : message.fallback ? 'Service update' : message.mode === 'verified' ? 'Reviewed answer' : message.cached ? 'Saved answer' : message.mode === 'thinking' ? 'Thoughtful answer' : 'College guide'}</span></div>}
+    {!user && <div className="message-label"><span className="assistant-avatar">C</span><strong>Commecs Assistant</strong><span className="answer-mode" title={message.verifiedAt ? "Reviewed " + new Date(message.verifiedAt).toLocaleDateString() : undefined}>{message.notice ? (resolveLanguage(message.text, languagePreference) === 'ur' ? 'اسسٹنٹ کی وضاحت' : resolveLanguage(message.text, languagePreference) === 'roman' ? 'Assistant ki wazahat' : 'Assistant notice') : message.local ? 'Saved college information' : message.fallback ? 'Service update' : message.mode === 'verified' ? 'Reviewed answer' : message.cached ? 'Saved answer' : message.mode === 'thinking' ? 'Thoughtful answer' : 'College guide'}</span></div>}
     {waiting ? <TypingIndicator progress={progress} /> : <div className={'message-text ' + (incomplete ? 'incomplete' : '')} dir="auto">
       {user ? <p>{message.text}</p> : <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
         a: ({ href, children }) => href && safeSourceUrl(href) ? <a href={href} target="_blank" rel="noopener noreferrer">{children}</a> : <span>{children}</span>,
-        table: ({ children }) => <div className="table-scroll"><table>{children}</table></div>,
+        table: ({ children }) => <><div className="table-scroll" role="region" aria-label={tableHint} tabIndex={0}><table>{children}</table></div><small className="table-scroll-hint" aria-hidden="true">{tableHint}</small></>,
       }}>{message.text}</ReactMarkdown>}
     </div>}
     {!user && sources.length > 0 && !busy && <SourceCards sources={sources} language={resolveLanguage(message.text, languagePreference)} />}
-    {!user && !busy && !incomplete && !message.fallback && !sources.length && <p className="incomplete-note">No college source was attached. Confirm college-specific details with admissions.</p>}
+    {!user && !busy && !incomplete && !message.fallback && !message.notice && !sources.length && <p className="incomplete-note">No college source was attached. Confirm college-specific details with admissions.</p>}
     {message.contact && <div className="contact-card"><strong>Talk to admissions</strong><a href={'tel:+' + phone}><Phone size={15} />{message.contact.landline}</a><a href={'https://wa.me/' + whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={15} /> WhatsApp admissions</a><a href={'mailto:' + message.contact.email}><Mail size={15} />{message.contact.email}</a></div>}
     {!user && !busy && <div className="message-actions">
       <button onClick={() => void copy()} aria-label="Copy answer">{copied ? <Check size={14} /> : <Copy size={14} />}{copied ? 'Copied' : 'Copy'}</button>

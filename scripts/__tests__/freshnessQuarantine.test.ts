@@ -10,7 +10,7 @@ describe('known-changed evidence quarantine', () => {
     const entry = bank.find(e => e.sources.some(s => s.url.includes('fee-payment-policy')))!;
     expect(entry).toBeTruthy(); expect(getVerifiedAnswer(entry.match[0], 0)).toBeNull();
     expect(getLocalGuideAnswer(guides.find(g => g.title === 'Eligibility')!.question, { language: 'en', responseStyle: 'concise' })).toBeNull();
-    expect(getLocalGuideAnswer('What programs do you offer?', { language: 'en', responseStyle: 'concise' })).not.toBeNull();
+    expect(getLocalGuideAnswer('Tell me about the history of Commecs College', { language: 'en', responseStyle: 'concise' })).not.toBeNull();
   });
   it('excludes original and reviewed passages linked to changed pages', () => {
     const evidence = retrieveEvidence('Explain the late fee penalty');

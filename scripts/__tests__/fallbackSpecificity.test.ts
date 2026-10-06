@@ -3,6 +3,13 @@ import { getSavedEvidence } from '../../server/savedEvidence';
 import type { Evidence } from '../../server/knowledge';
 import { selectAnswerSources } from '../../shared/answerSources';
 describe('specific evidence gaps during a fallback', () => {
+  it('keeps unavailable library-hour replies focused on library evidence', () => {
+    const source = { title: 'Facilities', url: 'https://commecscollege.edu.pk/faqs/', type: 'live' };
+    const supplied: Evidence[] = [{ source, sources: [source], kind: 'page', partial: false, text: '## Library\nA library with books supports students.\n\n## Cafeteria\n' + 'Lunch and coffee facilities. '.repeat(100) }];
+    const response = getSavedEvidence('What are the exact current library opening hours?', [], { language: 'en', responseStyle: 'detailed' }, supplied)!;
+    expect(response.answer).toContain('library with books'); expect(response.answer).not.toContain('Lunch and coffee');
+    expect(response.answer.length).toBeLessThan(1800); expect(response.answer).toContain('cannot confirm');
+  });
   it.each([
     ['en', 'cannot confirm'], ['ur', 'تصدیق نہیں ہو سکی'], ['roman', 'confirm nahi ho sakeen'],
   ] as const)('labels unknown named-club availability in %s without declaring it absent', (language, warning) => {

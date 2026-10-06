@@ -5,12 +5,12 @@ export interface ChatMessage {
   mode?: 'fast' | 'thinking' | 'verified'; contact?: Contact;
   status: 'sending' | 'streaming' | 'complete' | 'error' | 'stopped';
   createdAt: number; cached?: boolean; local?: boolean; fallback?: boolean; verifiedAt?: number;
-  finishReason?: FinishReason; feedback?: 'up' | 'down';
+  finishReason?: FinishReason; feedback?: 'up' | 'down'; notice?: 'privacy' | 'security';
 }
 export interface BotChunk {
   progress?: ChatProgress;
   text?: string; sources?: Source[]; mode?: Lane | 'thinking'; contact?: Contact;
-  cached?: boolean; local?: boolean; fallback?: boolean; verifiedAt?: number; finishReason?: FinishReason;
+  cached?: boolean; local?: boolean; fallback?: boolean; verifiedAt?: number; finishReason?: FinishReason; notice?: 'privacy' | 'security';
 }
 export interface RequestProgress {
   conversationId: string; messageId: string; startedAt: number;

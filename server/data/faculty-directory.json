@@ -1,8 +1,8 @@
 {
   "source": "https://commecscollege.edu.pk/faculty/",
-  "sourceModified": "2025-07-17T07:04:03",
-  "retrievedAt": "2026-09-29T07:54:43.714Z",
-  "contentHash": "ced729d4422d211a2d5dcbd8bc13d56c49c453dd9e036fdf87e832114340ede5",
+  "sourceModified": "",
+  "retrievedAt": "2026-10-06T01:34:41.356Z",
+  "contentHash": "e3e7414abf7f3ae352c6bd3ea3c4fdefe5701b93c45c04eb3d68eff38072f160",
   "records": [
     {
       "department": "Academic Management",
@@ -186,15 +186,6 @@
       "qualification": "BCS (Computer Science)",
       "roles": [
         "Lecturer"
-      ]
-    },
-    {
-      "department": "IT and Computer Sc.",
-      "name": "Muhammad Jawwad",
-      "qualification": "M.S Software Engineering",
-      "roles": [
-        "Lecturer",
-        "HOD - Computer Science"
       ]
     },
     {
@@ -383,14 +374,6 @@
       "roles": [
         "Assistant Professor",
         "(H.O.D - Mathametics)"
-      ]
-    },
-    {
-      "department": "Mathematics",
-      "name": "M. Sayem Hanif",
-      "qualification": "MS (Applied Mathematics)",
-      "roles": [
-        "Assistant Professor"
       ]
     },
     {
