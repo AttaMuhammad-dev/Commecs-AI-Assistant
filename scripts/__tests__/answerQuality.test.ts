@@ -75,7 +75,8 @@ describe('answer quality and citation boundaries', () => {
   });
   it('avoids repeated history and reviewed extracts from the same source in a concise fallback', () => {
     const result = getSavedEvidence('Programs offered', [], { language: 'en', responseStyle: 'concise' });
-    expect(result?.answer).toContain('Intermediate programme'); expect(result?.answer).not.toContain('History and Background');
-    expect(result?.answer.match(/Read the official source/g)).toHaveLength(1);
+    expect(result?.answer).toContain('Intermediate groups'); expect(result?.answer).not.toContain('History and Background');
+    expect(result?.answer).not.toContain('Humanities');
+    expect(result?.sources.map(s=>s.url)).toEqual(['https://commecscollege.edu.pk/instructions-for-admission/','https://commecscollege.edu.pk/eligibility/']);
   });
 });

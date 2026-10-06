@@ -10,6 +10,13 @@ beforeEach(() => { resetQuotaForTests(); vi.stubEnv('MODEL_LADDER_FAST', 'gemini
 afterEach(() => vi.unstubAllEnvs());
 const run = (provider: StreamProvider, received: string[] = []) => generateChatStream('A completely unknown campus fact', [], new AbortController().signal, 'fast', t => { received.push(t); }, () => undefined, undefined, provider, { buffered: true, requireSources: true });
 describe('buffered live replies', () => {
+  it('retries an incomplete late-fee follow-up before releasing its text', async () => {
+    let calls = 0; const received: string[] = [];
+    await generateChatStream('Tell me more', [], new AbortController().signal, 'fast', text => { received.push(text); }, () => undefined, undefined,
+      async () => (async function* () { yield chunk(++calls === 1 ? 'Readmission costs Rs.10000.' : 'The late penalty is Rs.1000. Readmission costs Rs.10000.', 'STOP'); })(),
+      { buffered: true, requireSources: true, questionContext: 'What happens if college fees are paid late?' });
+    expect(calls).toBe(2); expect(received).toEqual(['The late penalty is Rs.1000. Readmission costs Rs.10000.']);
+  });
   it('rejects an invented fee before releasing text, then retries with the supported amount', async () => {
     let calls = 0; const received: string[] = [];
     await generateChatStream('Explain the late payment fee', [], new AbortController().signal, 'fast', text => { received.push(text); }, () => undefined, undefined,

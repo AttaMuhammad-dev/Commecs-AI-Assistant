@@ -1,4 +1,4 @@
 {
   "extends": "./tsconfig.server.json",
-  "include": ["eval/qualityCases.ts", "eval/qualityScoring.ts", "eval/checkQualityEvidence.ts", "eval/run-quality.ts", "scripts/checkKnowledgeFreshness.ts", "scripts/lib/freshness.ts", "scripts/types/*.d.ts"]
+  "include": ["eval/qualityCases.ts", "eval/qualityScoring.ts", "eval/checkQualityEvidence.ts", "eval/run-quality.ts", "scripts/checkKnowledgeFreshness.ts", "scripts/checkCurrentSources.ts", "scripts/lib/freshness.ts", "scripts/types/*.d.ts"]
 }

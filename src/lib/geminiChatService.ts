@@ -21,7 +21,7 @@ export async function* streamGeminiResponse(userMessage: string, history: ChatMe
     if (event === 'progress' && PROGRESS_PHASES.includes(data.phase as ProgressPhase)) yield { progress: { phase: data.phase as ProgressPhase, ...(data.reason === 'timeout' ? { reason: 'timeout' as const } : {}) } };
     if (event === 'chunk' && typeof data.text === 'string') yield { text: data.text };
     if (event === 'status' && ['fast','deep','verified'].includes(String(data.lane))) yield { mode: data.lane as 'fast' | 'deep' | 'verified' };
-    if (event === 'meta') yield { cached: data.cached === true, local: data.local === true, fallback: data.fallback === true, verifiedAt: typeof data.verifiedAt === 'number' ? data.verifiedAt : undefined };
+    if (event === 'meta') yield { cached: data.cached === true, local: data.local === true, fallback: data.fallback === true, verifiedAt: typeof data.verifiedAt === 'number' ? data.verifiedAt : undefined, ...(data.notice === 'privacy' || data.notice === 'security' ? { notice: data.notice } : {}) };
     if (event === 'sources' && Array.isArray(data.sources)) yield { sources: sanitizeSources(data.sources) };
     if (event === 'contact' && typeof data.email === 'string' && typeof data.landline === 'string' && typeof data.whatsapp === 'string') yield { contact: { email: data.email, landline: data.landline, whatsapp: data.whatsapp } };
     if (event === 'done') { finished = true; yield { finishReason: ['STOP','MAX_TOKENS','BLOCKED','INTERRUPTED'].includes(String(data.finishReason)) ? data.finishReason as FinishReason : 'INTERRUPTED' }; break; }

@@ -1,6 +1,6 @@
 import { timingSafeEqual } from 'node:crypto';
-export type Outcome = 'live' | 'cached' | 'reviewed' | 'local' | 'saved' | 'service' | 'cancelled' | 'error';
-const outcomes: Outcome[] = ['live', 'cached', 'reviewed', 'local', 'saved', 'service', 'cancelled', 'error'];
+export type Outcome = 'live' | 'cached' | 'reviewed' | 'local' | 'guarded' | 'saved' | 'service' | 'cancelled' | 'error';
+const outcomes: Outcome[] = ['live', 'cached', 'reviewed', 'local', 'guarded', 'saved', 'service', 'cancelled', 'error'];
 const startedAt = Date.now();
 const counts = Object.fromEntries(outcomes.map(o => [o, 0])) as Record<Outcome, number>;
 const recent: { outcome: Outcome; durationMs: number }[] = [];

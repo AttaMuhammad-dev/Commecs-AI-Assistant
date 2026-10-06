@@ -6,6 +6,7 @@ export function isDeviceQuestion(text: string) {
 }
 // Search concepts expand natural phrasing; they never assert that a facility exists.
 const concepts = [
+  { id: 'timetable', match: /\b(time\s*table|class (?:schedule|timings)|periods?|weekly schedule)\b|ٹائم ٹیبل|کلاسوں? کے اوقات/i, terms: ['timetable', 'schedule'], search: 'timetable' },
   { id: 'devices', match: device, terms: ['phone', 'policy'], search: 'phone policy' },
   { id: 'campusRules', match: /\b(uniform\w*|dress code|code of conduct|disciplin\w*|attendance|ha?azri|hazri|punctual\w*|bunk\w*|id card)\b|\b(campus|college)\b[^\n?.!]{0,70}\brules\b|\brules\b[^\n?.!]{0,70}\b(campus|college|students?)\b|وردی|ضابط|حاضری|نظم و ضبط|(?:طلبہ|کیمپس|کالج).{0,70}اصول/i, terms: ['conduct', 'discipline', 'uniform'], search: 'code of conduct' },
   { id: 'activities', match: /\b(club|clubs|society|societies|activity|activities|competition\w*|extracurricular|co.?curricular|student life|campus life|introvert|shy|confidence|socialise|socialize|debate\w*|declamation\w*|essay|public speaking)\b|سوسائٹ|کلب|غیر نصابی|سرگرم|مقابل/i, terms: ['club', 'society', 'activity', 'development'], search: 'clubs' },

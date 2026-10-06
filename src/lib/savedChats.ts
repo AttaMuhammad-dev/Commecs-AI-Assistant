@@ -23,6 +23,7 @@ function message(value: unknown, ids: Set<string>): ChatMessage | null {
     ...(typeof m.cached === 'boolean' ? { cached: m.cached } : {}),
     ...(typeof m.local === 'boolean' ? { local: m.local } : {}),
     ...(typeof m.fallback === 'boolean' ? { fallback: m.fallback } : {}),
+    ...(m.notice === 'privacy' || m.notice === 'security' ? { notice: m.notice } : {}),
     ...(timestamp(m.verifiedAt) ? { verifiedAt: timestamp(m.verifiedAt) } : {}),
     ...(['up', 'down'].includes(String(m.feedback)) ? { feedback: m.feedback as ChatMessage['feedback'] } : {}),
   };

@@ -14,11 +14,11 @@
       "Which programs does Commecs have",
       "Which programs are offered at Commecs"
     ],
-    "answer": "Commecs College runs an Intermediate programme (first and second year) affiliated with the Board of Intermediate Education Karachi (BIEK). The disciplines listed on the website are:\n\n*   **Commerce**\n*   **Pre-Engineering**\n*   **Pre-Medical**\n*   **Computer Science**\n\nThe About page also lists Humanities, but the admission, eligibility and fee pages only cover the four above, so please confirm with the admissions office if you are interested in Humanities.",
+    "answer": "Commecs College runs an Intermediate programme affiliated with BIEK. Current admissions information covers four groups:\n\n- **Commerce**\n- **Pre-Engineering**\n- **Pre-Medical**\n- **Computer Science**",
     "sources": [
       {
-        "title": "About Commecs College",
-        "url": "https://commecscollege.edu.pk/about/"
+        "title": "Instructions for Admission",
+        "url": "https://commecscollege.edu.pk/instructions-for-admission/"
       },
       {
         "title": "Eligibility",
@@ -29,7 +29,7 @@
     "verified": true,
     "verifiedAt": 1789916380590,
     "verifiedBy": "atta",
-    "notes": "About page lists Humanities as a fifth bullet; nav, eligibility page and fee PDF list only 4. Delete the last sentence if you prefer."
+    "notes": "Current groups follow admissions/eligibility, not older About/archive references. Humanities caveat removed at project owner request on 2026-10-06. Original review timestamp retained; this edit is not an independent college review."
   },
   {
     "id": "bank-how-to-apply",

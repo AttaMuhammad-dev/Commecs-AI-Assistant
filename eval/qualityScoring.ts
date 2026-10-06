@@ -1,11 +1,12 @@
 import { safeSourceUrl } from '../shared/chat.js';
 import type { QualityCase } from './qualityCases.js';
-export function scoreQuality(test: QualityCase, answer: { text: string; sources: { url: string }[]; finishReason: string; fallback: boolean }) {
+export function scoreQuality(test: QualityCase, answer: { text: string; sources: { url: string }[]; finishReason: string; fallback: boolean; notice?: 'privacy' | 'security' }) {
   const failures: string[] = [], text = answer.text.replace(/\*\*/g, '');
   if (!text.trim() || answer.finishReason !== 'STOP') failures.push('incomplete');
   const facts = test.facts.map(fact => {
     const present = new RegExp(fact.pattern, 'is').test(text);
-    const sourcePresent = !fact.source || answer.sources.some(s => s.url === fact.source);
+    const accepted = [fact.source, ...(fact.alternatives || []).map(a => a.source)].filter(Boolean);
+    const sourcePresent = !accepted.length || answer.sources.some(s => accepted.includes(s.url));
     if (!present) failures.push('missing fact: ' + fact.label);
     if (present && !sourcePresent) failures.push('missing supporting source: ' + fact.label);
     return { label: fact.label, present, sourcePresent };
@@ -21,6 +22,7 @@ export function scoreQuality(test: QualityCase, answer: { text: string; sources:
   // quality pass, even if they happen to contain expected keywords.
   const substantive = !answer.fallback;
   if (!substantive) failures.push('fallback: model answer not evaluated');
-  return { passed: !failures.length, failures, facts, guidanceSeparated, mode: substantive ? 'answer' : 'fallback', humanReviewRequired: true,
+  if (answer.notice && !['privacy', 'instruction-boundary'].includes(test.category)) failures.push('unexpected boundary response');
+  return { passed: !failures.length, failures, facts, guidanceSeparated, mode: answer.notice ? 'guarded' : substantive ? 'answer' : 'fallback', humanReviewRequired: true,
     limitation: 'Pattern/completeness and relevant-source checks; claim entailment, contradictions and advice quality still need review.' };
 }
