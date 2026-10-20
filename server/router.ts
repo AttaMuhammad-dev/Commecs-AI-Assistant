@@ -5,6 +5,8 @@ export function routeQuestion(message: string, history: { role: string; text: st
   const eligibility = /\b(eligible|eligibility|qualify|can i apply|kya main|apply kar sakt[ai]|mil sakta|marks|percentage)\b|اہل|اہلیت|داخلہ لے|نمبر|فیصد/i;
   const calculation = /\b(total|calculate|after discount|after scholarship|kitna banega|kitna lagega)\b|کل فیس|حساب|رعایت کے بعد/i;
   const fees = /\b(fee|fees|cost|discount|scholarship)\b|فیس|وظیفہ|رعایت/i;
+  const personalGuidance=/\b(?:kon\s?si|kaun\s?si|kis)\s+(?:field|program|group)|\bwhich\s+(?:field|career)\b|کون سی فیلڈ|کس شعبے/i;
+  if(personalGuidance.test(text))return {lane:'deep',reason:'personal-guidance'};
   if (comparison.test(text)) return { lane: 'deep', reason: 'comparison' };
   if (message.length > 240 && (message.match(/[?؟]/g) || []).length >= 2) return { lane: 'deep', reason: 'multi-part' };
   const hasNumber = /[0-9۰-۹٠-٩]/.test(text);

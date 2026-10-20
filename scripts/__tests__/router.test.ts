@@ -4,6 +4,8 @@ import { routeQuestion } from '../../server/router.js';
 describe('Deterministic Router', () => {
   const cases = [
     { q: "Fees for intermediate computer science", lane: "fast" },
+    { q: "mujhe konsi field mai jaana chaheye hai mujhe tech based work pasand hai aur skill development program ka kia scene hai?", lane: "deep" },
+    { q: "Which field should I choose if I enjoy technology?", lane: "deep" },
     { q: "How to apply", lane: "fast" },
     { q: "Contact the college", lane: "fast" },
     { q: "Intermediate me admission ka kya process hai?", lane: "fast" },
