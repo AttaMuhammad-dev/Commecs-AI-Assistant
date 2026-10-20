@@ -70,7 +70,7 @@ export async function generateChatStream(
   const missingLists = missingListEvidence(localEvidence.plan, combinedEvidence);
   const remainingGap = localEvidence.needsSearch && (!combinedEvidence.length || localEvidence.plan.topics.some(topic => !topic.terms.some(t => covered.has(t))) || missingLists.length > 0 || localEvidence.missingTerms.some(t => !covered.has(t)));
   if (missingLists.length) evidencePrompt += '\nREQUESTED LIST DETAILS MISSING for: ' + missingLists.join(', ') + '. Use File Search if available to look for named entries. A general statement that opportunities exist does not answer which ones. If retrieval supplies no names, give the known opportunities and identify only the missing names; never invent a list.\n';
-  const useFileSearch = !!rawStore && (process.env.FILE_SEARCH_MODE === 'always' || (remainingGap && !directoryEvidence));
+  let useFileSearch = !!rawStore && (process.env.FILE_SEARCH_MODE === 'always' || (remainingGap && !directoryEvidence));
   const ladder = lane === 'deep' ? getDeepLadder() : getFastLadder();
   const started = Date.now();
   let attempts = 0;
@@ -156,13 +156,25 @@ export async function generateChatStream(
         }
         if (error instanceof ChatError && error.code === 'BLOCKED') throw error;
         if (error instanceof ChatError && ['INCOMPLETE', 'UNGROUNDED'].includes(error.code)) { lastCode = error.code; break; }
+        // A new key can belong to a different Google project. An inaccessible
+        // optional store must not disable the bundled official-source RAG.
+        const detail = error as { status?: number; code?: number; message?: string };
+        if (useFileSearch && retry === 0 && [400, 403, 404].includes(Number(detail.status || detail.code)) && /file.?search|store|corpus|tool.*(?:support|enable)/i.test(String(detail.message || ''))) {
+          useFileSearch = false;
+          console.warn(JSON.stringify({ event: 'file_search_fallback', model, attempt: attempts }));
+          continue;
+        }
         const failure = classifyProviderError(ac.signal.aborted ? { message: 'LOCAL_TIMEOUT' } : error);
         console.warn(JSON.stringify({ event: 'provider_failure', model, attempt: attempts, kind: failure.kind, ...providerDiagnostic(ac.signal.aborted ? { message: 'LOCAL_TIMEOUT' } : error) }));
         if (failure.kind === 'daily') { markExhausted(model, 'daily'); lastCode = 'QUOTA_EXCEEDED'; break; }
         if (failure.kind === 'minute') { coolDown(model, failure.retryMs); lastCode = 'QUOTA_EXCEEDED'; break; }
         if (failure.kind === 'unavailable') { coolDown(model, 3600000); lastCode = 'MODEL_UNAVAILABLE'; break; }
         if (failure.kind === 'thinking' && retry === 0 && thinking !== 'LOW') { thinking = 'LOW'; downgradedModels.add(model); continue; }
-        if (failure.kind === 'transient') { coolDown(model, 15000); lastCode = 'UPSTREAM_ERROR'; break; }
+        if (failure.kind === 'transient') {
+          coolDown(model, 15000); lastCode = 'UPSTREAM_ERROR';
+          if (!timedOut) await abortable(new Promise(resolve => setTimeout(resolve, 350 + Math.floor(Math.random() * 350))), signal);
+          break;
+        }
         if (error instanceof ChatError) throw error;
         throw new ChatError('UPSTREAM_ERROR', 'The assistant could not connect. Please try again.');
       } finally {

@@ -3,6 +3,8 @@ import {planQuery} from './queryPlan.js';
 import {isKnownChanged} from './sourceFreshness.js';
 export const activePrograms=['Commerce','Pre-Engineering','Pre-Medical','Computer Science'] as const;
 export function getProgramAnswer(message:string,preferences:Preferences){
+  // Personal guidance and multiple topics need the RAG path, not a canned list.
+  if (planQuery(message).reasoning || /\b(?:konsi|kaunsi|kaun\s*si|kis)\s+(?:field|stream)|\b(?:skill\s+development|tech\s+based|career|choose|recommend)\b/i.test(message)) return null;
   const asksList=/\b(?:what|which|list|available|offer\w*|provide|streams?|groups?|disciplines|programs?|courses?)\b|کون|پروگرام|شعب|کورس/i.test(message);
   const humanities=/\bhumanities\b|ہیومینٹیز/i.test(message);
   const specific=/\b(eligib\w*|marks|percentage|fee\w*|scholarship\w*|teacher\w*|faculty|subject\w*|syllabus|test|exam\w*|deadline|documents?|apply|appl\w*|compare|choose|best|better|why|career|history|histor\w*)\b|فیس|اہلیت|اساتذہ|مضامین|مشور/i.test(message);

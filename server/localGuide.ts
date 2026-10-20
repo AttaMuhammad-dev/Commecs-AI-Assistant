@@ -11,6 +11,14 @@ const portalAliases = new Set([
 
 export function getLocalGuideAnswer(message: string, preferences: Preferences) {
   const normalized = normalizeForBank(message);
+  // Greetings contain no college facts and must not depend on provider quota.
+  if (/^(?:(?:hi|hello|hey|salam|salaam|aoa|assalam\s*[ou]?\s*alaikum|السلام علیکم|سلام)(?:\s+(?:there|commecs|assistant))?)[.!?\s]*$/i.test(message.trim())) {
+    const lang = resolveLanguage(message, preferences.language);
+    const answer = lang === 'ur' ? 'وعلیکم السلام! Commecs College Assistant میں خوش آمدید۔ داخلے، پروگرام، فیس یا کالج کی سرگرمیوں کے بارے میں کیا جاننا چاہیں گے؟'
+      : lang === 'roman' ? 'Assalam-o-Alaikum! Commecs College Assistant mein khush aamdeed. Admissions, programs, fees ya college life ke baare mein kya jaanna chahenge?'
+      : 'Hello! Welcome to Commecs College Assistant. What would you like to know about admissions, programs, fees or college life?';
+    return { answer, sources: [] };
+  }
   const guide = guides.find(g => normalizeForBank(g.question) === normalized || (g.title === 'Student Portal' && portalAliases.has(normalized)));
   if (!guide || isKnownChanged(guide.url)) return null;
   const language = resolveLanguage(message, preferences.language);

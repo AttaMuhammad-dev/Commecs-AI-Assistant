@@ -14,7 +14,7 @@ export default function MessageList() {
   const language = useChatStore(s => s.preferences.language);
   const { retryMessage } = useChat();
   const last = messages.at(-1);
-  const { scrollRef, handleScroll, isScrolledUp, scrollToBottom } = useAutoScroll(messages.length, last?.text.length || 0, activeId, `${last?.status}:${last?.sources?.length || 0}`);
+  const { scrollRef, handleScroll, handleReaderIntent, isScrolledUp, scrollToBottom } = useAutoScroll(messages.length, last?.text.length || 0, activeId, `${last?.status}:${last?.sources?.length || 0}`, last?.id || '');
   const busy = messages.some(m => ['sending','streaming'].includes(m.status));
   const choose = (text: string) => { setDraft(text); document.getElementById('question')?.focus(); };
   const question = messages.filter(m => m.role === 'user').at(-1)?.text || '';
@@ -22,7 +22,7 @@ export default function MessageList() {
   const sources = selectAnswerSources(last?.text || '', last?.sources || []);
   const followUps = getFollowUps(question, sources, language, history);
   return <div className="thread-wrap">
-    <div ref={scrollRef} onScroll={handleScroll} className="thread-scroll" role="log" aria-label="Conversation" aria-live="polite" aria-busy={busy}>
+    <div ref={scrollRef} onScroll={handleScroll} onWheel={handleReaderIntent} onTouchStart={handleReaderIntent} onPointerDown={handleReaderIntent} onKeyDown={handleReaderIntent} style={{ overflowAnchor: 'none' }} className="thread-scroll" role="log" aria-label="Conversation" aria-live="polite" aria-busy={busy}>
       <div className="thread-content">
       {!messages.length ? <section className="welcome">
         <div className="welcome-badge"><Sparkles size={14} /> A little clarity for your next chapter</div>

@@ -37,7 +37,7 @@ export default function MessageBubble({ message, retryMessage }: { message: Chat
       }}>{message.text}</ReactMarkdown>}
     </div>}
     {!user && sources.length > 0 && !busy && <SourceCards sources={sources} language={resolveLanguage(message.text, languagePreference)} />}
-    {!user && !busy && !incomplete && !message.fallback && !message.notice && !sources.length && <p className="incomplete-note">No college source was attached. Confirm college-specific details with admissions.</p>}
+    {!user && !busy && !incomplete && !message.local && !message.fallback && !message.notice && !sources.length && <p className="incomplete-note">No college source was attached. Confirm college-specific details with admissions.</p>}
     {message.contact && <div className="contact-card"><strong>Talk to admissions</strong><a href={'tel:+' + phone}><Phone size={15} />{message.contact.landline}</a><a href={'https://wa.me/' + whatsapp} target="_blank" rel="noreferrer"><MessageCircle size={15} /> WhatsApp admissions</a><a href={'mailto:' + message.contact.email}><Mail size={15} />{message.contact.email}</a></div>}
     {!user && !busy && <div className="message-actions">
       <button onClick={() => void copy()} aria-label="Copy answer">{copied ? <Check size={14} /> : <Copy size={14} />}{copied ? 'Copied' : 'Copy'}</button>
