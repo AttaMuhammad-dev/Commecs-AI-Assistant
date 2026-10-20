@@ -10,7 +10,7 @@ let ip = 0;
 const request = (body: unknown) => app.request('/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-vercel-forwarded-for': 'context-' + ++ip }, body: JSON.stringify(body) });
 const frames = (text: string) => [...text.matchAll(/event: (\w+)\ndata: ([^\n]+)/g)].map(m => ({ event: m[1], data: JSON.parse(m[2]) }));
 beforeEach(() => { vi.stubEnv('VERCEL', '1'); vi.stubEnv('CACHE_ENABLED', 'true'); clearCache(); generate.mockReset(); });
-afterEach(() => vi.unstubAllEnvs());
+afterEach(() => {vi.unstubAllEnvs();vi.restoreAllMocks();});
 describe('bounded user-question context', () => {
   it('validates context separately without changing complete history or the current message', () => {
     expect(sanitizeRequest({ message: 'Tell me more', questionContext: ' Clubs?\u0000 ', history: [] })).toMatchObject({ message: 'Tell me more', questionContext: 'Clubs?', history: [] });
@@ -41,6 +41,7 @@ describe('bounded user-question context', () => {
     expect(generate).toHaveBeenCalledTimes(2);
   });
   it('ignores old context for an explicit new topic, preserving the instant reviewed lane', async () => {
+    vi.spyOn(Date,'now').mockReturnValue(Date.UTC(2026,9,18));
     const text = await (await request({ message: 'Programs offered', questionContext: 'Which clubs can students join?' })).text();
     expect(text).toContain('"mode":"verified"'); expect(generate).not.toHaveBeenCalled();
   });

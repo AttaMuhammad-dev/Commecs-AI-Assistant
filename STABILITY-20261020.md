@@ -10,3 +10,7 @@
 Regression coverage includes greetings, real questions prefixed with hello, the owner's multipart Roman Urdu guidance question, inaccessible remote stores, and long-answer/reader-intent/conversation-switch scroll behavior. Existing quota, interruption, source, privacy and evidence tests are retained.
 
 Free provider capacity is external: deployment cannot guarantee an uninterrupted upstream API or permanently accurate college facts. Saved evidence is labeled and dates retained; failures must not be described as live verified answers. Knowledge and provider availability still need periodic maintenance.
+
+## Workflow finalization
+Dated policy evidence remains retrievable after a review expires; the instant verified-answer lane still expires. Tests pin their review-date fixtures explicitly. Faculty source failures now have a 60-second cooldown and concurrent lookups use the dated directory while one refresh runs. The official 73-appointment snapshot was successfully fetched again on 20 October and matched the saved content. A deployed-host 403 remains a source access restriction, not something the application should bypass. Source freshness needs periodic review; snapshots are never proof of current appointments or fees.
+

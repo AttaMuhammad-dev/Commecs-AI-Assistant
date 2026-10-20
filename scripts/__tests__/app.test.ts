@@ -16,6 +16,7 @@ describe('chat API', () => {
     expect(generate).not.toHaveBeenCalled();
   });
   it('serves a reviewed answer without calling the provider', async () => {
+    vi.spyOn(Date,'now').mockReturnValue(Date.UTC(2026,9,18));
     const response = await request({message:'Programs offered'});
     const text = await response.text();
     expect(text).toContain('"mode":"verified"');
@@ -25,6 +26,7 @@ describe('chat API', () => {
     expect(generate).not.toHaveBeenCalled();
   });
   it('uses a reviewed answer for an explicit matching language without spending provider quota', async () => {
+    vi.spyOn(Date,'now').mockReturnValue(Date.UTC(2026,9,18));
     const text = await (await request({ message: 'Programs offered', preferences: { language: 'en', responseStyle: 'concise' } })).text();
     expect(text).toContain('"mode":"verified"');
     expect(text).toContain('"reviewedAt":');

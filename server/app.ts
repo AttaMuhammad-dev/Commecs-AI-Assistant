@@ -33,7 +33,7 @@ app.use('/api/*', cors({
   allowMethods: ['GET', 'POST', 'OPTIONS'], allowHeaders: ['Content-Type'], maxAge: 600,
 }));
 app.use('/api/chat', bodyLimit({ maxSize: 32768, onError: c => c.json({ code: 'BAD_REQUEST', message: 'Request too large.' }, 413) }));
-app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!process.env.GEMINI_API_KEY?.trim(), version: '2.8.0', build: 'demo-stability-20261020', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null, trafficControl: trafficMode(), sourceAudit: sourceAuditSummary(), publicSources: publicSourceHealth() }); });
+app.get('/api/health', c => { c.header('Cache-Control', 'no-store'); return c.json({ ok: true, ready: !!process.env.GEMINI_API_KEY?.trim(), version: '2.8.0', build: 'workflow-finalization-20261020', localFaculty: true, savedSourceFallback: true, knowledgeUpdatedAt: getKbVersion() || null, trafficControl: trafficMode(), sourceAudit: sourceAuditSummary(), publicSources: publicSourceHealth() }); });
 app.get('/api/metrics', c => { c.header('Cache-Control', 'no-store'); return authorizedOperations(c.req.header('Authorization')) ? c.json({ ...operationsSnapshot(), trafficControl: trafficMode(), sourceAudit: sourceAuditSummary() }) : c.json({ message: 'Not found' }, 404); });
 
 app.post('/api/chat', async c => {

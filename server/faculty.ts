@@ -6,6 +6,8 @@ import { resolveLanguage, type Preferences, type Source } from '../shared/chat.j
 type Directory=typeof seed;
 let directory:Directory=seed;
 let lastLiveCheck=0;
+let lastFailedCheck=0;
+let refreshing=false;
 // Names removed between reviewed snapshots, not proof of why employment changed.
 const formerNames=['Muhammad Jawwad','M. Sayem Hanif'];
 export function parseRenderedFaculty(html:string):Directory['records'] {
@@ -24,16 +26,20 @@ export function parseRenderedFaculty(html:string):Directory['records'] {
 export async function refreshPublicFaculty(signal:AbortSignal,fetcher:typeof fetch=fetch) {
   if(signal.aborted)return false;
   if(Date.now()-lastLiveCheck<300000)return true;
+  // A blocked source should not add an eight-second wait to every follow-up.
+  // Other requests can read the dated directory while one refresh is underway.
+  if(refreshing || (lastFailedCheck>0&&Date.now()-lastFailedCheck<60000))return false;
+  refreshing=true;
   const ac=new AbortController(),stop=()=>ac.abort();signal.addEventListener('abort',stop,{once:true});if(signal.aborted)stop();const timer=setTimeout(stop,8000);
   try{
     const records=parseRenderedFaculty((await readPublic(seed.source,ac.signal,fetcher)).text);
     if(ac.signal.aborted)return false;
     directory={...seed,records,retrievedAt:new Date().toISOString(),sourceModified:'',contentHash:createHash('sha256').update(JSON.stringify(records)).digest('hex')};
-    facultyVersion=directory.contentHash;facultySource={title:'Official faculty directory',url:directory.source,type:'live'};lastLiveCheck=Date.now();return true;
-  }catch{lastLiveCheck=0;facultySource={title:'Official faculty directory',url:directory.source,type:'page'};return false;}
-  finally{clearTimeout(timer);signal.removeEventListener('abort',stop);}
+    facultyVersion=directory.contentHash;facultySource={title:'Official faculty directory',url:directory.source,type:'live'};lastLiveCheck=Date.now();lastFailedCheck=0;return true;
+  }catch{lastLiveCheck=0;if(!signal.aborted)lastFailedCheck=Date.now();facultySource={title:'Official faculty directory',url:directory.source,type:'page'};return false;}
+  finally{refreshing=false;clearTimeout(timer);signal.removeEventListener('abort',stop);}
 }
-export function resetPublicFacultyForTests(){directory=seed;lastLiveCheck=0;facultyVersion=seed.contentHash;facultySource={title:'Official faculty directory',url:seed.source,type:'page'};}
+export function resetPublicFacultyForTests(){directory=seed;lastLiveCheck=0;lastFailedCheck=0;refreshing=false;facultyVersion=seed.contentHash;facultySource={title:'Official faculty directory',url:seed.source,type:'page'};}
 type Turn = {role:string;text:string};
 const norm=(s:string)=>s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
 const contains=(s:string,phrase:string)=>` ${norm(s)} `.includes(` ${norm(phrase)} `);
