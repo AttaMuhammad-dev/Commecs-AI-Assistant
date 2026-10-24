@@ -12,7 +12,7 @@ export function resolveLanguage(message: string, language: Language): Exclude<La
   if (language !== 'auto') return language;
   if (/[\u0600-\u06ff]/.test(message)) return 'ur';
   const words = message.toLowerCase().match(/\b(mujhe|aap|kitni|kitna|batao|chahiye|parhna|karna|kya|hai|hain|mein)\b/g) || [];
-  return words.length >= 2 || /\b(mujhe|batao|chahiye|kitni|kitna)\b/i.test(message) ? 'roman' : 'en';
+  return words.length >= 2 || /\b(mujhe|batao|chahiye|kitni|kitna|kahan|kidhar|kaise|rabta)\b/i.test(message) ? 'roman' : 'en';
 }
 export const PROGRESS_PHASES = ['retrieving', 'website', 'websiteSaved', 'preparing', 'retrying', 'checking', 'saved', 'cached', 'reviewed', 'fallback', 'service'] as const;
 export type ProgressPhase = typeof PROGRESS_PHASES[number];

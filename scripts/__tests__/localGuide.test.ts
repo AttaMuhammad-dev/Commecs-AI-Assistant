@@ -25,4 +25,16 @@ describe('provider-independent college guide', () => {
     expect(getLocalGuideAnswer('Student portal',{language:'ur',responseStyle:'concise'})?.answer).toContain('اپنے بیچ');
     expect(getLocalGuideAnswer('Student portal',{language:'roman',responseStyle:'concise'})?.answer).toContain('Apne batch');
   });
+  it.each(['Where is Commecs College located?', 'Commecs College kahan hai?', 'College kidhar hai?', 'کالج کہاں ہے؟'])('answers simple location questions without provider quota: %s',async message=>{
+    const response=await app.request('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,preferences:{language:'auto',responseStyle:'detailed'}})});
+    const text=await response.text();
+    expect(text).toContain('Gulistan-e-Jauhar');
+    expect(text).toContain('https://commecscollege.edu.pk/contact-us/');
+    expect(text).toContain('"local":true');
+    expect(generateChatStream).not.toHaveBeenCalled();
+  });
+  it('does not replace specific classroom or private whereabouts questions with a campus address',()=>{
+    expect(getLocalGuideAnswer('Where is the computer lab?',DEFAULT_PREFERENCES)).toBeNull();
+    expect(getLocalGuideAnswer('Where is Ali right now in college?',DEFAULT_PREFERENCES)).toBeNull();
+  });
 });

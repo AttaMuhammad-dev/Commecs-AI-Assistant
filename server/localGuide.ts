@@ -8,6 +8,14 @@ const portalAliases = new Set([
   'where is the official student portal', 'how do i access the student portal',
   'where can i check my attendance', 'portal ka link', 'student portal ka link',
 ].map(normalizeForBank));
+const locationAliases = new Set([
+  'Where is Commecs College?', 'Where is Commecs College located?', 'Where is the college?',
+  'Commecs College address', 'Commecs address', 'College address', 'Campus address',
+  'Commecs location', 'College location', 'Commecs College kahan hai?', 'Commecs kahan hai?',
+  'College kahan hai?', 'College kidhar hai?', 'Commecs College kidhar hai?',
+  'Commecs ka address kya hai?', 'Commecs College ka address kya hai?', 'College ka address batao',
+  'کالج کہاں ہے؟', 'کامیکس کالج کہاں ہے؟', 'کالج کا پتہ',
+].map(normalizeForBank));
 
 export function getLocalGuideAnswer(message: string, preferences: Preferences) {
   const normalized = normalizeForBank(message);
@@ -18,6 +26,20 @@ export function getLocalGuideAnswer(message: string, preferences: Preferences) {
       : lang === 'roman' ? 'Assalam-o-Alaikum! Commecs College Assistant mein khush aamdeed. Admissions, programs, fees ya college life ke baare mein kya jaanna chahenge?'
       : 'Hello! Welcome to Commecs College Assistant. What would you like to know about admissions, programs, fees or college life?';
     return { answer, sources: [] };
+  }
+  if (locationAliases.has(normalized)) {
+    const contact = guides.find(g => g.url === 'https://commecscollege.edu.pk/contact-us/');
+    const address = contact?.excerpt.match(/\*\*Address\*\*\s+([^\n]+)/)?.[1]?.trim();
+    if (contact && address && !isKnownChanged(contact.url)) {
+      const language = resolveLanguage(message, preferences.language);
+      const intro = language === 'roman' ? 'College ke saved official contact page ke mutabiq address:'
+        : language === 'ur' ? 'کالج کے محفوظ سرکاری رابطہ صفحے کے مطابق پتہ:'
+        : 'The saved official college contact page lists this address:';
+      const confirm = language === 'roman' ? 'Jaane se pehle official page par location aur latest directions confirm kar lein.'
+        : language === 'ur' ? 'جانے سے پہلے سرکاری صفحے پر مقام اور تازہ ہدایات کی تصدیق کر لیں۔'
+        : 'Open the official page to confirm the location and latest directions before travelling.';
+      return {answer:`${intro}\n\n**${address}**\n\n${confirm}\n\n[Official contact & location](${contact.url})`,sources:[{title:contact.title,url:contact.url,modified:contact.modified,type:'page'}]};
+    }
   }
   const guide = guides.find(g => normalizeForBank(g.question) === normalized || (g.title === 'Student Portal' && portalAliases.has(normalized)));
   if (!guide || isKnownChanged(guide.url)) return null;
