@@ -1,4 +1,8 @@
-# Commecs College Assistant 2.1
+# Commecs College Assistant 2.9
+
+## 24 October: shared provider protection
+
+See [RELEASE-20261024.md](RELEASE-20261024.md) for optional MongoDB-backed model leases, durable provider cooldowns, private configuration and readiness verification. Local/cached college answers remain independent of provider generation. This protection conserves the available quota; it cannot guarantee free-provider uptime. Use Node.js 24 and `npm ci` with the included lockfile.
 
 ## October 5 quality and operations update
 
@@ -16,7 +20,7 @@ A college information assistant with a React/TypeScript interface, Hono streamin
 
 ## Run on your presentation laptop
 
-Requires Node.js 22 or newer and npm.
+Requires Node.js 24 and npm.
 
 1. Open this folder in VS Code.
 2. Copy your existing project's `.env` into this folder. Keep the existing `GEMINI_API_KEY` and `FILE_SEARCH_STORE_NAME`. Never place the key in a `VITE_` variable.
@@ -112,7 +116,7 @@ Public document passages are kept in `knowledge/documents/`, with source URL, se
 
 Use Vite framework settings (`npm run build`, output `dist`) and Node.js 22+. The included `api/index.ts` handles `/api/*`; `vercel.json` includes the reviewed bank and knowledge state in the server bundle. Set `GEMINI_API_KEY`, `FILE_SEARCH_STORE_NAME`, the desired model ladders and `ALLOWED_ORIGINS` in Vercel's server environment. Do not enable `VITE_USE_MOCK` for real demonstrations. Keep API keys out of frontend variables and source control.
 
-The API allows 35 seconds overall; Vercel's function limit is 60 seconds. In-memory cache, cooldowns, request limits and capacity are per process, not a distributed production control. Before a large public rollout, add a shared gateway rate limit and monitoring.
+The API allows 35 seconds overall; Vercel's function limit is 60 seconds. Answer caches and local traffic/capacity limits are per process. Configuring `QUOTA_MONGO_URI` enables shared provider cooldowns/model leases; optional Redis credentials enable the separate shared traffic gate. Before a large public rollout, review global admission limits and monitoring.
 
 ## Trust and privacy
 

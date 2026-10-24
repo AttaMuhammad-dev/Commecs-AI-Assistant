@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
+import MessageBubble from '../../src/components/MessageBubble';
 import { restoreConversations } from '../../src/lib/savedChats';
 let restored: typeof import('../../src/store/useChatStore')['useChatStore'] | undefined;
 const valid = { id: 'answer', role: 'bot', text: 'A saved answer.', status: 'complete', createdAt: 1 };
@@ -19,7 +20,6 @@ describe('saved conversation recovery', () => {
   });
   it('renders safely when saved source/contact metadata has an invalid shape', async () => {
     const store = await restore([{ ...valid, sources: { title: 'Not an array' }, contact: { landline: { private: 'value' }, email: 7 }, progress: { phase: 'checking' } }]);
-    const MessageBubble = (await import('../../src/components/MessageBubble')).default;
     expect(() => renderToStaticMarkup(<MessageBubble message={store.getState().messages[0]} />)).not.toThrow();
     expect(JSON.stringify(store.getState().messages)).not.toContain('private');
     expect(JSON.stringify(store.getState().messages)).not.toContain('progress');

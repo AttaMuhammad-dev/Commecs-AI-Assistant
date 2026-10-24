@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
+import MessageBubble from '../../src/components/MessageBubble';
 vi.mock('../../server/gemini', () => ({ generateChatStream: vi.fn() }));
 import { generateChatStream } from '../../server/gemini';
 import { boundaryResponse } from '../../server/boundaries';
@@ -27,7 +28,6 @@ describe('application-owned privacy and credential boundaries', () => {
   it('preserves only typed notice metadata and displays it without a missing-source warning', async () => {
     vi.stubGlobal('navigator', { onLine: true }); vi.stubGlobal('document', { documentElement: { classList: { contains: () => false } } });
     vi.stubGlobal('localStorage', { getItem: () => null });
-    const MessageBubble = (await import('../../src/components/MessageBubble')).default;
     vi.stubGlobal('fetch', vi.fn(async () => new Response('event: meta\ndata: {"notice":"privacy"}\n\nevent: chunk\ndata: {"text":"I cannot access private records."}\n\nevent: done\ndata: {"finishReason":"STOP"}\n\n')));
     const chunks = []; for await (const chunk of streamGeminiResponse('Question', [])) chunks.push(chunk);
     expect(chunks.some(c => c.notice === 'privacy')).toBe(true);

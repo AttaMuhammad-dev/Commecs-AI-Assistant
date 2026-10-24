@@ -27,7 +27,7 @@ const saved = readSaved();
 const id = () => crypto.randomUUID();
 export const useChatStore = create<ChatState>((set) => ({
   messages: saved[0]?.messages || [], conversations: saved, activeId: saved[0]?.id || id(),
-  isOffline: !navigator.onLine, theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light',
+  isOffline: typeof navigator !== 'undefined' ? !navigator.onLine : false, theme: typeof document !== 'undefined' && document.documentElement.classList.contains('dark') ? 'dark' : 'light',
   preferences: readPreferences(), remember: saved.length > 0 || (() => { try { return localStorage.getItem('commecs-remember') === 'true'; } catch { return false; } })(),
   draft: '', sidebarOpen: false, progress: null, storageError: false,
   setProgress: progress => set(s => s.activeId === progress.conversationId && s.messages.some(m => m.id === progress.messageId && ['sending', 'streaming'].includes(m.status)) ? { progress } : {}),

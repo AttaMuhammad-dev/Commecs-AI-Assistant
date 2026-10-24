@@ -9,6 +9,7 @@ import { selectAnswerSources } from '../shared/answerSources.js';
 import { unsupportedNumericClaims, missingLatePenalty } from './answerQuality.js';
 import { getFastLadder, getDeepLadder, clampThinking, downgradedModels, type ThinkingLevel } from './config/models.js';
 import { isExhausted, markExhausted, coolDown } from './quota.js';
+import {acquireModelQuota} from './sharedQuota.js';
 import { ChatError, classifyProviderError, providerDiagnostic } from './errors.js';
 import { DEFAULT_PREFERENCES, resolveLanguage, safeSourceUrl, type Preferences, type Source, type FinishReason, type ChatProgress } from '../shared/chat.js';
 
@@ -79,6 +80,10 @@ export async function generateChatStream(
   // Leave enough time to send a saved-source answer before the hosting deadline.
   for (const model of ladder) {
     if (isExhausted(model)) continue;
+    let quota:Awaited<ReturnType<typeof acquireModelQuota>>;
+    try{quota=await acquireModelQuota(model);}catch{throw new ChatError('TRAFFIC_UNAVAILABLE','Shared provider protection is temporarily unavailable.');}
+    if(!quota.allowed)continue;
+    try{
     let thinking = clampThinking(model, (lane === 'deep' ? process.env.DEEP_THINKING || 'LOW' : process.env.FAST_THINKING || 'MINIMAL') as ThinkingLevel);
     for (let retry = 0; retry < 2; retry++) {
       if (signal.aborted) throw new ChatError('ABORTED', 'Request stopped.');
@@ -166,12 +171,12 @@ export async function generateChatStream(
         }
         const failure = classifyProviderError(ac.signal.aborted ? { message: 'LOCAL_TIMEOUT' } : error);
         console.warn(JSON.stringify({ event: 'provider_failure', model, attempt: attempts, kind: failure.kind, ...providerDiagnostic(ac.signal.aborted ? { message: 'LOCAL_TIMEOUT' } : error) }));
-        if (failure.kind === 'daily') { markExhausted(model, 'daily'); lastCode = 'QUOTA_EXCEEDED'; break; }
-        if (failure.kind === 'minute') { coolDown(model, failure.retryMs); lastCode = 'QUOTA_EXCEEDED'; break; }
-        if (failure.kind === 'unavailable') { coolDown(model, 3600000); lastCode = 'MODEL_UNAVAILABLE'; break; }
+        if (failure.kind === 'daily') { markExhausted(model, 'daily'); await quota.block('daily'); lastCode = 'QUOTA_EXCEEDED'; break; }
+        if (failure.kind === 'minute') { coolDown(model, failure.retryMs); await quota.block('minute',failure.retryMs); lastCode = 'QUOTA_EXCEEDED'; break; }
+        if (failure.kind === 'unavailable') { coolDown(model, 3600000); await quota.block('unavailable',3600000); lastCode = 'MODEL_UNAVAILABLE'; break; }
         if (failure.kind === 'thinking' && retry === 0 && thinking !== 'LOW') { thinking = 'LOW'; downgradedModels.add(model); continue; }
         if (failure.kind === 'transient') {
-          coolDown(model, 15000); lastCode = 'UPSTREAM_ERROR';
+          coolDown(model, 15000); await quota.block('transient',15000); lastCode = 'UPSTREAM_ERROR';
           if (!timedOut) await abortable(new Promise(resolve => setTimeout(resolve, 350 + Math.floor(Math.random() * 350))), signal);
           break;
         }
@@ -185,6 +190,7 @@ export async function generateChatStream(
         void iterator?.return?.().catch(() => undefined);
       }
     }
+    }finally{try{await quota.release();}catch{/* Lease expires after a process or database failure. */}}
   }
   throw new ChatError(lastCode, 'No model is available right now.');
 }
